@@ -8,11 +8,6 @@ public class SmoothFollow : MonoBehaviour
 
     float smoothSpeed = 10f;
     public Vector3 offset;
-    void Start()
-    {
-        
-    }
-
     void LateUpdate()
     {
         Vector3 desiredPosition = target.position + offset;

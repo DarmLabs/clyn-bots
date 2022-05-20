@@ -7,6 +7,14 @@ public class PlayersMovement : MonoBehaviour
     public float speed = 5f;
     Vector3 forward;
     Vector3 right;
+    
+    void Start()
+    {
+        forward = Camera.main.transform.forward;
+        forward.y = 0;
+        forward = Vector3.Normalize(forward);
+        right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
+    }
     void Update()
     {
         if (Input.anyKey)
@@ -16,11 +24,6 @@ public class PlayersMovement : MonoBehaviour
     }
     void Movement()
     {
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
-        right = Quaternion.Euler(new Vector3(0,90,0)) * forward;
-
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         Vector3 rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
 
