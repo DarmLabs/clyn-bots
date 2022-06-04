@@ -20,4 +20,7 @@ public class PlayerAnimations : MonoBehaviour
     public void Aspire(bool state){
         playerAnim.SetBool("isAspiring", state);
     }
+    public void Celebrate(){
+        playerAnim.Play("Celebration_Anim");
+    }
 }

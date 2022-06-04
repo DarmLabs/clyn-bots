@@ -8,6 +8,9 @@ public class PlayerInteraction : MonoBehaviour
     #region Imports
     Construction_UI constructionUI_Script;
     PlayerAnimations playerAnim;
+
+    public GameObject UIManager;
+    Player_UI player_UI;
     [Space(10)]
     #endregion
     float timePressed;
@@ -21,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         constructionUI_Script.GetComponent<Construction_UI>();
         playerAnim = GetComponent<PlayerAnimations>();
+        player_UI = UIManager.GetComponent<Player_UI>();
     }
     void Update()
     {
@@ -52,6 +56,9 @@ public class PlayerInteraction : MonoBehaviour
         OnResume();
     }
     void Controls(){
+        if(Input.GetKeyDown(KeyCode.Q)){
+            playerAnim.Celebrate();
+        }
         if(Input.GetKeyDown(KeyCode.Z)){
             if(!constructionUI_Script.constructionPanel.activeSelf){
                 constructionUI_Script.constructionPanel.SetActive(true);
@@ -87,18 +94,8 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
     void ChangeStage(){
-        if(inDoor != ""){
-            Debug.Log(inDoor);
-                switch (inDoor)
-                {
-                    case "ToBasural":
-                        transform.position = BasuralPoint.transform.position;
-                        break;
-                    case "ToLobby":
-                        transform.position = LobbyPoint.transform.position;
-                        break;
-                }
-            }
+        player_UI.fadeState = 1;
+        StartCoroutine(WaitInDoor(1));
     }
     void OnTriggerEnter(Collider other)
     {
@@ -129,5 +126,20 @@ public class PlayerInteraction : MonoBehaviour
     }
     void OnResume(){
         Time.timeScale = 1;
+    }
+    IEnumerator WaitInDoor(float secs){
+        yield return new WaitForSeconds(secs);
+        if(inDoor != ""){
+                switch (inDoor)
+                {
+                    case "ToBasural":
+                        transform.position = BasuralPoint.transform.position;
+                        break;
+                    case "ToLobby":
+                        transform.position = LobbyPoint.transform.position;
+                        break;
+                }
+        }
+        player_UI.fadeState = 2;
     }
 }
