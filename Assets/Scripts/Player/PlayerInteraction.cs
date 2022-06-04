@@ -7,16 +7,20 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField]
     #region Imports
     Construction_UI constructionUI_Script;
+    PlayerAnimations playerAnim;
     [Space(10)]
     #endregion
     float timePressed;
     bool facingTrash;
+    string inDoor;
+    public GameObject BasuralPoint, LobbyPoint;
     public int noRecTrash, organicTrash, recTrash;
     GameObject construction;
     GameObject currentBuilding;
     void Start()
     {
         constructionUI_Script.GetComponent<Construction_UI>();
+        playerAnim = GetComponent<PlayerAnimations>();
     }
     void Update()
     {
@@ -24,9 +28,13 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKey(KeyCode.Space) && facingTrash){
             Aspire();
         }
+        else{
+            playerAnim.Aspire(false);
+        }
     }
     void Aspire(){
         timePressed +=  Time.deltaTime;
+        playerAnim.Aspire(true);
         if(timePressed > 2){
             noRecTrash += Random.Range(0, 4);
             organicTrash += Random.Range(0, 4);
@@ -38,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         if(construction != null){
             Destroy(construction);
         }
-        construction = Instantiate(Resources.Load("Constructions/"+constructionName), transform.position + (transform.forward * 4), transform.rotation) as GameObject;
+        construction = Instantiate(Resources.Load("Constructions/"+constructionName), transform.position + (transform.forward * 4) + (transform.up), transform.rotation) as GameObject;
         construction.transform.parent = transform;
         constructionUI_Script.constructionPanel.SetActive(false);
         OnResume();
@@ -62,21 +70,35 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
         if(Input.GetKeyDown(KeyCode.E)){
+            ChangeStage();
             if(currentBuilding != null){
                 int reqOrg = currentBuilding.GetComponent<Construction>().reqOrg;
                 int reqRec = currentBuilding.GetComponent<Construction>().reqRec;
-                Debug.Log(reqOrg);
-                Debug.Log(reqRec);
                 if(reqOrg <= organicTrash && reqRec <= recTrash){
                     organicTrash -= reqOrg;
                     recTrash -= reqRec;
                     currentBuilding.GetComponent<Construction>().Constructed();
+                    playerAnim.Interaction(true);
                 }
                 else{
                     Debug.Log("No tienes suficientes recursos");
                 }
             }
         }
+    }
+    void ChangeStage(){
+        if(inDoor != ""){
+            Debug.Log(inDoor);
+                switch (inDoor)
+                {
+                    case "ToBasural":
+                        transform.position = BasuralPoint.transform.position;
+                        break;
+                    case "ToLobby":
+                        transform.position = LobbyPoint.transform.position;
+                        break;
+                }
+            }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -86,6 +108,9 @@ public class PlayerInteraction : MonoBehaviour
         if(other.tag == "construction"){
             currentBuilding = other.gameObject;
         }
+        if(other.tag == "door"){
+            inDoor = other.name;
+        }
     }
     void OnTriggerExit(Collider other)
     {
@@ -94,6 +119,9 @@ public class PlayerInteraction : MonoBehaviour
         }
         if(other.tag == "construction"){
             currentBuilding = null;
+        }
+        if(other.tag == "door"){
+            inDoor = "";
         }
     }
     void OnPause(){

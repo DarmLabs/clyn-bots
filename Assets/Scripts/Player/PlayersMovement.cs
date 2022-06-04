@@ -7,9 +7,11 @@ public class PlayersMovement : MonoBehaviour
     public float speed = 5f;
     Vector3 forward;
     Vector3 right;
+    PlayerAnimations playerAnim;
     
     void Start()
     {
+        playerAnim =GetComponent<PlayerAnimations>();
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -17,10 +19,7 @@ public class PlayersMovement : MonoBehaviour
     }
     void Update()
     {
-        if (Input.anyKey)
-        {
-            Movement();
-        }
+        Movement();
     }
     void Movement()
     {
@@ -33,5 +32,11 @@ public class PlayersMovement : MonoBehaviour
         transform.forward += heading;
         transform.position += rightMovement;
         transform.position += upMovement;
+        if(heading.x == 0 && heading.y == 0 && heading.z == 0){
+            playerAnim.Walking(false);
+        }else{
+            playerAnim.Walking(true);
+        }
+       
     }
 }
