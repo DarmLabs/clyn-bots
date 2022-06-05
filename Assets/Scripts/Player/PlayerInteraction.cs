@@ -77,7 +77,9 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
         if(Input.GetKeyDown(KeyCode.E)){
-            ChangeStage();
+            if(inDoor != null){
+                ChangeStage();
+            }
             if(currentBuilding != null){
                 int reqOrg = currentBuilding.GetComponent<Construction>().reqOrg;
                 int reqRec = currentBuilding.GetComponent<Construction>().reqRec;
@@ -118,7 +120,7 @@ public class PlayerInteraction : MonoBehaviour
             currentBuilding = null;
         }
         if(other.tag == "door"){
-            inDoor = "";
+            inDoor = null;
         }
     }
     void OnPause(){
