@@ -5,12 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-    public int monedas;
-    public bool tutoScreen;
-    public bool firstTimePassed;
+    public int noRecTrash, organicTrash, recTrash;
 
     public void Data(globalVariables globalVariables)
     {
-
+        noRecTrash = globalVariables.noRecTrash;
+        organicTrash = globalVariables.organicTrash;
+        recTrash = globalVariables.recTrash;
     }
 }

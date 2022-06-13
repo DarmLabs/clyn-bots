@@ -6,7 +6,7 @@ public class globalVariables : MonoBehaviour
 {
     [SerializeField]
     public int noRecTrash, organicTrash, recTrash;
-    void Start()
+    void Awake()
     {
         DontDestroyOnLoad(gameObject);
         LoadPlayer();
@@ -18,5 +18,9 @@ public class globalVariables : MonoBehaviour
     public void LoadPlayer()
     {
         PlayerData data = SaveSystem.LoadPlayer();
+
+        noRecTrash = data.noRecTrash;
+        organicTrash = data.organicTrash;
+        recTrash = data.recTrash;
     }
 }
