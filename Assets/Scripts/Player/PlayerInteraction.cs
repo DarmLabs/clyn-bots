@@ -11,13 +11,15 @@ public class PlayerInteraction : MonoBehaviour
 
     public GameObject UIManager;
     Player_UI player_UI;
+
+    public GameObject SaveSystem;
+    globalVariables globalVariables;
     [Space(10)]
     #endregion
     float timePressed;
     bool facingTrash;
     string inDoor;
     public GameObject BasuralPoint, LobbyPoint;
-    public int noRecTrash, organicTrash, recTrash;
     GameObject construction;
     GameObject currentBuilding;
     void Start()
@@ -25,6 +27,7 @@ public class PlayerInteraction : MonoBehaviour
         constructionUI_Script.GetComponent<Construction_UI>();
         playerAnim = GetComponent<PlayerAnimations>();
         player_UI = UIManager.GetComponent<Player_UI>();
+        globalVariables = SaveSystem.GetComponent<globalVariables>();
     }
     void Update()
     {
@@ -40,10 +43,11 @@ public class PlayerInteraction : MonoBehaviour
         timePressed +=  Time.deltaTime;
         playerAnim.Aspire(true);
         if(timePressed > 2){
-            noRecTrash += Random.Range(0, 4);
-            organicTrash += Random.Range(0, 4);
-            recTrash += Random.Range(0,4);
+            globalVariables.noRecTrash += Random.Range(0, 4);
+            globalVariables.organicTrash += Random.Range(0, 4);
+            globalVariables.recTrash += Random.Range(0,4);
             timePressed = 0;
+            globalVariables.SavePlayer();
         }
     }
     public void Construction(string constructionName){
@@ -83,11 +87,12 @@ public class PlayerInteraction : MonoBehaviour
             if(currentBuilding != null){
                 int reqOrg = currentBuilding.GetComponent<Construction>().reqOrg;
                 int reqRec = currentBuilding.GetComponent<Construction>().reqRec;
-                if(reqOrg <= organicTrash && reqRec <= recTrash){
-                    organicTrash -= reqOrg;
-                    recTrash -= reqRec;
+                if(reqOrg <= globalVariables.organicTrash && reqRec <= globalVariables.recTrash){
+                    globalVariables.organicTrash -= reqOrg;
+                    globalVariables.recTrash -= reqRec;
                     currentBuilding.GetComponent<Construction>().Constructed();
                     playerAnim.Interaction(true);
+                    globalVariables.SavePlayer();
                 }
                 else{
                     Debug.Log("No tienes suficientes recursos");
