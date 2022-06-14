@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Random = UnityEngine.Random;
 
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteraction : MonoBehaviour, ISaveable
 {
     [SerializeField]
     #region Imports
+    public GameObject SaveLoadGameObject;
+    SaveLoadSystem saveSystem;
     Construction_UI constructionUI_Script;
     PlayerAnimations playerAnim;
 
     public GameObject UIManager;
     Player_UI player_UI;
-
-    public GameObject SaveSystem;
-    globalVariables globalVariables;
     [Space(10)]
     #endregion
+    public int noRecTrash, organicTrash, recTrash;
     float timePressed;
     bool facingTrash;
     string inDoor;
@@ -24,10 +26,10 @@ public class PlayerInteraction : MonoBehaviour
     GameObject currentBuilding;
     void Start()
     {
-        constructionUI_Script.GetComponent<Construction_UI>();
+        saveSystem = SaveLoadGameObject.GetComponent<SaveLoadSystem>();
+        constructionUI_Script = UIManager.GetComponent<Construction_UI>();
         playerAnim = GetComponent<PlayerAnimations>();
         player_UI = UIManager.GetComponent<Player_UI>();
-        globalVariables = SaveSystem.GetComponent<globalVariables>();
     }
     void Update()
     {
@@ -43,11 +45,11 @@ public class PlayerInteraction : MonoBehaviour
         timePressed +=  Time.deltaTime;
         playerAnim.Aspire(true);
         if(timePressed > 2){
-            globalVariables.noRecTrash += Random.Range(0, 4);
-            globalVariables.organicTrash += Random.Range(0, 4);
-            globalVariables.recTrash += Random.Range(0,4);
+            noRecTrash += Random.Range(0, 4);
+            organicTrash += Random.Range(0, 4);
+            recTrash += Random.Range(0,4);
             timePressed = 0;
-            globalVariables.SavePlayer();
+            saveSystem.Save();
         }
     }
     public void Construction(string constructionName){
@@ -87,12 +89,12 @@ public class PlayerInteraction : MonoBehaviour
             if(currentBuilding != null){
                 int reqOrg = currentBuilding.GetComponent<Construction>().reqOrg;
                 int reqRec = currentBuilding.GetComponent<Construction>().reqRec;
-                if(reqOrg <= globalVariables.organicTrash && reqRec <= globalVariables.recTrash){
-                    globalVariables.organicTrash -= reqOrg;
-                    globalVariables.recTrash -= reqRec;
+                if(reqOrg <= organicTrash && reqRec <= recTrash){
+                    organicTrash -= reqOrg;
+                    recTrash -= reqRec;
                     currentBuilding.GetComponent<Construction>().Constructed();
                     playerAnim.Interaction(true);
-                    globalVariables.SavePlayer();
+                    saveSystem.Save();
                 }
                 else{
                     Debug.Log("No tienes suficientes recursos");
@@ -148,5 +150,23 @@ public class PlayerInteraction : MonoBehaviour
                 }
         }
         player_UI.fadeState = 2;
+    }
+
+    public object SaveState(){
+        return new SaveData(){
+            noRecTrash = this.noRecTrash,
+            organicTrash = this.organicTrash,
+            recTrash = this.recTrash
+        };
+    }
+    public void LoadState(object state){
+        var saveData = (SaveData)state;
+        noRecTrash = saveData.noRecTrash;
+        organicTrash = saveData.organicTrash;
+        recTrash = saveData.recTrash;
+    }
+    [Serializable]
+    private struct SaveData{
+        public int noRecTrash, organicTrash, recTrash;
     }
 }
