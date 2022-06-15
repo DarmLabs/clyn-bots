@@ -24,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
     public GameObject BasuralPoint, LobbyPoint;
     GameObject construction;
     GameObject currentBuilding;
+    GameObject currentTrashPile;
     void Start()
     {
         saveSystem = SaveLoadGameObject.GetComponent<SaveLoadSystem>();
@@ -34,12 +35,6 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
     void Update()
     {
         Controls();
-        if(Input.GetKey(KeyCode.Space) && facingTrash){
-            Aspire();
-        }
-        else{
-            playerAnim.Aspire(false);
-        }
     }
     void Aspire(){
         timePressed +=  Time.deltaTime;
@@ -48,6 +43,7 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
             noRecTrash += Random.Range(0, 4);
             organicTrash += Random.Range(0, 4);
             recTrash += Random.Range(0,4);
+            currentTrashPile.GetComponent<TrashPile>().RecudeHeight();
             timePressed = 0;
             saveSystem.Save();
         }
@@ -62,6 +58,13 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
         OnResume();
     }
     void Controls(){
+        if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf){
+            Aspire();
+        }
+        else if(currentTrashPile != null && !currentTrashPile.activeSelf){
+            playerAnim.Aspire(false);
+            OnObjectExit();
+        }
         if(Input.GetKeyDown(KeyCode.Q)){
             playerAnim.Celebrate();
         }
@@ -85,6 +88,7 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
         if(Input.GetKeyDown(KeyCode.E)){
             if(inDoor != null){
                 ChangeStage();
+                MovmentState(false);
             }
             if(currentBuilding != null){
                 int reqOrg = currentBuilding.GetComponent<Construction>().reqOrg;
@@ -106,35 +110,8 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
         player_UI.fadeState = 1;
         StartCoroutine(WaitInDoor(1));
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "trash"){
-            facingTrash = true;
-        }
-        if(other.tag == "construction"){
-            currentBuilding = other.gameObject;
-        }
-        if(other.tag == "door"){
-            inDoor = other.name;
-        }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if(other.tag == "trash"){
-            facingTrash = false;
-        }
-        if(other.tag == "construction"){
-            currentBuilding = null;
-        }
-        if(other.tag == "door"){
-            inDoor = null;
-        }
-    }
-    void OnPause(){
-        Time.timeScale = 0;
-    }
-    void OnResume(){
-        Time.timeScale = 1;
+    void MovmentState(bool state){
+        GetComponent<PlayersMovement>().enabled = state;
     }
     IEnumerator WaitInDoor(float secs){
         yield return new WaitForSeconds(secs);
@@ -150,6 +127,44 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
                 }
         }
         player_UI.fadeState = 2;
+        MovmentState(true);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "trash"){
+            facingTrash = true;
+            currentTrashPile = other.gameObject;
+        }
+        if(other.tag == "construction"){
+            currentBuilding = other.gameObject;
+        }
+        if(other.tag == "door"){
+            inDoor = other.name;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "trash"){
+            facingTrash = false;
+            currentTrashPile = null;
+        }
+        if(other.tag == "construction"){
+            currentBuilding = null;
+        }
+        if(other.tag == "door"){
+            inDoor = null;
+        }
+    }
+    void OnObjectExit()
+    {
+        currentTrashPile = null;
+        facingTrash = false;
+    }
+    void OnPause(){
+        Time.timeScale = 0;
+    }
+    void OnResume(){
+        Time.timeScale = 1;
     }
 
     public object SaveState(){
