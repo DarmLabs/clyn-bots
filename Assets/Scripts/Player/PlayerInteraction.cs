@@ -22,6 +22,7 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
     bool facingTrash;
     string inDoor;
     public GameObject BasuralPoint, LobbyPoint;
+    public GameObject sun;
     GameObject construction;
     GameObject currentBuilding;
     GameObject currentTrashPile;
@@ -120,9 +121,11 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
                 {
                     case "ToBasural":
                         transform.position = BasuralPoint.transform.position;
+                        sun.SetActive(true);
                         break;
                     case "ToLobby":
                         transform.position = LobbyPoint.transform.position;
+                        sun.SetActive(false);
                         break;
                 }
         }

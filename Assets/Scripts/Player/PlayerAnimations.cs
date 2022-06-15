@@ -10,6 +10,12 @@ public class PlayerAnimations : MonoBehaviour
     {
         playerAnim = GetComponent<Animator>();
     }
+    void LateUpdate(){
+        if(!GetComponent<PlayersMovement>().enabled)
+        {
+            Walking(false);
+        }
+    }
     public void Walking(bool state){
         playerAnim.SetBool("isWalking", state);
     }
