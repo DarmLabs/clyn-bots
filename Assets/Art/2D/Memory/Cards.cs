@@ -84,6 +84,7 @@ public class Cards : MonoBehaviour
             firstInPair.locked=true;
             secondInPair.locked=true;
             pairsFound+=1;
+            //verificar tags
         }
         else
         {
@@ -93,7 +94,7 @@ public class Cards : MonoBehaviour
 
         if (pairsFound == 9)
         {
-            
+            //terminó el juego
         }
     }
 
