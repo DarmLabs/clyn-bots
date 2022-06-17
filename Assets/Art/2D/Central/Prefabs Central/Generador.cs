@@ -13,9 +13,9 @@ public class Generador : MonoBehaviour
 
     [SerializeField] private GameObject Tachos;
 
-    private int indexRecuperables = 11;
-    private int indexNoRecuperables = 5;
-    private int indexOrganicos = 5;
+    private int indexRecuperables = 10;
+    private int indexNoRecuperables = 4;
+    private int indexOrganicos = 4;
 
     private int cantidadResiduos = 0;
 
@@ -32,14 +32,17 @@ public class Generador : MonoBehaviour
         for (int i = 0; i < cantidadRecuperables; i++)
         {
             Residuos[i] = Recuperables[Random.Range(0,indexRecuperables)];
+            Debug.Log("RECUPERABLES EN ARRAY"+i);
         }
-        for (int i = 0; i < indexNoRecuperables; i++)
+        for (int i = 0; i < cantidadNoRecuperables; i++)
         {
-            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables)];        
+            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables)]; 
+            Debug.Log("NO RECUPERABLES EN ARRAY"+i);    
         }
-        for (int i = 0; i < indexOrganicos; i++)
+        for (int i = 0; i < cantidadOrganicos; i++)
         {
             Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos)];
+            Debug.Log("ORGANICOS EN ARRAY"+i);
         }
         for (int t = 0; t < Residuos.Length; t++)
         {
@@ -47,11 +50,11 @@ public class Generador : MonoBehaviour
             int r = Random.Range(t, Residuos.Length);
             Residuos[t] = Residuos[r];
             Residuos[r] = temporal;
+            Debug.Log("TOTAL ARRAY"+Residuos.Length); 
         }
         for (int i = 0; i < Residuos.Length; i++)
         {
-          Instantiate(Residuos[i],spawnPoint.position,transform.rotation); 
-          //Invoke("invocarResiduos", timeSpawn);
+          Instantiate(Residuos[i],spawnPoint.position,transform.rotation);          
         }              
     }
 
@@ -60,10 +63,7 @@ public class Generador : MonoBehaviour
         Controles();
     }
 
-    void invocarResiduos ()
-    {
-        //Instantiate(Residuos[Indice],spawnPoint.position,transform.rotation); 
-    }
+    
     void Controles()
     {
         if(Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Alpha1) )
