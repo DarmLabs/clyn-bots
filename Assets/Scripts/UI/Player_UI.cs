@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Player_UI : MonoBehaviour
 {
-    public GameObject Player;
-    PlayerInteraction playerInteraction;
+    public GameObject GlobalVariables;
+    GlobalVariables globalVariables;
     public TextMeshProUGUI trashText;
     public GameObject FadePanel;
     float fadeTime;
@@ -16,13 +16,13 @@ public class Player_UI : MonoBehaviour
     Color oldColor;
     void Start()
     {
-        playerInteraction = Player.GetComponent<PlayerInteraction>();
+        globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
         Color oldColor = FadePanel.GetComponent<Image>().color;
     }
 
     void LateUpdate()
     {
-        trashText.text = "Organicos "+ playerInteraction.organicTrash + "\nRecuperables "+ playerInteraction.recTrash + "\nNo Recuperables " + playerInteraction.noRecTrash;                    
+        trashText.text = "Organicos "+ globalVariables.organicTrash + "\nRecuperables "+ globalVariables.recTrash + "\nNo Recuperables " + globalVariables.noRecTrash;                    
         if(fadeState == 1){
             FadeIn();
         }

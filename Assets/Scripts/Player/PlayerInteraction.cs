@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
-using Random = UnityEngine.Random;
 
-public class PlayerInteraction : MonoBehaviour, ISaveable
+public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField]
     #region Imports
     public GameObject SaveLoadGameObject;
     SaveLoadSystem saveSystem;
+    public GameObject GlobalVariables;
+    GlobalVariables globalVariables;
     Construction_UI constructionUI_Script;
     PlayerAnimations playerAnim;
-
     public GameObject UIManager;
     Player_UI player_UI;
+    General_UI general_UI;
     [Space(10)]
+    //**************************************************
     #endregion
-    public int noRecTrash, organicTrash, recTrash;
     float timePressed;
     bool facingTrash;
+    bool facingArcade;
     string inDoor;
     public GameObject BasuralPoint, LobbyPoint;
     public GameObject sun;
@@ -29,9 +30,11 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
     void Start()
     {
         saveSystem = SaveLoadGameObject.GetComponent<SaveLoadSystem>();
+        globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
         constructionUI_Script = UIManager.GetComponent<Construction_UI>();
         playerAnim = GetComponent<PlayerAnimations>();
         player_UI = UIManager.GetComponent<Player_UI>();
+        general_UI = UIManager.GetComponent<General_UI>();
     }
     void Update()
     {
@@ -41,9 +44,9 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
         timePressed +=  Time.deltaTime;
         playerAnim.Aspire(true);
         if(timePressed > 2){
-            noRecTrash += Random.Range(0, 4);
-            organicTrash += Random.Range(0, 4);
-            recTrash += Random.Range(0,4);
+            globalVariables.noRecTrash += Random.Range(0, 4);
+            globalVariables.organicTrash += Random.Range(0, 4);
+            globalVariables.recTrash += Random.Range(0,4);
             currentTrashPile.GetComponent<TrashPile>().RecudeHeight();
             timePressed = 0;
             saveSystem.Save();
@@ -94,9 +97,9 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
             if(currentBuilding != null){
                 int reqOrg = currentBuilding.GetComponent<Construction>().reqOrg;
                 int reqRec = currentBuilding.GetComponent<Construction>().reqRec;
-                if(reqOrg <= organicTrash && reqRec <= recTrash){
-                    organicTrash -= reqOrg;
-                    recTrash -= reqRec;
+                if(reqOrg <= globalVariables.organicTrash && reqRec <= globalVariables.recTrash){
+                    globalVariables.organicTrash -= reqOrg;
+                    globalVariables.recTrash -= reqRec;
                     currentBuilding.GetComponent<Construction>().Constructed();
                     playerAnim.Interaction(true);
                     saveSystem.Save();
@@ -104,6 +107,9 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
                 else{
                     Debug.Log("No tienes suficientes recursos");
                 }
+            }
+            if(facingArcade){
+                general_UI.MinigamePanelSwitcher(true);
             }
         }
     }
@@ -144,6 +150,9 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
         if(other.tag == "door"){
             inDoor = other.name;
         }
+        if(other.tag == "arcade"){
+            facingArcade = true;
+        }
     }
     void OnTriggerExit(Collider other)
     {
@@ -157,6 +166,9 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
         if(other.tag == "door"){
             inDoor = null;
         }
+        if(other.tag == "arcade"){
+            facingArcade = false;
+        }
     }
     void OnObjectExit()
     {
@@ -168,23 +180,5 @@ public class PlayerInteraction : MonoBehaviour, ISaveable
     }
     void OnResume(){
         Time.timeScale = 1;
-    }
-
-    public object SaveState(){
-        return new SaveData(){
-            noRecTrash = this.noRecTrash,
-            organicTrash = this.organicTrash,
-            recTrash = this.recTrash
-        };
-    }
-    public void LoadState(object state){
-        var saveData = (SaveData)state;
-        noRecTrash = saveData.noRecTrash;
-        organicTrash = saveData.organicTrash;
-        recTrash = saveData.recTrash;
-    }
-    [Serializable]
-    private struct SaveData{
-        public int noRecTrash, organicTrash, recTrash;
     }
 }
