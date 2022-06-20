@@ -24,7 +24,7 @@ public class Generador : MonoBehaviour
     private float Tiempo = 0f;
     private float intervalo = 4f;
    
-    private float timeSpawn = 1f;
+    //private float timeSpawn = 1f;
     private int contadorBasura = 0;
 
     public GameObject globalaux;
@@ -39,6 +39,8 @@ public class Generador : MonoBehaviour
         cantidadOrganicos = gv.organicTrash;
         cantidadRecuperables = gv.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
+        Residuos = new GameObject[cantidadResiduos];  
+               
         for (int i = 0; i < cantidadRecuperables; i++)
         {
             Residuos[i] = Recuperables[Random.Range(0,indexRecuperables)];
