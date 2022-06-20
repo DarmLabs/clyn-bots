@@ -571,7 +571,7 @@ MonoBehaviour:
   - {fileID: 0}
   spawnPoint: {fileID: 1461764812}
   Tachos: {fileID: 1745418454}
-  timeSpawn: 1
+  GlobalVariables: {fileID: 0}
 --- !u!1 &1745418454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4492120690353561933, guid: 83632174a521bd8419574cd67ba0f106, type: 3}
@@ -644,12 +644,24 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5244169920991260387, guid: 83632174a521bd8419574cd67ba0f106, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5244169920991260388, guid: 83632174a521bd8419574cd67ba0f106, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5244169921429407142, guid: 83632174a521bd8419574cd67ba0f106, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5244169921429407143, guid: 83632174a521bd8419574cd67ba0f106, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244169922282251011, guid: 83632174a521bd8419574cd67ba0f106, type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5244169922282251012, guid: 83632174a521bd8419574cd67ba0f106, type: 3}

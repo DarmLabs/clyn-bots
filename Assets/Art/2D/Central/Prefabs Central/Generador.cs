@@ -8,10 +8,11 @@ public class Generador : MonoBehaviour
     [SerializeField] private GameObject[] NoRecuperables;
     [SerializeField] private GameObject[] Organicos;
     [SerializeField] private GameObject[] Residuos;
-
     [SerializeField] private Transform spawnPoint;
-
     [SerializeField] private GameObject Tachos;
+
+    GlobalVariables globalVariables;
+    public GameObject GlobalVariables;
 
     private int indexRecuperables = 10;
     private int indexNoRecuperables = 4;
@@ -19,15 +20,23 @@ public class Generador : MonoBehaviour
 
     private int cantidadResiduos = 0;
 
-    private int cantidadRecuperables = 14;
-    private int cantidadNoRecuperables = 6;
-    private int cantidadOrganicos = 10;
+    private int cantidadRecuperables = 0;
+    private int cantidadNoRecuperables = 0;
+    private int cantidadOrganicos = 0;
+
+    private float Tiempo = 0f;
+    private float intervalo = 4f;
    
-    public float timeSpawn = 1f;
+    private float timeSpawn = 1f;
+    private int contadorBasura = 0;
 
     
     void Start () 
     {
+        globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
+        cantidadNoRecuperables = globalVariables.noRecTrash;
+        cantidadOrganicos = globalVariables.organicTrash;
+        cantidadRecuperables = globalVariables.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
         for (int i = 0; i < cantidadRecuperables; i++)
         {
@@ -54,16 +63,20 @@ public class Generador : MonoBehaviour
         }
         for (int i = 0; i < Residuos.Length; i++)
         {
-          Instantiate(Residuos[i],spawnPoint.position,transform.rotation);          
+          //Instantiate(Residuos[i],spawnPoint.position,transform.rotation);          
         }              
     }
 
     void Update()
     {
         Controles();
-    }
+        Tiempo += Time.deltaTime;        
+        SetIntervalo();
 
+    }  
     
+   
+
     void Controles()
     {
         if(Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Alpha1) )
@@ -85,7 +98,16 @@ public class Generador : MonoBehaviour
             Tachos.transform.GetChild(2).gameObject.SetActive(true);
         }
     }
+    void SetIntervalo()    
+    {
+        if (Mathf.Round(Tiempo) == intervalo)
+        {            
+            Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
+            contadorBasura += 1;
+            Tiempo = 0f;
+        }
+    }
     
-   
+
    
 }
