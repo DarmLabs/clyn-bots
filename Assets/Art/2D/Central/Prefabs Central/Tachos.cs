@@ -6,16 +6,19 @@ public class Tachos : MonoBehaviour
 {
     private GameObject globalaux;
     private GlobalVariables gv;
-    //private GameObject saveaux;
-    //private SaveLoadSystem saveSystem;
-    private int errores = 0;
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
+    private int errores = 0;     
 
     void Start()
     {
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
-        //saveaux = GameObject.Find ("SaveLoadGameObject");
-        //saveSystem = saveaux.GetComponent<SaveLoadSystem>();
+        saveaux = GameObject.Find ("SaveLoadGameObject");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
+        gv.divisionNoRec = 0;
+        gv.divisionOrganic = 0;
+        gv.divisionRec = 0;
         
     }
 
@@ -24,6 +27,7 @@ public class Tachos : MonoBehaviour
         if (errores == 5)
         {
             Debug.Log ("Perdiste niño bobo");
+            saveSystem.Save();  
         }    
     }
 
@@ -35,26 +39,33 @@ public class Tachos : MonoBehaviour
             {
                 case "Recuperable":
                     Destroy(other.gameObject);
-                    Debug.Log("Se Destruyó un recuperable");
+                    Debug.Log("Se separó un recuperable");
                     gv.recTrash -= 1;
+                    gv.divisionRec +=1;
+                    Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
                     break;
                 case "NoRecuperable":
                     Destroy(other.gameObject);
-                    Debug.Log("Se Destruyó un no recuperable");
-                    gv.noRecTrash -=1;                    
+                    Debug.Log("Se separó un no recuperable");
+                    gv.noRecTrash -=1;  
+                    gv.divisionRec +=1;  
+                    Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);         
                     break;
                 case "Organico":
                     Destroy(other.gameObject);
-                    Debug.Log("Se Destruyó un orgánico");
+                    Debug.Log("Se separó un orgánico");
                     gv.organicTrash -=1;
+                    gv.divisionOrganic+=1;
+                    Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
                     break;
             } 
-            //saveSystem.Save();           
+            saveSystem.Save();           
         }
         else
         {
             errores += 1;
             Debug.Log("ERROR EN RECOLECCION");
+            saveSystem.Save(); 
         }
     }
     

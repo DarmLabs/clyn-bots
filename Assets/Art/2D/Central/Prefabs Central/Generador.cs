@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Generador : MonoBehaviour
 {
+    #region
     [SerializeField] private GameObject[] Recuperables;
     [SerializeField] private GameObject[] NoRecuperables;
     [SerializeField] private GameObject[] Organicos;
     [SerializeField] private GameObject[] Residuos;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject Tachos;
-
+    #endregion
+    #region 
     private int indexRecuperables = 10;
     private int indexNoRecuperables = 4;
     private int indexOrganicos = 4;
@@ -20,14 +22,14 @@ public class Generador : MonoBehaviour
     private int cantidadRecuperables = 0;
     private int cantidadNoRecuperables = 0;
     private int cantidadOrganicos = 0;
-
+    #endregion
     private float Tiempo = 0f;
-    [SerializeField] private float intervalo = 2f;   
-    
+    [SerializeField] private float intervalo = 2f; 
     private int contadorBasura = 0;
 
     private GameObject globalaux;
     private GlobalVariables gv;
+    
 
     
     void Start () 
