@@ -22,7 +22,7 @@ public class Generador : MonoBehaviour
     private int cantidadOrganicos = 0;
 
     private float Tiempo = 0f;
-    private float intervalo = 4f;
+    private float intervalo = 2f;
    
     //private float timeSpawn = 1f;
     private int contadorBasura = 0;
@@ -82,23 +82,42 @@ public class Generador : MonoBehaviour
 
     void Controles()
     {
-        if(Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Alpha1) )
+        if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.Alpha2) )
+        if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(true);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Alpha3) )
+        if(Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(true);
+        }
+
+        if(Input.GetKeyUp(KeyCode.Keypad1) || Input.GetKeyUp(KeyCode.Alpha1) )
+        {
+            Tachos.transform.GetChild(0).gameObject.SetActive(false);
+            Tachos.transform.GetChild(1).gameObject.SetActive(false);
+            Tachos.transform.GetChild(2).gameObject.SetActive(false);
+        }
+        if(Input.GetKeyUp(KeyCode.Keypad2) || Input.GetKeyUp(KeyCode.Alpha2) )
+        {
+            Tachos.transform.GetChild(0).gameObject.SetActive(false);
+            Tachos.transform.GetChild(1).gameObject.SetActive(false);
+            Tachos.transform.GetChild(2).gameObject.SetActive(false);
+        }
+        if(Input.GetKeyUp(KeyCode.Keypad3) || Input.GetKeyUp(KeyCode.Alpha3) )
+        {
+            Tachos.transform.GetChild(0).gameObject.SetActive(false);
+            Tachos.transform.GetChild(1).gameObject.SetActive(false);
+            Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
     }
     void SetIntervalo()    
