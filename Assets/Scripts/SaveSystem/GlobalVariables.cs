@@ -6,7 +6,7 @@ using System;
 public class GlobalVariables : MonoBehaviour, ISaveable
 {
     //Agregar variables accesibles aqui, como las de abajo, estas variables son las que vas a usar para sacar info
-    public int noRecTrash, organicTrash, recTrash, cardDistribution;
+    public int noRecTrash, organicTrash, recTrash, cardDistribution, divisionNoRec, divisionOrganic, divisionRec;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -17,7 +17,10 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             noRecTrash = this.noRecTrash,
             organicTrash = this.organicTrash,
             recTrash = this.recTrash,
-            cardDistribution = this.cardDistribution
+            cardDistribution = this.cardDistribution,
+            divisionNoRec = this.divisionNoRec,
+            divisionRec = this.divisionRec,
+            divisionOrganic = this.divisionOrganic
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
@@ -27,10 +30,13 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         organicTrash = saveData.organicTrash;
         recTrash = saveData.recTrash;
         cardDistribution = saveData.cardDistribution;
+        divisionNoRec = saveData.divisionNoRec;
+        divisionRec = saveData.divisionRec;
+        divisionOrganic = saveData.divisionOrganic;
     }
     [Serializable]
     private struct SaveData{
         //Esto ni me acuerdo para que es pero, asignale las variables como si las estuvieras declarando normalmente, no hay mucha magia 
-        public int noRecTrash, organicTrash, recTrash, cardDistribution;
+        public int noRecTrash, organicTrash, recTrash, cardDistribution, divisionNoRec, divisionOrganic, divisionRec;
     }
 }

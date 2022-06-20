@@ -22,13 +22,12 @@ public class Generador : MonoBehaviour
     private int cantidadOrganicos = 0;
 
     private float Tiempo = 0f;
-    private float intervalo = 2f;
-   
-    //private float timeSpawn = 1f;
+    [SerializeField] private float intervalo = 2f;   
+    
     private int contadorBasura = 0;
 
-    public GameObject globalaux;
-    public GlobalVariables gv;
+    private GameObject globalaux;
+    private GlobalVariables gv;
 
     
     void Start () 
@@ -40,21 +39,30 @@ public class Generador : MonoBehaviour
         cantidadRecuperables = gv.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
         Residuos = new GameObject[cantidadResiduos];  
-               
+        CreateResiduos();               
+    }
+
+    void Update()
+    {
+        Controls();
+        Tiempo += Time.deltaTime;        
+        InstanceIntervalo();
+    }  
+    
+  
+    void CreateResiduos()
+    {
         for (int i = 0; i < cantidadRecuperables; i++)
         {
-            Residuos[i] = Recuperables[Random.Range(0,indexRecuperables)];
-            Debug.Log("RECUPERABLES EN ARRAY"+i);
+            Residuos[i] = Recuperables[Random.Range(0,indexRecuperables)];            
         }
         for (int i = 0; i < cantidadNoRecuperables; i++)
         {
-            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables)]; 
-            Debug.Log("NO RECUPERABLES EN ARRAY"+i);    
+            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables)];               
         }
         for (int i = 0; i < cantidadOrganicos; i++)
         {
-            Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos)];
-            Debug.Log("ORGANICOS EN ARRAY"+i);
+            Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos)];            
         }
         for (int t = 0; t < Residuos.Length; t++)
         {
@@ -64,23 +72,8 @@ public class Generador : MonoBehaviour
             Residuos[r] = temporal;
             Debug.Log("TOTAL ARRAY"+Residuos.Length); 
         }
-        for (int i = 0; i < Residuos.Length; i++)
-        {
-          //Instantiate(Residuos[i],spawnPoint.position,transform.rotation);          
-        }              
     }
-
-    void Update()
-    {
-        Controles();
-        Tiempo += Time.deltaTime;        
-        SetIntervalo();
-
-    }  
-    
-   
-
-    void Controles()
+    void Controls()
     {
         if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
         {
@@ -120,14 +113,23 @@ public class Generador : MonoBehaviour
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
     }
-    void SetIntervalo()    
+    void InstanceIntervalo()    
     {
-        if (Mathf.Round(Tiempo) == intervalo)
+        if (Mathf.Round(Tiempo) == intervalo) //&& contadorBasura <= cantidadResiduos)
         {            
-            Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
-            contadorBasura += 1;
-            Tiempo = 0f;
+            if  (contadorBasura != cantidadResiduos)
+            {
+                Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
+                contadorBasura += 1;
+                Tiempo = 0f;
+            }
+            else
+            {
+                Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
+            }
+            
         }
+        
     }
     
 
