@@ -11,9 +11,6 @@ public class Generador : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject Tachos;
 
-    GlobalVariables globalVariables;
-    public GameObject GlobalVariables;
-
     private int indexRecuperables = 10;
     private int indexNoRecuperables = 4;
     private int indexOrganicos = 4;
@@ -30,13 +27,17 @@ public class Generador : MonoBehaviour
     private float timeSpawn = 1f;
     private int contadorBasura = 0;
 
+    public GameObject globalaux;
+    public GlobalVariables gv;
+
     
     void Start () 
-    {
-        globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
-        cantidadNoRecuperables = globalVariables.noRecTrash;
-        cantidadOrganicos = globalVariables.organicTrash;
-        cantidadRecuperables = globalVariables.recTrash;
+    {       
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        cantidadNoRecuperables = gv.noRecTrash;
+        cantidadOrganicos = gv.organicTrash;
+        cantidadRecuperables = gv.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
         for (int i = 0; i < cantidadRecuperables; i++)
         {
