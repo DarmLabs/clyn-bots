@@ -6,7 +6,8 @@ using System;
 public class GlobalVariables : MonoBehaviour, ISaveable
 {
     //Agregar variables accesibles aqui, como las de abajo, estas variables son las que vas a usar para sacar info
-    public int noRecTrash, organicTrash, recTrash, cardDistribution, divisionNoRec, divisionOrganic, divisionRec;
+    public int noRecTrash, organicTrash, recTrash, divisionNoRec, divisionOrganic, divisionRec;
+    public bool cardDistribution = false;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -37,6 +38,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     [Serializable]
     private struct SaveData{
         //Esto ni me acuerdo para que es pero, asignale las variables como si las estuvieras declarando normalmente, no hay mucha magia 
-        public int noRecTrash, organicTrash, recTrash, cardDistribution, divisionNoRec, divisionOrganic, divisionRec;
+        public int noRecTrash, organicTrash, recTrash, divisionNoRec, divisionOrganic, divisionRec;
+        public bool cardDistribution;
     }
 }

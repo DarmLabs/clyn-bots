@@ -28,9 +28,7 @@ public class Generador : MonoBehaviour
     private int contadorBasura = 0;
 
     private GameObject globalaux;
-    private GlobalVariables gv;
-    
-
+    private GlobalVariables gv;    
     
     void Start () 
     {       

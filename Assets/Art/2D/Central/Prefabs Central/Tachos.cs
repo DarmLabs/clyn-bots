@@ -8,13 +8,14 @@ public class Tachos : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    private int errores = 0;     
+    private int errores = 0; 
+     
 
     void Start()
-    {
+    {       
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
-        saveaux = GameObject.Find ("SaveLoadGameObject");
+        saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         gv.divisionNoRec = 0;
         gv.divisionOrganic = 0;
@@ -28,7 +29,16 @@ public class Tachos : MonoBehaviour
         {
             Debug.Log ("Perdiste niño bobo");
             saveSystem.Save();  
-        }    
+        }
+        if (gv.divisionOrganic<gv.divisionRec)
+        {
+            gv.cardDistribution = true;            
+        }
+        else
+        {
+            gv.cardDistribution = false;            
+        }
+            
     }
 
     void OnTriggerEnter2D(Collider2D other) 

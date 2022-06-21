@@ -76,8 +76,8 @@ public class Cards : MonoBehaviour
         firstInPair=sequence.Dequeue();
         secondInPair=sequence.Dequeue();
 
-        firstInPairName= firstInPair.name.Substring(0,firstInPair.name.Length-1);
-        secondInPairName= secondInPair.name.Substring(0, secondInPair.name.Length-1);
+        firstInPairName= firstInPair.name.Substring(0,firstInPair.name.Length-5);
+        secondInPairName= secondInPair.name.Substring(0, secondInPair.name.Length-5);
         
         if (firstInPairName==secondInPairName)
         {
