@@ -85,7 +85,7 @@ public class Cards : MonoBehaviour
             secondInPair.locked=true;
             pairsFound+=1;
             //verificar tags
-            Debug.Log("EL TAG:  "+firstInPair.tag);
+            Debug.Log("TAG para refinado de:  "+firstInPair.tag);
         }
         else
         {
@@ -96,6 +96,7 @@ public class Cards : MonoBehaviour
         if (pairsFound == 9)
         {
             //terminó el juego
+            Debug.Log("GANÓ ")
         }
     }
 
