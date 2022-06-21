@@ -96,7 +96,7 @@ public class Cards : MonoBehaviour
         if (pairsFound == 9)
         {
             //terminó el juego
-            Debug.Log("GANÓ ")
+            Debug.Log("GANÓ ");
         }
     }
 
