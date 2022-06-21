@@ -85,6 +85,7 @@ public class Cards : MonoBehaviour
             secondInPair.locked=true;
             pairsFound+=1;
             //verificar tags
+            Debug.Log("EL TAG:  "+firstInPair.tag);
         }
         else
         {
