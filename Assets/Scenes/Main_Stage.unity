@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: c1c27dd6bb77e48418a48804900718e3, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -1045,6 +1045,10 @@ MonoBehaviour:
   noRecTrash: 0
   organicTrash: 0
   recTrash: 0
+  divisionNoRec: 0
+  divisionOrganic: 0
+  divisionRec: 0
+  cardDistribution: 0
 --- !u!114 &341408396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2170,7 +2174,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
