@@ -24,7 +24,7 @@ public class Generador : MonoBehaviour
     private int cantidadOrganicos = 0;
     #endregion
     private float Tiempo = 0f;
-    [SerializeField] private float intervalo = 2f; 
+    [SerializeField] private float intervalo = 6f; 
     private int contadorBasura = 0;
 
     private GameObject globalaux;
