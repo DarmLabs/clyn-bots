@@ -48,6 +48,8 @@ public class Cards : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0f,i,0f);
                     yield return new WaitForSeconds(0f);
                 }
+                Debug.Log("!facedUP");               
+                               
             }
             else if (facedUp)
             {
@@ -57,10 +59,18 @@ public class Cards : MonoBehaviour
                     yield return new WaitForSeconds(0f);
                     sequence.Clear();
                 }
+                Debug.Log("facedUP");
+                                
             }
             coroutineAllowed=true;
         
             facedUp=!facedUp;
+            Debug.Log("timescale=0");
+
+            if(sequence.Count ==1)
+            {
+                Debug.Log("UNA CARTA VOLTEADA");
+            }
 
             if(sequence.Count ==2)
             {
