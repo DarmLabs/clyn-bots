@@ -11,12 +11,15 @@ public class Cards : MonoBehaviour
 
     public static Queue<Cards> sequence;
     public static int pairsFound;
+    public int vidas = 20;
     
     
 
     void Start()
     {    
         //se inicializan las banderas
+        vidas = 20;
+        Debug.Log("VIDAS INCIA"+vidas);
         facedUp=false;
         coroutineAllowed=true;
         locked=false;
@@ -70,6 +73,8 @@ public class Cards : MonoBehaviour
             if(sequence.Count ==1)
             {
                 Debug.Log("UNA CARTA VOLTEADA");
+                vidas = vidas - 1;
+                Debug.Log("vidas: "+vidas);
             }
 
             if(sequence.Count ==2)
@@ -94,13 +99,16 @@ public class Cards : MonoBehaviour
             firstInPair.locked=true;
             secondInPair.locked=true;
             pairsFound+=1;
+            vidas = vidas + 1;        
             //verificar tags
             Debug.Log("TAG para refinado de:  "+firstInPair.tag);
+            Debug.Log("vidas dentro tag: "+vidas);
         }
         else
         {
             firstInPair.StartCoroutine("RotateBack");
             secondInPair.StartCoroutine("RotateBack");
+            vidas = vidas -1;
         }
 
         if (pairsFound == 9)
