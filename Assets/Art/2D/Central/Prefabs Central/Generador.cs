@@ -24,7 +24,7 @@ public class Generador : MonoBehaviour
     private int cantidadOrganicos = 0;
     #endregion
     private float Tiempo = 0f;
-    [SerializeField] private float intervalo = 6f; 
+    private float intervalo = 0; 
     private int contadorBasura = 0;
 
     private GameObject globalaux;
@@ -32,6 +32,7 @@ public class Generador : MonoBehaviour
     
     void Start () 
     {       
+        intervalo = 2;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         cantidadNoRecuperables = gv.noRecTrash;
@@ -39,13 +40,15 @@ public class Generador : MonoBehaviour
         cantidadRecuperables = gv.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
         Residuos = new GameObject[cantidadResiduos];  
-        CreateResiduos();               
+        CreateResiduos();      
+        Tachos.transform.GetChild(0).gameObject.SetActive(true);         
     }
 
     void Update()
     {
         Controls();
-        Tiempo += Time.deltaTime;        
+        Tiempo += Time.deltaTime;
+        Debug.Log(intervalo);        
         InstanceIntervalo();
     }  
     
@@ -70,53 +73,55 @@ public class Generador : MonoBehaviour
             int r = Random.Range(t, Residuos.Length);
             Residuos[t] = Residuos[r];
             Residuos[r] = temporal;
-            Debug.Log("TOTAL ARRAY"+Residuos.Length); 
+            //Debug.Log("TOTAL ARRAY"+Residuos.Length); 
         }
     }
     void Controls()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
+        if(Input.GetKeyDown(KeyCode.Keypad1) )//|| Input.GetKeyDown(KeyCode.Alpha1) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
+        if(Input.GetKeyDown(KeyCode.Keypad2) )//|| Input.GetKeyDown(KeyCode.Alpha2) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(true);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3) )
+        if(Input.GetKeyDown(KeyCode.Keypad3)) //|| Input.GetKeyDown(KeyCode.Alpha3) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(true);
         }
-
-        if(Input.GetKeyUp(KeyCode.Keypad1) || Input.GetKeyUp(KeyCode.Alpha1) )
+        /*
+        if(Input.GetKeyUp(KeyCode.Keypad1) )//|| Input.GetKeyUp(KeyCode.Alpha1) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKeyUp(KeyCode.Keypad2) || Input.GetKeyUp(KeyCode.Alpha2) )
+        if(Input.GetKeyUp(KeyCode.Keypad2) )//|| Input.GetKeyUp(KeyCode.Alpha2) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKeyUp(KeyCode.Keypad3) || Input.GetKeyUp(KeyCode.Alpha3) )
+        if(Input.GetKeyUp(KeyCode.Keypad3)) //|| Input.GetKeyUp(KeyCode.Alpha3) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
+        */
     }
     void InstanceIntervalo()    
     {
         if (Mathf.Round(Tiempo) == intervalo) //&& contadorBasura <= cantidadResiduos)
         {            
+            //Debug.Log("Tiempo es igual a intervalo:"+Tiempo);
             if  (contadorBasura != cantidadResiduos)
             {
                 Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
