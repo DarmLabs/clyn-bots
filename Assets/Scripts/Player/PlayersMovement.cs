@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayersMovement : MonoBehaviour
 {
-    float speed = 5;
+    float speed = 5f;
     Vector3 forward;
     Vector3 right;
     PlayerAnimations playerAnim;
@@ -26,9 +26,9 @@ public class PlayersMovement : MonoBehaviour
     void Movement()
     {
         Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Vector3 rightMovement = right * speed * Time.fixedDeltaTime * Input.GetAxis("Horizontal");
+        Vector3 rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
 
-        Vector3 upMovement = forward * speed * Time.fixedDeltaTime * Input.GetAxis("Vertical");
+        Vector3 upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
         transform.forward += heading;

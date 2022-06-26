@@ -13,7 +13,7 @@ public class SmoothFollow : MonoBehaviour
     {
         targetOffset = new Vector3(0, 1.3f,0);
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
         Vector3 desiredPosition = (target.position + targetOffset) + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);

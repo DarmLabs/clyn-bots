@@ -9,9 +9,6 @@ public class SaveLoadSystem : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this);
-    }
-    void Start()
-    {
         Load();
     }
 

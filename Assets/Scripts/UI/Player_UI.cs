@@ -6,10 +6,14 @@ using UnityEngine.UI;
 
 public class Player_UI : MonoBehaviour
 {
+    #region Imports & Required Objects
     public GameObject GlobalVariables;
     GlobalVariables globalVariables;
     public TextMeshProUGUI trashText;
     public GameObject FadePanel;
+    public GameObject Player;
+    PlayerInteraction playerInteraction;
+    #endregion
     float fadeTime;
     public int fadeState;
     
@@ -18,17 +22,21 @@ public class Player_UI : MonoBehaviour
     {
         globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
         Color oldColor = FadePanel.GetComponent<Image>().color;
+        playerInteraction = Player.GetComponent<PlayerInteraction>();
     }
 
     void LateUpdate()
     {
-        trashText.text = "Organicos "+ globalVariables.organicTrash + "\nRecuperables "+ globalVariables.recTrash + "\nNo Recuperables " + globalVariables.noRecTrash;                    
+        DisplayTrashText();              
         if(fadeState == 1){
             FadeIn();
         }
         if(fadeState == 2){
             FadeOut();
         }
+    }
+    void DisplayTrashText(){
+         trashText.text = "Mochila " + playerInteraction.bagPercentage + "%" + "\nOrganicos "+ globalVariables.organicTrash + "\nRecuperables "+ globalVariables.recTrash + "\nNo Recuperables " + globalVariables.noRecTrash;
     }
 
     void FadeIn(){ 

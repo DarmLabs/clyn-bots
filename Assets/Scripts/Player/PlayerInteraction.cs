@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField]
-    #region Imports
+    #region Imports & Required Objects
     public GameObject SaveLoadGameObject;
     SaveLoadSystem saveSystem;
     public GameObject GlobalVariables;
@@ -14,6 +14,9 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject UIManager;
     Player_UI player_UI;
     General_UI general_UI;
+    public GameObject BasuralPoint, LobbyPoint;
+    public GameObject sun;
+    GameObject currentTrashPile;
     [Space(10)]
     //**************************************************
     #endregion
@@ -22,9 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     bool facingArcade;
     string inDoor;
     int maxBagSpace = 50, itemsInBag;
-    public GameObject BasuralPoint, LobbyPoint;
-    public GameObject sun;
-    GameObject currentTrashPile;
+    public float bagPercentage;
     void Start()
     {
         saveSystem = SaveLoadGameObject.GetComponent<SaveLoadSystem>();
@@ -32,6 +33,10 @@ public class PlayerInteraction : MonoBehaviour
         playerAnim = GetComponent<PlayerAnimations>();
         player_UI = UIManager.GetComponent<Player_UI>();
         general_UI = UIManager.GetComponent<General_UI>();
+        IntializeFunctions();
+    }
+    void IntializeFunctions(){
+        BagPercentage();
     }
     void Update()
     {
@@ -41,20 +46,46 @@ public class PlayerInteraction : MonoBehaviour
         timePressed +=  Time.deltaTime;
         playerAnim.Aspire(true);
         if(timePressed > 2){
-            globalVariables.noRecTrash += Random.Range(1, 3);
-            globalVariables.organicTrash += Random.Range(1, 3);
-            globalVariables.recTrash += Random.Range(1,3);
+            if(itemsInBag < 44){
+                RandomNRT(1,3);
+                RandomRT(1,3);
+                RandomOT(1,3);
+            }else{
+                if(itemsInBag < maxBagSpace){
+                    RandomNRT(1,2);
+                }
+                if(itemsInBag < maxBagSpace){
+                    RandomRT(1,2);
+                }
+                if(itemsInBag < maxBagSpace){
+                    RandomOT(1,2);
+                }
+            }
             currentTrashPile.GetComponent<TrashPile>().RecudeHeight();
             timePressed = 0;
-            itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
             saveSystem.Save();
         }
+        BagPercentage();
     }
+    void RandomNRT(int inf,int ext){
+        globalVariables.noRecTrash += Random.Range(inf, ext);
+    }
+    void RandomRT(int inf,int ext){
+        globalVariables.recTrash += Random.Range(inf, ext);
+    }
+    void RandomOT(int inf,int ext){
+        globalVariables.organicTrash += Random.Range(inf, ext);
+    }
+    void BagPercentage(){
+        itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
+        bagPercentage = (itemsInBag *100)/ 50;
+    }
+    
     void Controls(){
-        if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag <= maxBagSpace){
+        if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
             Aspire();
         }
-        else if(currentTrashPile != null && !currentTrashPile.activeSelf){
+        else if((currentTrashPile != null && !currentTrashPile.activeSelf) || !facingTrash){
             playerAnim.Aspire(false);
             OnObjectExit();
         }

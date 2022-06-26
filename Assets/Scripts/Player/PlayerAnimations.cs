@@ -21,7 +21,6 @@ public class PlayerAnimations : MonoBehaviour
     }
     public void Interaction(bool state){
         playerAnim.SetBool("isInteracting", state);
-        
     }
     public void Aspire(bool state){
         playerAnim.SetBool("isAspiring", state);
