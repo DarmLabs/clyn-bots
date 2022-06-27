@@ -13,7 +13,12 @@ public class Cards : MonoBehaviour
     public static int pairsFound;
     public int vidas = 20;
     
+    private GameObject globalaux;
+    private GlobalVariables gv;
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
     
+        
 
     void Start()
     {    
@@ -25,6 +30,11 @@ public class Cards : MonoBehaviour
         locked=false;
         sequence=new Queue<Cards>();
         pairsFound=0;
+
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        saveaux = GameObject.Find ("SaveLoadSystem");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
 
     }
 
@@ -94,8 +104,8 @@ public class Cards : MonoBehaviour
         firstInPair=sequence.Dequeue();
         secondInPair=sequence.Dequeue();
 
-        firstInPairName= firstInPair.name.Substring(0,firstInPair.name.Length-5);
-        secondInPairName= secondInPair.name.Substring(0, secondInPair.name.Length-5);
+        firstInPairName= firstInPair.name.Substring(0,firstInPair.name.Length-7);
+        secondInPairName= secondInPair.name.Substring(0, secondInPair.name.Length-7);
         
         if (firstInPairName==secondInPairName)
         {
@@ -106,6 +116,34 @@ public class Cards : MonoBehaviour
             //verificar tags
             //Debug.Log("TAG para refinado de:  "+firstInPair.tag);
             //Debug.Log("vidas dentro tag: "+vidas);
+            if (firstInPair.tag == "Recuperable")
+            {
+                if (firstInPairName == "VasoVidrio" || firstInPairName== "BotellaVidrio" || firstInPairName == "FrascoVidrio")
+                {
+                    Debug.Log("VIDRIO REFINADO");
+                    gv.vidrioRefinado+=1;
+                } 
+                if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
+                {
+                    Debug.Log("PLASTICO REFINADO");
+                    gv.plasticoRefinado+=1;
+                }
+                if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
+                {
+                    Debug.Log("CARTON REFINADO");
+                    gv.cartonRefinado+=1;
+                }       
+                if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
+                {
+                    Debug.Log("METAL REFINADO");
+                    gv.metalRefinado+=1;
+                }        
+            }            
+            if (firstInPair.tag == "Organico")
+            {
+                Debug.Log("COMPOST y BIOMASA");
+                gv.compostRefinado+=1;
+            }
         }
         else
         {

@@ -6,7 +6,8 @@ using System;
 public class GlobalVariables : MonoBehaviour, ISaveable
 {
     //Agregar variables accesibles aqui, como las de abajo, estas variables son las que vas a usar para sacar info
-    public int noRecTrash, organicTrash, recTrash, divisionNoRec, divisionOrganic, divisionRec;
+    //Vidrio, Plástico, Cartón, Metal, Compost
+    public int noRecTrash, organicTrash, recTrash, divisionNoRec, divisionOrganic, divisionRec, vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
     public bool cardDistribution = false;
     void Awake()
     {
@@ -21,7 +22,12 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             cardDistribution = this.cardDistribution,
             divisionNoRec = this.divisionNoRec,
             divisionRec = this.divisionRec,
-            divisionOrganic = this.divisionOrganic
+            divisionOrganic = this.divisionOrganic,
+            vidrioRefinado =this.vidrioRefinado,
+            plasticoRefinado=this.plasticoRefinado,
+            cartonRefinado=this.cartonRefinado,
+            metalRefinado=this.metalRefinado,
+            compostRefinado=this.compostRefinado
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
@@ -34,11 +40,16 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         divisionNoRec = saveData.divisionNoRec;
         divisionRec = saveData.divisionRec;
         divisionOrganic = saveData.divisionOrganic;
+        vidrioRefinado = saveData.vidrioRefinado;
+        plasticoRefinado=saveData.plasticoRefinado;
+        cartonRefinado= saveData.cartonRefinado;
+        metalRefinado=saveData.metalRefinado;
+        compostRefinado=saveData.compostRefinado;
     }
     [Serializable]
     private struct SaveData{
         //Esto ni me acuerdo para que es pero, asignale las variables como si las estuvieras declarando normalmente, no hay mucha magia 
-        public int noRecTrash, organicTrash, recTrash, divisionNoRec, divisionOrganic, divisionRec;
+        public int noRecTrash, organicTrash, recTrash, divisionNoRec, divisionOrganic, divisionRec, vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
     }
 }
