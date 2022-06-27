@@ -26,7 +26,7 @@ public class Cards : MonoBehaviour
     {    
         //se inicializan las banderas
         vidas = 20;
-        Debug.Log("VIDAS INCIA"+vidas);
+        Debug.Log("VIDAS INICIALES: "+vidas);
         facedUp=false;
         coroutineAllowed=true;
         locked=false;
@@ -61,14 +61,14 @@ public class Cards : MonoBehaviour
             {
                 sequence.Enqueue(this);
                 colisionAux = this.GetComponent<Collider>();
-                colisionAux.enabled = !colisionAux.enabled;
+                colisionAux.enabled = !colisionAux.enabled;                
                 for (float i = 0f; i < 190f; i+=10)
                 {
                     transform.rotation = Quaternion.Euler(0f,i,0f);
                     yield return new WaitForSeconds(0f);
                 }
                 //Debug.Log("!facedUP");
-                Debug.Log("secuencia!facedUP:"+sequence); 
+                //Debug.Log("secuencia!facedUP:"+sequence); 
                              
                                
             }
@@ -81,7 +81,7 @@ public class Cards : MonoBehaviour
                     sequence.Clear();
                 }
                 //Debug.Log("facedUP");
-                Debug.Log("secuenciafacedUP:"+sequence);
+                //Debug.Log("secuenciafacedUP:"+sequence);
                                 
             }
             
@@ -106,7 +106,7 @@ public class Cards : MonoBehaviour
 
             }
         }
-        Debug.Log("secuencia:"+sequence);
+        //Debug.Log("secuencia:"+sequence);
     }
 
     //al dar vuelta un par de cartas se comprueba si tienen el mismo nombre, lo que quiere decir que son pares
@@ -124,7 +124,7 @@ public class Cards : MonoBehaviour
             firstInPair.locked=true;
             secondInPair.locked=true;
             pairsFound+=1;
-            vidas = vidas + 1;        
+            //vidas = vidas + 1;        
             //verificar tags
             //Debug.Log("TAG para refinado de:  "+firstInPair.tag);
             //Debug.Log("vidas dentro tag: "+vidas);
@@ -167,7 +167,10 @@ public class Cards : MonoBehaviour
         if (pairsFound == 9)
         {
             //terminó el juego
-            //Debug.Log("GANÓ ");
+            Debug.Log("GANÓ y se guardaron los refinados");
+            Debug.Log("Vidas que le quedaron:"+vidas); 
+            saveSystem.Save();
+            
         }
     }
 
@@ -175,7 +178,9 @@ public class Cards : MonoBehaviour
     public IEnumerator RotateBack()
     {
         coroutineAllowed =false; 
-        colisionAux.enabled = !colisionAux.enabled;       
+        colisionAux.enabled = !colisionAux.enabled;
+        vidas = vidas -1;  
+        Debug.Log("Vidas:"+vidas);  
         yield return new WaitForSeconds(0.2f);
         for (float i=190f; i>=0f; i-=10)
         {
