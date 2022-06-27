@@ -7,6 +7,7 @@ public class Cards : MonoBehaviour
     public bool facedUp, locked;
     public static bool coroutineAllowed;
     private Cards firstInPair, secondInPair;
+    private Cards auxiliar;
     private string firstInPairName, secondInPairName;
 
     public static Queue<Cards> sequence;
@@ -17,6 +18,7 @@ public class Cards : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
+    private Collider colisionAux;
     
         
 
@@ -44,7 +46,9 @@ public class Cards : MonoBehaviour
         if (!locked && coroutineAllowed)
         {
             StartCoroutine(RotateCard());
+            
         }
+        
     }
 
     public IEnumerator RotateCard()
@@ -56,13 +60,16 @@ public class Cards : MonoBehaviour
             if(!facedUp)
             {
                 sequence.Enqueue(this);
+                colisionAux = this.GetComponent<Collider>();
+                colisionAux.enabled = !colisionAux.enabled;
                 for (float i = 0f; i < 190f; i+=10)
                 {
                     transform.rotation = Quaternion.Euler(0f,i,0f);
                     yield return new WaitForSeconds(0f);
                 }
                 //Debug.Log("!facedUP");
-                Debug.Log("secuencia!facedUP:"+sequence);               
+                Debug.Log("secuencia!facedUP:"+sequence); 
+                             
                                
             }
             else if (facedUp)
@@ -77,21 +84,26 @@ public class Cards : MonoBehaviour
                 Debug.Log("secuenciafacedUP:"+sequence);
                                 
             }
+            
             coroutineAllowed=true;
         
             facedUp=!facedUp;
-            //Debug.Log("timescale=0");
+           
 
             if(sequence.Count ==1)
             {
-                //Debug.Log("UNA CARTA VOLTEADA");
-                vidas = vidas - 1;
+                //Debug.Log("UNA CARTA VOLTEADA");                
                 //Debug.Log("vidas: "+vidas);
+              
+
             }
 
             if(sequence.Count ==2)
             {
+                
+                //sequence.Enqueue(auxiliar);                
                 CheckResults();
+
             }
         }
         Debug.Log("secuencia:"+sequence);
@@ -148,7 +160,7 @@ public class Cards : MonoBehaviour
         else
         {
             firstInPair.StartCoroutine("RotateBack");
-            secondInPair.StartCoroutine("RotateBack");
+            secondInPair.StartCoroutine("RotateBack");            
             vidas = vidas -1;
         }
 
@@ -162,7 +174,8 @@ public class Cards : MonoBehaviour
     //vuelve a voltear la carta
     public IEnumerator RotateBack()
     {
-        coroutineAllowed =false;
+        coroutineAllowed =false; 
+        colisionAux.enabled = !colisionAux.enabled;       
         yield return new WaitForSeconds(0.2f);
         for (float i=190f; i>=0f; i-=10)
         {
