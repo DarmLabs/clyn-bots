@@ -185,7 +185,7 @@ public class Cards : MonoBehaviour
         for (float i=190f; i>=0f; i-=10)
         {
             transform.rotation =Quaternion.Euler(0f,i,0f);
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0.02f);
             sequence.Clear();            
         }
         facedUp=false;
