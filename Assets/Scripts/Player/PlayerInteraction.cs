@@ -14,7 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject UIManager;
     Player_UI player_UI;
     General_UI general_UI;
-    public GameObject BasuralPoint, LobbyPoint;
+    public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
     public GameObject sun;
     GameObject currentTrashPile;
     [Space(10)]
@@ -90,12 +90,18 @@ public class PlayerInteraction : MonoBehaviour
             OnObjectExit();
         }
         if(Input.GetKeyDown(KeyCode.E)){
+            bool interactionHappen = false;
             if(inDoor != null){
                 ChangeStage();
                 MovmentState(false);
+                interactionHappen = true;
             }
             if(facingArcade){
                 general_UI.MinigamePanelSwitcher(true);
+                interactionHappen = true;
+            }
+            if(interactionHappen){
+                playerAnim.Interaction(true);
             }
         }
     }
@@ -115,9 +121,16 @@ public class PlayerInteraction : MonoBehaviour
                         transform.position = BasuralPoint.transform.position;
                         sun.SetActive(true);
                         break;
-                    case "ToLobby":
-                        transform.position = LobbyPoint.transform.position;
+                    case "ToLobbyFB":
+                        transform.position = LobbyPointB.transform.position;
                         sun.SetActive(false);
+                        break;
+                    case "ToLobbyFGZ":
+                        transform.position = LobbyPointGZ.transform.position;
+                        sun.SetActive(false);
+                        break;
+                    case "ToGreenZone":
+                        transform.position = GreenZonePoint.transform.position;
                         break;
                 }
         }
