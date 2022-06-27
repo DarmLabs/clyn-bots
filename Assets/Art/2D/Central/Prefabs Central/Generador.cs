@@ -78,19 +78,19 @@ public class Generador : MonoBehaviour
     }
     void Controls()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1) )//|| Input.GetKeyDown(KeyCode.Alpha1) )
+        if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKeyDown(KeyCode.Keypad2) )//|| Input.GetKeyDown(KeyCode.Alpha2) )
+        if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(true);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
         }
-        if(Input.GetKeyDown(KeyCode.Keypad3)) //|| Input.GetKeyDown(KeyCode.Alpha3) )
+        if(Input.GetKeyDown(KeyCode.Keypad3)|| Input.GetKeyDown(KeyCode.Alpha3) )
         {
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
@@ -114,8 +114,8 @@ public class Generador : MonoBehaviour
             Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);
-        }
-        */
+        }*/
+        
     }
     void InstanceIntervalo()    
     {
