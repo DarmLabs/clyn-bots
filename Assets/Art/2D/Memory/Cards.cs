@@ -51,7 +51,8 @@ public class Cards : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0f,i,0f);
                     yield return new WaitForSeconds(0f);
                 }
-                Debug.Log("!facedUP");               
+                //Debug.Log("!facedUP");
+                Debug.Log("secuencia!facedUP:"+sequence);               
                                
             }
             else if (facedUp)
@@ -62,19 +63,20 @@ public class Cards : MonoBehaviour
                     yield return new WaitForSeconds(0f);
                     sequence.Clear();
                 }
-                Debug.Log("facedUP");
+                //Debug.Log("facedUP");
+                Debug.Log("secuenciafacedUP:"+sequence);
                                 
             }
             coroutineAllowed=true;
         
             facedUp=!facedUp;
-            Debug.Log("timescale=0");
+            //Debug.Log("timescale=0");
 
             if(sequence.Count ==1)
             {
-                Debug.Log("UNA CARTA VOLTEADA");
+                //Debug.Log("UNA CARTA VOLTEADA");
                 vidas = vidas - 1;
-                Debug.Log("vidas: "+vidas);
+                //Debug.Log("vidas: "+vidas);
             }
 
             if(sequence.Count ==2)
@@ -82,6 +84,7 @@ public class Cards : MonoBehaviour
                 CheckResults();
             }
         }
+        Debug.Log("secuencia:"+sequence);
     }
 
     //al dar vuelta un par de cartas se comprueba si tienen el mismo nombre, lo que quiere decir que son pares
@@ -101,8 +104,8 @@ public class Cards : MonoBehaviour
             pairsFound+=1;
             vidas = vidas + 1;        
             //verificar tags
-            Debug.Log("TAG para refinado de:  "+firstInPair.tag);
-            Debug.Log("vidas dentro tag: "+vidas);
+            //Debug.Log("TAG para refinado de:  "+firstInPair.tag);
+            //Debug.Log("vidas dentro tag: "+vidas);
         }
         else
         {
@@ -114,7 +117,7 @@ public class Cards : MonoBehaviour
         if (pairsFound == 9)
         {
             //terminó el juego
-            Debug.Log("GANÓ ");
+            //Debug.Log("GANÓ ");
         }
     }
 
