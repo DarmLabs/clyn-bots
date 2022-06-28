@@ -65,7 +65,7 @@ public class Cards : MonoBehaviour
                 for (float i = 0f; i < 190f; i+=10)
                 {
                     transform.rotation = Quaternion.Euler(0f,i,0f);
-                    yield return new WaitForSeconds(0.02f);
+                    yield return new WaitForSeconds(0.01f);
                 }
                 //Debug.Log("!facedUP");
                 //Debug.Log("secuencia!facedUP:"+sequence); 
@@ -77,7 +77,7 @@ public class Cards : MonoBehaviour
                 for (float i = 190f; i >= 0f; i-=10)
                 {
                     transform.rotation=Quaternion.Euler(0f,i,0f);
-                    yield return new WaitForSeconds(0.02f);
+                    yield return new WaitForSeconds(0.01f);
                     sequence.Clear();
                 }
                 //Debug.Log("facedUP");
@@ -181,11 +181,11 @@ public class Cards : MonoBehaviour
         colisionAux.enabled = !colisionAux.enabled;
         vidas = vidas -1;  
         Debug.Log("Vidas:"+vidas);  
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         for (float i=190f; i>=0f; i-=10)
         {
             transform.rotation =Quaternion.Euler(0f,i,0f);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSeconds(0.01f);
             sequence.Clear();            
         }
         facedUp=false;
