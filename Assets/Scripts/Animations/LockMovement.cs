@@ -5,15 +5,16 @@ using UnityEngine;
 public class LockMovement : StateMachineBehaviour
 {
     GameObject player;
-    PlayersMovement playersMovement;
+    PlayerInteraction playerInteraction;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
         player = GameObject.Find("Player");
-        playersMovement = player.GetComponent<PlayersMovement>();
-        playersMovement.enabled = false;
+        playerInteraction = player.GetComponent<PlayerInteraction>();
+        playerInteraction.MovmentState(false);
     }
     public override void  OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
-         playersMovement.enabled = true;
-         animator.SetBool("isInteracting", false);
+        playerInteraction.ChangeStage();
+        animator.SetBool("isInteracting", false);
+         
     }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

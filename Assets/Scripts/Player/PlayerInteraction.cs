@@ -54,15 +54,12 @@ public class PlayerInteraction : MonoBehaviour
             }else{
                 if(itemsInBag < maxBagSpace){
                     RandomNRT(1,2);
-                    Debug.Log("paso1");
                 }
                 if(itemsInBag < maxBagSpace){
                     RandomRT(1,2);
-                    Debug.Log("paso2");
                 }
                 if(itemsInBag < maxBagSpace){
                     RandomOT(1,2);
-                    Debug.Log("paso3");
                 }
             }
             currentTrashPile.GetComponent<TrashPile>().RecudeHeight();
@@ -101,8 +98,6 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             bool interactionHappen = false;
             if(inDoor != null){
-                ChangeStage();
-                MovmentState(false);
                 interactionHappen = true;
             }
             if(facingArcade){
@@ -117,11 +112,11 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Celebrate();
         }
     }
-    void ChangeStage(){
+    public void ChangeStage(){
         player_UI.fadeState = 1;
         StartCoroutine(WaitInDoor(1));
     }
-    void MovmentState(bool state){
+    public void MovmentState(bool state){
         GetComponent<PlayersMovement>().enabled = state;
     }
     IEnumerator WaitInDoor(float secs){
