@@ -9,7 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject SaveLoadGameObject;
     SaveLoadSystem saveSystem;
     public GameObject GlobalVariables;
-    GlobalVariables globalVariables;
+    public GlobalVariables globalVariables;
     PlayerAnimations playerAnim;
     public GameObject UIManager;
     Player_UI player_UI;
@@ -17,13 +17,14 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
     public GameObject sun;
     GameObject currentTrashPile;
+    GameObject targetConstruction;
     [Space(10)]
     //**************************************************
     #endregion
     float timePressed;
     bool facingTrash;
     bool facingArcade;
-    string inDoor;
+    public string inDoor;
     int maxBagSpace = 50, itemsInBag;
     public float bagPercentage;
     void Start()
@@ -41,7 +42,6 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         Controls();
-        Debug.Log(Random.Range(1,2));
     }
     void Aspire(){
         timePressed +=  Time.deltaTime;
@@ -97,20 +97,24 @@ public class PlayerInteraction : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.E)){
             bool interactionHappen = false;
-            if(inDoor != null){
+            if(inDoor != ""){
                 interactionHappen = true;
             }
             if(facingArcade){
                 general_UI.MinigamePanelSwitcher(true);
                 interactionHappen = true;
             }
+            if(targetConstruction != null){
+                targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
+                interactionHappen = true;
+            }
             if(interactionHappen){
                 playerAnim.Interaction(true);
             }
         }
-        if(Input.GetKeyDown(KeyCode.Q)){
+        /*if(Input.GetKeyDown(KeyCode.Q)){
             playerAnim.Celebrate();
-        }
+        }*/
     }
     public void ChangeStage(){
         player_UI.fadeState = 1;
@@ -156,6 +160,9 @@ public class PlayerInteraction : MonoBehaviour
         if(other.tag == "arcade"){
             facingArcade = true;
         }
+        if(other.tag == "construction"){
+            targetConstruction = other.gameObject;
+        }
     }
     void OnTriggerExit(Collider other)
     {
@@ -164,10 +171,13 @@ public class PlayerInteraction : MonoBehaviour
             currentTrashPile = null;
         }
         if(other.tag == "door"){
-            inDoor = null;
+            inDoor = "";
         }
         if(other.tag == "arcade"){
             facingArcade = false;
+        }
+        if(other.tag == "construction"){
+            targetConstruction = null;
         }
     }
     void OnObjectExit()

@@ -12,9 +12,10 @@ public class LockMovement : StateMachineBehaviour
         playerInteraction.MovmentState(false);
     }
     public override void  OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
-        playerInteraction.ChangeStage();
+        if(playerInteraction.inDoor != ""){
+            playerInteraction.ChangeStage();
+        }
         animator.SetBool("isInteracting", false);
-         
     }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
