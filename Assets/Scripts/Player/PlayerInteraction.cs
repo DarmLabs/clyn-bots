@@ -41,6 +41,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         Controls();
+        Debug.Log(Random.Range(1,2));
     }
     void Aspire(){
         timePressed +=  Time.deltaTime;
@@ -53,28 +54,33 @@ public class PlayerInteraction : MonoBehaviour
             }else{
                 if(itemsInBag < maxBagSpace){
                     RandomNRT(1,2);
+                    Debug.Log("paso1");
                 }
                 if(itemsInBag < maxBagSpace){
                     RandomRT(1,2);
+                    Debug.Log("paso2");
                 }
                 if(itemsInBag < maxBagSpace){
                     RandomOT(1,2);
+                    Debug.Log("paso3");
                 }
             }
             currentTrashPile.GetComponent<TrashPile>().RecudeHeight();
             timePressed = 0;
             saveSystem.Save();
         }
-        BagPercentage();
     }
     void RandomNRT(int inf,int ext){
         globalVariables.noRecTrash += Random.Range(inf, ext);
+        BagPercentage();
     }
     void RandomRT(int inf,int ext){
         globalVariables.recTrash += Random.Range(inf, ext);
+        BagPercentage();
     }
     void RandomOT(int inf,int ext){
         globalVariables.organicTrash += Random.Range(inf, ext);
+        BagPercentage();
     }
     void BagPercentage(){
         itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
@@ -85,9 +91,12 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
             Aspire();
         }
-        else if((currentTrashPile != null && !currentTrashPile.activeSelf) || !facingTrash){
+        else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
             playerAnim.Aspire(false);
             OnObjectExit();
+        }
+        else{
+            playerAnim.Aspire(false);
         }
         if(Input.GetKeyDown(KeyCode.E)){
             bool interactionHappen = false;
@@ -103,6 +112,9 @@ public class PlayerInteraction : MonoBehaviour
             if(interactionHappen){
                 playerAnim.Interaction(true);
             }
+        }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            playerAnim.Celebrate();
         }
     }
     void ChangeStage(){
