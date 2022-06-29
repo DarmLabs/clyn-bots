@@ -82,24 +82,19 @@ public class Cards : MonoBehaviour
                 for (float i = 0f; i < 190f; i+=10)
                 {
                     transform.rotation = Quaternion.Euler(0f,i,0f);
-                    yield return new WaitForSeconds(0.01f);
-                }
-                //Debug.Log("!facedUP");
-                //Debug.Log("secuencia!facedUP:"+sequence); 
-                             
-                               
+                    yield return new WaitForSeconds(0.01f* Time.deltaTime);
+                }              
+                              
             }
             else if (facedUp)
             {
                 for (float i = 190f; i >= 0f; i-=10)
                 {
                     transform.rotation=Quaternion.Euler(0f,i,0f);
-                    yield return new WaitForSeconds(0.01f);
+                    yield return new WaitForSeconds(0.01f* Time.deltaTime);
                     sequence.Clear();
                 }
-                //Debug.Log("facedUP");
-                //Debug.Log("secuenciafacedUP:"+sequence);
-                                
+                                                
             }
             
             coroutineAllowed=true;
@@ -122,8 +117,7 @@ public class Cards : MonoBehaviour
                 CheckResults();
 
             }
-        }
-        //Debug.Log("secuencia:"+sequence);
+        }        
     }
 
     //al dar vuelta un par de cartas se comprueba si tienen el mismo nombre, lo que quiere decir que son pares
@@ -209,11 +203,11 @@ public class Cards : MonoBehaviour
         colisionAux.enabled = !colisionAux.enabled;
         vidas = vidas -1;  
         Debug.Log("Vidas:"+vidas);  
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.1f* Time.deltaTime);
         for (float i=190f; i>=0f; i-=10)
         {
             transform.rotation =Quaternion.Euler(0f,i,0f);
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.01f* Time.deltaTime);
             sequence.Clear();            
         }
         facedUp=false;
