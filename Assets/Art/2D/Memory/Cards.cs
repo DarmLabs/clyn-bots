@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cards : MonoBehaviour
 {
@@ -18,14 +19,30 @@ public class Cards : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    private Collider colisionAux;
-    
+    private Collider colisionAux;    
+
+    public Text textVidrios;
+    public Text textPlasticos;
+    public Text textCartones;
+    public Text textMetales;
+    public Text textComposts;
+
+    public static int vidrioPartida;
+    public static int plasticoPartida;
+    public static int cartonPartida;
+    public static int metalPartida;
+    public static int compostPartida;
         
 
     void Start()
     {    
         //se inicializan las banderas
         vidas = 20;
+        vidrioPartida=0;
+        plasticoPartida=0;
+        cartonPartida=0;
+        metalPartida=0;
+        compostPartida=0;
         Debug.Log("VIDAS INICIALES: "+vidas);
         facedUp=false;
         coroutineAllowed=true;
@@ -133,28 +150,34 @@ public class Cards : MonoBehaviour
                 if (firstInPairName == "VasoVidrio" || firstInPairName== "BotellaVidrio" || firstInPairName == "FrascoVidrio")
                 {
                     Debug.Log("VIDRIO REFINADO");
-                    gv.vidrioRefinado+=1;
+                    vidrioPartida+=10;
+                    textVidrios.text = "+"+vidrioPartida.ToString();
+
                 } 
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
                 {
                     Debug.Log("PLASTICO REFINADO");
-                    gv.plasticoRefinado+=1;
+                    plasticoPartida+=10;
+                    textPlasticos.text = "+"+plasticoPartida.ToString();
                 }
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
                 {
                     Debug.Log("CARTON REFINADO");
-                    gv.cartonRefinado+=1;
+                    cartonPartida+=10;
+                    textCartones.text = "+"+cartonPartida.ToString();
                 }       
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
                 {
                     Debug.Log("METAL REFINADO");
-                    gv.metalRefinado+=1;
+                    metalPartida+=10;
+                    textMetales.text = "+"+metalPartida.ToString();
                 }        
             }            
             if (firstInPair.tag == "Organico")
             {
                 Debug.Log("COMPOST y BIOMASA");
-                gv.compostRefinado+=1;
+                compostPartida+=10;
+                textComposts.text = "+"+compostPartida.ToString();
             }
         }
         else
@@ -168,7 +191,12 @@ public class Cards : MonoBehaviour
         {
             //terminó el juego
             Debug.Log("GANÓ y se guardaron los refinados");
-            Debug.Log("Vidas que le quedaron:"+vidas); 
+            Debug.Log("Vidas que le quedaron:"+vidas);
+            gv.vidrioRefinado = gv.vidrioRefinado + (10*vidrioPartida);
+            gv.plasticoRefinado= gv.plasticoRefinado + (10*plasticoPartida);
+            gv.cartonRefinado= gv.cartonRefinado + (10*cartonPartida);
+            gv.metalRefinado= gv.metalRefinado + (10*metalPartida);
+            gv.compostRefinado= gv.compostRefinado + (10*compostPartida); 
             saveSystem.Save();
             
         }
