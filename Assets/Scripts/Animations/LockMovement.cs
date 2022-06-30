@@ -15,6 +15,9 @@ public class LockMovement : StateMachineBehaviour
         if(playerInteraction.inDoor != ""){
             playerInteraction.ChangeStage();
         }
+        if(animatorStateInfo.IsName("Suction_Pose_Anim Reverse")){
+            playerInteraction.MovmentState(true);
+        }
         animator.SetBool("isInteracting", false);
     }
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state

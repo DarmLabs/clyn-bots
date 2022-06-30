@@ -94,6 +94,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         else{
             playerAnim.Aspire(false);
+            timePressed = 0;
         }
         if(Input.GetKeyDown(KeyCode.E)){
             bool interactionHappen = false;
