@@ -58,7 +58,7 @@ public class ConstructibleObj : MonoBehaviour
                         } 
                         break;
                     case 4:
-                        req += "\nVidrio x" + reqResources[i];  
+                        req += "\nCompost x" + reqResources[i];  
                         if(globalVariables.compostRefinado < reqResources[i]){
                             reqMeet = false;
                         }
