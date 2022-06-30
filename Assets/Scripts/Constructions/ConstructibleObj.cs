@@ -18,7 +18,7 @@ public class ConstructibleObj : MonoBehaviour
     #endregion
     public GameObject target;
     public GameObject building;
-    bool reqMeet;
+    bool reqMeet = true;
     void Start()
     {
         SaveData = GameObject.Find("GlobalVariables");
