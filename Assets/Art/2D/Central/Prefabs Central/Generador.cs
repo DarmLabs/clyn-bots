@@ -87,11 +87,11 @@ public class Generador : MonoBehaviour
             /*Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);*/
-            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction);  
-            
-            
+            //Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, Time.deltaTime);           
+            Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[0].transform.position;
             Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[1].transform.position;
             Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[2].transform.position;
+            
             Debug.Log("TransformGetchild: "+Tachos.transform.GetChild(0).gameObject.transform);
             Debug.Log("PosicionTachos: "+PosicionesTachos[0].transform.position);
             
