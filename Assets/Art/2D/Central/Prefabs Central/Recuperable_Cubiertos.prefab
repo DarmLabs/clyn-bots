@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8069316140197718859}
   - component: {fileID: 8069316140197718852}
   - component: {fileID: 8069316140197718853}
+  - component: {fileID: 6576859834905176807}
   m_Layer: 0
   m_Name: Recuperable_Cubiertos
   m_TagString: Recuperable
@@ -101,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.09
+  m_GravityScale: 0.1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.42, y: 2.45}
   m_EdgeRadius: 0
+--- !u!114 &6576859834905176807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069316140197718854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e373ca6d7ec5cdd4bae3bc048adbd0f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

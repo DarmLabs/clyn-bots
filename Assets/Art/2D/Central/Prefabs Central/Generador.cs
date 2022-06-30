@@ -32,7 +32,7 @@ public class Generador : MonoBehaviour
     
     void Start () 
     {       
-        intervalo = 2;
+        intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         cantidadNoRecuperables = gv.noRecTrash;
