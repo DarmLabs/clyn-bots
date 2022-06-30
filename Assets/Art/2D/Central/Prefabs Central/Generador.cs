@@ -13,6 +13,7 @@ public class Generador : MonoBehaviour
     [SerializeField] private GameObject Tachos;
     #endregion
     #region 
+    [SerializeField] private GameObject[] PosicionesTachos;
     private int indexRecuperables = 10;
     private int indexNoRecuperables = 4;
     private int indexOrganicos = 4;
@@ -27,8 +28,11 @@ public class Generador : MonoBehaviour
     private float intervalo = 0; 
     private int contadorBasura = 0;
 
+    private float fraction = 1f;
+
     private GameObject globalaux;
-    private GlobalVariables gv;    
+    private GlobalVariables gv; 
+
     
     void Start () 
     {       
@@ -41,7 +45,7 @@ public class Generador : MonoBehaviour
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
         Residuos = new GameObject[cantidadResiduos];  
         CreateResiduos();      
-        Tachos.transform.GetChild(0).gameObject.SetActive(true);         
+                
     }
 
     void Update()
@@ -80,22 +84,39 @@ public class Generador : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
         {
-            Tachos.transform.GetChild(0).gameObject.SetActive(true);
+            /*Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
-            Tachos.transform.GetChild(2).gameObject.SetActive(false);
+            Tachos.transform.GetChild(2).gameObject.SetActive(false);*/
+            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction);  
+            
+            
+            Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[1].transform.position;
+            Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[2].transform.position;
+            Debug.Log("TransformGetchild: "+Tachos.transform.GetChild(0).gameObject.transform);
+            Debug.Log("PosicionTachos: "+PosicionesTachos[0].transform.position);
+            
+
         }
         if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
         {
-            Tachos.transform.GetChild(0).gameObject.SetActive(false);
+            /*Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(true);
-            Tachos.transform.GetChild(2).gameObject.SetActive(false);
+            Tachos.transform.GetChild(2).gameObject.SetActive(false);*/
+            Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[0].transform.position;
+            Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[1].transform.position;
+            Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[2].transform.position;
         }
         if(Input.GetKeyDown(KeyCode.Keypad3)|| Input.GetKeyDown(KeyCode.Alpha3) )
         {
-            Tachos.transform.GetChild(0).gameObject.SetActive(false);
+            /*Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
-            Tachos.transform.GetChild(2).gameObject.SetActive(true);
+            Tachos.transform.GetChild(2).gameObject.SetActive(true);*/
+            Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[0].transform.position;
+            Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[1].transform.position;
+            Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[2].transform.position;
         }
+
+        
         /*
         if(Input.GetKeyUp(KeyCode.Keypad1) )//|| Input.GetKeyUp(KeyCode.Alpha1) )
         {
