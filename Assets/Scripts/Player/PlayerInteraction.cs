@@ -96,6 +96,7 @@ public class PlayerInteraction : MonoBehaviour
         }*/
     }
      void Aspire(){
+        MovmentState(false);
         timePressed +=  Time.deltaTime;
         playerAnim.Aspire(true);
         if(timePressed > 2){
