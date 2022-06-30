@@ -73,6 +73,22 @@ public class PlayerInteraction : MonoBehaviour
                 playerAnim.Interaction(true);
             }
         }
+        if(Input.GetKeyDown(KeyCode.O)){
+            int aux;
+            aux = (maxBagSpace - itemsInBag) / 3;
+            globalVariables.recTrash += aux;
+            globalVariables.organicTrash += aux;
+            globalVariables.noRecTrash += aux;
+            BagPercentage();
+            saveSystem.Save();
+        }
+        if(Input.GetKeyDown(KeyCode.P)){
+            globalVariables.recTrash = 0;
+            globalVariables.organicTrash = 0;
+            globalVariables.noRecTrash = 0;
+            BagPercentage();
+            saveSystem.Save();
+        }
         /*if(Input.GetKeyDown(KeyCode.Q)){
             playerAnim.Celebrate();
         }*/

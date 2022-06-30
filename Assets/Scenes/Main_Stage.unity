@@ -2542,6 +2542,42 @@ MonoBehaviour:
           m_StringArgument: Central
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 904744519}
+        m_TargetAssemblyTypeName: General_UI, Assembly-CSharp
+        m_MethodName: ConstructionPanelSwitcher
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1021951882}
+        m_TargetAssemblyTypeName: SaveLoadSystem, Assembly-CSharp
+        m_MethodName: Save
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2008853896623391944}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &806165178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2754,6 +2790,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 903903993}
+  - component: {fileID: 903903994}
   m_Layer: 0
   m_Name: Molino
   m_TagString: Untagged
@@ -2778,6 +2815,19 @@ Transform:
   m_Father: {fileID: 543450652599755710}
   m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &903903994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903903992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 09fdd8e9-052d-4442-b1f7-2ba9dd89b01b
 --- !u!1 &904744512
 GameObject:
   m_ObjectHideFlags: 0
@@ -3309,6 +3359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 926475422}
+  - component: {fileID: 926475423}
   m_Layer: 0
   m_Name: Molino (1)
   m_TagString: Untagged
@@ -3333,6 +3384,19 @@ Transform:
   m_Father: {fileID: 543450652599755710}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &926475423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926475421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: f0e07938-838b-4561-82e8-7a23c0c7db93
 --- !u!1 &948342078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5078,6 +5142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1576771589}
+  - component: {fileID: 1576771590}
   m_Layer: 0
   m_Name: Panel Solar
   m_TagString: Untagged
@@ -5102,6 +5167,19 @@ Transform:
   m_Father: {fileID: 543450652599755710}
   m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1576771590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1576771588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 7a146587-2e19-459e-a850-8f6fbf69cf91
 --- !u!1 &1651934803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5722315222512314903, guid: 7c0a0a390d81296499ce774cc54fb1ff, type: 3}
@@ -5143,6 +5221,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682756305}
+  - component: {fileID: 1682756306}
   m_Layer: 0
   m_Name: Molino (2)
   m_TagString: Untagged
@@ -5167,6 +5246,19 @@ Transform:
   m_Father: {fileID: 543450652599755710}
   m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1682756306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682756304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 65a01b2d-f2cb-4249-9eaf-dd2e4f4539d6
 --- !u!1 &1684022737
 GameObject:
   m_ObjectHideFlags: 0
@@ -8352,6 +8444,7 @@ GameObject:
   - component: {fileID: 1940274712903200981}
   - component: {fileID: 1971165063252697332}
   - component: {fileID: 1540718425}
+  - component: {fileID: 3379676211910155863}
   m_Layer: 0
   m_Name: Cylinder.018
   m_TagString: Untagged
@@ -10114,6 +10207,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fb3ff1d6805664f8a85ac5b8efdbbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2008853896623391949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1930140159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: e33054d2-2d97-41c7-b1fb-40c71cd81d32
 --- !u!1 &2076850631439378468
 GameObject:
   m_ObjectHideFlags: 0
@@ -11557,6 +11663,19 @@ Transform:
   m_Father: {fileID: 543450652599755710}
   m_RootOrder: 43
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3379676211910155863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840247479451189290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: aed7d723-820e-49fe-a1df-138a738a0ca8
 --- !u!33 &3379861035676380012
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -11969,6 +12088,7 @@ GameObject:
   - component: {fileID: 1969037677524181114}
   - component: {fileID: 1814889512561926398}
   - component: {fileID: 248203393}
+  - component: {fileID: 3685948650146369107}
   m_Layer: 0
   m_Name: Cylinder.058
   m_TagString: Untagged
@@ -11976,6 +12096,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3685948650146369107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3685948650146369106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 19134ced-5cc3-40e0-9f49-232ffbc2b21b
 --- !u!23 &3699295532148267099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12688,6 +12821,7 @@ GameObject:
   - component: {fileID: 2282296348079428213}
   - component: {fileID: 4075823951515057237}
   - component: {fileID: 106718315}
+  - component: {fileID: 4299750150798382961}
   m_Layer: 0
   m_Name: Cylinder.030
   m_TagString: Untagged
@@ -12695,6 +12829,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &4299750150798382961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4299750150798382960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0301bfb3-4c0b-49ac-acdc-7b869cd14c83
 --- !u!4 &4306643202038130980
 Transform:
   m_ObjectHideFlags: 0
@@ -12959,6 +13106,7 @@ GameObject:
   - component: {fileID: 1528211361121648830}
   - component: {fileID: 7606134584720288866}
   - component: {fileID: 122608337336779453}
+  - component: {fileID: 7606134584720288867}
   m_Layer: 0
   m_Name: Cylinder.016
   m_TagString: Untagged
@@ -15960,6 +16108,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587071258519403696}
   m_Mesh: {fileID: 6405055333489277325, guid: 4c32361932da9d543b7fbdb2924b4375, type: 3}
+--- !u!114 &7606134584720288867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587071258519403696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e583225080837e46a12d7be2b307d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: eebf397d-53ca-41cc-92fa-2996f32aa36d
 --- !u!1 &7617314421698312385
 GameObject:
   m_ObjectHideFlags: 0

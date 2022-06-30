@@ -27,6 +27,8 @@ public class General_UI : MonoBehaviour
         constructionPanel.SetActive(state);
         if(state){
             MainPanelSwitcher(false);
+        }else{
+            MainPanelSwitcher(true);
         }
     }
     public void BuildingConstructionMenu(string title, string req)
@@ -54,6 +56,8 @@ public class General_UI : MonoBehaviour
         miniGamePanel.SetActive(state);
         if(state){
             MainPanelSwitcher(false);
+        }else{
+            MainPanelSwitcher(true);
         }
     }
     
