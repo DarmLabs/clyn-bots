@@ -38,7 +38,7 @@ public class General_UI : MonoBehaviour
         "\nPlastico: " + playerInteraction.globalVariables.plasticoRefinado +
         "\nCarton: " + playerInteraction.globalVariables.cartonRefinado +
         "\nMetal: " + playerInteraction.globalVariables.metalRefinado +
-        "\nComopost: " + playerInteraction.globalVariables.compostRefinado;
+        "\nCompost: " + playerInteraction.globalVariables.compostRefinado;
 
         reqText.text = "Materiales Refinados necesarios:" + req;
     }
