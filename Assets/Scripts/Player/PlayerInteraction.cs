@@ -24,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
     float timePressed;
     bool facingTrash;
     bool facingArcade;
+    bool changingStage;
     public string inDoor;
     int maxBagSpace = 50, itemsInBag;
     public float bagPercentage;
@@ -58,6 +59,7 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             bool interactionHappen = false;
             if(inDoor != ""){
+                changingStage = true;
                 interactionHappen = true;
             }
             if(facingArcade){
@@ -142,28 +144,27 @@ public class PlayerInteraction : MonoBehaviour
     }
     IEnumerator WaitInDoor(float secs){
         yield return new WaitForSeconds(secs);
-        if(inDoor != ""){
-                switch (inDoor)
-                {
-                    case "ToBasural":
-                        transform.position = BasuralPoint.transform.position;
-                        sun.SetActive(true);
-                        break;
-                    case "ToLobbyFB":
-                        transform.position = LobbyPointB.transform.position;
-                        sun.SetActive(false);
-                        break;
-                    case "ToLobbyFGZ":
-                        transform.position = LobbyPointGZ.transform.position;
-                        sun.SetActive(false);
-                        break;
-                    case "ToGreenZone":
-                        transform.position = GreenZonePoint.transform.position;
-                        break;
+            switch (inDoor)
+            {
+                case "ToBasural":
+                    transform.position = BasuralPoint.transform.position;
+                    sun.SetActive(true);
+                    break;
+                case "ToLobbyFB":
+                    transform.position = LobbyPointB.transform.position;
+                    sun.SetActive(false);
+                    break;
+                case "ToLobbyFGZ":
+                    transform.position = LobbyPointGZ.transform.position;
+                    sun.SetActive(false);
+                    break;
+                case "ToGreenZone":
+                    transform.position = GreenZonePoint.transform.position;
+                    break;
                 }
-        }
         player_UI.fadeState = 2;
         MovmentState(true);
+        inDoor = "";
     }
     public void BuildObject(){
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
@@ -191,7 +192,9 @@ public class PlayerInteraction : MonoBehaviour
             currentTrashPile = null;
         }
         if(other.tag == "door"){
-            inDoor = "";
+            if(!changingStage){
+                inDoor = "";
+            }
         }
         if(other.tag == "arcade"){
             facingArcade = false;
