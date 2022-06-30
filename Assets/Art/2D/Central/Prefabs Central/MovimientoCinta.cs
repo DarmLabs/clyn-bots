@@ -8,8 +8,10 @@ public class MovimientoCinta : MonoBehaviour
     private Transform tr;
     private bool sleeping;
     private bool crece;
+    private bool nocrece;
     private float fallTime = 0f;
     private Vector3 scaleChange;
+    private Vector3 scaleChange1;
      
     void Awake()
     {
@@ -20,17 +22,21 @@ public class MovimientoCinta : MonoBehaviour
     {
         sleeping = false;
         fallTime = 0f;
-        crece = false;
+        crece = false;        
         scaleChange = new Vector3(+0.0015f, +0.0015f, 0f);
+        scaleChange1 = new Vector3(+0.0008f, +0.0008f, 0f);
     }    
     void Update()
     {       
         fallTime += Time.deltaTime;
         if (crece)
         {
-            tr.localScale = tr.localScale + scaleChange;
-            
-        }        
+            tr.localScale = tr.localScale + scaleChange;            
+        }    
+        if (nocrece)
+        {
+            tr.localScale = tr.localScale + scaleChange1;
+        }    
     }
      
     void OnTriggerEnter2D(Collider2D other) 
@@ -55,10 +61,13 @@ public class MovimientoCinta : MonoBehaviour
             if(other.name == "crece")
             {
                 crece = true;
+                
             }
             if(other.name == "nocrece")
             {
                 crece = false;
+                nocrece=true;
+                tr.Rotate(0.0f, 0.0f, +5f, Space.Self);
             }
         }
     }
