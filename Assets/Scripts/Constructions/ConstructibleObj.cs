@@ -76,5 +76,7 @@ public class ConstructibleObj : MonoBehaviour
     public void BuildObject(){
         building.transform.position = target.transform.position;
         target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 3, target.transform.position.z);
+        building.GetComponent<SavePosition>().PositionUpdated();
+        target.GetComponent<SavePosition>().PositionUpdated();
     }
 }
