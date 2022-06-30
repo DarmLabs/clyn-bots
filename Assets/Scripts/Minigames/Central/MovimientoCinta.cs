@@ -23,19 +23,21 @@ public class MovimientoCinta : MonoBehaviour
         sleeping = false;
         fallTime = 0f;
         crece = false;        
-        scaleChange = new Vector3(+0.0015f, +0.0015f, 0f);
-        scaleChange1 = new Vector3(+0.0008f, +0.0008f, 0f);
+        //scaleChange = new Vector3(+0.0015f, +0.0015f, 0f);
+        //scaleChange1 = new Vector3(+0.0008f, +0.0008f, 0f);
+        scaleChange = new Vector3(+0.12f, +0.12f, 0f);
+        scaleChange1 = new Vector3(+0.08f, +0.08f, 0f);
     }    
     void Update()
     {       
         fallTime += Time.deltaTime;
         if (crece)
         {
-            tr.localScale = tr.localScale + scaleChange;            
+            tr.localScale = tr.localScale + (scaleChange*Time.deltaTime);            
         }    
         if (nocrece)
         {
-            tr.localScale = tr.localScale + scaleChange1;
+            tr.localScale = tr.localScale + (scaleChange1*Time.deltaTime);
         }    
     }
      
