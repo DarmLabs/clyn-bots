@@ -37,7 +37,7 @@ public class MovimientoCinta : MonoBehaviour
     {        
         if (other.tag == "PuntoDireccion")
         {                
-            tr.Rotate(0.0f, 0.0f, +10f, Space.Self);
+            tr.Rotate(0.0f, 0.0f, +7f, Space.Self);
             if (fallTime > 1f)
             {               
                 if (sleeping)
@@ -55,6 +55,10 @@ public class MovimientoCinta : MonoBehaviour
             if(other.name == "crece")
             {
                 crece = true;
+            }
+            if(other.name == "nocrece")
+            {
+                crece = false;
             }
         }
     }
