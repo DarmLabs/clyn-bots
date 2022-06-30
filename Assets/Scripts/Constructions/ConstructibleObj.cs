@@ -18,6 +18,7 @@ public class ConstructibleObj : MonoBehaviour
     #endregion
     public GameObject target;
     public GameObject building;
+    bool reqMeet;
     void Start()
     {
         SaveData = GameObject.Find("GlobalVariables");
@@ -33,24 +34,44 @@ public class ConstructibleObj : MonoBehaviour
                 switch (i)
                 {
                     case 0:
-                        req = "Vidrio x" + reqResources[i];  
+                        req = "\nVidrio x" + reqResources[i]; 
+                        if(globalVariables.vidrioRefinado < reqResources[i]){
+                            reqMeet = false;
+                        } 
                         break;
                     case 1:
                         req += "\nPlastico x" + reqResources[i];  
+                        if(globalVariables.plasticoRefinado < reqResources[i]){
+                            reqMeet = false;
+                        }
                         break;
                     case 2:
-                        req += "\nCarton x" + reqResources[i];  
+                        req += "\nCarton x" + reqResources[i]; 
+                        if(globalVariables.cartonRefinado < reqResources[i]){
+                            reqMeet = false;
+                        } 
                         break;
                     case 3:
-                        req += "\nMetal x" + reqResources[i];  
+                        req += "\nMetal x" + reqResources[i]; 
+                        if(globalVariables.metalRefinado < reqResources[i]){
+                            reqMeet = false;
+                        } 
                         break;
                     case 4:
                         req += "\nVidrio x" + reqResources[i];  
+                        if(globalVariables.compostRefinado < reqResources[i]){
+                            reqMeet = false;
+                        }
                         break;
                 }
             }
         }
-        //general_UI.BuildingConstructionMenu(building.name, )
+        if(reqMeet){
+            general_UI.ConstructionButtonState(true);
+        }else{
+            general_UI.ConstructionButtonState(false);
+        }
+        general_UI.BuildingConstructionMenu(building.name, req);
     }
     public void BuildObject(){
         building.transform.position = target.transform.position;

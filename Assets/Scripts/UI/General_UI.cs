@@ -13,6 +13,9 @@ public class General_UI : MonoBehaviour
     public GameObject miniGamePanel;
     public GameObject constructionPanel;
     public TextMeshProUGUI constructionTitle, youHaveRS, reqText;
+    public Button constructionBtn;
+    public Color32 lockColor;
+    public Color32 unlockColor;
     void Start()
     {
         playerInteraction = player.GetComponent<PlayerInteraction>();
@@ -28,7 +31,7 @@ public class General_UI : MonoBehaviour
     }
     public void BuildingConstructionMenu(string title, string req)
     {
-        reqText.text = "Construyendo " + title; 
+        constructionTitle.text = "Construyendo " + title; 
 
         youHaveRS.text =
         "Materiales Refinados que tienes:\nVidrio: " + playerInteraction.globalVariables.vidrioRefinado + 
@@ -37,7 +40,15 @@ public class General_UI : MonoBehaviour
         "\nMetal: " + playerInteraction.globalVariables.metalRefinado +
         "\nComopost: " + playerInteraction.globalVariables.compostRefinado;
 
-        reqText.text = req;
+        reqText.text = "Materiales Refinados necesarios:" + req;
+    }
+    public void ConstructionButtonState(bool state){
+        constructionBtn.enabled = state;
+        if(!state){
+            constructionBtn.image.color = lockColor;
+        }else{
+            constructionBtn.image.color = unlockColor;
+        }
     }
     public void MinigamePanelSwitcher(bool state){
         miniGamePanel.SetActive(state);
