@@ -28,9 +28,13 @@ public class Generador : MonoBehaviour
     private float intervalo = 0; 
     private int contadorBasura = 0;
 
-    //private float fraction = 1f;
+    private float fraction = 10f;
     //private float smoothTime = 1F;
     private Vector3 velocity = Vector3.zero;
+
+    private bool Tacho1 = false;
+    private bool Tacho2 = false;
+    private bool Tacho3 = false;
 
     private GameObject globalaux;
     private GlobalVariables gv; 
@@ -56,6 +60,24 @@ public class Generador : MonoBehaviour
         Tiempo += Time.deltaTime;
         Debug.Log(intervalo);        
         InstanceIntervalo();
+        if (Tacho1)
+        {
+            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
+            Tachos.transform.GetChild(1).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(1).gameObject.transform.position, PosicionesTachos[1].transform.position, fraction*Time.deltaTime); 
+            Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime); 
+        }
+        if (Tacho2)
+        {
+            Tachos.transform.GetChild(1).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(1).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
+            Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[1].transform.position, fraction*Time.deltaTime); 
+            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime); 
+        }
+        if (Tacho3)
+        {
+            Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
+            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[1].transform.position, fraction*Time.deltaTime); 
+            Tachos.transform.GetChild(1).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(1).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime);
+        }
     }  
     
   
@@ -86,37 +108,46 @@ public class Generador : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
         {
+            Tacho1 = true;
+            Tacho2 = false;
+            Tacho3 = false;
             /*Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);*/
             //Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, Time.deltaTime); 
             //Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.SmoothDamp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, ref velocity, smoothTime);          
-            Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[0].transform.position;
+            /*Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[0].transform.position;
             Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[1].transform.position;
             Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[2].transform.position;
             
             Debug.Log("TransformGetchild: "+Tachos.transform.GetChild(0).gameObject.transform);
-            Debug.Log("PosicionTachos: "+PosicionesTachos[0].transform.position);
+            Debug.Log("PosicionTachos: "+PosicionesTachos[0].transform.position);*/
             
 
         }
         if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
         {
+            Tacho1 = false;
+            Tacho2 = true;
+            Tacho3 = false;
             /*Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(true);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);*/
-            Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[0].transform.position;
+            /*Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[0].transform.position;
             Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[1].transform.position;
-            Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[2].transform.position;
+            Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[2].transform.position;*/
         }
         if(Input.GetKeyDown(KeyCode.Keypad3)|| Input.GetKeyDown(KeyCode.Alpha3) )
         {
+            Tacho1 = false;
+            Tacho2 = false;
+            Tacho3 = true;
             /*Tachos.transform.GetChild(0).gameObject.SetActive(false);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(true);*/
-            Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[0].transform.position;
+           /* Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[0].transform.position;
             Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[1].transform.position;
-            Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[2].transform.position;
+            Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[2].transform.position;*/
         }
 
         
