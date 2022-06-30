@@ -43,7 +43,41 @@ public class PlayerInteraction : MonoBehaviour
     {
         Controls();
     }
-    void Aspire(){
+    void Controls(){
+        if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
+            Aspire();
+        }
+        else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
+            playerAnim.Aspire(false);
+            OnObjectExit();
+        }
+        else{
+            playerAnim.Aspire(false);
+            timePressed = 0;
+        }
+        if(Input.GetKeyDown(KeyCode.E)){
+            bool interactionHappen = false;
+            if(inDoor != ""){
+                interactionHappen = true;
+            }
+            if(facingArcade){
+                general_UI.MinigamePanelSwitcher(true);
+                interactionHappen = true;
+            }
+            if(targetConstruction != null){
+                general_UI.ConstructionPanelSwitcher(true);
+                targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
+                interactionHappen = true;
+            }
+            if(interactionHappen){
+                playerAnim.Interaction(true);
+            }
+        }
+        /*if(Input.GetKeyDown(KeyCode.Q)){
+            playerAnim.Celebrate();
+        }*/
+    }
+     void Aspire(){
         timePressed +=  Time.deltaTime;
         playerAnim.Aspire(true);
         if(timePressed > 2){
@@ -83,40 +117,6 @@ public class PlayerInteraction : MonoBehaviour
         itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
         bagPercentage = (itemsInBag *100)/ 50;
     }
-    
-    void Controls(){
-        if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
-            Aspire();
-        }
-        else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
-            playerAnim.Aspire(false);
-            OnObjectExit();
-        }
-        else{
-            playerAnim.Aspire(false);
-            timePressed = 0;
-        }
-        if(Input.GetKeyDown(KeyCode.E)){
-            bool interactionHappen = false;
-            if(inDoor != ""){
-                interactionHappen = true;
-            }
-            if(facingArcade){
-                general_UI.MinigamePanelSwitcher(true);
-                interactionHappen = true;
-            }
-            if(targetConstruction != null){
-                targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
-                interactionHappen = true;
-            }
-            if(interactionHappen){
-                playerAnim.Interaction(true);
-            }
-        }
-        /*if(Input.GetKeyDown(KeyCode.Q)){
-            playerAnim.Celebrate();
-        }*/
-    }
     public void ChangeStage(){
         player_UI.fadeState = 1;
         StartCoroutine(WaitInDoor(1));
@@ -148,6 +148,9 @@ public class PlayerInteraction : MonoBehaviour
         }
         player_UI.fadeState = 2;
         MovmentState(true);
+    }
+    public void BuildObject(){
+        targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
     }
     void OnTriggerEnter(Collider other)
     {
