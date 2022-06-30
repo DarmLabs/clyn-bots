@@ -28,7 +28,9 @@ public class Generador : MonoBehaviour
     private float intervalo = 0; 
     private int contadorBasura = 0;
 
-    private float fraction = 1f;
+    //private float fraction = 1f;
+    //private float smoothTime = 1F;
+    private Vector3 velocity = Vector3.zero;
 
     private GameObject globalaux;
     private GlobalVariables gv; 
@@ -87,7 +89,8 @@ public class Generador : MonoBehaviour
             /*Tachos.transform.GetChild(0).gameObject.SetActive(true);
             Tachos.transform.GetChild(1).gameObject.SetActive(false);
             Tachos.transform.GetChild(2).gameObject.SetActive(false);*/
-            //Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, Time.deltaTime);           
+            //Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, Time.deltaTime); 
+            //Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.SmoothDamp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, ref velocity, smoothTime);          
             Tachos.transform.GetChild(0).gameObject.transform.position = PosicionesTachos[0].transform.position;
             Tachos.transform.GetChild(1).gameObject.transform.position = PosicionesTachos[1].transform.position;
             Tachos.transform.GetChild(2).gameObject.transform.position = PosicionesTachos[2].transform.position;
