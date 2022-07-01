@@ -30,6 +30,7 @@ public class SavePosition : MonoBehaviour, ISaveable
         xPos = saveData.xPos;
         yPos = saveData.yPos;
         zPos = saveData.zPos;
+        SetPosition();
     }
     [Serializable]
     private struct SaveData{
