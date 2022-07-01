@@ -11,7 +11,6 @@ public class PlayerWallDetector : MonoBehaviour
     }
     void OnTriggerEnter(Collider collisionInfo)
     {
-        Debug.Log("entro");
         if(collisionInfo.gameObject.isStatic){
             playersMovement.wallAhed = true;
         }

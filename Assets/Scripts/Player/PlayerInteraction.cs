@@ -65,6 +65,7 @@ public class PlayerInteraction : MonoBehaviour
             if(facingArcade){
                 general_UI.MinigamePanelSwitcher(true);
                 interactionHappen = true;
+                SaveTransform();
             }
             if(targetConstruction != null){
                 general_UI.ConstructionPanelSwitcher(true);
@@ -214,5 +215,10 @@ public class PlayerInteraction : MonoBehaviour
     }
     void OnResume(){
         Time.timeScale = 1;
+    }
+    void SaveTransform(){
+        GetComponent<SavePosition>().PositionUpdated();
+        GetComponent<SavePosition>().RotationUpdated();
+        Debug.Log("guardo");
     }
 }
