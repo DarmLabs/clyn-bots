@@ -15,7 +15,7 @@ public class PlayerInteraction : MonoBehaviour
     Player_UI player_UI;
     General_UI general_UI;
     public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
-    public GameObject sun;
+    public GameObject sun, spotCentral, spotGreenZone;
     GameObject currentTrashPile;
     GameObject targetConstruction;
     [Space(10)]
@@ -144,24 +144,30 @@ public class PlayerInteraction : MonoBehaviour
     public void MovmentState(bool state){
         GetComponent<PlayersMovement>().enabled = state;
     }
+    void LightChange(GameObject lightOn, GameObject lightOff){
+        lightOn.SetActive(true);
+        lightOff.SetActive(false);
+    }
     IEnumerator WaitInDoor(float secs){
         yield return new WaitForSeconds(secs);
             switch (inDoor)
             {
                 case "ToBasural":
                     transform.position = BasuralPoint.transform.position;
-                    sun.SetActive(true);
+                    LightChange(sun, spotCentral);
+                    //Camera.main.GetComponent<Camera>()
                     break;
                 case "ToLobbyFB":
                     transform.position = LobbyPointB.transform.position;
-                    sun.SetActive(false);
+                    LightChange(spotCentral, sun);
                     break;
                 case "ToLobbyFGZ":
                     transform.position = LobbyPointGZ.transform.position;
-                    sun.SetActive(false);
+                    LightChange(spotCentral, spotGreenZone);
                     break;
                 case "ToGreenZone":
                     transform.position = GreenZonePoint.transform.position;
+                    LightChange(spotGreenZone, spotCentral);
                     break;
                 }
         player_UI.fadeState = 2;

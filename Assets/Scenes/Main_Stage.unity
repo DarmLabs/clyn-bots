@@ -802,7 +802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &257197676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,7 +835,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3000
+  m_Intensity: 2000
   m_Range: 500
   m_SpotAngle: 179
   m_InnerSpotAngle: 69.91118
@@ -3000,7 +3000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &915558402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3077,7 +3077,7 @@ Light:
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 3999
-  m_UseColorTemperature: 0
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -3744,7 +3744,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3000
+  m_Intensity: 500
   m_Range: 100
   m_SpotAngle: 90
   m_InnerSpotAngle: 20
@@ -4308,12 +4308,12 @@ GameObject:
   - component: {fileID: 1184017517}
   - component: {fileID: 1184017516}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1184017516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4346,7 +4346,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1.02
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4454,7 +4454,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1243343627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4531,7 +4531,7 @@ Light:
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
   m_ColorTemperature: 4588
-  m_UseColorTemperature: 0
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
@@ -14783,7 +14783,7 @@ PrefabInstance:
     - target: {fileID: 2592944186966138465, guid: a93c364c55a000b439cbe9a8c4eab3f9, type: 3}
       propertyPath: sun
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1184017515}
     - target: {fileID: 2592944186966138465, guid: a93c364c55a000b439cbe9a8c4eab3f9, type: 3}
       propertyPath: UIManager
       value: 
