@@ -22,9 +22,7 @@ public class MovimientoCinta : MonoBehaviour
     {
         sleeping = false;
         fallTime = 0f;
-        crece = false;        
-        //scaleChange = new Vector3(+0.0015f, +0.0015f, 0f);
-        //scaleChange1 = new Vector3(+0.0008f, +0.0008f, 0f);
+        crece = false;     
         scaleChange = new Vector3(+0.12f, +0.12f, 0f);
         scaleChange1 = new Vector3(+0.08f, +0.08f, 0f);
     }    
@@ -46,24 +44,27 @@ public class MovimientoCinta : MonoBehaviour
         if (other.tag == "PuntoDireccion")
         {                
             tr.Rotate(0.0f, 0.0f, +7f, Space.Self);
-            if (fallTime > 1f)
-            {               
-                if (sleeping)
+            if(other.name == "base")
+            {
+                if (fallTime > 1f)
+                {               
+                    if (sleeping)
                     {
                         rb.WakeUp();                                               
                     }
-                else
+                    else
                     {
                         rb.Sleep();                
                     }
-            sleeping = !sleeping;
+                    sleeping = !sleeping;
             
-            fallTime = 0.00f;
-            }
+                    fallTime = 0.00f;
+                }
+            }            
             if(other.name == "crece")
             {
                 crece = true;
-                
+                nocrece = false;
             }
             if(other.name == "nocrece")
             {

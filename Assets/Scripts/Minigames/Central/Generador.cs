@@ -65,15 +65,15 @@ public class Generador : MonoBehaviour
     {
         for (int i = 0; i < cantidadRecuperables; i++)
         {
-            Residuos[i] = Recuperables[Random.Range(0,indexRecuperables)];            
+            Residuos[i] = Recuperables[Random.Range(0,indexRecuperables+1)];            
         }
         for (int i = 0; i < cantidadNoRecuperables; i++)
         {
-            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables)];               
+            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables+1)];               
         }
         for (int i = 0; i < cantidadOrganicos; i++)
         {
-            Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos)];            
+            Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos+1)];            
         }
         for (int t = 0; t < Residuos.Length; t++)
         {
