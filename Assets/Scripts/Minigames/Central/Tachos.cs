@@ -21,6 +21,7 @@ public class Tachos : MonoBehaviour
         gv.divisionOrganic = 0;
         gv.divisionRec = 0;
         
+        
     }
 
     void Update()

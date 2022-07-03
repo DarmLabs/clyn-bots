@@ -9,6 +9,7 @@ public class MovimientoCinta : MonoBehaviour
     private bool sleeping;
     private bool crece;
     private bool nocrece;
+    private bool roto;
     private float fallTime = 0f;
     private Vector3 scaleChange;
     private Vector3 scaleChange1;
@@ -22,9 +23,12 @@ public class MovimientoCinta : MonoBehaviour
     {
         sleeping = false;
         fallTime = 0f;
-        crece = false;     
+        crece = false; 
+        nocrece = false;
+        roto = false;    
         scaleChange = new Vector3(+0.12f, +0.12f, 0f);
-        scaleChange1 = new Vector3(+0.08f, +0.08f, 0f);
+        scaleChange1 = new Vector3(+0.08f, +0.08f, 0f);        
+
     }    
     void Update()
     {       
@@ -42,10 +46,14 @@ public class MovimientoCinta : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) 
     {        
         if (other.tag == "PuntoDireccion")
-        {                
-            tr.Rotate(0.0f, 0.0f, +7f, Space.Self);
+        {              
             if(other.name == "base")
             {
+                if (!roto)
+                {
+                    tr.Rotate(0.0f, 0.0f, +10f, Space.Self);
+                    roto = true;
+                }                
                 if (fallTime > 1f)
                 {               
                     if (sleeping)
@@ -56,8 +64,7 @@ public class MovimientoCinta : MonoBehaviour
                     {
                         rb.Sleep();                
                     }
-                    sleeping = !sleeping;
-            
+                    sleeping = !sleeping;            
                     fallTime = 0.00f;
                 }
             }            
@@ -69,8 +76,8 @@ public class MovimientoCinta : MonoBehaviour
             if(other.name == "nocrece")
             {
                 crece = false;
-                nocrece=true;
-                tr.Rotate(0.0f, 0.0f, +5f, Space.Self);
+                nocrece=true;                
+                tr.Rotate(0.0f, 0.0f, +10f, Space.Self);
             }
         }
     }
