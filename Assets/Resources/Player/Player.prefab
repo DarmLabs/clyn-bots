@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f68c35be7fcf5f48a511371c76bc3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallAhed: 0
 --- !u!114 &2592944186966138465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,10 +420,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SaveLoadGameObject: {fileID: 0}
   GlobalVariables: {fileID: 0}
+  globalVariables: {fileID: 0}
   UIManager: {fileID: 0}
   BasuralPoint: {fileID: 0}
-  LobbyPoint: {fileID: 0}
+  LobbyPointB: {fileID: 0}
+  LobbyPointGZ: {fileID: 0}
+  GreenZonePoint: {fileID: 0}
   sun: {fileID: 0}
+  spotCentral: {fileID: 0}
+  spotGreenZone: {fileID: 0}
+  inDoor: 
+  bagPercentage: 0
 --- !u!114 &2592944186966138470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1039,7 +1047,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5605847320515645683}
   - component: {fileID: 4577187642100079321}
-  - component: {fileID: 5605847320515645682}
   m_Layer: 0
   m_Name: Cube.006
   m_TagString: Untagged
@@ -1142,19 +1149,6 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.026224077, y: 0.24337682, z: -0.14859106}
     m_Extent: {x: 0.46093857, y: 1.1226885, z: 0.4562018}
   m_DirtyAABB: 0
---- !u!65 &5605847320515645682
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6250388685756710998}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9218774, y: 0.91492987, z: 2.1387322}
-  m_Center: {x: 0.16578442, y: 0.1412567, z: 0.04849911}
 --- !u!1 &6453192856875763528
 GameObject:
   m_ObjectHideFlags: 0
