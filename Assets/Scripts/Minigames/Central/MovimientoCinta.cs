@@ -17,8 +17,8 @@ public class MovimientoCinta : MonoBehaviour
      
     void Awake()
     {
-          rb = gameObject.GetComponent<Rigidbody2D>();
-          tr = gameObject.GetComponent<Transform>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        tr = gameObject.GetComponent<Transform>();
     }
     void Start()
     {
