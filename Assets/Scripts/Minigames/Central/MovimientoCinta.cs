@@ -85,7 +85,8 @@ public class MovimientoCinta : MonoBehaviour
             if(other.name == "nocrece")
             {
                 crece = false;
-                nocrece=true;                
+                nocrece=true; 
+                Generador.bloqueaMovimiento = true;               
                 tr.Rotate(0.0f, 0.0f, +10f, Space.Self);
             }
         }
