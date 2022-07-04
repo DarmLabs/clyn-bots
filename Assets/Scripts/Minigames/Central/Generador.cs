@@ -40,6 +40,7 @@ public class Generador : MonoBehaviour
     private bool Tacho1 = false;
     private bool Tacho2 = false;
     private bool Tacho3 = false;
+    private bool PrimeraVuelta = true;
     #endregion
     public static bool bloqueaMovimiento = false; 
     private Vector3 velocity = Vector3.zero;        
@@ -48,6 +49,7 @@ public class Generador : MonoBehaviour
     
     void Start () 
     {       
+        PrimeraVuelta = true;
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
@@ -157,6 +159,12 @@ public class Generador : MonoBehaviour
     }
     void InstanceIntervalo()    
     {
+        if (PrimeraVuelta)
+        {
+            Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
+            contadorBasura += 1;
+            PrimeraVuelta = false;
+        }
         if (Mathf.Round(Tiempo) == intervalo) //&& contadorBasura <= cantidadResiduos)
         {            
             //Debug.Log("Tiempo es igual a intervalo:"+Tiempo);
