@@ -9,16 +9,17 @@ public class PlayerWallDetector : MonoBehaviour
     {
         playersMovement = GetComponentInParent<PlayersMovement>();
     }
-    void OnTriggerEnter(Collider collisionInfo)
+    void FixedUpdate()
     {
-        if(collisionInfo.gameObject.isStatic){
-            playersMovement.wallAhed = true;
-        }
-    }
-    void OnTriggerExit(Collider collisionInfo)
-    {
-        if(collisionInfo.gameObject.isStatic){
-            playersMovement.wallAhed = false;
+        RaycastHit hit;
+        Ray forwardRay = new Ray(transform.position, transform.parent.forward);
+
+        if(Physics.Raycast(forwardRay, out hit)){
+            if(hit.distance < 0.5){
+                playersMovement.wallAhed = true;
+            }else{
+                playersMovement.wallAhed = false;
+            }
         }
     }
 }
