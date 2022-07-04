@@ -8,6 +8,7 @@ public class ConstructibleObj : MonoBehaviour
     GlobalVariables globalVariables;
     GameObject UIManager;
     General_UI general_UI;
+    bool readyForSeed;
     public int[] reqResources = new int[5];
     #region Index = Resource
     //[0] = Vidrio
@@ -17,6 +18,7 @@ public class ConstructibleObj : MonoBehaviour
     //[4] = Compost
     #endregion
     public GameObject target;
+    public GameObject targetOptional;
     public GameObject building;
     bool reqMeet = true;
     void Start()
@@ -76,8 +78,17 @@ public class ConstructibleObj : MonoBehaviour
     public void BuildObject(){
         building.transform.position = target.transform.position;
         target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 3, target.transform.position.z);
+        if(targetOptional != null){
+            targetOptional.transform.position = target.transform.position;
+            readyForSeed = true;
+        }else{
+            gameObject.tag = "Untagged";
+        }
         building.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
-        gameObject.tag = "Untagged";
+        
+    }
+    public void SeedSection(){
+
     }
 }

@@ -44,6 +44,15 @@ public class General_UI : MonoBehaviour
 
         reqText.text = "Materiales Refinados necesarios:" + req;
     }
+    public void EnabledSection(string name){
+        switch (name)
+        {
+            case "Construir":
+                break;
+            case "Sembrar":
+                break;
+        }
+    }
     public void ConstructionButtonState(bool state){
         constructionBtn.enabled = state;
         if(!state){
