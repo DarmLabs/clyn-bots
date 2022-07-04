@@ -24,31 +24,41 @@ public class Generador : MonoBehaviour
     private int cantidadNoRecuperables = 0;
     private int cantidadOrganicos = 0;
     private int contadorBasura = 0;
-    #endregion
-    
     private float Tiempo = 0f;
     private float intervalo = 0;    
     private float fraction = 10f;
-    
-    private Vector3 velocity = Vector3.zero;
-
+    #endregion
+    #region Sorting Layer Config
+    public const string PrincipalLayer = "Principal";
+    public const string SecundarioLayer = "Secundario";
+    public int sortingOrder = 0;
+    private SpriteRenderer TachoNoRecSprite;
+    private SpriteRenderer TachoRecSprite;
+    private SpriteRenderer TachoOrgSprite;
+    #endregion
+    #region Banderas
     private bool Tacho1 = false;
     private bool Tacho2 = false;
-    private bool Tacho3 = false;          
-
+    private bool Tacho3 = false;
+    #endregion
+    public static bool bloqueaMovimiento = false; 
+    private Vector3 velocity = Vector3.zero;        
     private GameObject globalaux;
     private GlobalVariables gv; 
-
     
     void Start () 
     {       
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
-        gv = globalaux.GetComponent<GlobalVariables>();        
+        gv = globalaux.GetComponent<GlobalVariables>();
+        TachoNoRecSprite = Tachos.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        TachoRecSprite = Tachos.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+        TachoOrgSprite = Tachos.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();        
         cantidadNoRecuperables = gv.noRecTrash;
         cantidadOrganicos = gv.organicTrash;
         cantidadRecuperables = gv.recTrash;
-        cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;        
+        cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
+        bloqueaMovimiento = false;        
         Residuos = new GameObject[cantidadResiduos];  
         CreateResiduos();           
     }
@@ -86,41 +96,62 @@ public class Generador : MonoBehaviour
     }
     void Controls()
     {
-        if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
+        if (!bloqueaMovimiento)
         {
-            Tacho1 = true;
-            Tacho2 = false;
-            Tacho3 = false;                                   
-        }
-        if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
-        {
-            Tacho1 = false;
-            Tacho2 = true;
-            Tacho3 = false;             
-        }
-        if(Input.GetKeyDown(KeyCode.Keypad3)|| Input.GetKeyDown(KeyCode.Alpha3) )
-        {
-            Tacho1 = false;
-            Tacho2 = false;
-            Tacho3 = true;   
-        }  
+            if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
+            {
+                Tacho1 = true;
+                Tacho2 = false;
+                Tacho3 = false;                                   
+            }
+            if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
+            {
+                Tacho1 = false;
+                Tacho2 = true;
+                Tacho3 = false;             
+            }
+            if(Input.GetKeyDown(KeyCode.Keypad3)|| Input.GetKeyDown(KeyCode.Alpha3) )
+            {
+                Tacho1 = false;
+                Tacho2 = false;
+                Tacho3 = true;   
+            }  
+        }        
         if (Tacho1)
         {
             Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
             Tachos.transform.GetChild(1).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(1).gameObject.transform.position, PosicionesTachos[1].transform.position, fraction*Time.deltaTime); 
-            Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime);    
+            Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime);
+            TachoNoRecSprite.sortingOrder = sortingOrder;
+            TachoNoRecSprite.sortingLayerName = PrincipalLayer;
+            TachoRecSprite.sortingOrder = sortingOrder;
+            TachoRecSprite.sortingLayerName = SecundarioLayer;
+            TachoOrgSprite.sortingOrder = sortingOrder;
+            TachoOrgSprite.sortingLayerName = SecundarioLayer;
         }
         if (Tacho2)
         {
             Tachos.transform.GetChild(1).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(1).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
             Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[1].transform.position, fraction*Time.deltaTime); 
-            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime);   
+            Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime); 
+            TachoNoRecSprite.sortingOrder = sortingOrder;
+            TachoNoRecSprite.sortingLayerName = SecundarioLayer;
+            TachoRecSprite.sortingOrder = sortingOrder;
+            TachoRecSprite.sortingLayerName = PrincipalLayer;
+            TachoOrgSprite.sortingOrder = sortingOrder;
+            TachoOrgSprite.sortingLayerName = SecundarioLayer;
         }
         if (Tacho3)
         {
             Tachos.transform.GetChild(2).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(2).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
             Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[1].transform.position, fraction*Time.deltaTime); 
             Tachos.transform.GetChild(1).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(1).gameObject.transform.position, PosicionesTachos[2].transform.position, fraction*Time.deltaTime);
+            TachoNoRecSprite.sortingOrder = sortingOrder;
+            TachoNoRecSprite.sortingLayerName = SecundarioLayer;
+            TachoRecSprite.sortingOrder = sortingOrder;
+            TachoRecSprite.sortingLayerName = SecundarioLayer;
+            TachoOrgSprite.sortingOrder = sortingOrder;
+            TachoOrgSprite.sortingLayerName = PrincipalLayer;
         }      
         
     }

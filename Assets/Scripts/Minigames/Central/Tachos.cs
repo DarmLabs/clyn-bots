@@ -19,8 +19,7 @@ public class Tachos : MonoBehaviour
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         gv.divisionNoRec = 0;
         gv.divisionOrganic = 0;
-        gv.divisionRec = 0;
-        
+        gv.divisionRec = 0;       
         
     }
 
@@ -54,13 +53,15 @@ public class Tachos : MonoBehaviour
                     gv.recTrash -= 1;
                     gv.divisionRec +=1;
                     Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
+                    Generador.bloqueaMovimiento = false; 
                     break;
                 case "NoRecuperable":
                     Destroy(other.gameObject);
                     Debug.Log("Se separó un no recuperable");
                     gv.noRecTrash -=1;  
                     gv.divisionRec +=1;  
-                    Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);         
+                    Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
+                    Generador.bloqueaMovimiento = false;          
                     break;
                 case "Organico":
                     Destroy(other.gameObject);
@@ -68,6 +69,7 @@ public class Tachos : MonoBehaviour
                     gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
                     Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
+                    Generador.bloqueaMovimiento = false; 
                     break;
             } 
             saveSystem.Save();           
@@ -76,6 +78,7 @@ public class Tachos : MonoBehaviour
         {
             errores += 1;
             Debug.Log("ERROR EN RECOLECCION");
+            Generador.bloqueaMovimiento = false; 
             saveSystem.Save(); 
         }
     }
