@@ -10,6 +10,7 @@ public class MovimientoCinta : MonoBehaviour
     private bool crece;
     private bool nocrece;
     private bool roto;
+    private bool roto1;
     private float fallTime = 0f;
     private Vector3 scaleChange;
     private Vector3 scaleChange1;
@@ -25,7 +26,8 @@ public class MovimientoCinta : MonoBehaviour
         fallTime = 0f;
         crece = false; 
         nocrece = false;
-        roto = false;    
+        roto = false; 
+        roto1 = false;        
         scaleChange = new Vector3(+0.12f, +0.12f, 0f);
         scaleChange1 = new Vector3(+0.08f, +0.08f, 0f);        
 
@@ -70,8 +72,15 @@ public class MovimientoCinta : MonoBehaviour
             }            
             if(other.name == "crece")
             {
+                if(!roto1)
+                {
+                    tr.Rotate(0.0f, 0.0f, +5f, Space.Self);
+                    roto1 = true;
+                }
+               
                 crece = true;
                 nocrece = false;
+                
             }
             if(other.name == "nocrece")
             {
