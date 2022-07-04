@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -306,6 +306,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &2101970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -435,6 +440,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &40474280
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -656,6 +666,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1717086012146188538, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
   m_PrefabInstance: {fileID: 1717086011982212821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &181819025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 181819026}
+  - component: {fileID: 181819028}
+  - component: {fileID: 181819027}
+  m_Layer: 5
+  m_Name: Carton (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &181819026
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181819025}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.3473684, y: 0.33, z: 0.374}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1287760308}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 3.62}
+  m_SizeDelta: {x: 211, y: 121}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &181819027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181819025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -806551677, guid: d734522afa5624642af5b057f599931d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &181819028
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181819025}
+  m_CullTransparentMesh: 1
 --- !u!1 &211622129
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,6 +774,7 @@ RectTransform:
   m_Children:
   - {fileID: 1469259437}
   - {fileID: 2142626991}
+  - {fileID: 1373685759}
   m_Father: {fileID: 1082782664}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -887,6 +974,82 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252625605}
   m_CullTransparentMesh: 1
+--- !u!1 &335417241
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 335417242}
+  - component: {fileID: 335417244}
+  - component: {fileID: 335417243}
+  m_Layer: 5
+  m_Name: Plastico (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &335417242
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335417241}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.39, y: 0.39, z: 0.4940001}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 800043382}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 3.88}
+  m_SizeDelta: {x: 165, y: 126}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &335417243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335417241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1295505857, guid: d734522afa5624642af5b057f599931d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &335417244
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 335417241}
+  m_CullTransparentMesh: 1
 --- !u!1 &336240754
 GameObject:
   m_ObjectHideFlags: 0
@@ -962,6 +1125,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336240754}
+  m_CullTransparentMesh: 1
+--- !u!1 &411832604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 411832605}
+  - component: {fileID: 411832607}
+  - component: {fileID: 411832606}
+  m_Layer: 5
+  m_Name: Compost (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &411832605
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411832604}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.39, y: 0.39, z: 0.46800008}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1036438203}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 6.44}
+  m_SizeDelta: {x: 160, y: 152}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &411832606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411832604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1413612208, guid: d734522afa5624642af5b057f599931d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &411832607
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411832604}
   m_CullTransparentMesh: 1
 --- !u!1 &446466699
 GameObject:
@@ -1146,6 +1385,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &483378052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1281,6 +1525,7 @@ RectTransform:
   m_Children:
   - {fileID: 336240755}
   - {fileID: 233560726}
+  - {fileID: 1795352588}
   m_Father: {fileID: 1082782664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1735,6 +1980,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &716863387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1780,6 +2030,7 @@ RectTransform:
   m_Children:
   - {fileID: 1336799229}
   - {fileID: 321327}
+  - {fileID: 335417242}
   m_Father: {fileID: 1082782664}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2213,6 +2464,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &934888542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2332,6 +2588,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &946074686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2451,6 +2712,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &952852892
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2601,6 +2867,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &964075018
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2653,6 +2924,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!212 &984771079
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2775,6 +3051,7 @@ RectTransform:
   m_Children:
   - {fileID: 252625606}
   - {fileID: 446466700}
+  - {fileID: 411832605}
   m_Father: {fileID: 1082782664}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3018,6 +3295,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1102364637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3184,6 +3466,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1216319714
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3397,6 +3684,7 @@ RectTransform:
   m_Children:
   - {fileID: 1346693405}
   - {fileID: 698682888}
+  - {fileID: 181819026}
   m_Father: {fileID: 1082782664}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3795,6 +4083,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1347636232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3914,6 +4207,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1348829862
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3937,6 +4235,82 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3891375695810140454, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
   m_PrefabInstance: {fileID: 3891375694486408346}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1373685758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1373685759}
+  - component: {fileID: 1373685761}
+  - component: {fileID: 1373685760}
+  m_Layer: 5
+  m_Name: Metal (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1373685759
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373685758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.35749996}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 211622130}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 7.02}
+  m_SizeDelta: {x: 163, y: 165}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1373685760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373685758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 538100914, guid: d734522afa5624642af5b057f599931d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1373685761
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373685758}
+  m_CullTransparentMesh: 1
 --- !u!1 &1375053066
 GameObject:
   m_ObjectHideFlags: 0
@@ -4329,6 +4703,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1515381625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4497,6 +4876,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1566090378
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4616,6 +5000,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1623408044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5020,6 +5409,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &1688736020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5053,6 +5447,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1043973928512028370, guid: e23042fa660080c47a31724e88f76e79, type: 3}
   m_PrefabInstance: {fileID: 1043973928869456506}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1795352587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1795352588}
+  - component: {fileID: 1795352590}
+  - component: {fileID: 1795352589}
+  - component: {fileID: 1795352591}
+  m_Layer: 5
+  m_Name: Vidrio (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1795352588
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795352587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 607599905}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 6.9}
+  m_SizeDelta: {x: 97, y: 124}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1795352589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795352587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -497478015, guid: d734522afa5624642af5b057f599931d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1795352590
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795352587}
+  m_CullTransparentMesh: 1
+--- !u!95 &1795352591
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795352587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c3204de24263d74d893635b484807c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1815287015 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2107241343596886326, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
@@ -5269,6 +5760,11 @@ MonoBehaviour:
   textCartones: {fileID: 0}
   textMetales: {fileID: 0}
   textComposts: {fileID: 0}
+  normalVidrios: {fileID: 0}
+  normalPlasticos: {fileID: 0}
+  normalCartones: {fileID: 0}
+  normalMetales: {fileID: 0}
+  normalComposts: {fileID: 0}
 --- !u!65 &2059225399
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5393,9 +5889,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 415515859381941128, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -5443,6 +5959,10 @@ PrefabInstance:
     - target: {fileID: 415515859381941129, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
       propertyPath: m_Name
       value: CubiertosPlastico
+      objectReference: {fileID: 0}
+    - target: {fileID: 415515859381941129, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
@@ -5501,6 +6021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VasoVidrio
       objectReference: {fileID: 0}
+    - target: {fileID: 824741964621334473, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
       propertyPath: textMetales
       value: 
@@ -5518,9 +6042,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
 --- !u!1001 &851363762286168424
@@ -5533,6 +6077,10 @@ PrefabInstance:
     - target: {fileID: 851363761388537515, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
       propertyPath: m_Name
       value: Ramas
+      objectReference: {fileID: 0}
+    - target: {fileID: 851363761388537515, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 851363761388537516, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
       propertyPath: m_RootOrder
@@ -5595,9 +6143,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
 --- !u!1001 &1043973928869456506
@@ -5668,12 +6236,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 1043973928512028381, guid: e23042fa660080c47a31724e88f76e79, type: 3}
       propertyPath: m_Name
       value: CajaHuevos
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043973928512028381, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e23042fa660080c47a31724e88f76e79, type: 3}
@@ -5701,9 +6293,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 1717086012146188538, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -5752,6 +6364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LataAluminio
       objectReference: {fileID: 0}
+    - target: {fileID: 1717086012146188539, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
 --- !u!1001 &1734148011863333479
@@ -5778,9 +6394,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 1734148012428210222, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5829,6 +6465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Diario
       objectReference: {fileID: 0}
+    - target: {fileID: 1734148012428210223, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
 --- !u!1001 &2051872604341389368
@@ -5841,6 +6481,10 @@ PrefabInstance:
     - target: {fileID: 2051872604749707972, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
       propertyPath: m_Name
       value: BidonPlastico
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051872604749707972, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2051872604749707973, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
       propertyPath: m_RootOrder
@@ -5903,9 +6547,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
 --- !u!1001 &2107241342859537873
@@ -5918,6 +6582,10 @@ PrefabInstance:
     - target: {fileID: 2107241343596886326, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
       propertyPath: m_Name
       value: TapaFrasco
+      objectReference: {fileID: 0}
+    - target: {fileID: 2107241343596886326, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
       propertyPath: textMetales
@@ -5936,9 +6604,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 2107241343596886329, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5996,6 +6684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CajaCarton
       objectReference: {fileID: 0}
+    - target: {fileID: 2185260551840855140, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
       propertyPath: textMetales
       value: 
@@ -6013,9 +6705,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 2185260551840855143, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6130,12 +6842,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 2539809767440331223, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
       propertyPath: m_Name
       value: CascaraHuevos
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539809767440331223, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
@@ -6194,6 +6930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manzana
       objectReference: {fileID: 0}
+    - target: {fileID: 2774085958216510665, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
       propertyPath: textMetales
       value: 
@@ -6211,9 +6951,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
 --- !u!1001 &3891375694486408346
@@ -6226,6 +6986,10 @@ PrefabInstance:
     - target: {fileID: 3891375695810140449, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
       propertyPath: m_Name
       value: CascaraBanana
+      objectReference: {fileID: 0}
+    - target: {fileID: 3891375695810140449, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3891375695810140454, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
       propertyPath: m_RootOrder
@@ -6288,9 +7052,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
 --- !u!1001 &5476101380096908717
@@ -6317,9 +7101,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 5476101380831746501, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -6367,6 +7171,10 @@ PrefabInstance:
     - target: {fileID: 5476101380831746506, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
       propertyPath: m_Name
       value: SacoTe
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476101380831746506, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
@@ -6438,12 +7246,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 5662698349815814067, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
       propertyPath: m_Name
       value: FrascoVidrio
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662698349815814067, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
@@ -6471,9 +7303,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     - target: {fileID: 6741818051379221506, guid: 725c6f121a89a39438cf074cec564511, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6522,6 +7374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotellaVidrio
       objectReference: {fileID: 0}
+    - target: {fileID: 6741818051379221507, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 725c6f121a89a39438cf074cec564511, type: 3}
 --- !u!1001 &8656231290363919992
@@ -6534,6 +7390,10 @@ PrefabInstance:
     - target: {fileID: 8656231288743270594, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
       propertyPath: m_Name
       value: BotellaPlastico
+      objectReference: {fileID: 0}
+    - target: {fileID: 8656231288743270594, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8656231288743270595, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
       propertyPath: m_RootOrder
@@ -6596,8 +7456,28 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 592702290}
     - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: normalMetales
+      value: 
+      objectReference: {fileID: 1373685760}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: normalVidrios
+      value: 
+      objectReference: {fileID: 1795352589}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: normalCartones
+      value: 
+      objectReference: {fileID: 181819027}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: normalComposts
+      value: 
+      objectReference: {fileID: 411832606}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: normalPlasticos
+      value: 
+      objectReference: {fileID: 335417243}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}

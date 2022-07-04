@@ -27,6 +27,12 @@ public class Cards : MonoBehaviour
     public Text textMetales;
     public Text textComposts;
 
+    public Image normalVidrios;
+    public Image normalPlasticos;
+    public Image normalCartones;
+    public Image normalMetales;
+    public Image normalComposts; 
+    
     public static int vidrioPartida;
     public static int plasticoPartida;
     public static int cartonPartida;
@@ -146,6 +152,8 @@ public class Cards : MonoBehaviour
                     Debug.Log("VIDRIO REFINADO");
                     vidrioPartida+=10;
                     textVidrios.text = "+"+vidrioPartida.ToString();
+                    normalVidrios.gameObject.SetActive(true);
+                    StartCoroutine (LateCall(normalVidrios.gameObject));                    
 
                 } 
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
@@ -153,18 +161,27 @@ public class Cards : MonoBehaviour
                     Debug.Log("PLASTICO REFINADO");
                     plasticoPartida+=10;
                     textPlasticos.text = "+"+plasticoPartida.ToString();
+                    normalPlasticos.gameObject.SetActive(true);
+                    StartCoroutine (LateCall(normalPlasticos.gameObject));
+                    
                 }
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
                 {
                     Debug.Log("CARTON REFINADO");
                     cartonPartida+=10;
                     textCartones.text = "+"+cartonPartida.ToString();
+                    normalCartones.gameObject.SetActive(true);
+                    StartCoroutine (LateCall(normalCartones.gameObject));
+
                 }       
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
                 {
                     Debug.Log("METAL REFINADO");
                     metalPartida+=10;
                     textMetales.text = "+"+metalPartida.ToString();
+                    normalMetales.gameObject.SetActive(true);
+                    StartCoroutine (LateCall(normalMetales.gameObject));
+
                 }        
             }            
             if (firstInPair.tag == "Organico")
@@ -172,6 +189,10 @@ public class Cards : MonoBehaviour
                 Debug.Log("COMPOST y BIOMASA");
                 compostPartida+=10;
                 textComposts.text = "+"+compostPartida.ToString();
+                normalComposts.gameObject.SetActive(true);
+                StartCoroutine (LateCall(normalComposts.gameObject));
+               
+
             }
         }
         else
@@ -213,10 +234,12 @@ public class Cards : MonoBehaviour
         facedUp=false;
         coroutineAllowed=true;
     }
-
     
-    void Update()
+    IEnumerator LateCall(GameObject objeto)
     {
-        
+        yield return new WaitForSeconds(50.0f*Time.deltaTime);
+        objeto.SetActive(false);
     }
+           
+   
 }
