@@ -4,32 +4,32 @@ using UnityEngine;
 
 public class Generador : MonoBehaviour
 {
-    #region
+    #region Arrays en uso
     [SerializeField] private GameObject[] Recuperables;
     [SerializeField] private GameObject[] NoRecuperables;
     [SerializeField] private GameObject[] Organicos;
     [SerializeField] private GameObject[] Residuos;
     [SerializeField] private Transform spawnPoint;
-    [SerializeField] private GameObject Tachos;
-    #endregion
-    #region 
+    [SerializeField] private GameObject Tachos;  
     [SerializeField] private GameObject[] PosicionesTachos;
-    private int indexRecuperables = 10;
+    #endregion
+    #region Indices de arrays
+    private int indexRecuperables = 10;    
     private int indexNoRecuperables = 4;
     private int indexOrganicos = 4;
-
+    #endregion
+    #region Contadores
     private int cantidadResiduos = 0;
-
     private int cantidadRecuperables = 0;
     private int cantidadNoRecuperables = 0;
     private int cantidadOrganicos = 0;
-    #endregion
-    private float Tiempo = 0f;
-    private float intervalo = 0; 
     private int contadorBasura = 0;
-
+    #endregion
+    
+    private float Tiempo = 0f;
+    private float intervalo = 0;    
     private float fraction = 10f;
-    //private float smoothTime = 1F;
+    
     private Vector3 velocity = Vector3.zero;
 
     private bool Tacho1 = false;
