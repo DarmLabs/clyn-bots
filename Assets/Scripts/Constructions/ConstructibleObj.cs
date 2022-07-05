@@ -1,30 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ConstructibleObj : MonoBehaviour
 {
-    GameObject SaveData;
+    GameObject saveData;
     GlobalVariables globalVariables;
     GameObject UIManager;
     General_UI general_UI;
-    bool readyForSeed;
+    public bool seeded;
+    public string state;
+    [Header ("[0] = Vidrio\n[1] = Plastico\n[2] = Carton\n[3] = Metal\n[4] = Compost")]
     public int[] reqResources = new int[5];
-    #region Index = Resource
-    //[0] = Vidrio
-    //[1] = Plastico
-    //[2] = Carton
-    //[3] = Metal
-    //[4] = Compost
-    #endregion
     public GameObject target;
     public GameObject targetOptional;
     public GameObject building;
     bool reqMeet = true;
     void Start()
     {
-        SaveData = GameObject.Find("GlobalVariables");
-        globalVariables = SaveData.GetComponent<GlobalVariables>();
+        saveData = GameObject.Find("GlobalVariables");
+        globalVariables = saveData.GetComponent<GlobalVariables>();
         UIManager = GameObject.Find("CanvasOverlay");
         general_UI = UIManager.GetComponent<General_UI>();
     }
@@ -33,6 +27,7 @@ public class ConstructibleObj : MonoBehaviour
         for (int i = 0; i < reqResources.Length; i++)
         {
             if(reqResources[i] > 0){
+                reqMeet = true;
                 switch (i)
                 {
                     case 0:
@@ -68,27 +63,63 @@ public class ConstructibleObj : MonoBehaviour
                 }
             }
         }
-        if(reqMeet){
-            general_UI.ConstructionButtonState(true);
+        if(GetComponent<Seed>() != null){
+            switch(GetComponent<Seed>().state){
+                case "Construir":
+                    general_UI.EnabledSection("Construir");
+                    if(reqMeet){
+                        general_UI.ConstructionButtonState(true);
+                    }else{
+                        general_UI.ConstructionButtonState(false);
+                    }
+                    break;
+                case "Sembrar":
+                    general_UI.EnabledSection("Sembrar");
+                    if(reqMeet){
+                        general_UI.SeedButtonsState(true);
+                    }else{
+                        general_UI.SeedButtonsState(false);
+                    }
+                    break;
+                case "Mejorar":
+                    general_UI.EnabledSection("Mejorar");
+                    if(reqMeet){
+                        general_UI.UpgradeButtonState(true);
+                    }else{
+                        general_UI.UpgradeButtonState(false);
+                    }
+                    break;
+            }
         }else{
-            general_UI.ConstructionButtonState(false);
+            general_UI.EnabledSection("Construir");
+            if(reqMeet){
+                general_UI.ConstructionButtonState(true);
+            }else{
+                general_UI.ConstructionButtonState(false);
+            }
         }
+        
         general_UI.BuildingConstructionMenu(building.name, req);
+    }
+    void ResourcesSubstraction(){
+        globalVariables.vidrioRefinado -= reqResources[0];
+        globalVariables.plasticoRefinado -= reqResources[1];
+        globalVariables.cartonRefinado -= reqResources[2];
+        globalVariables.metalRefinado -= reqResources[3];
+        globalVariables.compostRefinado -= reqResources[4];
     }
     public void BuildObject(){
         building.transform.position = target.transform.position;
-        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 3, target.transform.position.z);
+        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 100, target.transform.position.z);
+        building.GetComponent<SavePosition>().PositionUpdated();
+        target.GetComponent<SavePosition>().PositionUpdated();
         if(targetOptional != null){
             targetOptional.transform.position = target.transform.position;
-            readyForSeed = true;
+            targetOptional.GetComponent<SavePosition>().PositionUpdated();
+            GetComponent<Seed>().state = "Sembrar";
         }else{
             gameObject.tag = "Untagged";
         }
-        building.GetComponent<SavePosition>().PositionUpdated();
-        target.GetComponent<SavePosition>().PositionUpdated();
-        
-    }
-    public void SeedSection(){
-
+        ResourcesSubstraction();
     }
 }

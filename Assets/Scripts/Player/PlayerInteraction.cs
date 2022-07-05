@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
     public GameObject sun, spotCentral, spotGreenZone;
     GameObject currentTrashPile;
-    GameObject targetConstruction;
+    public GameObject targetConstruction;
     [Space(10)]
     //**************************************************
     #endregion
@@ -67,7 +67,7 @@ public class PlayerInteraction : MonoBehaviour
                 interactionHappen = true;
                 SaveTransform();
             }
-            if(targetConstruction != null){
+            if(targetConstruction != null && targetConstruction.tag != "Untagged"){
                 general_UI.ConstructionPanelSwitcher(true);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
                 interactionHappen = true;
@@ -83,6 +83,7 @@ public class PlayerInteraction : MonoBehaviour
             globalVariables.organicTrash += aux;
             globalVariables.noRecTrash += aux;
             BagPercentage();
+            globalVariables.compostRefinado += 5;
             saveSystem.Save();
         }
         if(Input.GetKeyDown(KeyCode.P)){
@@ -176,6 +177,9 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void BuildObject(){
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
+    }
+    public void UpgradeObject(){
+        targetConstruction.GetComponent<Seed>().GrowSeed();
     }
     void OnTriggerEnter(Collider other)
     {

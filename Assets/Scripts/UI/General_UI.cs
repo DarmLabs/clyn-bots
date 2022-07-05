@@ -13,7 +13,10 @@ public class General_UI : MonoBehaviour
     public GameObject miniGamePanel;
     public GameObject constructionPanel;
     public TextMeshProUGUI constructionTitle, youHaveRS, reqText;
-    public Button constructionBtn;
+    public GameObject constructionBtn;
+    public GameObject upgradeBtn;
+    public GameObject seedSection;
+    public GameObject []plantacionBtns = new GameObject[3];
     public Color32 lockColor;
     public Color32 unlockColor;
     void Start()
@@ -48,17 +51,71 @@ public class General_UI : MonoBehaviour
         switch (name)
         {
             case "Construir":
+                constructionBtn.SetActive(true);
+                seedSection.SetActive(false);
+                upgradeBtn.SetActive(false);
                 break;
             case "Sembrar":
+                seedSection.SetActive(true);
+                constructionBtn.SetActive(false);
+                upgradeBtn.SetActive(false);
+                break;
+            case "Mejorar":
+                seedSection.SetActive(false);
+                upgradeBtn.SetActive(true);
+                constructionBtn.SetActive(false);
                 break;
         }
     }
     public void ConstructionButtonState(bool state){
-        constructionBtn.enabled = state;
+        constructionBtn.GetComponent<Button>().enabled = state;
         if(!state){
-            constructionBtn.image.color = lockColor;
+            constructionBtn.GetComponent<Button>().image.color = lockColor;
         }else{
-            constructionBtn.image.color = unlockColor;
+            constructionBtn.GetComponent<Button>().image.color = unlockColor;
+        }
+    }
+    public void SeedButtonsState(bool state){
+        if(!state){
+            foreach (var button in plantacionBtns)
+            {
+                button.GetComponent<Button>().enabled = state;
+                button.GetComponent<Button>().image.color = lockColor;
+            }
+        }else{
+            int i = 0;
+            foreach (var button in plantacionBtns)
+            {   
+                button.GetComponent<Button>().onClick.RemoveAllListeners();
+                button.GetComponent<Button>().enabled = state;
+                button.GetComponent<Button>().image.color = unlockColor;
+                if(playerInteraction.targetConstruction.GetComponent<Seed>() != null){
+                    switch (i)
+                    {
+                        case 0:
+                            button.GetComponent<Button>().onClick.AddListener(()=>{playerInteraction.targetConstruction.GetComponent<Seed>().ChooseSeed(0);});
+                            break;
+                        case 1:
+                            button.GetComponent<Button>().onClick.AddListener(()=>{playerInteraction.targetConstruction.GetComponent<Seed>().ChooseSeed(1);});
+                            break;
+                        case 2:
+                            button.GetComponent<Button>().onClick.AddListener(()=>{playerInteraction.targetConstruction.GetComponent<Seed>().ChooseSeed(2);});
+                            break;
+                    }
+                    button.GetComponent<Button>().onClick.AddListener(delegate{playerInteraction.targetConstruction.GetComponent<Seed>().PlaceSeed();});
+                }
+                i += 1;
+            }
+        }
+    }
+    public void UpgradeButtonState(bool state){
+        upgradeBtn.GetComponent<Button>().enabled = state;
+        upgradeBtn.GetComponent<Button>().onClick.RemoveAllListeners();
+        upgradeBtn.GetComponent<Button>().onClick.AddListener(delegate{playerInteraction.targetConstruction.GetComponent<Seed>().GrowSeed();});
+        if(!state){
+            upgradeBtn.GetComponent<Button>().image.color = lockColor;
+        }else{
+            upgradeBtn.GetComponent<Button>().image.color = unlockColor;
         }
     }
     public void MinigamePanelSwitcher(bool state){
