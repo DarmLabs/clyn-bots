@@ -5,6 +5,10 @@ using TMPro;
 
 public class FPS_Counter : MonoBehaviour
 {
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+    }
     public TextMeshProUGUI fpsText;
     private float pollingTime = 1f;
     private float time;
