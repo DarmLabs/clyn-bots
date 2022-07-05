@@ -125,6 +125,15 @@ public class General_UI : MonoBehaviour
         }else{
             MainPanelSwitcher(true);
         }
+        GameObject memoryBtn;
+        memoryBtn = miniGamePanel.transform.GetChild(2).gameObject;
+        GlobalVariables globalVariables;
+        globalVariables = playerInteraction.globalVariables;
+        if(globalVariables.divisionNoRec == 0 && globalVariables.divisionRec ==0 && globalVariables.divisionOrganic == 0){
+            memoryBtn.SetActive(false);
+        }else{
+            memoryBtn.SetActive(true);
+        }
     }
     
     public void ChangeScene(string scene){

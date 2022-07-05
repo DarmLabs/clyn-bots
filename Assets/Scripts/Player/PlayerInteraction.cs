@@ -63,9 +63,13 @@ public class PlayerInteraction : MonoBehaviour
                 interactionHappen = true;
             }
             if(facingArcade){
-                general_UI.MinigamePanelSwitcher(true);
-                interactionHappen = true;
-                SaveTransform();
+                if(globalVariables.noRecTrash == 0 && globalVariables.recTrash == 0 && globalVariables.organicTrash == 0){
+                    Debug.Log("No tienes basura para separar en los minijuegos");
+                }else{
+                    general_UI.MinigamePanelSwitcher(true);
+                    interactionHappen = true;
+                    SaveTransform();
+                }
             }
             if(targetConstruction != null && targetConstruction.tag != "Untagged"){
                 general_UI.ConstructionPanelSwitcher(true);
