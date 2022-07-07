@@ -59,7 +59,8 @@ public class Aspiradora : MonoBehaviour
             {
                 Debug.Log("ASPIRASTE TODOOOO");
             }
-            if(catchProgress<1)
+            //if(catchProgress<1)
+            else
             {
                 catchProgress-= progressBarDecay*Time.deltaTime;
                 if(catchProgress<=0)
