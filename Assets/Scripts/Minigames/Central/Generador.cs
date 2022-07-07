@@ -61,7 +61,8 @@ public class Generador : MonoBehaviour
         cantidadRecuperables = gv.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
         bloqueaMovimiento = false;        
-        Residuos = new GameObject[cantidadResiduos];  
+        Residuos = new GameObject[cantidadResiduos];
+        Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   
         CreateResiduos();           
     }
 
@@ -75,25 +76,26 @@ public class Generador : MonoBehaviour
   
     void CreateResiduos()
     {
-        for (int i = 0; i < (cantidadRecuperables+1); i++)
+        for (int i = 0; i < (cantidadRecuperables); i++)
         {
             Residuos[i] = Recuperables[Random.Range(0,indexRecuperables+1)];            
         }
-        for (int i = 0; i < (cantidadNoRecuperables+1); i++)
+        for (int i = 0; i < (cantidadNoRecuperables); i++)
         {
             Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables+1)];               
         }
-        for (int i = 0; i < (cantidadOrganicos+1); i++)
+        for (int i = 0; i < (cantidadOrganicos); i++)
         {
             Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos+1)];            
         }
+
         for (int t = 0; t < Residuos.Length; t++)
         {
             GameObject temporal = Residuos[t]; 
             int r = Random.Range(t, Residuos.Length);
             Residuos[t] = Residuos[r];
             Residuos[r] = temporal;
-            //Debug.Log("TOTAL ARRAY"+Residuos.Length); 
+            Debug.Log("TOTAL ARRAY"+Residuos.Length); 
         }
     }
     void Controls()

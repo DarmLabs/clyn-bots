@@ -54,28 +54,28 @@ public class Tachos : MonoBehaviour
             {
                 case "Recuperable":
                     Destroy(other.gameObject);
-                    Debug.Log("Se separó un recuperable");
+                    //Debug.Log("Se separó un recuperable");
                     gv.recTrash -= 1;
                     gv.divisionRec +=1;
-                    Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
+                    //Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
                     Generador.bloqueaMovimiento = false; 
                     residuosRecuperables.text = "Residuos Recuperables:"+gv.divisionRec.ToString();
                     break;
                 case "NoRecuperable":
                     Destroy(other.gameObject);
-                    Debug.Log("Se separó un no recuperable");
+                    //Debug.Log("Se separó un no recuperable");
                     gv.noRecTrash -=1;  
-                    gv.divisionRec +=1;  
-                    Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
+                    gv.divisionNoRec +=1;  
+                    //Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
                     Generador.bloqueaMovimiento = false; 
                     residuosNoRecuperables.text = "Residuos No Recuperables:"+gv.divisionNoRec.ToString();
                     break;
                 case "Organico":
                     Destroy(other.gameObject);
-                    Debug.Log("Se separó un orgánico");
+                   // Debug.Log("Se separó un orgánico");
                     gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
-                    Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
+                    //Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
                     Generador.bloqueaMovimiento = false; 
                     residuosOrganicos.text = "Residuos Organicos:"+gv.divisionOrganic.ToString();
                     break;
@@ -85,7 +85,7 @@ public class Tachos : MonoBehaviour
         else
         {
             errores += 1;
-            Debug.Log("ERROR EN RECOLECCION");
+            //Debug.Log("ERROR EN RECOLECCION");
             Generador.bloqueaMovimiento = false;
             erroresText.text = "Errores: "+errores.ToString(); 
             saveSystem.Save(); 
