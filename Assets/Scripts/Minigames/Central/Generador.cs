@@ -170,7 +170,7 @@ public class Generador : MonoBehaviour
         if (Mathf.Round(Tiempo) == intervalo) //&& contadorBasura <= cantidadResiduos)
         {            
             //Debug.Log("Tiempo es igual a intervalo:"+Tiempo);
-            if  (contadorBasura != cantidadResiduos)
+            if  (contadorBasura < cantidadResiduos)
             {
                 Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
                 contadorBasura += 1;
@@ -178,7 +178,7 @@ public class Generador : MonoBehaviour
             }
             else
             {
-                //Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
+                Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
             }
             
         }
