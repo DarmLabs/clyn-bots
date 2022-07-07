@@ -12,6 +12,8 @@ public class Grilla : MonoBehaviour
     private GameObject globalaux;
     private GlobalVariables gv; 
 
+    public static int vidas = 20;
+
     private int randomIndex;
     private int cantidadRandoms = 10;
     List<int> listaRandoms = new List<int>();   
@@ -20,7 +22,8 @@ public class Grilla : MonoBehaviour
     {
         //globalaux = GameObject.Find("GlobalVariables");
         //gv = globalaux.GetComponent<GlobalVariables>();
-        //if (gv.cardDistribution)        
+        //if (gv.cardDistribution)  
+        vidas = 20;      
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)
         {

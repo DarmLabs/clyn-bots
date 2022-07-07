@@ -13,7 +13,7 @@ public class Cards : MonoBehaviour
 
     public static Queue<Cards> sequence;
     public static int pairsFound;
-    public int vidas = 20;
+    //public int vidas = 20;
     
     private GameObject globalaux;
     private GlobalVariables gv;
@@ -43,13 +43,13 @@ public class Cards : MonoBehaviour
     void Start()
     {    
         //se inicializan las banderas
-        vidas = 20;
+        //vidas = 20;
         vidrioPartida=0;
         plasticoPartida=0;
         cartonPartida=0;
         metalPartida=0;
         compostPartida=0;
-        Debug.Log("VIDAS INICIALES: "+vidas);
+        Debug.Log("VIDAS INICIALES: "+Grilla.vidas);
         facedUp=false;
         coroutineAllowed=true;
         locked=false;
@@ -199,14 +199,14 @@ public class Cards : MonoBehaviour
         {
             firstInPair.StartCoroutine("RotateBack");
             secondInPair.StartCoroutine("RotateBack");            
-            vidas = vidas -1;
+            //Grilla.vidas = Grilla.vidas - 1;
         }
 
         if (pairsFound == 9)
         {
             //terminó el juego
             Debug.Log("GANÓ y se guardaron los refinados");
-            Debug.Log("Vidas que le quedaron:"+vidas);
+            Debug.Log("Vidas que le quedaron:"+Grilla.vidas);
             gv.vidrioRefinado = gv.vidrioRefinado + (10*vidrioPartida);
             gv.plasticoRefinado= gv.plasticoRefinado + (10*plasticoPartida);
             gv.cartonRefinado= gv.cartonRefinado + (10*cartonPartida);
@@ -222,8 +222,8 @@ public class Cards : MonoBehaviour
     {
         coroutineAllowed =false; 
         colisionAux.enabled = !colisionAux.enabled;
-        vidas = vidas -1;  
-        Debug.Log("Vidas:"+vidas);  
+        Grilla.vidas = Grilla.vidas -1;  
+        Debug.Log("Vidas:"+Grilla.vidas);  
         yield return new WaitForSeconds(40f* Time.deltaTime);
         for (float i=190f; i>=0f; i-=10)
         {
