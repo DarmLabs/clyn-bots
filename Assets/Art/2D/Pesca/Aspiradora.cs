@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Aspiradora : MonoBehaviour
 {
-    [Header("Fishing Area")]
+    [Header("Dirty Area")]
     [SerializeField] Transform topBounds;
     [SerializeField] Transform bottomBounds;
 
-    [Header("Fish Settings")]
+    [Header("Trash Settings")]
     [SerializeField] Transform fish;
     [SerializeField] float smoothMotion = 3f;
     [SerializeField] float fishTimeRandomizer = 3f;
@@ -17,7 +17,7 @@ public class Aspiradora : MonoBehaviour
     float fishTimer;
     float fishTargetPosition;
 
-    [Header("Hook Settings")]
+    [Header("Vacuum Settings")]
     [SerializeField] Transform hook;
     [SerializeField] float hookSize = 0.18f;
     [SerializeField] float hookSpeed = 0.1f;
@@ -33,7 +33,7 @@ public class Aspiradora : MonoBehaviour
     
     void Start()
     {
-        catchProgress = 0.3f;
+        catchProgress = 0.1f;
     }
 
     void FixedUpdate()
@@ -59,7 +59,7 @@ public class Aspiradora : MonoBehaviour
             {
                 Debug.Log("ASPIRASTE TODOOOO");
             }
-            else
+            if(catchProgress<1)
             {
                 catchProgress-= progressBarDecay*Time.deltaTime;
                 if(catchProgress<=0)
