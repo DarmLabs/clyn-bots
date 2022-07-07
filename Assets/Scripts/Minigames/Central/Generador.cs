@@ -100,6 +100,10 @@ public class Generador : MonoBehaviour
     }
     void Controls()
     {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            Time.timeScale = 1.4f;
+        }
         if (!bloqueaMovimiento)
         {
             if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
