@@ -198,8 +198,8 @@ public class Cards : MonoBehaviour
         else
         {
             firstInPair.StartCoroutine("RotateBack");
-            secondInPair.StartCoroutine("RotateBack");            
-            //Grilla.vidas = Grilla.vidas - 1;
+            secondInPair.StartCoroutine("RotateBack");          
+            
         }
 
         if (pairsFound == 9)

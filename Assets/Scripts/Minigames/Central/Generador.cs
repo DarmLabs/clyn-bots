@@ -35,7 +35,7 @@ public class Generador : MonoBehaviour
     private SpriteRenderer TachoNoRecSprite;
     private SpriteRenderer TachoRecSprite;
     private SpriteRenderer TachoOrgSprite;
-    #endregion
+    #endregion   
     #region Banderas
     private bool Tacho1 = false;
     private bool Tacho2 = false;
@@ -75,15 +75,15 @@ public class Generador : MonoBehaviour
   
     void CreateResiduos()
     {
-        for (int i = 0; i < cantidadRecuperables; i++)
+        for (int i = 0; i < (cantidadRecuperables+1); i++)
         {
             Residuos[i] = Recuperables[Random.Range(0,indexRecuperables+1)];            
         }
-        for (int i = 0; i < cantidadNoRecuperables; i++)
+        for (int i = 0; i < (cantidadNoRecuperables+1); i++)
         {
             Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables+1)];               
         }
-        for (int i = 0; i < cantidadOrganicos; i++)
+        for (int i = 0; i < (cantidadOrganicos+1); i++)
         {
             Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos+1)];            
         }

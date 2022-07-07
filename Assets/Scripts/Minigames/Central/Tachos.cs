@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tachos : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class Tachos : MonoBehaviour
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     private int errores = 0; 
+    public Text residuosNoRecuperables;
+    public Text residuosRecuperables;
+    public Text residuosOrganicos;
+    public Text erroresText;
      
 
     void Start()
@@ -54,6 +59,7 @@ public class Tachos : MonoBehaviour
                     gv.divisionRec +=1;
                     Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
                     Generador.bloqueaMovimiento = false; 
+                    residuosRecuperables.text = "Residuos Recuperables:"+gv.divisionRec.ToString();
                     break;
                 case "NoRecuperable":
                     Destroy(other.gameObject);
@@ -61,7 +67,8 @@ public class Tachos : MonoBehaviour
                     gv.noRecTrash -=1;  
                     gv.divisionRec +=1;  
                     Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
-                    Generador.bloqueaMovimiento = false;          
+                    Generador.bloqueaMovimiento = false; 
+                    residuosNoRecuperables.text = "Residuos No Recuperables:"+gv.divisionNoRec.ToString();
                     break;
                 case "Organico":
                     Destroy(other.gameObject);
@@ -70,6 +77,7 @@ public class Tachos : MonoBehaviour
                     gv.divisionOrganic+=1;
                     Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
                     Generador.bloqueaMovimiento = false; 
+                    residuosOrganicos.text = "Residuos Organicos:"+gv.divisionOrganic.ToString();
                     break;
             } 
             saveSystem.Save();           
@@ -78,7 +86,8 @@ public class Tachos : MonoBehaviour
         {
             errores += 1;
             Debug.Log("ERROR EN RECOLECCION");
-            Generador.bloqueaMovimiento = false; 
+            Generador.bloqueaMovimiento = false;
+            erroresText.text = "Errores: "+errores.ToString(); 
             saveSystem.Save(); 
         }
     }
