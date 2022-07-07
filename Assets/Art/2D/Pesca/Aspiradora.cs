@@ -9,37 +9,37 @@ public class Aspiradora : MonoBehaviour
     [SerializeField] Transform bottomBounds;
 
     [Header("Trash Settings")]
-    [SerializeField] Transform fish;
+    [SerializeField] Transform Trash;
     [SerializeField] float smoothMotion = 3f;
-    [SerializeField] float fishTimeRandomizer = 3f;
-    float fishPosition;
-    float fishSpeed;
-    float fishTimer;
-    float fishTargetPosition;
+    [SerializeField] float TrashTimeRandomizer = 3f;
+    float TrashPosition;
+    float TrashSpeed;
+    float TrashTimer;
+    float TrashTargetPosition;
 
     [Header("Vacuum Settings")]
-    [SerializeField] Transform hook;
-    [SerializeField] float hookSize = 0.18f;
-    [SerializeField] float hookSpeed = 0.1f;
-    [SerializeField] float hookGravity = 0.05f;
-    float hookPosition;
-    float hookPullVelocity;
+    [SerializeField] Transform Vacuum;
+    [SerializeField] float VacuumSize = 0.18f;
+    [SerializeField] float VacuumSpeed = 0.1f;
+    [SerializeField] float VacuumGravity = 0.05f;
+    float VacuumPosition;
+    float VacuumPullVelocity;
 
     [Header("Progress Bar Settings")]
     [SerializeField] Transform progressBarContainer;
-    [SerializeField] float hookPower;
+    [SerializeField] float VacuumPower;
     [SerializeField] float progressBarDecay;
     float catchProgress;
     
     void Start()
     {
-        catchProgress = 0.1f;
+        catchProgress = 0.02f;
     }
 
     void FixedUpdate()
     {
-        MoveFish();
-        MoveHook();
+        MoveTrash();
+        MoveVacuum();
         CheckProgress();
     }
 
@@ -49,12 +49,12 @@ public class Aspiradora : MonoBehaviour
         progressBarScale.y = catchProgress;
         progressBarContainer.localScale = progressBarScale;
 
-        float min = hookPosition-hookSize/2;
-        float max = hookPosition+hookSize/2;
+        float min = VacuumPosition-VacuumSize/2;
+        float max = VacuumPosition+VacuumSize/2;
 
-        if(min<fishPosition && fishPosition<max)
+        if(min<TrashPosition && TrashPosition<max)
         {
-            catchProgress += hookPower*Time.deltaTime;
+            catchProgress += VacuumPower*Time.deltaTime;
             if(catchProgress>=1)
             {
                 Debug.Log("ASPIRASTE TODOOOO");
@@ -71,38 +71,38 @@ public class Aspiradora : MonoBehaviour
         }
     }
 
-    private void MoveHook()
+    private void MoveVacuum()
     {
         if(Input.GetKey(KeyCode.Space))
         {
-            hookPullVelocity += hookSpeed * Time.deltaTime;
+            VacuumPullVelocity += VacuumSpeed * Time.deltaTime;
         }
-        hookPullVelocity -= hookGravity * Time.deltaTime;        
-        hookPosition += hookPullVelocity;
+        VacuumPullVelocity -= VacuumGravity * Time.deltaTime;        
+        VacuumPosition += VacuumPullVelocity;
 
-        if(hookPosition - hookSize/2 <= 0 && hookPullVelocity<0)
+        if(VacuumPosition - VacuumSize/2 <= 0 && VacuumPullVelocity<0)
         {
-            hookPullVelocity = 0;
+            VacuumPullVelocity = 0;
         }
 
-        if(hookPosition + hookSize/2 >= 1 && hookPullVelocity>0)
+        if(VacuumPosition + VacuumSize/2 >= 1 && VacuumPullVelocity>0)
         {
-            hookPullVelocity = 0;
+            VacuumPullVelocity = 0;
         }
-        hookPosition = Mathf.Clamp(hookPosition,hookSize/2,1-hookSize/2);
-        hook.position = Vector3.Lerp(bottomBounds.position, topBounds.position, hookPosition);
+        VacuumPosition = Mathf.Clamp(VacuumPosition,VacuumSize/2,1-VacuumSize/2);
+        Vacuum.position = Vector3.Lerp(bottomBounds.position, topBounds.position, VacuumPosition);
     }
 
-    private void MoveFish()
+    private void MoveTrash()
     {
-        fishTimer -= Time.deltaTime;
-        if(fishTimer < 0)
+        TrashTimer -= Time.deltaTime;
+        if(TrashTimer < 0)
         {
-            fishTimer = Random.value * fishTimeRandomizer;
-            fishTargetPosition = Random.value;
+            TrashTimer = Random.value * TrashTimeRandomizer;
+            TrashTargetPosition = Random.value;
 
         }
-        fishPosition = Mathf.SmoothDamp(fishPosition,fishTargetPosition, ref fishSpeed, smoothMotion);
-        fish.position = Vector3.Lerp(bottomBounds.position,topBounds.position,fishPosition);
+        TrashPosition = Mathf.SmoothDamp(TrashPosition,TrashTargetPosition, ref TrashSpeed, smoothMotion);
+        Trash.position = Vector3.Lerp(bottomBounds.position,topBounds.position,TrashPosition);
     }
 }
