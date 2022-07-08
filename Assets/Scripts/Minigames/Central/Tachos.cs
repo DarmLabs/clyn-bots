@@ -48,8 +48,6 @@ public class Tachos : MonoBehaviour
     }
     void  OnMouseDown() 
     {        
-        //Debug.Log("APRETASTE UN TACHO"+this.gameObject);
-        
         if (!Generador.bloqueaMovimiento)
         {
             if (this.gameObject.name == "NoRecuperable")
@@ -70,11 +68,7 @@ public class Tachos : MonoBehaviour
                 Generador.Tacho2 = false;
                 Generador.Tacho3 = true;
             }
-        }
-        
-            
-        
-        
+        }                  
     }
 
     void OnTriggerEnter2D(Collider2D other) 
@@ -120,8 +114,7 @@ public class Tachos : MonoBehaviour
             //Generador.bloqueaMovimiento = false;
             erroresText.text = "Errores: "+errores.ToString(); 
             saveSystem.Save(); 
-        }
-       
+        }       
     }
     
 }
