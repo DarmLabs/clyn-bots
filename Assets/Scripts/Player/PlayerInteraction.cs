@@ -10,7 +10,7 @@ public class PlayerInteraction : MonoBehaviour
     SaveLoadSystem saveSystem;
     public GameObject GlobalVariables;
     public GlobalVariables globalVariables;
-    PlayerAnimations playerAnim;
+    public PlayerAnimations playerAnim;
     public GameObject UIManager;
     Player_UI player_UI;
     General_UI general_UI;
@@ -50,7 +50,7 @@ public class PlayerInteraction : MonoBehaviour
             if(!minigameAsipire){
                 Aspire();
             }else{
-                general_UI.MinigameAspireSwitcher(true);
+                playerAnim.Aspire(true);
             }
             
         }

@@ -141,6 +141,7 @@ public class General_UI : MonoBehaviour
             minigameAspire.SetActive(true);
         }else{
             minigameAspire.SetActive(false);
+            playerInteraction.playerAnim.Aspire(false);
         }
     }
     public void MinimapSwitcher(bool state){
