@@ -15,7 +15,7 @@ public class PlayerInteraction : MonoBehaviour
     Player_UI player_UI;
     General_UI general_UI;
     public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
-    public GameObject sun, spotCentral, spotGreenZone;
+    public GameObject basural, central, greenZone;
     GameObject currentTrashPile;
     public GameObject targetConstruction;
     [Space(10)]
@@ -25,6 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     bool facingTrash;
     bool facingArcade;
     bool changingStage;
+    public bool minigameAsipire;
     public string inDoor;
     int maxBagSpace = 50, itemsInBag;
     public float bagPercentage;
@@ -46,7 +47,12 @@ public class PlayerInteraction : MonoBehaviour
     }
     void Controls(){
         if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
-            Aspire();
+            if(!minigameAsipire){
+                Aspire();
+            }else{
+                general_UI.MinigameAspireSwitcher(true);
+            }
+            
         }
         else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
             playerAnim.Aspire(false);
@@ -149,9 +155,9 @@ public class PlayerInteraction : MonoBehaviour
     public void MovmentState(bool state){
         GetComponent<PlayersMovement>().enabled = state;
     }
-    void LightChange(GameObject lightOn, GameObject lightOff){
-        lightOn.SetActive(true);
-        lightOff.SetActive(false);
+    void StageChange(GameObject stageOn, GameObject stageOff){
+        stageOn.SetActive(true);
+        stageOff.SetActive(false);
     }
     IEnumerator WaitInDoor(float secs){
         yield return new WaitForSeconds(secs);
@@ -159,20 +165,23 @@ public class PlayerInteraction : MonoBehaviour
             {
                 case "ToBasural":
                     transform.position = BasuralPoint.transform.position;
-                    LightChange(sun, spotCentral);
-                    //Camera.main.GetComponent<Camera>()
+                    StageChange(basural, central);
+                    general_UI.MinimapSwitcher(true);
                     break;
                 case "ToLobbyFB":
                     transform.position = LobbyPointB.transform.position;
-                    LightChange(spotCentral, sun);
+                    StageChange(central, basural);
+                    general_UI.MinimapSwitcher(false);
                     break;
                 case "ToLobbyFGZ":
                     transform.position = LobbyPointGZ.transform.position;
-                    LightChange(spotCentral, spotGreenZone);
+                    StageChange(central, greenZone);
+                    general_UI.MinimapSwitcher(false);
                     break;
                 case "ToGreenZone":
                     transform.position = GreenZonePoint.transform.position;
-                    LightChange(spotGreenZone, spotCentral);
+                    StageChange(greenZone, central);
+                    general_UI.MinimapSwitcher(true);
                     break;
                 }
         player_UI.fadeState = 2;

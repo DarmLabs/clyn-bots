@@ -19,6 +19,7 @@ public class General_UI : MonoBehaviour
     public GameObject []plantacionBtns = new GameObject[3];
     public Color32 lockColor;
     public Color32 unlockColor;
+    public GameObject minigameAspire;
     void Start()
     {
         playerInteraction = player.GetComponent<PlayerInteraction>();
@@ -135,7 +136,22 @@ public class General_UI : MonoBehaviour
             memoryBtn.SetActive(true);
         }
     }
-    
+    public void MinigameAspireSwitcher(bool state){
+        if(state){
+            minigameAspire.SetActive(true);
+        }else{
+            minigameAspire.SetActive(false);
+        }
+    }
+    public void MinimapSwitcher(bool state){
+        GameObject minimap;
+        minimap = transform.GetChild(0).gameObject;
+        if(state){
+            minimap.SetActive(true);
+        }else{
+            minimap.SetActive(false);
+        }
+    }
     public void ChangeScene(string scene){
         SceneManager.LoadScene(scene);
     }
