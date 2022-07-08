@@ -9,7 +9,7 @@ public class Tachos : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    private int errores; 
+    public static int errores = 0; 
     public Text residuosNoRecuperables;
     public Text residuosRecuperables;
     public Text residuosOrganicos;
@@ -85,7 +85,7 @@ public class Tachos : MonoBehaviour
             {
                 case "Recuperable":
                     //Destroy(other.gameObject);
-                    //Debug.Log("Se separó un recuperable");
+                    Debug.Log("Se separó un recuperable");
                     gv.recTrash -= 1;
                     gv.divisionRec +=1;
                     //Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
@@ -94,7 +94,7 @@ public class Tachos : MonoBehaviour
                     break;
                 case "NoRecuperable":
                     //Destroy(other.gameObject);
-                    //Debug.Log("Se separó un no recuperable");
+                    Debug.Log("Se separó un no recuperable");
                     gv.noRecTrash -=1;  
                     gv.divisionNoRec +=1;  
                     //Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
@@ -103,7 +103,7 @@ public class Tachos : MonoBehaviour
                     break;
                 case "Organico":
                     //Destroy(other.gameObject);
-                   // Debug.Log("Se separó un orgánico");
+                    Debug.Log("Se separó un orgánico");
                     gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
                     //Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
@@ -115,8 +115,8 @@ public class Tachos : MonoBehaviour
         }
         else
         {
-            errores += 1;
-            //Debug.Log("ERROR EN RECOLECCION");
+            errores = errores + 1;
+            Debug.Log("ERROR EN RECOLECCION: "+errores);
             //Generador.bloqueaMovimiento = false;
             erroresText.text = "Errores: "+errores.ToString(); 
             saveSystem.Save(); 
