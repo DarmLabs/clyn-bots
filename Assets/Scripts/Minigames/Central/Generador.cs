@@ -37,9 +37,9 @@ public class Generador : MonoBehaviour
     private SpriteRenderer TachoOrgSprite;
     #endregion   
     #region Banderas
-    private bool Tacho1 = false;
-    private bool Tacho2 = false;
-    private bool Tacho3 = false;
+    public static bool Tacho1 = false;
+    public static bool Tacho2 = false;
+    public static bool Tacho3 = false;
     private bool PrimeraVuelta = true;
     #endregion
     public static bool bloqueaMovimiento = false; 
@@ -49,6 +49,9 @@ public class Generador : MonoBehaviour
     
     void Start () 
     {       
+        Tacho1 = true;
+        Tacho2 = false;
+        Tacho3 = false;
         PrimeraVuelta = true;
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");

@@ -45,6 +45,29 @@ public class Tachos : MonoBehaviour
         }
             
     }
+    void  OnMouseDown() 
+    {        
+        //Debug.Log("APRETASTE UN TACHO"+this.gameObject);
+        if (this.gameObject.name == "NoRecuperable")
+        {
+            Generador.Tacho1 = true;
+            Generador.Tacho2 = false;
+            Generador.Tacho3 = false;
+        }
+        if (this.gameObject.name == "Recuperable")
+        {
+            Generador.Tacho1 = false;
+            Generador.Tacho2 = true;
+            Generador.Tacho3 = false; 
+        }
+        if (this.gameObject.name == "Organico")
+        {
+            Generador.Tacho1 = false;
+            Generador.Tacho2 = false;
+            Generador.Tacho3 = true;
+        }
+        
+    }
 
     void OnTriggerEnter2D(Collider2D other) 
     {
@@ -53,7 +76,7 @@ public class Tachos : MonoBehaviour
             switch (other.gameObject.tag)
             {
                 case "Recuperable":
-                    Destroy(other.gameObject);
+                    //Destroy(other.gameObject);
                     //Debug.Log("Se separó un recuperable");
                     gv.recTrash -= 1;
                     gv.divisionRec +=1;
@@ -62,7 +85,7 @@ public class Tachos : MonoBehaviour
                     residuosRecuperables.text = "Residuos Recuperables:"+gv.divisionRec.ToString();
                     break;
                 case "NoRecuperable":
-                    Destroy(other.gameObject);
+                    //Destroy(other.gameObject);
                     //Debug.Log("Se separó un no recuperable");
                     gv.noRecTrash -=1;  
                     gv.divisionNoRec +=1;  
@@ -71,7 +94,7 @@ public class Tachos : MonoBehaviour
                     residuosNoRecuperables.text = "Residuos No Recuperables:"+gv.divisionNoRec.ToString();
                     break;
                 case "Organico":
-                    Destroy(other.gameObject);
+                    //Destroy(other.gameObject);
                    // Debug.Log("Se separó un orgánico");
                     gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
