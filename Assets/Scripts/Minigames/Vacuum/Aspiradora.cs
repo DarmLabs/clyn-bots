@@ -72,6 +72,7 @@ public class Aspiradora : MonoBehaviour
             if(catchProgress>=1)
             {
                 general_UI.MinigameAspireSwitcher(false);
+                Debug.Log("PrimeraVez: "+primeraVez);
                 if (!primeraVez)
                 {
                     Debug.Log("ASPIRASTE TODOOOO");
