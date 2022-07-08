@@ -47,6 +47,10 @@ public class MovimientoCinta : MonoBehaviour
      
     void OnTriggerEnter2D(Collider2D other) 
     {        
+        if (other.tag == "Destructor")
+        {
+            Destroy(this.gameObject);
+        }
         if (other.tag == "PuntoDireccion")
         {              
             if(other.name == "base")
