@@ -36,7 +36,7 @@ public class Aspiradora : MonoBehaviour
     private GlobalVariables gv; 
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    public static bool primeraVez = false;
+    public bool primeraVez = false;
     
     void Start()
     {

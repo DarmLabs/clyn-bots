@@ -9,6 +9,7 @@ public class StartMinigame : StateMachineBehaviour
     {
         general_UI = GameObject.Find("CanvasOverlay").GetComponent<General_UI>();
         general_UI.MinigameAspireSwitcher(true);
+        general_UI.minigameAspire.GetComponent<Aspiradora>().primeraVez = false;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
