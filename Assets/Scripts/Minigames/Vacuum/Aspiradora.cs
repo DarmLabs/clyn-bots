@@ -32,6 +32,9 @@ public class Aspiradora : MonoBehaviour
     [SerializeField] float VacuumPower;
     [SerializeField] float progressBarDecay;
     float catchProgress;
+
+    private GameObject globalaux;
+    private GlobalVariables gv; 
     
     void Start()
     {
@@ -39,6 +42,8 @@ public class Aspiradora : MonoBehaviour
         VacuumPosition = 0;
         TrashPosition = 0.5f;
         primeraVez = false;
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
     }
 
     void FixedUpdate()
@@ -67,6 +72,9 @@ public class Aspiradora : MonoBehaviour
                 {
                     Debug.Log("ASPIRASTE TODOOOO");
                     //Lógica aspiradora normal
+                    gv.noRecTrash = Random.Range(6,10);
+                    gv.recTrash = Random.Range(6,10);
+                    gv.organicTrash = Random.Range(6,10);
                     primeraVez = true;
                     catchProgress = 0.02f;
                     VacuumPosition = 0;
