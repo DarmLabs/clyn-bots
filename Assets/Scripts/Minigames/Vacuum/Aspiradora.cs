@@ -5,6 +5,7 @@ using UnityEngine;
 public class Aspiradora : MonoBehaviour
 {
     public General_UI general_UI;
+    private bool primeraVez = false;
     [Header("Dirty Area")]
     [SerializeField] Transform topBounds;
     [SerializeField] Transform bottomBounds;
@@ -59,7 +60,13 @@ public class Aspiradora : MonoBehaviour
             if(catchProgress>=1)
             {
                 general_UI.MinigameAspireSwitcher(false);
-                Debug.Log("ASPIRASTE TODOOOO");
+                if (!primeraVez)
+                {
+                    Debug.Log("ASPIRASTE TODOOOO");
+                    //Lógica aspiradora normal
+                    primeraVez = true;
+                }
+                
             }
             //if(catchProgress<1)
             else
