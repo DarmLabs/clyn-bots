@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Aspiradora : MonoBehaviour
 {
-    public General_UI general_UI;
-    public static bool primeraVez = false;
+    public General_UI general_UI;    
     [Header("Dirty Area")]
     [SerializeField] Transform topBounds;
     [SerializeField] Transform bottomBounds;
@@ -37,6 +36,7 @@ public class Aspiradora : MonoBehaviour
     private GlobalVariables gv; 
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
+    public static bool primeraVez = false;
     
     void Start()
     {
