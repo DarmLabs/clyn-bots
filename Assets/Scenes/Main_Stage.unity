@@ -364,7 +364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &96275664
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18603,9 +18603,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1423667811027028321, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423667811027028321, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423667811027028321, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.358
+      objectReference: {fileID: 0}
     - target: {fileID: 4999326517514622662, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
       propertyPath: m_Name
-      value: Player_V2
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5632591732191661180, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
       propertyPath: m_RootOrder
@@ -18656,9 +18668,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 919132148141259012}
     - target: {fileID: 5843166987038188405, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+      propertyPath: basural
+      value: 
+      objectReference: {fileID: 919132148141259012}
+    - target: {fileID: 5843166987038188405, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+      propertyPath: central
+      value: 
+      objectReference: {fileID: 919132149393569984}
+    - target: {fileID: 5843166987038188405, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
       propertyPath: UIManager
       value: 
       objectReference: {fileID: 904744512}
+    - target: {fileID: 5843166987038188405, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+      propertyPath: greenZone
+      value: 
+      objectReference: {fileID: 919132148802134905}
     - target: {fileID: 5843166987038188405, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
       propertyPath: LobbyPointB
       value: 
