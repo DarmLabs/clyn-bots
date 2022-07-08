@@ -80,7 +80,7 @@ public class Aspiradora : MonoBehaviour
                     gv.noRecTrash = Random.Range(6,10);
                     gv.recTrash = Random.Range(6,10);
                     gv.organicTrash = Random.Range(6,10);
-                    primeraVez = true;
+                    //primeraVez = true;
                     catchProgress = 0.02f;
                     VacuumPosition = 0;
                     TrashPosition = 0.5f;
