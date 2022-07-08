@@ -91,15 +91,14 @@ public class Generador : MonoBehaviour
         {
             Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos+1)];            
         }
-
         for (int t = 0; t < Residuos.Length; t++)
         {
             GameObject temporal = Residuos[t]; 
             int r = Random.Range(t, Residuos.Length);
             Residuos[t] = Residuos[r];
-            Residuos[r] = temporal;
-            Debug.Log("TOTAL ARRAY"+Residuos.Length); 
+            Residuos[r] = temporal;            
         }
+        Debug.Log("TOTAL ARRAY"+Residuos.Length); 
     }
     void Controls()
     {
