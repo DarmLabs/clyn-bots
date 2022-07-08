@@ -35,6 +35,8 @@ public class Aspiradora : MonoBehaviour
 
     private GameObject globalaux;
     private GlobalVariables gv; 
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
     
     void Start()
     {
@@ -44,6 +46,8 @@ public class Aspiradora : MonoBehaviour
         primeraVez = false;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
+        saveaux = GameObject.Find ("SaveLoadSystem");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
     }
 
     void FixedUpdate()
@@ -79,6 +83,7 @@ public class Aspiradora : MonoBehaviour
                     catchProgress = 0.02f;
                     VacuumPosition = 0;
                     TrashPosition = 0.5f;
+                    saveSystem.Save();
                 }
                 
             }
