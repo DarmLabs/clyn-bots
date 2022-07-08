@@ -9,7 +9,7 @@ public class Tachos : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    private int errores = 0; 
+    private int errores; 
     public Text residuosNoRecuperables;
     public Text residuosRecuperables;
     public Text residuosOrganicos;
@@ -24,7 +24,8 @@ public class Tachos : MonoBehaviour
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         gv.divisionNoRec = 0;
         gv.divisionOrganic = 0;
-        gv.divisionRec = 0;       
+        gv.divisionRec = 0;
+        errores = 0;       
         
     }
 
@@ -32,40 +33,47 @@ public class Tachos : MonoBehaviour
     {
         if (errores == 5)
         {
-            Debug.Log ("Perdiste niño bobo");
+            //Debug.Log ("Perdiste niño bobo");
             saveSystem.Save();  
         }
-        if (gv.divisionOrganic<gv.divisionRec)
+       /* if (gv.divisionOrganic<gv.divisionRec)
         {
             gv.cardDistribution = true;            
         }
         else
         {
             gv.cardDistribution = false;            
-        }
+        }*/
             
     }
     void  OnMouseDown() 
     {        
         //Debug.Log("APRETASTE UN TACHO"+this.gameObject);
-        if (this.gameObject.name == "NoRecuperable")
+        
+        if (!Generador.bloqueaMovimiento)
         {
-            Generador.Tacho1 = true;
-            Generador.Tacho2 = false;
-            Generador.Tacho3 = false;
+            if (this.gameObject.name == "NoRecuperable")
+            {
+                Generador.Tacho1 = true;
+                Generador.Tacho2 = false;
+                Generador.Tacho3 = false;
+            }
+            if (this.gameObject.name == "Recuperable")
+            {
+                Generador.Tacho1 = false;
+                Generador.Tacho2 = true;
+                Generador.Tacho3 = false; 
+            }
+            if (this.gameObject.name == "Organico")
+            {
+                Generador.Tacho1 = false;
+                Generador.Tacho2 = false;
+                Generador.Tacho3 = true;
+            }
         }
-        if (this.gameObject.name == "Recuperable")
-        {
-            Generador.Tacho1 = false;
-            Generador.Tacho2 = true;
-            Generador.Tacho3 = false; 
-        }
-        if (this.gameObject.name == "Organico")
-        {
-            Generador.Tacho1 = false;
-            Generador.Tacho2 = false;
-            Generador.Tacho3 = true;
-        }
+        
+            
+        
         
     }
 
@@ -81,7 +89,7 @@ public class Tachos : MonoBehaviour
                     gv.recTrash -= 1;
                     gv.divisionRec +=1;
                     //Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
-                    Generador.bloqueaMovimiento = false; 
+                    //Generador.bloqueaMovimiento = false; 
                     residuosRecuperables.text = "Residuos Recuperables:"+gv.divisionRec.ToString();
                     break;
                 case "NoRecuperable":
@@ -90,7 +98,7 @@ public class Tachos : MonoBehaviour
                     gv.noRecTrash -=1;  
                     gv.divisionNoRec +=1;  
                     //Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
-                    Generador.bloqueaMovimiento = false; 
+                    //Generador.bloqueaMovimiento = false; 
                     residuosNoRecuperables.text = "Residuos No Recuperables:"+gv.divisionNoRec.ToString();
                     break;
                 case "Organico":
@@ -99,7 +107,7 @@ public class Tachos : MonoBehaviour
                     gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
                     //Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
-                    Generador.bloqueaMovimiento = false; 
+                    //Generador.bloqueaMovimiento = false; 
                     residuosOrganicos.text = "Residuos Organicos:"+gv.divisionOrganic.ToString();
                     break;
             } 
@@ -109,10 +117,11 @@ public class Tachos : MonoBehaviour
         {
             errores += 1;
             //Debug.Log("ERROR EN RECOLECCION");
-            Generador.bloqueaMovimiento = false;
+            //Generador.bloqueaMovimiento = false;
             erroresText.text = "Errores: "+errores.ToString(); 
             saveSystem.Save(); 
         }
+       
     }
     
 }

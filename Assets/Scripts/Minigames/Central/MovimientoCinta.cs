@@ -49,7 +49,8 @@ public class MovimientoCinta : MonoBehaviour
     {        
         if (other.tag == "Destructor")
         {
-            Destroy(this.gameObject);
+            Generador.bloqueaMovimiento = false;
+            Destroy(this.gameObject);           
         }
         if (other.tag == "PuntoDireccion")
         {              

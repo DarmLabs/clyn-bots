@@ -49,9 +49,10 @@ public class Generador : MonoBehaviour
     
     void Start () 
     {       
-        Tacho1 = true;
+        Tacho1 = false;
         Tacho2 = false;
         Tacho3 = false;
+        bloqueaMovimiento = false;
         PrimeraVuelta = true;
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
@@ -62,8 +63,7 @@ public class Generador : MonoBehaviour
         cantidadNoRecuperables = gv.noRecTrash;
         cantidadOrganicos = gv.organicTrash;
         cantidadRecuperables = gv.recTrash;
-        cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;
-        bloqueaMovimiento = false;        
+        cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;              
         Residuos = new GameObject[cantidadResiduos];
         Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   
         CreateResiduos();           
