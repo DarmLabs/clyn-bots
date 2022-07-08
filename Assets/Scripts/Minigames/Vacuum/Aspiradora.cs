@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Aspiradora : MonoBehaviour
 {
+    public General_UI general_UI;
     [Header("Dirty Area")]
     [SerializeField] Transform topBounds;
     [SerializeField] Transform bottomBounds;
@@ -57,6 +58,7 @@ public class Aspiradora : MonoBehaviour
             catchProgress += VacuumPower*Time.deltaTime;
             if(catchProgress>=1)
             {
+                general_UI.MinigameAspireSwitcher(false);
                 Debug.Log("ASPIRASTE TODOOOO");
             }
             //if(catchProgress<1)
@@ -65,6 +67,7 @@ public class Aspiradora : MonoBehaviour
                 catchProgress-= progressBarDecay*Time.deltaTime;
                 if(catchProgress<=0)
                 {
+                    general_UI.MinigameAspireSwitcher(false);
                     Debug.Log("La aspiradora exploto");
                 }
             }
