@@ -36,6 +36,9 @@ public class Aspiradora : MonoBehaviour
     void Start()
     {
         catchProgress = 0.02f;
+        VacuumPosition = 0;
+        TrashPosition = 0.5f;
+
     }
 
     void FixedUpdate()
@@ -65,6 +68,9 @@ public class Aspiradora : MonoBehaviour
                     Debug.Log("ASPIRASTE TODOOOO");
                     //Lógica aspiradora normal
                     primeraVez = true;
+                    catchProgress = 0.02f;
+                    VacuumPosition = 0;
+                    TrashPosition = 0.5f;
                 }
                 
             }
