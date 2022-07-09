@@ -300,6 +300,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -433,6 +439,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -1124,6 +1136,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336240754}
   m_CullTransparentMesh: 1
+--- !u!1001 &378816448
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_Name
+      value: PosicionPlastico
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+--- !u!1 &378816449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+  m_PrefabInstance: {fileID: 378816448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &411832604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,6 +1455,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -1409,6 +1493,138 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2539809767440331220, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
   m_PrefabInstance: {fileID: 2539809767646460102}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &496706037
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_Name
+      value: PosicionCompost
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+--- !u!1 &496706038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+  m_PrefabInstance: {fileID: 496706037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &563174309
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_Name
+      value: PosicionCarton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+--- !u!1 &563174310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+  m_PrefabInstance: {fileID: 563174309}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &592702288
 GameObject:
@@ -1794,6 +2010,72 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1734148012428210222, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
   m_PrefabInstance: {fileID: 1734148011863333479}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &684927965
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_Name
+      value: PosicionMetal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+--- !u!1 &684927966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+  m_PrefabInstance: {fileID: 684927965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &698682887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,6 +2253,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -2454,6 +2742,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -2577,6 +2871,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -2700,6 +3000,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -2723,37 +3029,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.2409549, y: 4.2299995, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &959394668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 959394669}
-  m_Layer: 0
-  m_Name: Carta3D
-  m_TagString: Untagged
-  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &959394669
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 959394668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964075014
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,6 +3129,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -2959,7 +3240,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &984771077
 GameObject:
@@ -2994,6 +3275,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3364,6 +3651,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3534,6 +3827,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3639,7 +3938,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218583159
 GameObject:
@@ -3723,8 +4022,74 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1286170103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_Name
+      value: PosicionRefinado
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+--- !u!1 &1286170104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+  m_PrefabInstance: {fileID: 1286170103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1287760307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,6 +4515,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4273,6 +4644,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4498,6 +4875,72 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &1388599406
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_Name
+      value: PosicionVidrio
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315140511029113644, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+--- !u!1 &1388599407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4194431074908769715, guid: 6b03097abecf2ab41941af19f841a6a8, type: 3}
+  m_PrefabInstance: {fileID: 1388599406}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394029702 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 415515859381941129, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
@@ -4768,6 +5211,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4940,6 +5389,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -5063,6 +5518,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -5471,6 +5932,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -5839,7 +6306,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2059225395
 GameObject:
@@ -5941,6 +6408,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facedUp: 0
   locked: 0
+  vidrioRefinadoGO: {fileID: 0}
+  metalRefinadoGO: {fileID: 0}
+  cartonRefinadoGO: {fileID: 0}
+  plasticoRefinadoGO: {fileID: 0}
+  compostRefinadoGO: {fileID: 0}
+  ubicacionRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -6117,6 +6590,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5522790630143081502, guid: a3b279ee06955b843a9e895a2197488a, type: 3}
   m_PrefabInstance: {fileID: 103744124182571421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &103744124182571423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1995936485880457505, guid: a3b279ee06955b843a9e895a2197488a, type: 3}
+  m_PrefabInstance: {fileID: 103744124182571421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &103744124182571424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103744124182571423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa19dd6bd96c024fade8942b7f34777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidrioRefinadoUbicacion: {fileID: 1388599407}
+  metalRefinadoUbicacion: {fileID: 684927966}
+  cartonRefinadoUbicacion: {fileID: 563174310}
+  plasticoRefinadoUbicacion: {fileID: 378816449}
+  compostRefinadoUbicacion: {fileID: 496706038}
 --- !u!1001 &415515858058037007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6161,9 +6656,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 415515859381941127, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 415515859381941128, guid: 4fb37598346a07a4c83bdb808698f0fe, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -6314,9 +6833,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 824741964621334475, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a52b9ca4b34ba8148a8677523c986184, type: 3}
 --- !u!1001 &851363762286168424
@@ -6415,9 +6958,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 851363761388537517, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e40d401f68747a4d8122685d98772a4, type: 3}
 --- !u!1001 &1043973928869456506
@@ -6508,9 +7075,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 1043973928512028371, guid: e23042fa660080c47a31724e88f76e79, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 1043973928512028381, guid: e23042fa660080c47a31724e88f76e79, type: 3}
       propertyPath: m_Name
       value: CajaHuevos
@@ -6565,9 +7156,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 1717086012146188517, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 1717086012146188538, guid: 09c96b1056f07514b8fb56be38dc10fa, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6666,9 +7281,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 1734148012428210221, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 1734148012428210222, guid: d1e32e8aac439b44fb1598c318fdf03c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6819,9 +7458,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 2051872604749707974, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2345c5f691e53cf4685fc5dce90e928e, type: 3}
 --- !u!1001 &2107241342859537873
@@ -6876,9 +7539,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 2107241343596886328, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 2107241343596886329, guid: bf1dbf6ad310e9b44bfa8721285b4b10, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -6977,9 +7664,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 2185260551840855142, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 2185260551840855143, guid: a44e7c9c54fad14498aa71024eabbf90, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -7114,9 +7825,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 2539809767440331221, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 2539809767440331223, guid: 3758cae4a04969a428ae31a61251b49d, type: 3}
       propertyPath: m_Name
       value: CascaraHuevos
@@ -7223,9 +7958,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 2774085958216510671, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25637cb5dbf9c8b45a52c43419b5caa9, type: 3}
 --- !u!1001 &3891375694486408346
@@ -7324,9 +8083,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 3891375695810140455, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2c7225ea792a3b41a4471694e7e79ee, type: 3}
 --- !u!1001 &5476101380096908717
@@ -7373,9 +8156,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 5476101380831746500, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 5476101380831746501, guid: 53aa329e8cbc2b64cbdadcb26b7d373f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -7496,6 +8303,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1079325081192033192, guid: f36560a07279c4c4fa80518e8277f5c3, type: 3}
   m_PrefabInstance: {fileID: 5579392478327332093}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5579392478327332095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2768339104300617788, guid: f36560a07279c4c4fa80518e8277f5c3, type: 3}
+  m_PrefabInstance: {fileID: 5579392478327332093}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5579392478327332096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579392478327332095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa19dd6bd96c024fade8942b7f34777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidrioRefinadoUbicacion: {fileID: 1388599407}
+  metalRefinadoUbicacion: {fileID: 684927966}
+  cartonRefinadoUbicacion: {fileID: 563174310}
+  plasticoRefinadoUbicacion: {fileID: 378816449}
+  compostRefinadoUbicacion: {fileID: 496706038}
 --- !u!1001 &5662698351190583710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7584,9 +8413,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 5662698349815814065, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 5662698349815814067, guid: 3e6ef4babc5648f4f9e0ad14d114a242, type: 3}
       propertyPath: m_Name
       value: FrascoVidrio
@@ -7641,9 +8494,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 6741818051379221505, guid: 725c6f121a89a39438cf074cec564511, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     - target: {fileID: 6741818051379221506, guid: 725c6f121a89a39438cf074cec564511, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7764,6 +8641,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4108833186827538554, guid: 4f4e5786f07bbda43ba7b6a4a63b64e1, type: 3}
   m_PrefabInstance: {fileID: 6760696682783725893}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6760696682783725895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2176553604166494658, guid: 4f4e5786f07bbda43ba7b6a4a63b64e1, type: 3}
+  m_PrefabInstance: {fileID: 6760696682783725893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6760696682783725896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6760696682783725895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa19dd6bd96c024fade8942b7f34777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidrioRefinadoUbicacion: {fileID: 1388599407}
+  metalRefinadoUbicacion: {fileID: 684927966}
+  cartonRefinadoUbicacion: {fileID: 563174310}
+  plasticoRefinadoUbicacion: {fileID: 378816449}
+  compostRefinadoUbicacion: {fileID: 496706038}
 --- !u!1001 &8224172529303007462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7830,6 +8729,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 561262446014673849, guid: d549759e48f23074bb7ae9657e8948ca, type: 3}
   m_PrefabInstance: {fileID: 8224172529303007462}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8224172529303007464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150359513276463047, guid: d549759e48f23074bb7ae9657e8948ca, type: 3}
+  m_PrefabInstance: {fileID: 8224172529303007462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8224172529303007465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8224172529303007464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa19dd6bd96c024fade8942b7f34777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidrioRefinadoUbicacion: {fileID: 1388599407}
+  metalRefinadoUbicacion: {fileID: 684927966}
+  cartonRefinadoUbicacion: {fileID: 563174310}
+  plasticoRefinadoUbicacion: {fileID: 378816449}
+  compostRefinadoUbicacion: {fileID: 496706038}
 --- !u!1001 &8656231290363919992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7926,9 +8847,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 411832606}
     - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: metalRefinadoGO
+      value: 
+      objectReference: {fileID: 8224172529303007464}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
       propertyPath: normalPlasticos
       value: 
       objectReference: {fileID: 335417243}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: cartonRefinadoGO
+      value: 
+      objectReference: {fileID: 5579392478327332095}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: vidrioRefinadoGO
+      value: 
+      objectReference: {fileID: 9137812317491961037}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: compostRefinadoGO
+      value: 
+      objectReference: {fileID: 103744124182571423}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: plasticoRefinadoGO
+      value: 
+      objectReference: {fileID: 6760696682783725895}
+    - target: {fileID: 8656231288743270596, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
+      propertyPath: ubicacionRefinados
+      value: 
+      objectReference: {fileID: 1286170104}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 990cf7e0ce2357f46a3ead58e04b91cd, type: 3}
 --- !u!1001 &9137812317491961035
@@ -7997,3 +8942,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2193178052656782309, guid: 6dd5da132724b4c4b9268868b1e420c0, type: 3}
   m_PrefabInstance: {fileID: 9137812317491961035}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9137812317491961037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2530647263053475336, guid: 6dd5da132724b4c4b9268868b1e420c0, type: 3}
+  m_PrefabInstance: {fileID: 9137812317491961035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9137812317491961038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137812317491961037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa19dd6bd96c024fade8942b7f34777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidrioRefinadoUbicacion: {fileID: 1388599407}
+  metalRefinadoUbicacion: {fileID: 684927966}
+  cartonRefinadoUbicacion: {fileID: 563174310}
+  plasticoRefinadoUbicacion: {fileID: 378816449}
+  compostRefinadoUbicacion: {fileID: 496706038}
