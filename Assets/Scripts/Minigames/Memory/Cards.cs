@@ -207,7 +207,7 @@ public class Cards : MonoBehaviour
                 textComposts.text = "+"+compostPartida.ToString();
                 normalComposts.gameObject.SetActive(true);
                 GameObject goOrganico = Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
-                goOrganico.transform.localScale = new Vector3(-0.1f, -0.1f, -0.1f);
+                goOrganico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 StartCoroutine (LateCall(normalComposts.gameObject));
                
 
