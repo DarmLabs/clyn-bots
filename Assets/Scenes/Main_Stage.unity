@@ -941,6 +941,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1021951882}
         m_TargetAssemblyTypeName: SaveLoadSystem, Assembly-CSharp
         m_MethodName: Save
@@ -952,18 +964,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &189516278
 MonoBehaviour:
@@ -1590,7 +1590,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 020000000a000000080000000a00000000000000
   target: {fileID: 4994311214690818443}
   targetOptional: {fileID: 0}
@@ -1755,9 +1754,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1945,7 +1944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0000000000000000000000000000000005000000
   target: {fileID: 1027241725}
   targetOptional: {fileID: 2256471221437414542}
@@ -1982,7 +1980,7 @@ MonoBehaviour:
   semilla: {fileID: 1469823331962731370}
   target: {fileID: 1624588056}
   index: 0
-  state: 
+  state: Construir
 --- !u!114 &435102316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2475,9 +2473,9 @@ MonoBehaviour:
           m_StringArgument: Memory
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2573,7 +2571,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0000000000000000000000000000000005000000
   target: {fileID: 6073382978018297661}
   targetOptional: {fileID: 0}
@@ -3149,7 +3146,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 680568765393832711}
         m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
         m_MethodName: BuildObject
         m_Mode: 1
@@ -3173,9 +3170,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3515,7 +3512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7af9cf54c1e25f4eb1653852b49047d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 160455043935818168}
+  playerInteraction: {fileID: 680568765393832711}
   mainPanel: {fileID: 972504053}
   miniGamePanel: {fileID: 1548212460}
   constructionPanel: {fileID: 948342078}
@@ -4815,9 +4812,9 @@ MonoBehaviour:
           m_StringArgument: Memory
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4961,6 +4958,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1021951882}
         m_TargetAssemblyTypeName: SaveLoadSystem, Assembly-CSharp
         m_MethodName: Save
@@ -4972,18 +4981,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1097449347
 MonoBehaviour:
@@ -6790,6 +6787,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 680568765393832711}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: MovmentState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1021951882}
         m_TargetAssemblyTypeName: SaveLoadSystem, Assembly-CSharp
         m_MethodName: Save
@@ -6801,18 +6810,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1627734578
 MonoBehaviour:
@@ -7516,7 +7513,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0000000000000000000000000000000005000000
   target: {fileID: 826427041}
   targetOptional: {fileID: 7834937501675666920}
@@ -7553,7 +7549,7 @@ MonoBehaviour:
   semilla: {fileID: 6806197769910186129}
   target: {fileID: 1351785822}
   index: 0
-  state: 
+  state: Construir
 --- !u!114 &1845938401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9880,6 +9876,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5632591732191661180, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
   m_PrefabInstance: {fileID: 5141740756134823806}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &680568765393832711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5843166987038188405, guid: 79aae9d365d3d1744a0ced74eb413794, type: 3}
+  m_PrefabInstance: {fileID: 5141740756134823806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160455043935818168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37fb3ff1d6805664f8a85ac5b8efdbbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &703252190882421840
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20950,7 +20957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0000000001000000000000000100000000000000
   target: {fileID: 840247479451189290}
   targetOptional: {fileID: 0}
@@ -25369,7 +25375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0200000001000000000000000100000000000000
   target: {fileID: 4587071258519403696}
   targetOptional: {fileID: 0}
@@ -26705,7 +26710,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0000000001000000000000000100000000000000
   target: {fileID: 3685948650146369106}
   targetOptional: {fileID: 0}
@@ -27043,7 +27047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seeded: 0
-  state: 
   reqResources: 0000000001000000000000000100000000000000
   target: {fileID: 4299750150798382960}
   targetOptional: {fileID: 0}
