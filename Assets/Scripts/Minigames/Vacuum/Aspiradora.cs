@@ -77,13 +77,14 @@ public class Aspiradora : MonoBehaviour
                 {
                     Debug.Log("ASPIRASTE TODOOOO");
                     //Lógica aspiradora normal
-                    gv.noRecTrash = Random.Range(6,10);
-                    gv.recTrash = Random.Range(6,10);
-                    gv.organicTrash = Random.Range(6,10);
+                    gv.noRecTrash += 5;
+                    gv.recTrash += 5;
+                    gv.organicTrash += 5;
                     primeraVez = true;
                     catchProgress = 0.02f;
                     VacuumPosition = 0;
                     TrashPosition = 0.5f;
+                    general_UI.playerInteraction.BagPercentage();
                     saveSystem.Save();
                 }
                 

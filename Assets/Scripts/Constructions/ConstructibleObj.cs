@@ -8,7 +8,7 @@ public class ConstructibleObj : MonoBehaviour
     GameObject UIManager;
     General_UI general_UI;
     public bool seeded;
-    public string state;
+
     [Header ("[0] = Vidrio\n[1] = Plastico\n[2] = Carton\n[3] = Metal\n[4] = Compost")]
     public int[] reqResources = new int[5];
     public GameObject target;

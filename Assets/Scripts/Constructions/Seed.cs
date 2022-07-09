@@ -10,11 +10,10 @@ public class Seed : MonoBehaviour, ISaveable
     public GameObject target;
     GameObject building;
     public int index;
-    public string state;
-    void Start()
+    public string state = "Construir";
+    void Awake()
     {
         constructibleObj = GetComponent<ConstructibleObj>();
-        state = "Construir";
     }
 
     public void ChooseSeed(int index){

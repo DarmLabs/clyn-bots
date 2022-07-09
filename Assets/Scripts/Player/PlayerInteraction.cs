@@ -27,7 +27,7 @@ public class PlayerInteraction : MonoBehaviour
     bool changingStage;
     public bool minigameAsipire;
     public string inDoor;
-    int maxBagSpace = 50, itemsInBag;
+    int maxBagSpace = 30, itemsInBag;
     public float bagPercentage;
     void Start()
     {
@@ -144,9 +144,9 @@ public class PlayerInteraction : MonoBehaviour
         globalVariables.organicTrash += Random.Range(inf, ext);
         BagPercentage();
     }
-    void BagPercentage(){
+    public void BagPercentage(){
         itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
-        bagPercentage = (itemsInBag *100)/ 50;
+        bagPercentage = (itemsInBag *100)/ 30;
     }
     public void ChangeStage(){
         player_UI.fadeState = 1;

@@ -7,8 +7,7 @@ using TMPro;
 
 public class General_UI : MonoBehaviour
 {
-    public GameObject player;
-    PlayerInteraction playerInteraction;
+    public PlayerInteraction playerInteraction;
     public GameObject mainPanel;
     public GameObject miniGamePanel;
     public GameObject constructionPanel;
@@ -20,10 +19,7 @@ public class General_UI : MonoBehaviour
     public Color32 lockColor;
     public Color32 unlockColor;
     public GameObject minigameAspire;
-    void Start()
-    {
-        playerInteraction = player.GetComponent<PlayerInteraction>();
-    }
+
     public void MainPanelSwitcher(bool state){
         mainPanel.SetActive(state);
     }
@@ -139,6 +135,8 @@ public class General_UI : MonoBehaviour
     public void MinigameAspireSwitcher(bool state){
         if(state){
             minigameAspire.SetActive(true);
+            playerInteraction.BagPercentage();
+            Debug.Log("pasa");
         }else{
             minigameAspire.SetActive(false);
             playerInteraction.playerAnim.Aspire(false);
