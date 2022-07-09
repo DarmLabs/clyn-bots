@@ -160,10 +160,14 @@ public class Cards : MonoBehaviour
                     Debug.Log("VIDRIO REFINADO");
                     vidrioPartida+=10;
                     textVidrios.text = "+"+vidrioPartida.ToString();
-                    normalVidrios.gameObject.SetActive(true);
                     GameObject goVidrio = Instantiate(vidrioRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goVidrio.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    StartCoroutine (LateCall(normalVidrios.gameObject));                    
+                    if (MovimientoRefinados.destruyoRefinado == true)
+                    {
+                        normalVidrios.gameObject.SetActive(true);
+                        StartCoroutine (LateCall(normalVidrios.gameObject));
+                        MovimientoRefinados.destruyoRefinado = false;                   
+                    }
 
                 } 
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
@@ -171,10 +175,14 @@ public class Cards : MonoBehaviour
                     Debug.Log("PLASTICO REFINADO");
                     plasticoPartida+=10;
                     textPlasticos.text = "+"+plasticoPartida.ToString();
-                    normalPlasticos.gameObject.SetActive(true);
                     GameObject goPlastico = Instantiate(plasticoRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goPlastico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    StartCoroutine (LateCall(normalPlasticos.gameObject));
+                    if (MovimientoRefinados.destruyoRefinado == true)
+                    {
+                        normalPlasticos.gameObject.SetActive(true);
+                        StartCoroutine (LateCall(normalPlasticos.gameObject));
+                        MovimientoRefinados.destruyoRefinado = false; 
+                    }
                     
                 }
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
@@ -182,10 +190,14 @@ public class Cards : MonoBehaviour
                     Debug.Log("CARTON REFINADO");
                     cartonPartida+=10;
                     textCartones.text = "+"+cartonPartida.ToString();
-                    normalCartones.gameObject.SetActive(true);
                     GameObject goCarton = Instantiate(cartonRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goCarton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    StartCoroutine (LateCall(normalCartones.gameObject));
+                    if (MovimientoRefinados.destruyoRefinado == true)
+                    {
+                        normalCartones.gameObject.SetActive(true);
+                        StartCoroutine (LateCall(normalCartones.gameObject));
+                        MovimientoRefinados.destruyoRefinado = false; 
+                    }
 
                 }       
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
@@ -193,10 +205,14 @@ public class Cards : MonoBehaviour
                     Debug.Log("METAL REFINADO");
                     metalPartida+=10;
                     textMetales.text = "+"+metalPartida.ToString();
-                    normalMetales.gameObject.SetActive(true);
                     GameObject goMetal = Instantiate(metalRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goMetal.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                    StartCoroutine (LateCall(normalMetales.gameObject));
+                    if (MovimientoRefinados.destruyoRefinado == true)
+                    {
+                        normalMetales.gameObject.SetActive(true);
+                        StartCoroutine (LateCall(normalMetales.gameObject));
+                        MovimientoRefinados.destruyoRefinado = false; 
+                    }
 
                 }        
             }            
@@ -205,10 +221,14 @@ public class Cards : MonoBehaviour
                 Debug.Log("COMPOST y BIOMASA");
                 compostPartida+=10;
                 textComposts.text = "+"+compostPartida.ToString();
-                normalComposts.gameObject.SetActive(true);
                 GameObject goOrganico = Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                 goOrganico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                StartCoroutine (LateCall(normalComposts.gameObject));
+                if (MovimientoRefinados.destruyoRefinado == true)
+                {
+                    normalComposts.gameObject.SetActive(true);
+                    StartCoroutine (LateCall(normalComposts.gameObject));
+                    MovimientoRefinados.destruyoRefinado = false; 
+                }
                
 
             }

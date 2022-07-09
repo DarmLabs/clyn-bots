@@ -9,31 +9,70 @@ public class MovimientoRefinados : MonoBehaviour
     [SerializeField] private GameObject cartonRefinadoUbicacion;
     [SerializeField] private GameObject plasticoRefinadoUbicacion;
     [SerializeField] private GameObject compostRefinadoUbicacion;
-    private float fraction = 0.2f;
+    private float fraction = 3f;
     private float currentTime = 0f;
     private float startingTime = 3f;
-
+    public static bool destruyoRefinado = false;    
 
     void Start() 
     {
         currentTime = startingTime;
-        Debug.Log("UBICACIONES Vidrio: "+vidrioRefinadoUbicacion.transform.position);
-        Debug.Log("UBICACIONES Metal: "+metalRefinadoUbicacion.transform.position);
-        Debug.Log("UBICACIONES Carton: "+cartonRefinadoUbicacion.transform.position);
-        Debug.Log("UBICACIONES Plastico: "+plasticoRefinadoUbicacion.transform.position);
-        Debug.Log("UBICACIONES Compost: "+compostRefinadoUbicacion.transform.position);
+        destruyoRefinado = false;        
     }
+
     void Update()
     {
         currentTime -= 1*Time.deltaTime;
         if (currentTime <= 0)
         {
-            this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, vidrioRefinadoUbicacion.transform.position, fraction*Time.deltaTime); 
-            this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, metalRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-            this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, cartonRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-            this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, plasticoRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-            this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, compostRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-            Debug.Log("UBICACIONES OBJETO EN TIEMPO: "+this.gameObject.transform.position);
+            switch (this.gameObject.tag)
+            {
+                case "VidrioRefinado":
+                    this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, vidrioRefinadoUbicacion.transform.position, fraction*Time.deltaTime); 
+                    if (this.gameObject.transform.position == vidrioRefinadoUbicacion.transform.position)
+                    {
+                        Destroy(this.gameObject);
+                        destruyoRefinado = true; 
+                    }
+                    break;
+                    
+                case "MetalRefinado":
+                    this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, metalRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
+                    if (this.gameObject.transform.position == metalRefinadoUbicacion.transform.position)
+                    {
+                        Destroy(this.gameObject);
+                        destruyoRefinado = true; 
+                    }
+                    break;
+
+                case "CartonRefinado":
+                    this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, cartonRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
+                    if (this.gameObject.transform.position == cartonRefinadoUbicacion.transform.position)
+                    {
+                        Destroy(this.gameObject);
+                        destruyoRefinado = true; 
+                    }
+                    break;
+
+                case "PlasticoRefinado":                
+                    this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, plasticoRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
+                    if (this.gameObject.transform.position == plasticoRefinadoUbicacion.transform.position)
+                    {
+                        Destroy(this.gameObject);
+                        destruyoRefinado = true; 
+                    }
+                    break;
+
+                case "CompostRefinado":
+                    this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, compostRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
+                    if (this.gameObject.transform.position == compostRefinadoUbicacion.transform.position)
+                    {
+                        Destroy(this.gameObject);
+                        destruyoRefinado = true; 
+                    }
+                    break;      
+            } 
+                       
         }
 
         
