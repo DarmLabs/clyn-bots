@@ -9,7 +9,7 @@ public class MovimientoRefinados : MonoBehaviour
     [SerializeField] private GameObject cartonRefinadoUbicacion;
     [SerializeField] private GameObject plasticoRefinadoUbicacion;
     [SerializeField] private GameObject compostRefinadoUbicacion;
-    private float fraction = 0.01f;
+    private float fraction = 0.4f;
 
     
     void Update()
