@@ -161,7 +161,8 @@ public class Cards : MonoBehaviour
                     vidrioPartida+=10;
                     textVidrios.text = "+"+vidrioPartida.ToString();
                     normalVidrios.gameObject.SetActive(true);
-                    Instantiate(vidrioRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    GameObject goVidrio = Instantiate(vidrioRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    goVidrio.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     StartCoroutine (LateCall(normalVidrios.gameObject));                    
 
                 } 
@@ -171,7 +172,8 @@ public class Cards : MonoBehaviour
                     plasticoPartida+=10;
                     textPlasticos.text = "+"+plasticoPartida.ToString();
                     normalPlasticos.gameObject.SetActive(true);
-                    Instantiate(plasticoRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    GameObject goPlastico = Instantiate(plasticoRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    goPlastico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     StartCoroutine (LateCall(normalPlasticos.gameObject));
                     
                 }
@@ -181,7 +183,8 @@ public class Cards : MonoBehaviour
                     cartonPartida+=10;
                     textCartones.text = "+"+cartonPartida.ToString();
                     normalCartones.gameObject.SetActive(true);
-                    Instantiate(cartonRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    GameObject goCarton = Instantiate(cartonRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    goCarton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     StartCoroutine (LateCall(normalCartones.gameObject));
 
                 }       
@@ -191,7 +194,8 @@ public class Cards : MonoBehaviour
                     metalPartida+=10;
                     textMetales.text = "+"+metalPartida.ToString();
                     normalMetales.gameObject.SetActive(true);
-                    Instantiate(metalRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    GameObject goMetal = Instantiate(metalRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                    goMetal.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     StartCoroutine (LateCall(normalMetales.gameObject));
 
                 }        
@@ -202,7 +206,8 @@ public class Cards : MonoBehaviour
                 compostPartida+=10;
                 textComposts.text = "+"+compostPartida.ToString();
                 normalComposts.gameObject.SetActive(true);
-                Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                GameObject goOrganico = Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                goOrganico.transform.localScale = new Vector3(-0.1f, -0.1f, -0.1f);
                 StartCoroutine (LateCall(normalComposts.gameObject));
                
 
