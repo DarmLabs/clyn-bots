@@ -152,14 +152,17 @@ public class Aspiradora : MonoBehaviour
 
     private void MoveTrash()
     {
-        TrashTimer -= Time.deltaTime;
-        if(TrashTimer < 0)
+        if (activoJuego)
         {
-            TrashTimer = Random.value * TrashTimeRandomizer;
-            TrashTargetPosition = Random.value;
+            TrashTimer -= Time.deltaTime;
+            if(TrashTimer < 0)
+            {
+                TrashTimer = Random.value * TrashTimeRandomizer;
+                TrashTargetPosition = Random.value;
 
+            }
+            TrashPosition = Mathf.SmoothDamp(TrashPosition,TrashTargetPosition, ref TrashSpeed, smoothMotion);
+            Trash.position = Vector3.Lerp(bottomBounds.position,topBounds.position,TrashPosition);
         }
-        TrashPosition = Mathf.SmoothDamp(TrashPosition,TrashTargetPosition, ref TrashSpeed, smoothMotion);
-        Trash.position = Vector3.Lerp(bottomBounds.position,topBounds.position,TrashPosition);
     }
 }
