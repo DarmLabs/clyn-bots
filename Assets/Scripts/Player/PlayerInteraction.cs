@@ -48,23 +48,23 @@ public class PlayerInteraction : MonoBehaviour
         Controls();
     }
     void Controls(){
-        if(Input.GetKey(KeyCode.E) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
-            if(!minigameAsipire){
-                Aspire();
-            }else{
-                playerAnim.Aspire(true);
-            }
-            
-        }
-        else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
-            playerAnim.Aspire(false);
-            OnObjectExit();
-        }
-        else{
-            playerAnim.Aspire(false);
-            timePressed = 0;
-        }
         if(Input.GetKeyDown(KeyCode.E)){
+            interactionHappen = false;
+            if(facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
+                if(!minigameAsipire){
+                    Aspire();
+                }else{
+                    playerAnim.Aspire(true);
+                }
+            }
+            else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
+                playerAnim.Aspire(false);
+                OnObjectExit();
+            }
+            else{
+                playerAnim.Aspire(false);
+                timePressed = 0;
+            }
             if(inDoor != ""){
                 changingStage = true;
                 interactionHappen = true;
