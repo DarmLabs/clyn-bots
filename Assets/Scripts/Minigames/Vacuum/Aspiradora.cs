@@ -37,6 +37,7 @@ public class Aspiradora : MonoBehaviour
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     public bool primeraVez = false;
+    public bool activoJuego = false;
     
     void Start()
     {
@@ -44,6 +45,7 @@ public class Aspiradora : MonoBehaviour
         VacuumPosition = 0;
         TrashPosition = 0.5f;
         primeraVez = false;
+        activoJuego = false;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -79,6 +81,7 @@ public class Aspiradora : MonoBehaviour
                     gv.recTrash += 5;
                     gv.organicTrash += 5;
                     primeraVez = true;
+                    activoJuego = false;
                     catchProgress = 0.3f;
                     VacuumPosition = 0;
                     TrashPosition = 0.5f;
@@ -89,20 +92,25 @@ public class Aspiradora : MonoBehaviour
         }
         else
         {
-            catchProgress = catchProgress - progressBarDecay*Time.deltaTime;
-            if(catchProgress<=0)
+            if (activoJuego)
             {
-                general_UI.MinigameAspireSwitcher(false);
-                gv.noRecTrash += 0;
-                gv.recTrash += 0;
-                gv.organicTrash += 0;
-                primeraVez = true;
-                catchProgress = 0.3f;
-                VacuumPosition = 0;
-                TrashPosition = 0.5f;
-                saveSystem.Save();
-                Debug.Log("La aspiradora exploto");
+                catchProgress -=  progressBarDecay*Time.deltaTime;
+                if(catchProgress<=0)
+                {
+                    general_UI.MinigameAspireSwitcher(false);
+                    gv.noRecTrash += 0;
+                    gv.recTrash += 0;
+                    gv.organicTrash += 0;
+                    primeraVez = true;
+                    activoJuego = false;
+                    catchProgress = 0.3f;
+                    VacuumPosition = 0;
+                    TrashPosition = 0.5f;
+                    saveSystem.Save();
+                    Debug.Log("La aspiradora exploto");
+                }
             }
+            
         }     
         catchProgress=Mathf.Clamp(catchProgress,0,1);
     }
@@ -112,6 +120,7 @@ public class Aspiradora : MonoBehaviour
         if(Input.GetKey(KeyCode.Space))
         {
             VacuumPullVelocity += VacuumSpeed * Time.deltaTime;
+            activoJuego = true;
         }
         VacuumPullVelocity -= VacuumGravity * Time.deltaTime;        
         VacuumPosition += VacuumPullVelocity;
