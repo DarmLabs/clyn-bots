@@ -51,19 +51,7 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E)){
             interactionHappen = false;
             if(facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
-                if(!minigameAsipire){
-                    Aspire();
-                }else{
-                    playerAnim.Aspire(true);
-                }
-            }
-            else if((currentTrashPile != null && !currentTrashPile.activeSelf)){
-                playerAnim.Aspire(false);
-                OnObjectExit();
-            }
-            else{
-                playerAnim.Aspire(false);
-                timePressed = 0;
+                playerAnim.Aspire(true);
             }
             if(inDoor != ""){
                 changingStage = true;
@@ -222,11 +210,6 @@ public class PlayerInteraction : MonoBehaviour
         if(other.tag == "construction"){
             targetConstruction = null;
         }
-    }
-    void OnObjectExit()
-    {
-        currentTrashPile = null;
-        facingTrash = false;
     }
     void OnPause(){
         Time.timeScale = 0;

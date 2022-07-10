@@ -5,6 +5,7 @@ using System;
 public class Seed : MonoBehaviour, ISaveable
 {
     ConstructibleObj constructibleObj;
+    public SaveLoadSystem saveSystem;
     public GameObject []plantacion = new GameObject[3];
     public GameObject semilla;
     public GameObject target;
@@ -26,6 +27,7 @@ public class Seed : MonoBehaviour, ISaveable
         semilla.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
         state = "Mejorar";
+        saveSystem.Save();
     }
     public void GrowSeed(){
         building.transform.position = semilla.transform.position;
@@ -33,6 +35,7 @@ public class Seed : MonoBehaviour, ISaveable
         building.GetComponent<SavePosition>().PositionUpdated();
         semilla.GetComponent<SavePosition>().PositionUpdated();
         gameObject.tag = "Untagged";
+        saveSystem.Save();
     }
     public object SaveState(){
         return new SaveData(){

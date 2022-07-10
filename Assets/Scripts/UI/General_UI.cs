@@ -152,7 +152,6 @@ public class General_UI : MonoBehaviour
         if(state){
             minigameAspire.SetActive(true);
             playerInteraction.BagPercentage();
-            Debug.Log("pasa");
         }else{
             minigameAspire.SetActive(false);
             playerInteraction.playerAnim.Aspire(false);
