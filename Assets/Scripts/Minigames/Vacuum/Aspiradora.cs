@@ -96,6 +96,10 @@ public class Aspiradora : MonoBehaviour
                 gv.noRecTrash += 0;
                 gv.recTrash += 0;
                 gv.organicTrash += 0;
+                primeraVez = true;
+                catchProgress = 0.3f;
+                VacuumPosition = 0;
+                TrashPosition = 0.5f;
                 saveSystem.Save();
                 Debug.Log("La aspiradora exploto");
             }
