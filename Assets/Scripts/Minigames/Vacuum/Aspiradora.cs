@@ -11,8 +11,8 @@ public class Aspiradora : MonoBehaviour
 
     [Header("Trash Settings")]
     [SerializeField] Transform Trash;
-    [SerializeField] float smoothMotion = 3f;
-    [SerializeField] float TrashTimeRandomizer = 3f;
+    [SerializeField] float smoothMotion = 3f; //movimiento suave
+    [SerializeField] float TrashTimeRandomizer = 3f; //frecuencia de movimiento
     float TrashPosition;
     float TrashSpeed;
     float TrashTimer;
@@ -40,7 +40,7 @@ public class Aspiradora : MonoBehaviour
     
     void Start()
     {
-        catchProgress = 0.02f;
+        catchProgress = 0.3f;
         VacuumPosition = 0;
         TrashPosition = 0.5f;
         primeraVez = false;
@@ -62,10 +62,8 @@ public class Aspiradora : MonoBehaviour
         Vector3 progressBarScale = progressBarContainer.localScale;
         progressBarScale.y = catchProgress;
         progressBarContainer.localScale = progressBarScale;
-
         float min = VacuumPosition-VacuumSize/2;
         float max = VacuumPosition+VacuumSize/2;
-
         if(min<TrashPosition && TrashPosition<max)
         {
             catchProgress += VacuumPower*Time.deltaTime;
@@ -81,26 +79,28 @@ public class Aspiradora : MonoBehaviour
                     gv.recTrash += 5;
                     gv.organicTrash += 5;
                     primeraVez = true;
-                    catchProgress = 0.02f;
+                    catchProgress = 0.3f;
                     VacuumPosition = 0;
                     TrashPosition = 0.5f;
                     general_UI.playerInteraction.BagPercentage();
                     saveSystem.Save();
-                }
-                
-            }
-            //if(catchProgress<1)
-            else
-            {
-                catchProgress-= progressBarDecay*Time.deltaTime;
-                if(catchProgress<=0)
-                {
-                    general_UI.MinigameAspireSwitcher(false);
-                    Debug.Log("La aspiradora exploto");
-                }
-            }
-            catchProgress=Mathf.Clamp(catchProgress,0,1);
+                }                
+            }                        
         }
+        else
+        {
+            catchProgress = catchProgress - progressBarDecay*Time.deltaTime;
+            if(catchProgress<=0)
+            {
+                general_UI.MinigameAspireSwitcher(false);
+                gv.noRecTrash += 0;
+                gv.recTrash += 0;
+                gv.organicTrash += 0;
+                saveSystem.Save();
+                Debug.Log("La aspiradora exploto");
+            }
+        }     
+        catchProgress=Mathf.Clamp(catchProgress,0,1);
     }
 
     private void MoveVacuum()
