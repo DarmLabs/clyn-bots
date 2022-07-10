@@ -23,8 +23,10 @@ public class PlayerInteraction : MonoBehaviour
     #endregion
     float timePressed;
     bool facingTrash;
+    public bool interactionHappen;
     bool facingArcade;
     bool changingStage;
+    public bool isAspiring;
     public bool minigameAsipire;
     public string inDoor;
     int maxBagSpace = 30, itemsInBag;
@@ -63,19 +65,12 @@ public class PlayerInteraction : MonoBehaviour
             timePressed = 0;
         }
         if(Input.GetKeyDown(KeyCode.E)){
-            bool interactionHappen = false;
             if(inDoor != ""){
                 changingStage = true;
                 interactionHappen = true;
             }
             if(facingArcade){
-                if(globalVariables.noRecTrash == 0 && globalVariables.recTrash == 0 && globalVariables.organicTrash == 0){
-                    Debug.Log("No tienes basura para separar en los minijuegos");
-                }else{
-                    general_UI.MinigamePanelSwitcher(true);
-                    interactionHappen = true;
-                    SaveTransform();
-                }
+                general_UI.MinigamePanelSwitcher(true);
             }
             if(targetConstruction != null && targetConstruction.tag != "Untagged"){
                 general_UI.ConstructionPanelSwitcher(true);
@@ -239,9 +234,8 @@ public class PlayerInteraction : MonoBehaviour
     void OnResume(){
         Time.timeScale = 1;
     }
-    void SaveTransform(){
+    public void SaveTransform(){
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
-        Debug.Log("guardo");
     }
 }

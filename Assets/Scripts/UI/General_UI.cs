@@ -123,13 +123,29 @@ public class General_UI : MonoBehaviour
             MainPanelSwitcher(true);
         }
         GameObject memoryBtn;
+        GameObject centarlBtn;
         memoryBtn = miniGamePanel.transform.GetChild(2).gameObject;
+        centarlBtn = miniGamePanel.transform.GetChild(1).gameObject;
         GlobalVariables globalVariables;
         globalVariables = playerInteraction.globalVariables;
+        bool noResources = true;
         if(globalVariables.divisionNoRec == 0 && globalVariables.divisionRec ==0 && globalVariables.divisionOrganic == 0){
             memoryBtn.SetActive(false);
         }else{
             memoryBtn.SetActive(true);
+            noResources = false;
+        }
+        if(globalVariables.recTrash == 0 && globalVariables.noRecTrash == 0 && globalVariables.organicTrash == 0){
+            centarlBtn.SetActive(false);
+        }else{
+            centarlBtn.SetActive(true);
+            noResources = false;
+        }
+        if(noResources){
+            Debug.Log("No tienes basura para separar en los minijuegos");
+        }else{
+            playerInteraction.interactionHappen = true;
+            playerInteraction.SaveTransform();
         }
     }
     public void MinigameAspireSwitcher(bool state){

@@ -17,6 +17,7 @@ public class LockMovement : StateMachineBehaviour
         }
         if(animatorStateInfo.IsName("Suction_Pose_Anim Reverse")){
             playerInteraction.MovmentState(true);
+            playerInteraction.isAspiring = false;
         }
         animator.SetBool("isInteracting", false);
     }

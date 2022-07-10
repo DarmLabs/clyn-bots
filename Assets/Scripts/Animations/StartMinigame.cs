@@ -5,14 +5,15 @@ using UnityEngine;
 public class StartMinigame : StateMachineBehaviour
 {
     General_UI general_UI;
-    bool isAnimating;
+    PlayerInteraction playerInteraction;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         general_UI = GameObject.Find("CanvasOverlay").GetComponent<General_UI>();
-        if(!isAnimating){
+        playerInteraction = GameObject.Find("Player").GetComponent<PlayerInteraction>();
+        if(!playerInteraction.isAspiring){
             general_UI.minigameAspire.GetComponent<Aspiradora>().primeraVez = false;
             general_UI.MinigameAspireSwitcher(true);
-            isAnimating = true;
+            playerInteraction.isAspiring = true;
         }
     }
 
@@ -24,7 +25,7 @@ public class StartMinigame : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        isAnimating = false;
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
