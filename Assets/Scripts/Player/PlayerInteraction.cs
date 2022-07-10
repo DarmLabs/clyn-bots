@@ -46,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         Controls();
     }
     void Controls(){
-        if(Input.GetKey(KeyCode.Space) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
+        if(Input.GetKey(KeyCode.E) && facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
             if(!minigameAsipire){
                 Aspire();
             }else{
