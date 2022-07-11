@@ -117,12 +117,6 @@ public class General_UI : MonoBehaviour
         }
     }
     public void MinigamePanelSwitcher(bool state){
-        miniGamePanel.SetActive(state);
-        if(state){
-            MainPanelSwitcher(false);
-        }else{
-            MainPanelSwitcher(true);
-        }
         GameObject memoryBtn;
         GameObject centarlBtn;
         memoryBtn = miniGamePanel.transform.GetChild(2).gameObject;
@@ -146,6 +140,8 @@ public class General_UI : MonoBehaviour
             Debug.Log("No tienes basura para separar en los minijuegos");
         }else{
             playerInteraction.interactionHappen = true;
+            miniGamePanel.SetActive(state);
+            MainPanelSwitcher(false);
             playerInteraction.SaveTransform();
         }
     }
