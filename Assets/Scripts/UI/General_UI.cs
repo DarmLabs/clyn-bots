@@ -11,6 +11,7 @@ public class General_UI : MonoBehaviour
     public GameObject mainPanel;
     public GameObject miniGamePanel;
     public GameObject constructionPanel;
+    public GameObject exitPanel;
     public TextMeshProUGUI constructionTitle, youHaveRS, reqText;
     public GameObject constructionBtn;
     public GameObject upgradeBtn;
@@ -26,11 +27,6 @@ public class General_UI : MonoBehaviour
     }
     public void ConstructionPanelSwitcher(bool state){
         constructionPanel.SetActive(state);
-        if(state){
-            MainPanelSwitcher(false);
-        }else{
-            MainPanelSwitcher(true);
-        }
     }
     public void BuildingConstructionMenu(string title, string req)
     {
@@ -141,7 +137,6 @@ public class General_UI : MonoBehaviour
         }else{
             playerInteraction.interactionHappen = true;
             miniGamePanel.SetActive(state);
-            MainPanelSwitcher(false);
             playerInteraction.SaveTransform();
         }
     }
@@ -160,10 +155,16 @@ public class General_UI : MonoBehaviour
         minimap = transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
         minimap.SetActive(state);
     }
+    public void ExitPanelSwitcher(bool state){
+        exitPanel.SetActive(state);
+    }
     public void InteractionCloud(bool state){
         interactionCloud.SetActive(state);
     }
     public void ChangeScene(string scene){
         SceneManager.LoadScene(scene);
+    }
+    public void ExitGame(){
+        Application.Quit();
     }
 }

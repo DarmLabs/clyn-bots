@@ -49,6 +49,10 @@ public class PlayerInteraction : MonoBehaviour
         Controls();
     }
     void Controls(){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            general_UI.ExitPanelSwitcher(true);
+            general_UI.MainPanelSwitcher(false);
+        }
         if(Input.GetKeyDown(KeyCode.E)){
             interactionHappen = false;
             if(facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
@@ -60,9 +64,11 @@ public class PlayerInteraction : MonoBehaviour
             }
             if(facingArcade){
                 general_UI.MinigamePanelSwitcher(true);
+                general_UI.MainPanelSwitcher(false);
             }
             if(targetConstruction != null && targetConstruction.tag != "Untagged"){
                 general_UI.ConstructionPanelSwitcher(true);
+                general_UI.MainPanelSwitcher(false);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
                 interactionHappen = true;
             }

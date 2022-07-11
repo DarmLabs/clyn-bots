@@ -96,8 +96,15 @@ public class ConstructibleObj : MonoBehaviour
                     title = "Mejorando " + GetComponent<Seed>().building.name;
                     break;
             }
+        }else{
+            general_UI.EnabledSection("Construir");
+            if(reqMeet){
+                general_UI.ConstructionButtonState(true);
+            }else{
+                general_UI.ConstructionButtonState(false);
+            }
+            title = "Construyendo " + building.name;
         }
-        
         general_UI.BuildingConstructionMenu(title, req);
     }
     public void ResourcesSubstraction(){
