@@ -11,7 +11,7 @@ public class MovimientoRefinados : MonoBehaviour
     [SerializeField] private GameObject compostRefinadoUbicacion;
     private float fraction = 3f;
     private float currentTime = 0f;
-    private float startingTime = 3f;
+    private float startingTime = 1.5f;
     public static bool destruyoRefinado = false;    
 
     void Start() 
