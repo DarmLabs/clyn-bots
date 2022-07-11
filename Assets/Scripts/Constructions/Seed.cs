@@ -27,6 +27,7 @@ public class Seed : MonoBehaviour, ISaveable
         semilla.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
         state = "Mejorar";
+        GetComponent<ConstructibleObj>().ResourcesSubstraction();
         saveSystem.Save();
     }
     public void GrowSeed(){
@@ -35,6 +36,7 @@ public class Seed : MonoBehaviour, ISaveable
         building.GetComponent<SavePosition>().PositionUpdated();
         semilla.GetComponent<SavePosition>().PositionUpdated();
         gameObject.tag = "Untagged";
+        GetComponent<ConstructibleObj>().ResourcesSubstraction();
         saveSystem.Save();
     }
     public object SaveState(){

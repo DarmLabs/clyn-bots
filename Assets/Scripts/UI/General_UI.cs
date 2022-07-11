@@ -19,6 +19,7 @@ public class General_UI : MonoBehaviour
     public Color32 lockColor;
     public Color32 unlockColor;
     public GameObject minigameAspire;
+    public GameObject interactionCloud;
 
     public void MainPanelSwitcher(bool state){
         mainPanel.SetActive(state);
@@ -149,22 +150,22 @@ public class General_UI : MonoBehaviour
         }
     }
     public void MinigameAspireSwitcher(bool state){
+        minigameAspire.SetActive(state);
         if(state){
-            minigameAspire.SetActive(true);
+            MainPanelSwitcher(false);
             playerInteraction.BagPercentage();
         }else{
-            minigameAspire.SetActive(false);
+            MainPanelSwitcher(true);
             playerInteraction.playerAnim.Aspire(false);
         }
     }
     public void MinimapSwitcher(bool state){
         GameObject minimap;
-        minimap = transform.GetChild(0).gameObject;
-        if(state){
-            minimap.SetActive(true);
-        }else{
-            minimap.SetActive(false);
-        }
+        minimap = transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+        minimap.SetActive(state);
+    }
+    public void InteractionCloud(bool state){
+        interactionCloud.SetActive(state);
     }
     public void ChangeScene(string scene){
         SceneManager.LoadScene(scene);

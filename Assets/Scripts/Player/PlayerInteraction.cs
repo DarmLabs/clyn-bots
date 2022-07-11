@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     #endregion
     float timePressed;
     bool facingTrash;
+    bool onInteraction;
     public bool interactionHappen;
     bool facingArcade;
     bool changingStage;
@@ -41,6 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         IntializeFunctions();
     }
     void IntializeFunctions(){
+        PreLoadStages();
         BagPercentage();
     }
     void Update()
@@ -67,6 +69,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             if(interactionHappen){
                 playerAnim.Interaction(true);
+                OnObjectExit();
             }
         }
         if(Input.GetKeyDown(KeyCode.O)){
@@ -77,6 +80,10 @@ public class PlayerInteraction : MonoBehaviour
             globalVariables.noRecTrash += aux;
             BagPercentage();
             globalVariables.compostRefinado += 5;
+            globalVariables.metalRefinado += 5;
+            globalVariables.vidrioRefinado += 5;
+            globalVariables.plasticoRefinado += 5;
+            globalVariables.cartonRefinado += 5;
             saveSystem.Save();
         }
         if(Input.GetKeyDown(KeyCode.P)){
@@ -137,47 +144,71 @@ public class PlayerInteraction : MonoBehaviour
                 }
         player_UI.fadeState = 2;
         MovmentState(true);
+        changingStage = false;
         inDoor = "";
     }
     public void BuildObject(){
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
+        targetConstruction.GetComponent<SaveTag>().UpdateTag();
     }
     public void UpgradeObject(){
         targetConstruction.GetComponent<Seed>().GrowSeed();
+    }
+    void PreLoadStages(){
+        greenZone.SetActive(false);
+        basural.SetActive(false);
     }
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "trash"){
             facingTrash = true;
             currentTrashPile = other.gameObject;
+            onInteraction = true;
         }
         if(other.tag == "door"){
             inDoor = other.name;
+            onInteraction = true;
         }
         if(other.tag == "arcade"){
             facingArcade = true;
+            onInteraction = true;
         }
         if(other.tag == "construction"){
             targetConstruction = other.gameObject;
+            onInteraction = true;
         }
+        general_UI.InteractionCloud(onInteraction);
     }
     void OnTriggerExit(Collider other)
     {
         if(other.tag == "trash"){
             facingTrash = false;
             currentTrashPile = null;
+            onInteraction = false;
         }
         if(other.tag == "door"){
             if(!changingStage){
                 inDoor = "";
+                onInteraction = false;
             }
         }
         if(other.tag == "arcade"){
             facingArcade = false;
+            onInteraction = false;
         }
         if(other.tag == "construction"){
             targetConstruction = null;
+            onInteraction = false;
         }
+        general_UI.InteractionCloud(onInteraction);
+    }
+    public void OnObjectExit(){
+        onInteraction = false;
+        if(currentTrashPile != null && !currentTrashPile.activeSelf ){
+            facingTrash = false;
+            currentTrashPile = null;
+        }
+        general_UI.InteractionCloud(onInteraction);
     }
     void OnPause(){
         Time.timeScale = 0;

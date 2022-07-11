@@ -101,7 +101,7 @@ public class ConstructibleObj : MonoBehaviour
         
         general_UI.BuildingConstructionMenu(building.name, req);
     }
-    void ResourcesSubstraction(){
+    public void ResourcesSubstraction(){
         globalVariables.vidrioRefinado -= reqResources[0];
         globalVariables.plasticoRefinado -= reqResources[1];
         globalVariables.cartonRefinado -= reqResources[2];

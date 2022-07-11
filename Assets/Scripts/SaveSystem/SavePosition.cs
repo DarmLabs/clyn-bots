@@ -25,6 +25,7 @@ public class SavePosition : MonoBehaviour, ISaveable
         yRot = transform.localRotation.eulerAngles.y;
         zRot= transform.localRotation.eulerAngles.z;
     }
+
     public object SaveState(){
         return new SaveData(){
             xPos = this.xPos,
