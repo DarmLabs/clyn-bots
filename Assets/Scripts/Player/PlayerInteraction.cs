@@ -138,7 +138,6 @@ public class PlayerInteraction : MonoBehaviour
                 case "ToGreenZone":
                     transform.position = GreenZonePoint.transform.position;
                     StageChange(greenZone, central);
-                    general_UI.MinimapSwitcher(true);
                     break;
                 }
         player_UI.fadeState = 2;
