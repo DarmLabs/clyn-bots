@@ -7,6 +7,7 @@ public class ConstructibleObj : MonoBehaviour
     GlobalVariables globalVariables;
     GameObject UIManager;
     General_UI general_UI;
+    GameObject cinematicCamera;
     public bool seeded;
 
     [Header ("[0] = Vidrio\n[1] = Plastico\n[2] = Carton\n[3] = Metal\n[4] = Compost")]
@@ -17,12 +18,14 @@ public class ConstructibleObj : MonoBehaviour
     bool reqMeet = true;
     void Start()
     {
+        cinematicCamera = GameObject.Find("CinematicCamera");
         saveData = GameObject.Find("GlobalVariables");
         globalVariables = saveData.GetComponent<GlobalVariables>();
         UIManager = GameObject.Find("CanvasOverlay");
         general_UI = UIManager.GetComponent<General_UI>();
     }
     public void ShowResources(){
+        string title = "";
         string req = "";
         for (int i = 0; i < reqResources.Length; i++)
         {
@@ -72,6 +75,7 @@ public class ConstructibleObj : MonoBehaviour
                     }else{
                         general_UI.ConstructionButtonState(false);
                     }
+                    title = "Construyendo " + building.name;
                     break;
                 case "Sembrar":
                     general_UI.EnabledSection("Sembrar");
@@ -80,6 +84,7 @@ public class ConstructibleObj : MonoBehaviour
                     }else{
                         general_UI.SeedButtonsState(false);
                     }
+                    title = "Sembrando";
                     break;
                 case "Mejorar":
                     general_UI.EnabledSection("Mejorar");
@@ -88,18 +93,12 @@ public class ConstructibleObj : MonoBehaviour
                     }else{
                         general_UI.UpgradeButtonState(false);
                     }
+                    title = "Mejorando " + GetComponent<Seed>().building.name;
                     break;
-            }
-        }else{
-            general_UI.EnabledSection("Construir");
-            if(reqMeet){
-                general_UI.ConstructionButtonState(true);
-            }else{
-                general_UI.ConstructionButtonState(false);
             }
         }
         
-        general_UI.BuildingConstructionMenu(building.name, req);
+        general_UI.BuildingConstructionMenu(title, req);
     }
     public void ResourcesSubstraction(){
         globalVariables.vidrioRefinado -= reqResources[0];
@@ -120,6 +119,10 @@ public class ConstructibleObj : MonoBehaviour
         }else{
             gameObject.tag = "Untagged";
         }
+        PlayCinematic(building);
         ResourcesSubstraction();
+    }
+    public void PlayCinematic(GameObject target){
+        cinematicCamera.GetComponent<OffsetCinematicCamera>().SetTarget(target);
     }
 }

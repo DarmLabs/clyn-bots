@@ -9,7 +9,7 @@ public class Seed : MonoBehaviour, ISaveable
     public GameObject []plantacion = new GameObject[3];
     public GameObject semilla;
     public GameObject target;
-    GameObject building;
+    public GameObject building;
     public int index;
     public string state = "Construir";
     void Awake()
@@ -28,6 +28,7 @@ public class Seed : MonoBehaviour, ISaveable
         target.GetComponent<SavePosition>().PositionUpdated();
         state = "Mejorar";
         GetComponent<ConstructibleObj>().ResourcesSubstraction();
+        GetComponent<ConstructibleObj>().PlayCinematic(semilla);
         saveSystem.Save();
     }
     public void GrowSeed(){
@@ -37,6 +38,7 @@ public class Seed : MonoBehaviour, ISaveable
         semilla.GetComponent<SavePosition>().PositionUpdated();
         gameObject.tag = "Untagged";
         GetComponent<ConstructibleObj>().ResourcesSubstraction();
+        GetComponent<ConstructibleObj>().PlayCinematic(building);
         saveSystem.Save();
     }
     public object SaveState(){

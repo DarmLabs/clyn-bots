@@ -34,7 +34,7 @@ public class General_UI : MonoBehaviour
     }
     public void BuildingConstructionMenu(string title, string req)
     {
-        constructionTitle.text = "Construyendo " + title; 
+        constructionTitle.text = title; 
 
         youHaveRS.text =
         "Materiales Refinados que tienes:\nVidrio: " + playerInteraction.globalVariables.vidrioRefinado + 

@@ -42,7 +42,6 @@ public class PlayerInteraction : MonoBehaviour
         IntializeFunctions();
     }
     void IntializeFunctions(){
-        PreLoadStages();
         BagPercentage();
     }
     void Update()
@@ -153,10 +152,6 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void UpgradeObject(){
         targetConstruction.GetComponent<Seed>().GrowSeed();
-    }
-    void PreLoadStages(){
-        greenZone.SetActive(false);
-        basural.SetActive(false);
     }
     void OnTriggerEnter(Collider other)
     {
