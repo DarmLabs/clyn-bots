@@ -159,6 +159,8 @@ public class Cards : MonoBehaviour
                 {
                     Debug.Log("VIDRIO REFINADO");
                     vidrioPartida+=10;
+                    gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
+                    saveSystem.Save();
                     textVidrios.text = "+"+vidrioPartida.ToString();
                     GameObject goVidrio = Instantiate(vidrioRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goVidrio.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -174,6 +176,8 @@ public class Cards : MonoBehaviour
                 {
                     Debug.Log("PLASTICO REFINADO");
                     plasticoPartida+=10;
+                    gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
+                    saveSystem.Save();
                     textPlasticos.text = "+"+plasticoPartida.ToString();
                     GameObject goPlastico = Instantiate(plasticoRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goPlastico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -189,6 +193,8 @@ public class Cards : MonoBehaviour
                 {
                     Debug.Log("CARTON REFINADO");
                     cartonPartida+=10;
+                    gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
+                    saveSystem.Save();
                     textCartones.text = "+"+cartonPartida.ToString();
                     GameObject goCarton = Instantiate(cartonRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goCarton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -204,6 +210,8 @@ public class Cards : MonoBehaviour
                 {
                     Debug.Log("METAL REFINADO");
                     metalPartida+=10;
+                    gv.metalRefinado= gv.metalRefinado + (metalPartida);
+                    saveSystem.Save();
                     textMetales.text = "+"+metalPartida.ToString();
                     GameObject goMetal = Instantiate(metalRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goMetal.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -220,6 +228,8 @@ public class Cards : MonoBehaviour
             {
                 Debug.Log("COMPOST y BIOMASA");
                 compostPartida+=10;
+                gv.compostRefinado= gv.compostRefinado + (compostPartida); 
+                saveSystem.Save();
                 textComposts.text = "+"+compostPartida.ToString();
                 GameObject goOrganico = Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                 goOrganico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
@@ -245,11 +255,11 @@ public class Cards : MonoBehaviour
             //terminó el juego
             Debug.Log("GANÓ y se guardaron los refinados");
             Debug.Log("Vidas que le quedaron:"+Grilla.vidas);
-            gv.vidrioRefinado = gv.vidrioRefinado + (10*vidrioPartida);
-            gv.plasticoRefinado= gv.plasticoRefinado + (10*plasticoPartida);
-            gv.cartonRefinado= gv.cartonRefinado + (10*cartonPartida);
-            gv.metalRefinado= gv.metalRefinado + (10*metalPartida);
-            gv.compostRefinado= gv.compostRefinado + (10*compostPartida); 
+            gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
+            gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
+            gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
+            gv.metalRefinado= gv.metalRefinado + (metalPartida);
+            gv.compostRefinado= gv.compostRefinado + (compostPartida); 
             saveSystem.Save();
             
         }
