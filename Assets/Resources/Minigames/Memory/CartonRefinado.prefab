@@ -93,9 +93,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079325081192033192}
+  - component: {fileID: 5579392478327332096}
+  - component: {fileID: 2940454029239637043}
+  - component: {fileID: 3577594143137376250}
   m_Layer: 0
   m_Name: CartonRefinado
-  m_TagString: Refinado
+  m_TagString: CartonRefinado
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +113,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3667825382407525791}
   - {fileID: 315859665238861708}
@@ -118,6 +121,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5579392478327332096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768339104300617788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aa19dd6bd96c024fade8942b7f34777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidrioRefinadoUbicacion: {fileID: 0}
+  metalRefinadoUbicacion: {fileID: 0}
+  cartonRefinadoUbicacion: {fileID: 0}
+  plasticoRefinadoUbicacion: {fileID: 0}
+  compostRefinadoUbicacion: {fileID: 0}
+--- !u!65 &2940454029239637043
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768339104300617788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3577594143137376250
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2768339104300617788}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &5252258257286120096
 GameObject:
   m_ObjectHideFlags: 0
