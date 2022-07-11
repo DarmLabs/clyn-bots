@@ -31,7 +31,7 @@ public class MovimientoRefinados : MonoBehaviour
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, vidrioRefinadoUbicacion.transform.position, fraction*Time.deltaTime); 
                     if (this.gameObject.transform.position == vidrioRefinadoUbicacion.transform.position)
                     {
-                        Destroy(this.gameObject);
+                        //Destroy(this.gameObject);
                         destruyoRefinado = true; 
                     }
                     break;
@@ -40,7 +40,7 @@ public class MovimientoRefinados : MonoBehaviour
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, metalRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
                     if (this.gameObject.transform.position == metalRefinadoUbicacion.transform.position)
                     {
-                        Destroy(this.gameObject);
+                        //Destroy(this.gameObject);
                         destruyoRefinado = true; 
                     }
                     break;
@@ -49,7 +49,7 @@ public class MovimientoRefinados : MonoBehaviour
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, cartonRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
                     if (this.gameObject.transform.position == cartonRefinadoUbicacion.transform.position)
                     {
-                        Destroy(this.gameObject);
+                        //Destroy(this.gameObject);
                         destruyoRefinado = true; 
                     }
                     break;
@@ -58,7 +58,7 @@ public class MovimientoRefinados : MonoBehaviour
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, plasticoRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
                     if (this.gameObject.transform.position == plasticoRefinadoUbicacion.transform.position)
                     {
-                        Destroy(this.gameObject);
+                        //Destroy(this.gameObject);
                         destruyoRefinado = true; 
                     }
                     break;
@@ -67,7 +67,7 @@ public class MovimientoRefinados : MonoBehaviour
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, compostRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
                     if (this.gameObject.transform.position == compostRefinadoUbicacion.transform.position)
                     {
-                        Destroy(this.gameObject);
+                        //Destroy(this.gameObject);
                         destruyoRefinado = true; 
                     }
                     break;      
@@ -76,5 +76,17 @@ public class MovimientoRefinados : MonoBehaviour
         }
 
         
+    }    
+    
+
+    void OnTriggerEnter(Collider other) 
+    {
+        Debug.Log("this.gameObject.tag:  "+this.gameObject.tag);
+        Debug.Log("other.gameObject.tag:  "+other.gameObject.tag);
+        if(this.gameObject.tag == other.gameObject.tag)
+        {
+            Destroy(this.gameObject);
+            destruyoRefinado = true; 
+        }        
     }
 }
