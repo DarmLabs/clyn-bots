@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class Player_UI : MonoBehaviour
 {
     #region Imports & Required Objects
-    public GameObject GlobalVariables;
-    GlobalVariables globalVariables;
+    public GlobalVariables globalVariables;
     public TextMeshProUGUI trashText;
+    public TextMeshProUGUI vidrioRefText, plasticoRefText, compostText, cartonRefText, metalRefText;
     public GameObject FadePanel;
     public GameObject Player;
     PlayerInteraction playerInteraction;
@@ -20,14 +20,14 @@ public class Player_UI : MonoBehaviour
     Color oldColor;
     void Start()
     {
-        globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
         Color oldColor = FadePanel.GetComponent<Image>().color;
         playerInteraction = Player.GetComponent<PlayerInteraction>();
     }
 
     void LateUpdate()
     {
-        DisplayTrashText();              
+        DisplayBagPercentage();   
+        DisplayRefTrash();           
         if(fadeState == 1){
             FadeIn();
         }
@@ -35,8 +35,15 @@ public class Player_UI : MonoBehaviour
             FadeOut();
         }
     }
-    void DisplayTrashText(){
-         trashText.text = "Mochila " + playerInteraction.bagPercentage + "%" + "\nOrganicos "+ globalVariables.organicTrash + "\nRecuperables "+ globalVariables.recTrash + "\nNo Recuperables " + globalVariables.noRecTrash;
+    void DisplayBagPercentage(){
+        trashText.text = "Mochila " + playerInteraction.bagPercentage + " %";
+    }
+    void DisplayRefTrash(){
+        vidrioRefText.text = "x " + globalVariables.vidrioRefinado;
+        plasticoRefText.text = "x " + globalVariables.plasticoRefinado;
+        compostText.text = "x " + globalVariables.compostRefinado;
+        cartonRefText.text = "x " + globalVariables.cartonRefinado;
+        metalRefText.text = "x " + globalVariables.metalRefinado;
     }
 
     void FadeIn(){ 

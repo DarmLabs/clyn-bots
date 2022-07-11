@@ -90,42 +90,10 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Celebrate();
         }*/
     }
-     void Aspire(){
-        MovmentState(false);
-        timePressed +=  Time.deltaTime;
-        playerAnim.Aspire(true);
-        if(timePressed > 2){
-            if(itemsInBag < 44){
-                RandomNRT(1,3);
-                RandomRT(1,3);
-                RandomOT(1,3);
-            }else{
-                if(itemsInBag < maxBagSpace){
-                    RandomNRT(1,2);
-                }
-                if(itemsInBag < maxBagSpace){
-                    RandomRT(1,2);
-                }
-                if(itemsInBag < maxBagSpace){
-                    RandomOT(1,2);
-                }
-            }
-            currentTrashPile.GetComponent<TrashPile>().RecudeHeight();
-            timePressed = 0;
-            saveSystem.Save();
-        }
-    }
-    void RandomNRT(int inf,int ext){
-        globalVariables.noRecTrash += Random.Range(inf, ext);
-        BagPercentage();
-    }
-    void RandomRT(int inf,int ext){
-        globalVariables.recTrash += Random.Range(inf, ext);
-        BagPercentage();
-    }
-    void RandomOT(int inf,int ext){
-        globalVariables.organicTrash += Random.Range(inf, ext);
-        BagPercentage();
+    public void ReduceTrashPile(){
+        currentTrashPile.SetActive(false);
+        currentTrashPile = null;
+        facingTrash = false;
     }
     public void BagPercentage(){
         itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
