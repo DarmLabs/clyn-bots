@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Tachos : MonoBehaviour
 {
     private GameObject globalaux;
@@ -14,7 +15,9 @@ public class Tachos : MonoBehaviour
     public Text residuosRecuperables;
     public Text residuosOrganicos;
     public Text erroresText;
-     
+
+    [SerializeField] private GameObject PanelVictoria;
+    [SerializeField] private GameObject PanelDerrota;     
 
     void Start()
     {       
@@ -33,17 +36,19 @@ public class Tachos : MonoBehaviour
     {
         if (errores == 5)
         {
-            //Debug.Log ("Perdiste niño bobo");
+            Debug.Log ("Perdiste niño bobo");
+            PanelDerrota.SetActive(true);
+            Time.timeScale = 0f;
             saveSystem.Save();  
         }
-       /* if (gv.divisionOrganic<gv.divisionRec)
+        if (Generador.Terminaste && errores < 5)
         {
-            gv.cardDistribution = true;            
+            Debug.Log ("Ganaste niño inteligente");
+            PanelVictoria.SetActive(true);
+            Time.timeScale = 0f;
+            saveSystem.Save();
+            Generador.Terminaste = false;
         }
-        else
-        {
-            gv.cardDistribution = false;            
-        }*/
             
     }
     void  OnMouseDown() 

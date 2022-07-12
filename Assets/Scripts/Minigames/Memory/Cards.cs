@@ -20,8 +20,10 @@ public class Cards : MonoBehaviour
     [SerializeField] private GameObject cartonRefinadoGO;
     [SerializeField] private GameObject plasticoRefinadoGO;
     [SerializeField] private GameObject compostRefinadoGO;
-    [SerializeField] private GameObject ubicacionRefinados;  
-    
+    [SerializeField] private GameObject ubicacionRefinados; 
+
+    [SerializeField] private GameObject PanelVictoria;
+    [SerializeField] private GameObject PanelDerrota;     
     
     private GameObject globalaux;
     private GlobalVariables gv;
@@ -49,9 +51,7 @@ public class Cards : MonoBehaviour
         
 
     void Start()
-    {    
-        //se inicializan las banderas
-        //vidas = 20;
+    {           
         vidrioPartida=0;
         plasticoPartida=0;
         cartonPartida=0;
@@ -63,12 +63,10 @@ public class Cards : MonoBehaviour
         locked=false;
         sequence=new Queue<Cards>();
         pairsFound=0;
-
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
-
     }
 
     void  OnMouseDown() 
@@ -76,8 +74,7 @@ public class Cards : MonoBehaviour
         //si el movimiento no esta bloqueado se voltea la carta
         if (!locked && coroutineAllowed)
         {
-            StartCoroutine(RotateCard());
-            
+            StartCoroutine(RotateCard());            
         }
         
     }
@@ -111,25 +108,12 @@ public class Cards : MonoBehaviour
                                                 
             }
             
-            coroutineAllowed=true;
-        
-            facedUp=!facedUp;
-           
-
-            if(sequence.Count ==1)
-            {
-                //Debug.Log("UNA CARTA VOLTEADA");                
-                //Debug.Log("vidas: "+vidas);
-              
-
-            }
+            coroutineAllowed=true;        
+            facedUp=!facedUp;           
 
             if(sequence.Count ==2)
-            {
-                
-                //sequence.Enqueue(auxiliar);                
+            {                                             
                 CheckResults();
-
             }
         }        
     }
@@ -148,11 +132,7 @@ public class Cards : MonoBehaviour
         {
             firstInPair.locked=true;
             secondInPair.locked=true;
-            pairsFound+=1;
-            //vidas = vidas + 1;        
-            //verificar tags
-            //Debug.Log("TAG para refinado de:  "+firstInPair.tag);
-            //Debug.Log("vidas dentro tag: "+vidas);
+            pairsFound+=1;           
             if (firstInPair.tag == "Recuperable")
             {
                 if (firstInPairName == "VasoVidrio" || firstInPairName== "BotellaVidrio" || firstInPairName == "FrascoVidrio")
@@ -238,9 +218,7 @@ public class Cards : MonoBehaviour
                     normalComposts.gameObject.SetActive(true);
                     StartCoroutine (LateCall(normalComposts.gameObject));
                     MovimientoRefinados.destruyoRefinado = false; 
-                }
-               
-
+                }              
             }
         }
         else
@@ -254,14 +232,14 @@ public class Cards : MonoBehaviour
         {
             //terminó el juego
             Debug.Log("GANÓ y se guardaron los refinados");
+            PanelVictoria.SetActive(true);            
             Debug.Log("Vidas que le quedaron:"+Grilla.vidas);
             gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
             gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
             gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
             gv.metalRefinado= gv.metalRefinado + (metalPartida);
             gv.compostRefinado= gv.compostRefinado + (compostPartida); 
-            saveSystem.Save();
-            
+            saveSystem.Save();            
         }
     }
 
@@ -271,7 +249,7 @@ public class Cards : MonoBehaviour
         coroutineAllowed =false; 
         colisionAux.enabled = !colisionAux.enabled;
         Grilla.vidas = Grilla.vidas -1;  
-        Debug.Log("Vidas:"+Grilla.vidas);  
+        Debug.Log("Vidas:"+Grilla.vidas/2);  
         yield return new WaitForSeconds(40f* Time.deltaTime);
         for (float i=190f; i>=0f; i-=10)
         {
@@ -287,6 +265,14 @@ public class Cards : MonoBehaviour
     {
         yield return new WaitForSeconds(50.0f*Time.deltaTime);
         objeto.SetActive(false);
+    }
+    
+    void Update() 
+    {
+        if (Grilla.vidas <= 0)
+        {
+            PanelDerrota.SetActive(true);            
+        }
     }
            
    

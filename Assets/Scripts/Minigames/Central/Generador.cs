@@ -40,6 +40,7 @@ public class Generador : MonoBehaviour
     public static bool Tacho1 = false;
     public static bool Tacho2 = false;
     public static bool Tacho3 = false;
+    public static bool Terminaste = false;
     private bool PrimeraVuelta = true;
     #endregion
     public static bool bloqueaMovimiento = false; 
@@ -52,6 +53,7 @@ public class Generador : MonoBehaviour
         Tacho1 = false;
         Tacho2 = false;
         Tacho3 = false;
+        Terminaste = false;
         bloqueaMovimiento = false;
         PrimeraVuelta = true;
         intervalo = 4;
@@ -191,6 +193,7 @@ public class Generador : MonoBehaviour
             else
             {
                 Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
+                Terminaste = true;
             }
             
         }

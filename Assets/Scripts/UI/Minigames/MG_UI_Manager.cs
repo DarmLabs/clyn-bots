@@ -9,4 +9,9 @@ public class MG_UI_Manager : MonoBehaviour
     {
         SceneManager.LoadScene("Main_Stage");
     }
+
+    public void Reintentar()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
