@@ -110,6 +110,7 @@ public class Generador : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+        /*
         if (!bloqueaMovimiento)
         {
             if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
@@ -130,7 +131,8 @@ public class Generador : MonoBehaviour
                 Tacho2 = false;
                 Tacho3 = true;   
             }  
-        }        
+        }  
+        */      
         if (Tacho1)
         {
             Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
