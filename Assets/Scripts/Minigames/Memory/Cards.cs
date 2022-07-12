@@ -227,20 +227,19 @@ public class Cards : MonoBehaviour
             secondInPair.StartCoroutine("RotateBack");          
             
         }
-
         if (pairsFound == 9)
         {
-            //terminó el juego
-            Debug.Log("GANÓ y se guardaron los refinados");
-            PanelVictoria.SetActive(true);            
-            Debug.Log("Vidas que le quedaron:"+Grilla.vidas);
-            gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
-            gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
-            gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
-            gv.metalRefinado= gv.metalRefinado + (metalPartida);
-            gv.compostRefinado= gv.compostRefinado + (compostPartida); 
-            saveSystem.Save();            
+                Debug.Log("GANÓ y se guardaron los refinados");
+                gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
+                gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
+                gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
+                gv.metalRefinado= gv.metalRefinado + (metalPartida);
+                gv.compostRefinado= gv.compostRefinado + (compostPartida); 
+                saveSystem.Save(); 
         }
+
+
+        
     }
 
     //vuelve a voltear la carta
@@ -272,6 +271,16 @@ public class Cards : MonoBehaviour
         if (Grilla.vidas <= 0)
         {
             PanelDerrota.SetActive(true);            
+        }
+        if (pairsFound == 9)
+        {
+            //terminó el juego
+            if(Grilla.refinadosDestruidos == 9)
+            {                
+                PanelVictoria.SetActive(true);            
+                Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
+            }
+            
         }
     }
            

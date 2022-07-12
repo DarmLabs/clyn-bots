@@ -29,47 +29,47 @@ public class MovimientoRefinados : MonoBehaviour
             {
                 case "VidrioRefinado":
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, vidrioRefinadoUbicacion.transform.position, fraction*Time.deltaTime); 
-                    if (this.gameObject.transform.position == vidrioRefinadoUbicacion.transform.position)
+                    /* if (this.gameObject.transform.position == vidrioRefinadoUbicacion.transform.position)
                     {
                         //Destroy(this.gameObject);
                         destruyoRefinado = true; 
-                    }
+                    } */
                     break;
                     
                 case "MetalRefinado":
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, metalRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-                    if (this.gameObject.transform.position == metalRefinadoUbicacion.transform.position)
+                    /* if (this.gameObject.transform.position == metalRefinadoUbicacion.transform.position)
                     {
                         //Destroy(this.gameObject);
                         destruyoRefinado = true; 
-                    }
+                    } */
                     break;
 
                 case "CartonRefinado":
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, cartonRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-                    if (this.gameObject.transform.position == cartonRefinadoUbicacion.transform.position)
+                    /* if (this.gameObject.transform.position == cartonRefinadoUbicacion.transform.position)
                     {
                         //Destroy(this.gameObject);
                         destruyoRefinado = true; 
-                    }
+                    } */
                     break;
 
                 case "PlasticoRefinado":                
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, plasticoRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-                    if (this.gameObject.transform.position == plasticoRefinadoUbicacion.transform.position)
+                    /* if (this.gameObject.transform.position == plasticoRefinadoUbicacion.transform.position)
                     {
                         //Destroy(this.gameObject);
                         destruyoRefinado = true; 
-                    }
+                    } */
                     break;
 
                 case "CompostRefinado":
                     this.gameObject.transform.position = Vector3.Slerp(this.gameObject.transform.position, compostRefinadoUbicacion.transform.position, fraction*Time.deltaTime);
-                    if (this.gameObject.transform.position == compostRefinadoUbicacion.transform.position)
+                    /* if (this.gameObject.transform.position == compostRefinadoUbicacion.transform.position)
                     {
                         //Destroy(this.gameObject);
                         destruyoRefinado = true; 
-                    }
+                    } */
                     break;      
             } 
                        
@@ -87,6 +87,7 @@ public class MovimientoRefinados : MonoBehaviour
         {
             Destroy(this.gameObject);
             destruyoRefinado = true; 
+            Grilla.refinadosDestruidos += 1;
         }        
     }
 }
