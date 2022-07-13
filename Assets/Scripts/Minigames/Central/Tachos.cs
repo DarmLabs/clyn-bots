@@ -38,14 +38,14 @@ public class Tachos : MonoBehaviour
         {
             Debug.Log ("Perdiste niño bobo");
             PanelDerrota.SetActive(true);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             saveSystem.Save();  
         }
         if (Generador.Terminaste && errores < 5)
         {
             Debug.Log ("Ganaste niño inteligente");
             PanelVictoria.SetActive(true);
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
             saveSystem.Save();
             Generador.Terminaste = false;
         }

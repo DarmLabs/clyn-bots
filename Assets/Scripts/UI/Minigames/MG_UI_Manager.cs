@@ -14,4 +14,10 @@ public class MG_UI_Manager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void RetomarTiempo()
+    {
+        //Time.timeScale = 1f;
+        //Debug.Log("TIEMPO: "+Time.timeScale);
+    }
 }
