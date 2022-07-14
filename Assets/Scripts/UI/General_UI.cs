@@ -11,8 +11,10 @@ public class General_UI : MonoBehaviour
     public GameObject mainPanel;
     public GameObject miniGamePanel;
     public GameObject constructionPanel;
+    public GameObject constructonRender;
+    public Sprite Panel, Molino,Bomba , Trigo, Zanahoria, Tomate;
     public GameObject exitPanel;
-    public TextMeshProUGUI constructionTitle, youHaveRS, reqText;
+    public TextMeshProUGUI constructionTitle, reqVidrio, reqPlastico, reqCompost, reqMetal, reqCarton;
     public GameObject constructionBtn;
     public GameObject upgradeBtn;
     public GameObject seedSection;
@@ -28,18 +30,47 @@ public class General_UI : MonoBehaviour
     public void ConstructionPanelSwitcher(bool state){
         constructionPanel.SetActive(state);
     }
-    public void BuildingConstructionMenu(string title, string req)
+    public void BuildingConstructionMenu(string title, string[] req, string reqSprite)
     {
         constructionTitle.text = title; 
 
-        youHaveRS.text =
-        "Materiales Refinados que tienes:\nVidrio: " + playerInteraction.globalVariables.vidrioRefinado + 
-        "\nPlastico: " + playerInteraction.globalVariables.plasticoRefinado +
-        "\nCarton: " + playerInteraction.globalVariables.cartonRefinado +
-        "\nMetal: " + playerInteraction.globalVariables.metalRefinado +
-        "\nCompost: " + playerInteraction.globalVariables.compostRefinado;
+        reqVidrio.text = req[0];
+        reqPlastico.text = req[1];
+        reqCarton.text = req[2];
+        reqMetal.text = req[3];
+        reqCompost.text = req[4];
 
-        reqText.text = "Materiales Refinados necesarios:" + req;
+        bool found = false;
+        switch (reqSprite)
+        {
+            case "Panel Solar":
+            constructonRender.GetComponent<Image>().sprite = Panel;
+            found = true;
+                break;
+            case "Molino":
+            constructonRender.GetComponent<Image>().sprite = Molino;
+            found = true;
+                break;
+            case "Bomba de Agua":
+            constructonRender.GetComponent<Image>().sprite = Bomba;
+            found = true;
+                break;
+            case "Trigo":
+            constructonRender.GetComponent<Image>().sprite = Trigo;
+            found = true;
+                break;
+            case "Zanahoria":
+            constructonRender.GetComponent<Image>().sprite = Zanahoria;
+            found = true;
+                break;
+            case "Tomtate":
+            constructonRender.GetComponent<Image>().sprite = Tomate;
+            found = true;
+                break;
+        }
+        if(!found){
+            constructonRender.GetComponent<Image>().sprite = null;
+        }
     }
     public void EnabledSection(string name){
         switch (name)

@@ -42,6 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         IntializeFunctions();
     }
     void IntializeFunctions(){
+        OnResume();
         BagPercentage();
     }
     void Update()
@@ -68,7 +69,6 @@ public class PlayerInteraction : MonoBehaviour
             }
             if(targetConstruction != null && targetConstruction.tag != "Untagged"){
                 general_UI.ConstructionPanelSwitcher(true);
-                general_UI.MainPanelSwitcher(false);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
                 interactionHappen = true;
             }
@@ -112,6 +112,7 @@ public class PlayerInteraction : MonoBehaviour
         bagPercentage = (itemsInBag *100)/ 30;
     }
     public void ChangeStage(){
+        player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
         StartCoroutine(WaitInDoor(1));
     }

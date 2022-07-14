@@ -39,11 +39,11 @@ public class Player_UI : MonoBehaviour
         trashText.text = "Mochila " + playerInteraction.bagPercentage + " %";
     }
     void DisplayRefTrash(){
-        vidrioRefText.text = "x " + globalVariables.vidrioRefinado;
-        plasticoRefText.text = "x " + globalVariables.plasticoRefinado;
-        compostText.text = "x " + globalVariables.compostRefinado;
-        cartonRefText.text = "x " + globalVariables.cartonRefinado;
-        metalRefText.text = "x " + globalVariables.metalRefinado;
+        vidrioRefText.text = globalVariables.vidrioRefinado.ToString();
+        plasticoRefText.text = globalVariables.plasticoRefinado.ToString();
+        compostText.text = globalVariables.compostRefinado.ToString();
+        cartonRefText.text = globalVariables.cartonRefinado.ToString();
+        metalRefText.text = globalVariables.metalRefinado.ToString();
     }
 
     void FadeIn(){ 
@@ -59,6 +59,7 @@ public class Player_UI : MonoBehaviour
         }
         else{
             fadeState = 0;
+            FadePanel.SetActive(false);
         }
     }
 }

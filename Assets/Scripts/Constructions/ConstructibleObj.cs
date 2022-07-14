@@ -26,45 +26,14 @@ public class ConstructibleObj : MonoBehaviour
     }
     public void ShowResources(){
         string title = "";
-        string req = "";
+        string[] req = new string[5];
+        reqMeet = true;
         for (int i = 0; i < reqResources.Length; i++)
         {
-            if(reqResources[i] > 0){
-                reqMeet = true;
-                switch (i)
-                {
-                    case 0:
-                        req = "\nVidrio x" + reqResources[i]; 
-                        if(globalVariables.vidrioRefinado < reqResources[i]){
-                            reqMeet = false;
-                        } 
-                        break;
-                    case 1:
-                        req += "\nPlastico x" + reqResources[i];  
-                        if(globalVariables.plasticoRefinado < reqResources[i]){
-                            reqMeet = false;
-                        }
-                        break;
-                    case 2:
-                        req += "\nCarton x" + reqResources[i]; 
-                        if(globalVariables.cartonRefinado < reqResources[i]){
-                            reqMeet = false;
-                        } 
-                        break;
-                    case 3:
-                        req += "\nMetal x" + reqResources[i]; 
-                        if(globalVariables.metalRefinado < reqResources[i]){
-                            reqMeet = false;
-                        } 
-                        break;
-                    case 4:
-                        req += "\nCompost x" + reqResources[i];  
-                        if(globalVariables.compostRefinado < reqResources[i]){
-                            reqMeet = false;
-                        }
-                        break;
-                }
-            }
+            req[i] = reqResources[i].ToString();
+            if(globalVariables.vidrioRefinado < reqResources[i]){
+                reqMeet = false;
+            } 
         }
         if(GetComponent<Seed>() != null){
             switch(GetComponent<Seed>().state){
@@ -84,7 +53,7 @@ public class ConstructibleObj : MonoBehaviour
                     }else{
                         general_UI.SeedButtonsState(false);
                     }
-                    title = "Sembrando";
+                    title = "Plantando";
                     break;
                 case "Mejorar":
                     general_UI.EnabledSection("Mejorar");
@@ -105,7 +74,7 @@ public class ConstructibleObj : MonoBehaviour
             }
             title = "Construyendo " + building.name;
         }
-        general_UI.BuildingConstructionMenu(title, req);
+        general_UI.BuildingConstructionMenu(title, req, building.name);
     }
     public void ResourcesSubstraction(){
         globalVariables.vidrioRefinado -= reqResources[0];
