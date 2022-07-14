@@ -23,6 +23,6 @@ public class OffsetCinematicCamera : MonoBehaviour
         gameObject.SetActive(false);
         general_UI.playerInteraction.MovmentState(true);
         general_UI.MainPanelSwitcher(true);
-        
+        general_UI.playerInteraction.enabled = true;
     }
 }

@@ -6,7 +6,7 @@ public class PlayersMovement : MonoBehaviour
 {
     float speed = 6f;
     float speedValue;
-    Vector3 forward, right, heading, direction, rightMovement, upMovement;
+    Vector3 forward, right, heading, rightMovement, upMovement;
     PlayerAnimations playerAnim;
     Rigidbody rb;
     public bool wallAhed = false;
@@ -22,30 +22,28 @@ public class PlayersMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(!wallAhed){
-            Movement();
-            
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
+            if(!wallAhed){
+                Movement();
+            }else{
+                playerAnim.Walking(false);
+            }
+            Rotation();
+            playerAnim.Walking(true);
         }else{
             playerAnim.Walking(false);
         }
-        Rotation();
     }
     void Movement()
     {
         rb.position += rightMovement;
         rb.position += upMovement;
-        if(heading.x == 0 && heading.y == 0 && heading.z == 0){
-            playerAnim.Walking(false);
-        }else{
-            playerAnim.Walking(true);
-        }
     }
     void Rotation(){
-        direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
+        rightMovement = right * speed * Time.deltaTime * (Input.GetAxis("Horizontal"));
         upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
         heading = Vector3.Normalize(rightMovement + upMovement);
-        transform.forward += heading;
+        transform.rotation = Quaternion.LookRotation(heading);
     }
     
 }

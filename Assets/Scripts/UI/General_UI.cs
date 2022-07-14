@@ -63,7 +63,7 @@ public class General_UI : MonoBehaviour
             constructonRender.GetComponent<Image>().sprite = Zanahoria;
             found = true;
                 break;
-            case "Tomtate":
+            case "Tomate":
             constructonRender.GetComponent<Image>().sprite = Tomate;
             found = true;
                 break;

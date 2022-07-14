@@ -11,7 +11,7 @@ public class Seed : MonoBehaviour, ISaveable
     public GameObject target;
     public GameObject building;
     public int index;
-    public string state = "Construir";
+    public string currentState;
     void Awake()
     {
         constructibleObj = GetComponent<ConstructibleObj>();
@@ -21,12 +21,13 @@ public class Seed : MonoBehaviour, ISaveable
         building = plantacion[index];
         this.index = index;
         GetComponent<ConstructibleObj>().seeded = true;
+        Debug.Log(currentState);
     }
     public void PlaceSeed(){
         semilla.transform.position = target.transform.position;
         semilla.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
-        state = "Mejorar";
+        currentState = "Mejorar";
         GetComponent<ConstructibleObj>().ResourcesSubstraction();
         GetComponent<ConstructibleObj>().PlayCinematic(semilla);
         saveSystem.Save();
@@ -44,20 +45,21 @@ public class Seed : MonoBehaviour, ISaveable
     public object SaveState(){
         return new SaveData(){
             index = this.index,
-            state = this.state
+            currentState = this.currentState
+            
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
     public void LoadState(object state){
         var saveData = (SaveData)state;
         index = saveData.index;
-        state = saveData.state;
+        currentState = saveData.currentState;
         ChooseSeed(index);
     }
     [Serializable]
     private struct SaveData{
         public int index;
-        public string state;
+        public string currentState;
     }
 }
 

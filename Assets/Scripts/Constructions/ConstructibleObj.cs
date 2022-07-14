@@ -36,8 +36,8 @@ public class ConstructibleObj : MonoBehaviour
             } 
         }
         if(GetComponent<Seed>() != null){
-            switch(GetComponent<Seed>().state){
-                case "Construir":
+            switch(GetComponent<Seed>().currentState){
+                case "":
                     general_UI.EnabledSection("Construir");
                     if(reqMeet){
                         general_UI.ConstructionButtonState(true);
@@ -45,6 +45,7 @@ public class ConstructibleObj : MonoBehaviour
                         general_UI.ConstructionButtonState(false);
                     }
                     title = "Construyendo " + building.name;
+                    general_UI.BuildingConstructionMenu(title, req, "");
                     break;
                 case "Sembrar":
                     general_UI.EnabledSection("Sembrar");
@@ -54,6 +55,7 @@ public class ConstructibleObj : MonoBehaviour
                         general_UI.SeedButtonsState(false);
                     }
                     title = "Plantando";
+                    general_UI.BuildingConstructionMenu(title, req, "");
                     break;
                 case "Mejorar":
                     general_UI.EnabledSection("Mejorar");
@@ -63,6 +65,7 @@ public class ConstructibleObj : MonoBehaviour
                         general_UI.UpgradeButtonState(false);
                     }
                     title = "Mejorando " + GetComponent<Seed>().building.name;
+                    general_UI.BuildingConstructionMenu(title, req, GetComponent<Seed>().building.name);
                     break;
             }
         }else{
@@ -73,8 +76,8 @@ public class ConstructibleObj : MonoBehaviour
                 general_UI.ConstructionButtonState(false);
             }
             title = "Construyendo " + building.name;
+            general_UI.BuildingConstructionMenu(title, req, building.name);
         }
-        general_UI.BuildingConstructionMenu(title, req, building.name);
     }
     public void ResourcesSubstraction(){
         globalVariables.vidrioRefinado -= reqResources[0];
@@ -85,13 +88,13 @@ public class ConstructibleObj : MonoBehaviour
     }
     public void BuildObject(){
         building.transform.position = target.transform.position;
-        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 100, target.transform.position.z);
+        target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 6, target.transform.position.z);
         building.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
         if(targetOptional != null){
             targetOptional.transform.position = target.transform.position;
             targetOptional.GetComponent<SavePosition>().PositionUpdated();
-            GetComponent<Seed>().state = "Sembrar";
+            GetComponent<Seed>().currentState = "Sembrar";
         }else{
             gameObject.tag = "Untagged";
         }
