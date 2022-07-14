@@ -11,6 +11,7 @@ public class General_UI : MonoBehaviour
     public GameObject mainPanel;
     public GameObject miniGamePanel;
     public GameObject constructionPanel;
+    public GameObject minimap;
     public GameObject constructonRender;
     public Sprite Panel, Molino,Bomba , Trigo, Zanahoria, Tomate;
     public GameObject exitPanel;
@@ -182,8 +183,6 @@ public class General_UI : MonoBehaviour
         }
     }
     public void MinimapSwitcher(bool state){
-        GameObject minimap;
-        minimap = transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
         minimap.SetActive(state);
     }
     public void ExitPanelSwitcher(bool state){

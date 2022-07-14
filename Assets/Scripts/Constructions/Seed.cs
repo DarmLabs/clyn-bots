@@ -34,7 +34,7 @@ public class Seed : MonoBehaviour, ISaveable
     }
     public void GrowSeed(){
         building.transform.position = semilla.transform.position;
-        semilla.transform.position = new Vector3(semilla.transform.position.x, semilla.transform.position.y - 100, semilla.transform.position.z);
+        semilla.transform.position = new Vector3(semilla.transform.position.x, semilla.transform.position.y - 10000, semilla.transform.position.z);
         building.GetComponent<SavePosition>().PositionUpdated();
         semilla.GetComponent<SavePosition>().PositionUpdated();
         gameObject.tag = "Untagged";
