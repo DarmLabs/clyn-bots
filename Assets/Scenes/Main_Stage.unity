@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd1b18d3a85e9f4cb5ccf1b57328315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offSet: {x: 0, y: 0, z: 0}
+  targetCamera: {fileID: 0}
 --- !u!1 &162841119 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3ad93052b7fbbac498c0c11d5e87870b, type: 3}
@@ -1649,7 +1649,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652988045763}
-  m_RootOrder: 92
+  m_RootOrder: 91
   m_LocalEulerAnglesHint: {x: 48.2, y: 180, z: 0}
 --- !u!65 &275214883
 BoxCollider:
@@ -3578,7 +3578,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652988045763}
-  m_RootOrder: 91
+  m_RootOrder: 90
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &526028066
 GameObject:
@@ -10606,7 +10606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd1b18d3a85e9f4cb5ccf1b57328315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offSet: {x: 0, y: 0, z: 0}
+  targetCamera: {fileID: 1312425770}
 --- !u!1001 &1499887261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14094,7 +14094,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &2113319175
 Transform:
@@ -14108,6 +14108,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8066861967483189700}
   - {fileID: 3092923552130363627}
   - {fileID: 2033090148423733261}
   - {fileID: 6074329442532081460}
@@ -15339,7 +15340,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!33 &512038739652713773
 MeshFilter:
@@ -15571,7 +15572,6 @@ Transform:
   - {fileID: 1908640982385166982}
   - {fileID: 2113319175}
   - {fileID: 5015818990981390012}
-  - {fileID: 8066861967483189700}
   - {fileID: 5638019857426973799}
   - {fileID: 4881412494040896629}
   - {fileID: 523978527}
@@ -18712,7 +18712,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2113319175}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2040280106968241635
 MeshFilter:
@@ -18932,7 +18932,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2113319175}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2193008123687943617
 MeshFilter:
@@ -19208,7 +19208,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &2459513672543934156
 GameObject:
@@ -20404,7 +20404,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2113319175}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3107367652743182195
 MeshFilter:
@@ -22181,7 +22181,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &3861528189602266172
 GameObject:
@@ -23861,7 +23861,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652988045763}
-  m_RootOrder: 90
+  m_RootOrder: 89
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4908888855339257563
 GameObject:
@@ -25292,7 +25292,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!1 &5619302608483742182
 GameObject:
@@ -25333,7 +25333,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652988045763}
-  m_RootOrder: 89
+  m_RootOrder: 88
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5640273697030217684
 Transform:
@@ -26067,7 +26067,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &6074329442532081460
 Transform:
@@ -26082,7 +26082,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2113319175}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6085649863205998679
 GameObject:
@@ -27884,7 +27884,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!114 &6919489911222863083
 MonoBehaviour:
@@ -28242,7 +28242,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!33 &7061371461362738475
 MeshFilter:
@@ -29305,7 +29305,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2113319175}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7725911178858636033
 Transform:
@@ -29968,13 +29968,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8489591964235928218}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 18.82, y: -4.08, z: -25.4}
+  m_LocalRotation: {x: -0.7071069, y: -0, z: -0, w: 0.70710677}
+  m_LocalPosition: {x: -0.12000275, y: 1.9000001, z: 2.9000053}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 543450652988045763}
-  m_RootOrder: 88
+  m_Father: {fileID: 2113319175}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8077134487372884359
 GameObject:
@@ -30753,7 +30753,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!23 &8495302452528424255
 MeshRenderer:

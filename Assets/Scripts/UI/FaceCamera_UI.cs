@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class FaceCamera_UI : MonoBehaviour
 {
-    public Vector3 offSet;
-    void LateUpdate()
+    public GameObject targetCamera;
+    void OnEnable()
     {
-        transform.position = Camera.main.transform.position - offSet;
-        transform.LookAt(Camera.main.transform);
-        transform.rotation = Quaternion.LookRotation(Camera.main.transform.forward);
+        transform.rotation = Quaternion.LookRotation(targetCamera.transform.forward);
+        transform.position = targetCamera.transform.position + (-targetCamera.transform.forward *10);
     }
 }
