@@ -31,9 +31,33 @@ public class ConstructibleObj : MonoBehaviour
         for (int i = 0; i < reqResources.Length; i++)
         {
             req[i] = reqResources[i].ToString();
-            if(globalVariables.vidrioRefinado < reqResources[i]){
-                reqMeet = false;
-            } 
+            switch (i){
+                case 0:
+                    if(globalVariables.vidrioRefinado < reqResources[i]){
+                        reqMeet = false;
+                    } 
+                    break;
+                case 1:
+                    if(globalVariables.plasticoRefinado < reqResources[i]){
+                        reqMeet = false;
+                    }
+                    break;
+                case 2:
+                    if(globalVariables.cartonRefinado < reqResources[i]){
+                        reqMeet = false;
+                    } 
+                    break;
+                case 3:
+                    if(globalVariables.metalRefinado < reqResources[i]){
+                        reqMeet = false;
+                    } 
+                    break;
+                case 4:
+                    if(globalVariables.compostRefinado < reqResources[i]){
+                        reqMeet = false;
+                    }
+                    break;
+            }
         }
         if(GetComponent<Seed>() != null){
             switch(GetComponent<Seed>().currentState){

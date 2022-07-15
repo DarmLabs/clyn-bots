@@ -21,7 +21,6 @@ public class Seed : MonoBehaviour, ISaveable
         building = plantacion[index];
         this.index = index;
         GetComponent<ConstructibleObj>().seeded = true;
-        Debug.Log(currentState);
     }
     public void PlaceSeed(){
         semilla.transform.position = target.transform.position;
