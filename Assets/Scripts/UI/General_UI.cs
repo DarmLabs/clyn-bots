@@ -169,6 +169,7 @@ public class General_UI : MonoBehaviour
         }else{
             playerInteraction.interactionHappen = true;
             miniGamePanel.SetActive(state);
+            MainPanelSwitcher(false);
             playerInteraction.SaveTransform();
         }
     }

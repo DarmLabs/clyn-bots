@@ -65,7 +65,6 @@ public class PlayerInteraction : MonoBehaviour
             }
             if(facingArcade){
                 general_UI.MinigamePanelSwitcher(true);
-                general_UI.MainPanelSwitcher(false);
             }
             if(targetConstruction != null && targetConstruction.tag != "Untagged"){
                 general_UI.ConstructionPanelSwitcher(true);
@@ -108,7 +107,11 @@ public class PlayerInteraction : MonoBehaviour
         facingTrash = false;
     }
     public void BagPercentage(){
+        Debug.Log(globalVariables.noRecTrash);
+        Debug.Log(globalVariables.recTrash);
+        Debug.Log(globalVariables.organicTrash);
         itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
+        Debug.Log(itemsInBag);
         bagPercentage = (itemsInBag *100)/ 30;
     }
     public void ChangeStage(){
