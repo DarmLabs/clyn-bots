@@ -11,6 +11,7 @@ public class Tachos : MonoBehaviour
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     public static int errores = 0; 
+    private int ContadorTotal = 0;
     public Text residuosNoRecuperables;
     public Text residuosRecuperables;
     public Text residuosOrganicos;
@@ -21,6 +22,7 @@ public class Tachos : MonoBehaviour
 
     void Start()
     {       
+        Generador.contadorBasura = 0;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -34,6 +36,7 @@ public class Tachos : MonoBehaviour
 
     void Update()
     {
+        ContadorTotal = gv.divisionRec+gv.divisionNoRec+gv.divisionOrganic+errores;
         if (errores == 5)
         {
             Debug.Log ("Perdiste niño bobo");
@@ -41,7 +44,7 @@ public class Tachos : MonoBehaviour
             //Time.timeScale = 0f;
             saveSystem.Save();  
         }
-        if (Generador.Terminaste && errores < 5)
+        if (Generador.Terminaste && errores < 5 && ContadorTotal == Generador.contadorBasura)
         {
             Debug.Log ("Ganaste niño inteligente");
             PanelVictoria.SetActive(true);
@@ -110,12 +113,25 @@ public class Tachos : MonoBehaviour
                     residuosOrganicos.text = "Residuos Organicos:"+gv.divisionOrganic.ToString();
                     break;
             } 
+             
             saveSystem.Save();           
         }
         else
         {
             errores = errores + 1;
             Debug.Log("ERROR EN RECOLECCION: "+errores);
+            switch (other.gameObject.tag)
+            {
+                case "Recuperable":                 
+                    gv.recTrash -= 1;                                      
+                    break;
+                case "NoRecuperable":
+                    gv.noRecTrash -=1;                    
+                    break;
+                case "Organico":                    
+                    gv.organicTrash -=1;                   
+                    break;
+            } 
             //Generador.bloqueaMovimiento = false;
             erroresText.text = "Errores: "+errores.ToString(); 
             saveSystem.Save(); 

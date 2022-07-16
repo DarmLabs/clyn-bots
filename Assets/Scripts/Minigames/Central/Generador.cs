@@ -23,7 +23,7 @@ public class Generador : MonoBehaviour
     private int cantidadRecuperables = 0;
     private int cantidadNoRecuperables = 0;
     private int cantidadOrganicos = 0;
-    private int contadorBasura = 0;
+    public static int contadorBasura = 0;
     private float Tiempo = 0f;
     private float intervalo = 0;    
     private float fraction = 10f;
@@ -56,6 +56,7 @@ public class Generador : MonoBehaviour
         Terminaste = false;
         bloqueaMovimiento = false;
         PrimeraVuelta = true;
+        contadorBasura = 0;
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
@@ -106,7 +107,7 @@ public class Generador : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Time.timeScale = 2f;
+            Time.timeScale = 2.5f;
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
