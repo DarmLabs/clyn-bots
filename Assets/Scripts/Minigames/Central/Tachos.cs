@@ -30,7 +30,7 @@ public class Tachos : MonoBehaviour
         gv.divisionNoRec = 0;
         gv.divisionOrganic = 0;
         gv.divisionRec = 0;
-        errores = 0;       
+        errores = 0;  
         
     }
 

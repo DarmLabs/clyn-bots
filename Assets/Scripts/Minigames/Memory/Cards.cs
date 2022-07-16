@@ -270,14 +270,16 @@ public class Cards : MonoBehaviour
     {
         if (Grilla.vidas <= 0)
         {
-            PanelDerrota.SetActive(true);            
+            PanelDerrota.SetActive(true);   
+            Time.timeScale = 0f;         
         }
         if (pairsFound == 9)
         {
             //terminó el juego
             if(Grilla.refinadosDestruidos == 9)
             {                
-                PanelVictoria.SetActive(true);            
+                PanelVictoria.SetActive(true); 
+                Time.timeScale = 0f;           
                 Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
             }
             
