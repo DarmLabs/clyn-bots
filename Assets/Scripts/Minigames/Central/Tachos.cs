@@ -41,6 +41,9 @@ public class Tachos : MonoBehaviour
         {
             Debug.Log ("Perdiste niño bobo");
             PanelDerrota.SetActive(true);
+            gv.recTrash = 0;
+            gv.noRecTrash = 0;
+            gv.organicTrash = 0;
             Time.timeScale = 0f;
             saveSystem.Save();  
         }
@@ -48,6 +51,9 @@ public class Tachos : MonoBehaviour
         {
             Debug.Log ("Ganaste niño inteligente");
             PanelVictoria.SetActive(true);
+            gv.recTrash = 0;
+            gv.noRecTrash = 0;
+            gv.organicTrash = 0;
             Time.timeScale = 0f;
             saveSystem.Save();
             Generador.Terminaste = false;
