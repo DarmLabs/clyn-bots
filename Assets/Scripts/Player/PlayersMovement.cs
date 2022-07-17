@@ -36,12 +36,12 @@ public class PlayersMovement : MonoBehaviour
     }
     void Movement()
     {
+        rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
+        upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
         rb.position += rightMovement;
         rb.position += upMovement;
     }
     void Rotation(){
-        rightMovement = right * speed * Time.deltaTime * (Input.GetAxis("Horizontal"));
-        upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
         heading = Vector3.Normalize(rightMovement + upMovement);
         transform.rotation = Quaternion.LookRotation(heading);
     }

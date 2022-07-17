@@ -123,7 +123,7 @@ public class Aspiradora : MonoBehaviour
 
     private void MoveVacuum()
     {
-        if(Input.GetKey(KeyCode.Space))
+        if(Input.GetKey(KeyCode.E))
         {
             VacuumPullVelocity += VacuumSpeed * Time.deltaTime;
             activoJuego = true;
