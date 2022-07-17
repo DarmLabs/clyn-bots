@@ -31,11 +31,10 @@ public class Aspiradora : MonoBehaviour
     [SerializeField] float VacuumPower;
     [SerializeField] float progressBarDecay;
     float catchProgress;
-
-    private GameObject globalaux;
-    private GlobalVariables gv; 
-    private GameObject saveaux;
-    private SaveLoadSystem saveSystem;
+    //private GameObject globalaux;
+    public GlobalVariables gv; 
+    //private GameObject saveaux;
+    public SaveLoadSystem saveSystem;
     public bool primeraVez = false;
     public bool activoJuego = false;
     
@@ -46,10 +45,10 @@ public class Aspiradora : MonoBehaviour
         TrashPosition = 0.5f;
         primeraVez = false;
         activoJuego = false;
-        globalaux = GameObject.Find("GlobalVariables");
-        gv = globalaux.GetComponent<GlobalVariables>();
-        saveaux = GameObject.Find ("SaveLoadSystem");
-        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
+        //globalaux = GameObject.Find("GlobalVariables");
+        //gv = globalaux.GetComponent<GlobalVariables>();
+        //saveaux = GameObject.Find ("SaveLoadSystem");
+        //saveSystem = saveaux.GetComponent<SaveLoadSystem>();
     }
 
     void FixedUpdate()
@@ -71,12 +70,12 @@ public class Aspiradora : MonoBehaviour
             if(activoJuego)
             {
                 catchProgress += VacuumPower*Time.deltaTime;
+                Debug.Log("PrimeraVez: "+primeraVez);
             }
             
             if(catchProgress>=1)
             {
                 general_UI.MinigameAspireSwitcher(false);
-                Debug.Log("PrimeraVez: "+primeraVez);
                 if (!primeraVez)
                 {
                     Debug.Log("ASPIRASTE TODOOOO");
@@ -105,9 +104,6 @@ public class Aspiradora : MonoBehaviour
                 if(catchProgress<=0)
                 {
                     general_UI.MinigameAspireSwitcher(false);
-                    gv.noRecTrash += 0;
-                    gv.recTrash += 0;
-                    gv.organicTrash += 0;
                     primeraVez = true;
                     activoJuego = false;
                     catchProgress = 0.1f;
