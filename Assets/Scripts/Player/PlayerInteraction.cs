@@ -43,6 +43,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     void IntializeFunctions(){
         OnResume();
+        Generador.contadorBasura = 0;
         BagPercentage();
     }
     void Update()

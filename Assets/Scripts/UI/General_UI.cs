@@ -24,6 +24,7 @@ public class General_UI : MonoBehaviour
     public Color32 unlockColor;
     public GameObject minigameAspire;
     public GameObject interactionCloud;
+    
 
     public void MainPanelSwitcher(bool state){
         mainPanel.SetActive(state);
