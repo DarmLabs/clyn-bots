@@ -150,6 +150,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalVidrios.gameObject));
                         MovimientoRefinados.destruyoRefinado = false;                   
                     }
+                    Grilla.vidas = Grilla.vidas -1;
 
                 } 
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
@@ -167,6 +168,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalPlasticos.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
+                    Grilla.vidas = Grilla.vidas -1;
                     
                 }
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
@@ -184,6 +186,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalCartones.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
+                    Grilla.vidas = Grilla.vidas -1;
 
                 }       
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
@@ -201,6 +204,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalMetales.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
+                    Grilla.vidas = Grilla.vidas -1;
 
                 }        
             }            
@@ -218,7 +222,8 @@ public class Cards : MonoBehaviour
                     normalComposts.gameObject.SetActive(true);
                     StartCoroutine (LateCall(normalComposts.gameObject));
                     MovimientoRefinados.destruyoRefinado = false; 
-                }              
+                } 
+                Grilla.vidas = Grilla.vidas -1;             
             }
         }
         else
