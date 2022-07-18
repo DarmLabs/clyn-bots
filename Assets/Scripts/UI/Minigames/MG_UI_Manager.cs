@@ -24,6 +24,7 @@ public class MG_UI_Manager : MonoBehaviour
         gv.recTrash = 0;  
         gv.noRecTrash =0;
         gv.organicTrash =0;
+        Generador.contadorBasura = 0;
         saveSystem.Save();   
     }
 
