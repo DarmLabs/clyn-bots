@@ -54,6 +54,9 @@ public class PlayerInteraction : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape)){
             general_UI.ExitPanelSwitcher(true);
             general_UI.MainPanelSwitcher(false);
+            general_UI.ConstructionPanelSwitcher(false);
+            general_UI.MinigamePanelSwitcher(false);
+            general_UI.MinigameAspireSwitcher(false);
         }
         if(Input.GetKeyDown(KeyCode.E)){
             interactionHappen = false;
