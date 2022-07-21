@@ -25,24 +25,23 @@ public class PlayersMovement : MonoBehaviour
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
             if(!wallAhed){
                 Movement();
+                playerAnim.Walking(true);
             }else{
                 playerAnim.Walking(false);
             }
             Rotation();
-            playerAnim.Walking(true);
         }else{
             playerAnim.Walking(false);
         }
     }
     void Movement()
     {
-        rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
-        upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
-        rb.position += rightMovement;
-        rb.position += upMovement;
+        rb.position += heading;
     }
     void Rotation(){
-        heading = Vector3.Normalize(rightMovement + upMovement);
+        rightMovement = right * speed * Time.deltaTime * Input.GetAxis("Horizontal");
+        upMovement = forward * speed * Time.deltaTime * Input.GetAxis("Vertical");
+        heading = rightMovement + upMovement;
         transform.rotation = Quaternion.LookRotation(heading);
     }
     
