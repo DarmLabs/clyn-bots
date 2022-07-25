@@ -10,6 +10,6 @@ public class FaceCamera_UI : MonoBehaviour
     {
         transform.LookAt(targetCamera.transform.forward);
         transform.Rotate(180, 0, 270);
-        transform.position = targetCamera.transform.position + (-targetCamera.transform.forward *10) + offSet;
+        transform.position = targetCamera.transform.position + (targetCamera.transform.forward * 15) + offSet;
     }
 }

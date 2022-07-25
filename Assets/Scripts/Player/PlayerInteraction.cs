@@ -41,7 +41,8 @@ public class PlayerInteraction : MonoBehaviour
         general_UI = UIManager.GetComponent<General_UI>();
         IntializeFunctions();
     }
-    void IntializeFunctions(){
+    void IntializeFunctions()
+    {
         OnResume();
         Generador.contadorBasura = 0;
         BagPercentage();
@@ -50,37 +51,46 @@ public class PlayerInteraction : MonoBehaviour
     {
         Controls();
     }
-    void Controls(){
-        if(Input.GetKeyDown(KeyCode.Escape)){
+    void Controls()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
             general_UI.ExitPanelSwitcher(true);
             general_UI.MainPanelSwitcher(false);
             general_UI.ConstructionPanelSwitcher(false);
             general_UI.MinigamePanelSwitcher(false);
             general_UI.MinigameAspireSwitcher(false);
         }
-        if(Input.GetKeyDown(KeyCode.E)){
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             interactionHappen = false;
-            if(facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace){
+            if (facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace)
+            {
                 playerAnim.Aspire(true);
             }
-            if(inDoor != ""){
+            if (inDoor != "")
+            {
                 changingStage = true;
                 interactionHappen = true;
             }
-            if(facingArcade){
+            if (facingArcade)
+            {
                 general_UI.MinigamePanelSwitcher(true);
             }
-            if(targetConstruction != null && targetConstruction.tag != "Untagged"){
+            if (targetConstruction != null && targetConstruction.tag != "Untagged")
+            {
                 general_UI.ConstructionPanelSwitcher(true);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
                 interactionHappen = true;
             }
-            if(interactionHappen){
+            if (interactionHappen)
+            {
                 playerAnim.Interaction(true);
                 OnObjectExit();
             }
         }
-        if(Input.GetKeyDown(KeyCode.O)){
+        if (Input.GetKeyDown(KeyCode.O))
+        {
             int aux;
             aux = (maxBagSpace - itemsInBag) / 3;
             globalVariables.recTrash += aux;
@@ -94,7 +104,8 @@ public class PlayerInteraction : MonoBehaviour
             globalVariables.cartonRefinado += 5;
             saveSystem.Save();
         }
-        if(Input.GetKeyDown(KeyCode.P)){
+        if (Input.GetKeyDown(KeyCode.P))
+        {
             globalVariables.recTrash = 0;
             globalVariables.organicTrash = 0;
             globalVariables.noRecTrash = 0;
@@ -105,83 +116,92 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Celebrate();
         }*/
     }
-    public void ReduceTrashPile(){
+    public void ReduceTrashPile()
+    {
         currentTrashPile.SetActive(false);
         currentTrashPile = null;
         facingTrash = false;
     }
-    public void BagPercentage(){
-        Debug.Log(globalVariables.noRecTrash);
-        Debug.Log(globalVariables.recTrash);
-        Debug.Log(globalVariables.organicTrash);
+    public void BagPercentage()
+    {
         itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
-        Debug.Log(itemsInBag);
-        bagPercentage = (itemsInBag *100)/ 30;
+        bagPercentage = (itemsInBag * 100) / 30;
+        player_UI.DisplayBagPercentage();
     }
-    public void ChangeStage(){
+    public void ChangeStage()
+    {
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
         StartCoroutine(WaitInDoor(1));
     }
-    public void MovmentState(bool state){
+    public void MovmentState(bool state)
+    {
         GetComponent<PlayersMovement>().enabled = state;
     }
-    void StageChange(GameObject stageOn, GameObject stageOff){
+    void StageChange(GameObject stageOn, GameObject stageOff)
+    {
         stageOn.SetActive(true);
         stageOff.SetActive(false);
     }
-    IEnumerator WaitInDoor(float secs){
+    IEnumerator WaitInDoor(float secs)
+    {
         yield return new WaitForSeconds(secs);
-            switch (inDoor)
-            {
-                case "ToBasural":
-                    transform.position = BasuralPoint.transform.position;
-                    StageChange(basural, central);
-                    general_UI.MinimapSwitcher(true);
-                    break;
-                case "ToLobbyFB":
-                    transform.position = LobbyPointB.transform.position;
-                    StageChange(central, basural);
-                    general_UI.MinimapSwitcher(false);
-                    break;
-                case "ToLobbyFGZ":
-                    transform.position = LobbyPointGZ.transform.position;
-                    StageChange(central, greenZone);
-                    general_UI.MinimapSwitcher(false);
-                    break;
-                case "ToGreenZone":
-                    transform.position = GreenZonePoint.transform.position;
-                    StageChange(greenZone, central);
-                    break;
-                }
+        switch (inDoor)
+        {
+            case "ToBasural":
+                transform.position = BasuralPoint.transform.position;
+                StageChange(basural, central);
+                general_UI.MinimapSwitcher(true);
+                break;
+            case "ToLobbyFB":
+                transform.position = LobbyPointB.transform.position;
+                StageChange(central, basural);
+                general_UI.MinimapSwitcher(false);
+                break;
+            case "ToLobbyFGZ":
+                transform.position = LobbyPointGZ.transform.position;
+                StageChange(central, greenZone);
+                general_UI.MinimapSwitcher(false);
+                break;
+            case "ToGreenZone":
+                transform.position = GreenZonePoint.transform.position;
+                StageChange(greenZone, central);
+                break;
+        }
         player_UI.fadeState = 2;
         MovmentState(true);
         changingStage = false;
         inDoor = "";
     }
-    public void BuildObject(){
+    public void BuildObject()
+    {
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
         targetConstruction.GetComponent<SaveTag>().UpdateTag();
     }
-    public void UpgradeObject(){
+    public void UpgradeObject()
+    {
         targetConstruction.GetComponent<Seed>().GrowSeed();
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "trash"){
+        if (other.tag == "trash")
+        {
             facingTrash = true;
             currentTrashPile = other.gameObject;
             onInteraction = true;
         }
-        if(other.tag == "door"){
+        if (other.tag == "door")
+        {
             inDoor = other.name;
             onInteraction = true;
         }
-        if(other.tag == "arcade"){
+        if (other.tag == "arcade")
+        {
             facingArcade = true;
             onInteraction = true;
         }
-        if(other.tag == "construction"){
+        if (other.tag == "construction")
+        {
             targetConstruction = other.gameObject;
             onInteraction = true;
         }
@@ -189,42 +209,52 @@ public class PlayerInteraction : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if(other.tag == "trash"){
+        if (other.tag == "trash")
+        {
             facingTrash = false;
             currentTrashPile = null;
             onInteraction = false;
         }
-        if(other.tag == "door"){
-            if(!changingStage){
+        if (other.tag == "door")
+        {
+            if (!changingStage)
+            {
                 inDoor = "";
                 onInteraction = false;
             }
         }
-        if(other.tag == "arcade"){
+        if (other.tag == "arcade")
+        {
             facingArcade = false;
             onInteraction = false;
         }
-        if(other.tag == "construction"){
+        if (other.tag == "construction")
+        {
             targetConstruction = null;
             onInteraction = false;
         }
         general_UI.InteractionCloud(onInteraction);
     }
-    public void OnObjectExit(){
+    public void OnObjectExit()
+    {
         onInteraction = false;
-        if(currentTrashPile != null && !currentTrashPile.activeSelf ){
+        if (currentTrashPile != null && !currentTrashPile.activeSelf)
+        {
             facingTrash = false;
             currentTrashPile = null;
         }
         general_UI.InteractionCloud(onInteraction);
     }
-    void OnPause(){
+    void OnPause()
+    {
         Time.timeScale = 0;
     }
-    void OnResume(){
+    void OnResume()
+    {
         Time.timeScale = 1;
     }
-    public void SaveTransform(){
+    public void SaveTransform()
+    {
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
     }
