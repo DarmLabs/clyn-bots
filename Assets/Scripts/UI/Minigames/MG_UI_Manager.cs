@@ -31,6 +31,7 @@ public class MG_UI_Manager : MonoBehaviour
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Grilla.vidas = 20;
     }
 
     public void RetomarTiempo()

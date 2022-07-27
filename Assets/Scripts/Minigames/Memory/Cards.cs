@@ -144,6 +144,7 @@ public class Cards : MonoBehaviour
                     textVidrios.text = "+"+vidrioPartida.ToString();
                     GameObject goVidrio = Instantiate(vidrioRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goVidrio.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    goVidrio.transform.Rotate(0f,180f,0f);
                     if (MovimientoRefinados.destruyoRefinado == true)
                     {
                         normalVidrios.gameObject.SetActive(true);
@@ -162,6 +163,7 @@ public class Cards : MonoBehaviour
                     textPlasticos.text = "+"+plasticoPartida.ToString();
                     GameObject goPlastico = Instantiate(plasticoRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goPlastico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    goPlastico.transform.Rotate(0f,180f,0f);
                     if (MovimientoRefinados.destruyoRefinado == true)
                     {
                         normalPlasticos.gameObject.SetActive(true);
@@ -180,6 +182,7 @@ public class Cards : MonoBehaviour
                     textCartones.text = "+"+cartonPartida.ToString();
                     GameObject goCarton = Instantiate(cartonRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goCarton.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    goCarton.transform.Rotate(0f,180f,0f);
                     if (MovimientoRefinados.destruyoRefinado == true)
                     {
                         normalCartones.gameObject.SetActive(true);
@@ -198,6 +201,7 @@ public class Cards : MonoBehaviour
                     textMetales.text = "+"+metalPartida.ToString();
                     GameObject goMetal = Instantiate(metalRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
                     goMetal.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    goMetal.transform.Rotate(0f,180f,0f);
                     if (MovimientoRefinados.destruyoRefinado == true)
                     {
                         normalMetales.gameObject.SetActive(true);
@@ -216,7 +220,7 @@ public class Cards : MonoBehaviour
                 saveSystem.Save();
                 textComposts.text = "+"+compostPartida.ToString();
                 GameObject goOrganico = Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
-                goOrganico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                goOrganico.transform.Rotate(0f,180f,0f);
                 if (MovimientoRefinados.destruyoRefinado == true)
                 {
                     normalComposts.gameObject.SetActive(true);
