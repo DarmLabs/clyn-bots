@@ -22,9 +22,9 @@ public class MovimientoRefinados : MonoBehaviour
 
     void Update()
     {
-        currentTime -= 1*Time.deltaTime;
-        if (currentTime <= 0)
-        {
+        //currentTime -= 1*Time.deltaTime;
+        //if (currentTime <= 0)
+        //{
             switch (this.gameObject.tag)
             {
                 case "VidrioRefinado":
@@ -71,7 +71,7 @@ public class MovimientoRefinados : MonoBehaviour
                         destruyoRefinado = true; 
                     } */
                     break;      
-            } 
+            //} 
                        
         }
 
