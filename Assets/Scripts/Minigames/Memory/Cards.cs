@@ -23,7 +23,8 @@ public class Cards : MonoBehaviour
     [SerializeField] private GameObject ubicacionRefinados; 
 
     [SerializeField] private GameObject PanelVictoria;
-    [SerializeField] private GameObject PanelDerrota;     
+    [SerializeField] private GameObject PanelDerrota;
+    [SerializeField] private GameObject MarcoRefinados;     
     
     private GameObject globalaux;
     private GlobalVariables gv;
@@ -220,6 +221,7 @@ public class Cards : MonoBehaviour
                 saveSystem.Save();
                 textComposts.text = "+"+compostPartida.ToString();
                 GameObject goOrganico = Instantiate(compostRefinadoGO,ubicacionRefinados.transform.position,transform.rotation);
+                goOrganico.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                 goOrganico.transform.Rotate(0f,180f,0f);
                 if (MovimientoRefinados.destruyoRefinado == true)
                 {
@@ -279,7 +281,8 @@ public class Cards : MonoBehaviour
     {
         if (Grilla.vidas <= 0)
         {
-            PanelDerrota.SetActive(true);   
+            PanelDerrota.SetActive(true); 
+            MarcoRefinados.SetActive(false);
             Time.timeScale = 0f;         
         }
         if (pairsFound == 9)
@@ -287,7 +290,8 @@ public class Cards : MonoBehaviour
             //terminó el juego
             if(Grilla.refinadosDestruidos == 9)
             {                
-                PanelVictoria.SetActive(true); 
+                PanelVictoria.SetActive(true);
+                MarcoRefinados.SetActive(false); 
                 Time.timeScale = 0f;           
                 Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
             }

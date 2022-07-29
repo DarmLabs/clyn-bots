@@ -32,6 +32,7 @@ public class MG_UI_Manager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Grilla.vidas = 20;
+        Time.timeScale = 1f;
     }
 
     public void RetomarTiempo()

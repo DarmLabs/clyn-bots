@@ -308,6 +308,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -439,6 +440,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -1420,6 +1422,169 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446466699}
   m_CullTransparentMesh: 1
+--- !u!1001 &446655418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1375053071}
+    m_Modifications:
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1375053067}
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1375053067}
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackTo3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RetomarTiempo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_Name
+      value: PanelDerrota
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1375053067}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1375053067}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Reintentar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RetomarTiempo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MG_UI_Manager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+--- !u!224 &446655419 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4748640699209893572, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+  m_PrefabInstance: {fileID: 446655418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &446655420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+  m_PrefabInstance: {fileID: 446655418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &456200412 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2189081227672485388, guid: dde872050ce9ea44e8d0553dfcdbfc75, type: 3}
@@ -1599,6 +1764,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -1972,7 +2138,7 @@ RectTransform:
   m_Children:
   - {fileID: 1676532047}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2236,7 +2402,7 @@ RectTransform:
   m_Children:
   - {fileID: 615560322}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2304,7 +2470,7 @@ RectTransform:
   m_Children:
   - {fileID: 173190980}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2578,7 +2744,7 @@ RectTransform:
   m_Children:
   - {fileID: 467522930}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2799,6 +2965,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -2924,7 +3091,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &829529869
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2939,7 +3106,7 @@ RectTransform:
   m_Children:
   - {fileID: 630144594}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3110,7 +3277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &882752703
 GameObject:
@@ -3305,6 +3472,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3436,6 +3604,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3567,6 +3736,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3698,6 +3868,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -3762,6 +3933,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4007,6 +4179,133 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 837679914991128854, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
   m_PrefabInstance: {fileID: 2007328054176415933}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1056892736
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1375053071}
+    m_Modifications:
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1375053067}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1375053067}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackTo3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RetomarTiempo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_Name
+      value: PanelVictoria
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+--- !u!224 &1056892737 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4521984152205378854, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+  m_PrefabInstance: {fileID: 1056892736}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1056892738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+  m_PrefabInstance: {fileID: 1056892736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1082782663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4043,7 +4342,7 @@ RectTransform:
   - {fileID: 211622130}
   - {fileID: 1036438203}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -4196,6 +4495,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4379,6 +4679,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4817,6 +5118,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -4948,6 +5250,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -5003,7 +5306,7 @@ RectTransform:
   m_Children:
   - {fileID: 591687395}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5225,6 +5528,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 446655419}
+  - {fileID: 1056892737}
   - {fileID: 595308937}
   - {fileID: 878507184}
   - {fileID: 829529869}
@@ -5670,6 +5975,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -5850,6 +6156,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -5981,6 +6288,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -6388,6 +6696,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -6550,7 +6859,7 @@ RectTransform:
   m_Children:
   - {fileID: 988315192}
   m_Father: {fileID: 1375053071}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6815,6 +7124,7 @@ MonoBehaviour:
   ubicacionRefinados: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  MarcoRefinados: {fileID: 0}
   textVidrios: {fileID: 0}
   textPlasticos: {fileID: 0}
   textCartones: {fileID: 0}
@@ -6938,7 +7248,7 @@ PrefabInstance:
     - target: {fileID: 4386342225003663531, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 4386342225003663531, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: textCartones
       value: 
@@ -6950,7 +7260,7 @@ PrefabInstance:
     - target: {fileID: 4386342225003663531, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 4386342225003663531, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: normalMetales
       value: 
@@ -6963,6 +7273,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 4386342225003663531, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 4386342225003663531, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: normalCartones
       value: 
@@ -7022,6 +7336,10 @@ PrefabInstance:
     - target: {fileID: 6366085100979972965, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: m_Name
       value: BidonPlastico
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366085100979972965, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8912937754710400215, guid: 547dda323199a2548bc6e9d9712ebee3, type: 3}
       propertyPath: m_RootOrder
@@ -7127,6 +7445,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4280125628454963444, guid: 1c63d864b547ad8478dda1b9fc2f0a15, type: 3}
       propertyPath: m_Name
+      value: PlasticoRefinado
+      objectReference: {fileID: 0}
+    - target: {fileID: 4280125628454963444, guid: 1c63d864b547ad8478dda1b9fc2f0a15, type: 3}
+      propertyPath: m_TagString
       value: PlasticoRefinado
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7237,6 +7559,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CartonRefinado
       objectReference: {fileID: 0}
+    - target: {fileID: 8571124876450239946, guid: 35acdbcddff88254f80b1334ca994a5c, type: 3}
+      propertyPath: m_TagString
+      value: CartonRefinado
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35acdbcddff88254f80b1334ca994a5c, type: 3}
 --- !u!4 &739369409505242238 stripped
@@ -7321,6 +7647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VasoVidrio
       objectReference: {fileID: 0}
+    - target: {fileID: 6268073364217077426, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8937803217010190111, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7376,7 +7706,7 @@ PrefabInstance:
     - target: {fileID: 9104782897111579525, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 9104782897111579525, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
       propertyPath: textCartones
       value: 
@@ -7388,7 +7718,7 @@ PrefabInstance:
     - target: {fileID: 9104782897111579525, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 9104782897111579525, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
       propertyPath: normalMetales
       value: 
@@ -7401,6 +7731,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 9104782897111579525, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 9104782897111579525, guid: c102d40f6429fb64ebfe5190e589abf8, type: 3}
       propertyPath: normalCartones
       value: 
@@ -7455,6 +7789,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Diario
       objectReference: {fileID: 0}
+    - target: {fileID: 60939676098657345, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
       propertyPath: textMetales
       value: 
@@ -7466,7 +7804,7 @@ PrefabInstance:
     - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
       propertyPath: textCartones
       value: 
@@ -7478,7 +7816,7 @@ PrefabInstance:
     - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
       propertyPath: normalMetales
       value: 
@@ -7491,6 +7829,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 2439725002476448062, guid: 80dd8018b72761340999994284dbbbc5, type: 3}
       propertyPath: normalCartones
       value: 
@@ -7609,6 +7951,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubiertosPlastico
       objectReference: {fileID: 0}
+    - target: {fileID: 837679914991128854, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
       propertyPath: textMetales
       value: 
@@ -7620,7 +7966,7 @@ PrefabInstance:
     - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
       propertyPath: textCartones
       value: 
@@ -7632,7 +7978,7 @@ PrefabInstance:
     - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
       propertyPath: normalMetales
       value: 
@@ -7645,6 +7991,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 965407222039237352, guid: 26ed8d091f19aaa4689d8de5d318c386, type: 3}
       propertyPath: normalCartones
       value: 
@@ -7807,6 +8157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrascoVidrio
       objectReference: {fileID: 0}
+    - target: {fileID: 5803216751415753740, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
       propertyPath: textMetales
       value: 
@@ -7818,7 +8172,7 @@ PrefabInstance:
     - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
       propertyPath: textCartones
       value: 
@@ -7830,7 +8184,7 @@ PrefabInstance:
     - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
       propertyPath: normalMetales
       value: 
@@ -7843,6 +8197,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 7954040921216237839, guid: 8f22b71a5cff18741b43ce1998ad64f1, type: 3}
       propertyPath: normalCartones
       value: 
@@ -7917,6 +8275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LataAluminio
       objectReference: {fileID: 0}
+    - target: {fileID: 1435341718991095186, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5009845391536428642, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -7972,7 +8334,7 @@ PrefabInstance:
     - target: {fileID: 8592906950583627988, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 8592906950583627988, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
       propertyPath: textCartones
       value: 
@@ -7984,7 +8346,7 @@ PrefabInstance:
     - target: {fileID: 8592906950583627988, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 8592906950583627988, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
       propertyPath: normalMetales
       value: 
@@ -7997,6 +8359,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 8592906950583627988, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 8592906950583627988, guid: b47898918d5774d4bae98bc3a9350bbe, type: 3}
       propertyPath: normalCartones
       value: 
@@ -8071,6 +8437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TapaFrasco
       objectReference: {fileID: 0}
+    - target: {fileID: 1624099544122952480, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3688031871762892539, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8126,7 +8496,7 @@ PrefabInstance:
     - target: {fileID: 4155188301627551918, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 4155188301627551918, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
       propertyPath: textCartones
       value: 
@@ -8138,7 +8508,7 @@ PrefabInstance:
     - target: {fileID: 4155188301627551918, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 4155188301627551918, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
       propertyPath: normalMetales
       value: 
@@ -8151,6 +8521,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 4155188301627551918, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 4155188301627551918, guid: 70bddd121473a0748b0344cd35b17957, type: 3}
       propertyPath: normalCartones
       value: 
@@ -8269,6 +8643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VidrioRefinado
       objectReference: {fileID: 0}
+    - target: {fileID: 3863202887741498163, guid: 0ac8075e8ca074e40925258b0156fed9, type: 3}
+      propertyPath: m_TagString
+      value: VidrioRefinado
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ac8075e8ca074e40925258b0156fed9, type: 3}
 --- !u!4 &3312110243603269986 stripped
@@ -8375,6 +8753,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4502647809593655944, guid: a92bf113d6003034e9775699f7fbd025, type: 3}
       propertyPath: m_Name
+      value: MetalRefinado
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502647809593655944, guid: a92bf113d6003034e9775699f7fbd025, type: 3}
+      propertyPath: m_TagString
       value: MetalRefinado
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8485,6 +8867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CompostRefinado
       objectReference: {fileID: 0}
+    - target: {fileID: 2189081227672485388, guid: dde872050ce9ea44e8d0553dfcdbfc75, type: 3}
+      propertyPath: m_TagString
+      value: CompostRefinado
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dde872050ce9ea44e8d0553dfcdbfc75, type: 3}
 --- !u!4 &4106020667126050127 stripped
@@ -8556,7 +8942,7 @@ PrefabInstance:
     - target: {fileID: 1083515640676180787, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 1083515640676180787, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
       propertyPath: textCartones
       value: 
@@ -8568,7 +8954,7 @@ PrefabInstance:
     - target: {fileID: 1083515640676180787, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 1083515640676180787, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
       propertyPath: normalMetales
       value: 
@@ -8581,6 +8967,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1083515640676180787, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 1083515640676180787, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
       propertyPath: normalCartones
       value: 
@@ -8685,6 +9075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CascaraBanana
       objectReference: {fileID: 0}
+    - target: {fileID: 8883396419925222123, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9a38d5c4835dee4fbeb0ee228a545b0, type: 3}
 --- !u!4 &5141568796174910315 stripped
@@ -8730,7 +9124,7 @@ PrefabInstance:
     - target: {fileID: 1651425992657623029, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 1651425992657623029, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: textCartones
       value: 
@@ -8742,7 +9136,7 @@ PrefabInstance:
     - target: {fileID: 1651425992657623029, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 1651425992657623029, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: normalMetales
       value: 
@@ -8755,6 +9149,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1651425992657623029, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 1651425992657623029, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: normalCartones
       value: 
@@ -8794,6 +9192,10 @@ PrefabInstance:
     - target: {fileID: 3708697809310370138, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: m_Name
       value: Manzana
+      objectReference: {fileID: 0}
+    - target: {fileID: 3708697809310370138, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5543848843590415966, guid: 7f0ab82d8a28fa045a503930a74998b6, type: 3}
       propertyPath: m_RootOrder
@@ -8864,7 +9266,7 @@ PrefabInstance:
     - target: {fileID: 3429334999530711573, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 3429334999530711573, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: textCartones
       value: 
@@ -8876,7 +9278,7 @@ PrefabInstance:
     - target: {fileID: 3429334999530711573, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 3429334999530711573, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: normalMetales
       value: 
@@ -8889,6 +9291,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 3429334999530711573, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 3429334999530711573, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: normalCartones
       value: 
@@ -8928,6 +9334,10 @@ PrefabInstance:
     - target: {fileID: 7079218296761055547, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: m_Name
       value: CajaCarton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079218296761055547, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7245163531978591336, guid: bc26ac0f6b2d7df4f8251f0bd3f91514, type: 3}
       propertyPath: m_RootOrder
@@ -9031,6 +9441,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SacoTe
       objectReference: {fileID: 0}
+    - target: {fileID: 2502409654804186847, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
       propertyPath: textMetales
       value: 
@@ -9042,7 +9456,7 @@ PrefabInstance:
     - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
       propertyPath: textCartones
       value: 
@@ -9054,7 +9468,7 @@ PrefabInstance:
     - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
       propertyPath: normalMetales
       value: 
@@ -9067,6 +9481,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 3235683545051248307, guid: f367525cfa0c6a040a57a2a807401ddc, type: 3}
       propertyPath: normalCartones
       value: 
@@ -9229,6 +9647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CajaHuevos
       objectReference: {fileID: 0}
+    - target: {fileID: 7495070707433899595, guid: 747019531163edd40bd12fee5194ff85, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
       propertyPath: textMetales
       value: 
@@ -9240,7 +9662,7 @@ PrefabInstance:
     - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
       propertyPath: textCartones
       value: 
@@ -9252,7 +9674,7 @@ PrefabInstance:
     - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
       propertyPath: normalMetales
       value: 
@@ -9265,6 +9687,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 7591640791637762215, guid: 747019531163edd40bd12fee5194ff85, type: 3}
       propertyPath: normalCartones
       value: 
@@ -9326,7 +9752,7 @@ PrefabInstance:
     - target: {fileID: 1311878668074531974, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 1311878668074531974, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
       propertyPath: textCartones
       value: 
@@ -9338,7 +9764,7 @@ PrefabInstance:
     - target: {fileID: 1311878668074531974, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 1311878668074531974, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
       propertyPath: normalMetales
       value: 
@@ -9351,6 +9777,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1311878668074531974, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 1311878668074531974, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
       propertyPath: normalCartones
       value: 
@@ -9455,6 +9885,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CascaraHuevos
       objectReference: {fileID: 0}
+    - target: {fileID: 7460227329479154938, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ff27adf15a39d4db15d88ae71fe51f, type: 3}
 --- !u!4 &7565446375772776041 stripped
@@ -9493,6 +9927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotellaPlastico
       objectReference: {fileID: 0}
+    - target: {fileID: 1039368142548121724, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
       propertyPath: textMetales
       value: 
@@ -9504,7 +9942,7 @@ PrefabInstance:
     - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
       propertyPath: textCartones
       value: 
@@ -9516,7 +9954,7 @@ PrefabInstance:
     - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
       propertyPath: normalMetales
       value: 
@@ -9529,6 +9967,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 1818250195029727581, guid: c1e3f466182e01448aed2f4ef5a0eb23, type: 3}
       propertyPath: normalCartones
       value: 
@@ -9654,7 +10096,7 @@ PrefabInstance:
     - target: {fileID: 1992223046168953458, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 1992223046168953458, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
       propertyPath: textCartones
       value: 
@@ -9666,7 +10108,7 @@ PrefabInstance:
     - target: {fileID: 1992223046168953458, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 1992223046168953458, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
       propertyPath: normalMetales
       value: 
@@ -9679,6 +10121,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 1992223046168953458, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 1992223046168953458, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
       propertyPath: normalCartones
       value: 
@@ -9763,6 +10209,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ramas
       objectReference: {fileID: 0}
+    - target: {fileID: 4514309424010097093, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f26bf06ecfcb8049b22b370ff8a5fad, type: 3}
 --- !u!4 &8057723174074869489 stripped
@@ -9825,6 +10275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BotellaVidrio
       objectReference: {fileID: 0}
+    - target: {fileID: 2758395902272265490, guid: aaa760e891acf084894094edd7d74344, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
       propertyPath: textMetales
       value: 
@@ -9836,7 +10290,7 @@ PrefabInstance:
     - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
       propertyPath: PanelDerrota
       value: 
-      objectReference: {fileID: 4748640699209893573, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      objectReference: {fileID: 446655420}
     - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
       propertyPath: textCartones
       value: 
@@ -9848,7 +10302,7 @@ PrefabInstance:
     - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
       propertyPath: PanelVictoria
       value: 
-      objectReference: {fileID: 4521984152205378855, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      objectReference: {fileID: 1056892738}
     - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
       propertyPath: normalMetales
       value: 
@@ -9861,6 +10315,10 @@ PrefabInstance:
       propertyPath: textPlasticos
       value: 
       objectReference: {fileID: 145280915}
+    - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
+      propertyPath: MarcoRefinados
+      value: 
+      objectReference: {fileID: 1082782663}
     - target: {fileID: 7078099207265783254, guid: aaa760e891acf084894094edd7d74344, type: 3}
       propertyPath: normalCartones
       value: 
