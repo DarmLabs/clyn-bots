@@ -176,7 +176,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalVidrios.gameObject));
                         MovimientoRefinados.destruyoRefinado = false;                   
                     }
-                    Grilla.vidas = Grilla.vidas +1;
+                    Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 } 
@@ -196,7 +196,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalPlasticos.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
-                    Grilla.vidas = Grilla.vidas +1;
+                    Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
                     
                 }
@@ -216,7 +216,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalCartones.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
-                    Grilla.vidas = Grilla.vidas +1;
+                    Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }       
@@ -236,7 +236,7 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalMetales.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
-                    Grilla.vidas = Grilla.vidas +1;
+                    Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }        
@@ -257,7 +257,7 @@ public class Cards : MonoBehaviour
                     StartCoroutine (LateCall(normalComposts.gameObject));
                     MovimientoRefinados.destruyoRefinado = false; 
                 } 
-                Grilla.vidas = Grilla.vidas +1;  
+                Grilla.vidas = Grilla.vidas +2;  
                 Debug.Log("Vidas:"+Grilla.vidas/2);            
             }
         }
