@@ -41,27 +41,33 @@ public class Grilla : MonoBehaviour
         {
             case 24:
             cantidadRandoms = 13;
+            vidas = 60;
             break;
             case 22:
-            cantidadRandoms = 12;   
+            cantidadRandoms = 12;
+            vidas = 50;   
             break;
             case 20:
-            cantidadRandoms = 11;      
+            cantidadRandoms = 11;
+            vidas = 40;      
             break;
             case 18:
-            cantidadRandoms = 10;       
+            cantidadRandoms = 10;
+            vidas = 30;       
             break;
             case 16:
-            cantidadRandoms = 9;       
+            cantidadRandoms = 9; 
+            vidas = 24;      
             break;
             case 14:
-            cantidadRandoms = 8;       
+            cantidadRandoms = 8; 
+            vidas = 22;      
             break;
             case 12:
-            cantidadRandoms = 7;       
+            cantidadRandoms = 7; 
+            vidas = 20;      
             break;        
-        }
-        vidas = 20;
+        }        
         refinadosDestruidos = 0;      
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)

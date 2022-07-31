@@ -22,6 +22,10 @@ public class MovimientoRefinados : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+        {
+            Destroy(this.gameObject);
+        }
         currentTime -= 1*Time.deltaTime;
         if (currentTime <= 0)
         {

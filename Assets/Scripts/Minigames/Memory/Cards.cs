@@ -69,6 +69,30 @@ public class Cards : MonoBehaviour
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
     }
+    
+    void Update() 
+    {
+        if (Grilla.vidas <= 0)
+        {
+            PanelDerrota.SetActive(true); 
+            Destroy(this.gameObject);
+            MarcoRefinados.SetActive(false);
+            Time.timeScale = 0f;         
+        }
+        if (pairsFound == 9)
+        {
+            //terminó el juego
+            if(Grilla.refinadosDestruidos == 9)
+            {                
+                PanelVictoria.SetActive(true);
+                MarcoRefinados.SetActive(false);
+                Destroy(this.gameObject); 
+                Time.timeScale = 0f;           
+                Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
+            }
+            
+        }
+    }
 
     void  OnMouseDown() 
     {
@@ -152,7 +176,8 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalVidrios.gameObject));
                         MovimientoRefinados.destruyoRefinado = false;                   
                     }
-                    Grilla.vidas = Grilla.vidas -1;
+                    Grilla.vidas = Grilla.vidas +1;
+                    Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 } 
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
@@ -171,7 +196,8 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalPlasticos.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
-                    Grilla.vidas = Grilla.vidas -1;
+                    Grilla.vidas = Grilla.vidas +1;
+                    Debug.Log("Vidas:"+Grilla.vidas/2); 
                     
                 }
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
@@ -190,7 +216,8 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalCartones.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
-                    Grilla.vidas = Grilla.vidas -1;
+                    Grilla.vidas = Grilla.vidas +1;
+                    Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }       
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
@@ -209,7 +236,8 @@ public class Cards : MonoBehaviour
                         StartCoroutine (LateCall(normalMetales.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
                     }
-                    Grilla.vidas = Grilla.vidas -1;
+                    Grilla.vidas = Grilla.vidas +1;
+                    Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }        
             }            
@@ -229,7 +257,8 @@ public class Cards : MonoBehaviour
                     StartCoroutine (LateCall(normalComposts.gameObject));
                     MovimientoRefinados.destruyoRefinado = false; 
                 } 
-                Grilla.vidas = Grilla.vidas -1;             
+                Grilla.vidas = Grilla.vidas +1;  
+                Debug.Log("Vidas:"+Grilla.vidas/2);            
             }
         }
         else
@@ -277,27 +306,7 @@ public class Cards : MonoBehaviour
         objeto.SetActive(false);
     }
     
-    void Update() 
-    {
-        if (Grilla.vidas <= 0)
-        {
-            PanelDerrota.SetActive(true); 
-            MarcoRefinados.SetActive(false);
-            Time.timeScale = 0f;         
-        }
-        if (pairsFound == 9)
-        {
-            //terminó el juego
-            if(Grilla.refinadosDestruidos == 9)
-            {                
-                PanelVictoria.SetActive(true);
-                MarcoRefinados.SetActive(false); 
-                Time.timeScale = 0f;           
-                Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
-            }
-            
-        }
-    }
+    
            
    
 }
