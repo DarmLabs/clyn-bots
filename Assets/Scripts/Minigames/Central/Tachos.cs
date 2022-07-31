@@ -11,6 +11,7 @@ public class Tachos : MonoBehaviour
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     public static int errores = 0; 
+    public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
     public Text residuosNoRecuperables;
     public Text residuosRecuperables;
@@ -23,6 +24,7 @@ public class Tachos : MonoBehaviour
     void Start()
     {       
         Generador.contadorBasura = 0;
+        CantidadGrilla = 0;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -37,9 +39,10 @@ public class Tachos : MonoBehaviour
     void Update()
     {
         ContadorTotal = gv.divisionRec+gv.divisionNoRec+gv.divisionOrganic+errores;
-        if (errores == 5)
+        if (errores == 6)
         {
             Debug.Log ("Perdiste niño bobo");
+            CantidadGrilla = 12;
             PanelDerrota.SetActive(true);
             gv.recTrash = 0;
             gv.noRecTrash = 0;
@@ -47,9 +50,35 @@ public class Tachos : MonoBehaviour
             Time.timeScale = 0f;
             saveSystem.Save();  
         }
-        if (Generador.Terminaste && errores < 5 && ContadorTotal == Generador.contadorBasura)
+        if (Generador.Terminaste && errores < 6 && ContadorTotal == Generador.contadorBasura)
         {
             Debug.Log ("Ganaste niño inteligente");
+            switch (errores)
+            {
+                case 6:
+                    CantidadGrilla = 12;
+                break;
+                case 5:
+                    CantidadGrilla = 14;
+                break;
+                case 4:
+                    CantidadGrilla = 16;
+                break;
+                case 3:
+                    CantidadGrilla = 18;
+                break;
+                case 2:
+                    CantidadGrilla = 20;
+                break;
+                case 1:
+                    CantidadGrilla = 22;
+                break;
+                case 0:
+                    CantidadGrilla = 24;
+                break;
+
+            
+            }
             PanelVictoria.SetActive(true);
             gv.recTrash = 0;
             gv.noRecTrash = 0;
