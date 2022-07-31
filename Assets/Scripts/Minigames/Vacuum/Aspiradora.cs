@@ -61,7 +61,7 @@ public class Aspiradora : MonoBehaviour
     private void CheckProgress()
     {
         Vector3 progressBarScale = progressBarContainer.localScale;
-        progressBarScale.y = catchProgress;
+        progressBarScale.x = catchProgress;
         progressBarContainer.localScale = progressBarScale;
         float min = VacuumPosition-VacuumSize/2;
         float max = VacuumPosition+VacuumSize/2;
@@ -73,7 +73,7 @@ public class Aspiradora : MonoBehaviour
                 Debug.Log("PrimeraVez: "+primeraVez);
             }
             
-            if(catchProgress>=1)
+            if(catchProgress>=2)
             {
                 general_UI.MinigameAspireSwitcher(false);
                 if (!primeraVez)
@@ -116,7 +116,7 @@ public class Aspiradora : MonoBehaviour
             }
             
         }     
-        catchProgress=Mathf.Clamp(catchProgress,0,1);
+        catchProgress=Mathf.Clamp(catchProgress,0,2);
         
         
     }
