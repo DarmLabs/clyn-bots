@@ -49,6 +49,7 @@ public class Cards : MonoBehaviour
     public static int cartonPartida;
     public static int metalPartida;
     public static int compostPartida;
+    public static int CantidadPares = 0;
         
 
     void Start()
@@ -79,10 +80,10 @@ public class Cards : MonoBehaviour
             MarcoRefinados.SetActive(false);
             Time.timeScale = 0f;         
         }
-        if (pairsFound == 9)
+        if (pairsFound == CantidadPares)
         {
             //terminó el juego
-            if(Grilla.refinadosDestruidos == 9)
+            if(Grilla.refinadosDestruidos == CantidadPares)
             {                
                 PanelVictoria.SetActive(true);
                 MarcoRefinados.SetActive(false);
@@ -267,7 +268,7 @@ public class Cards : MonoBehaviour
             secondInPair.StartCoroutine("RotateBack");          
             
         }
-        if (pairsFound == 9)
+        if (pairsFound == CantidadPares)
         {
                 Debug.Log("GANÓ y se guardaron los refinados");
                 gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);

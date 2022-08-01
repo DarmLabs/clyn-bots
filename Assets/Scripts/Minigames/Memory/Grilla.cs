@@ -41,31 +41,38 @@ public class Grilla : MonoBehaviour
         {
             case 24:
             cantidadRandoms = 13;
-            vidas = 60;
+            vidas = 60; //30
+            Cards.CantidadPares = 12;
             break;
             case 22:
             cantidadRandoms = 12;
-            vidas = 50;   
+            vidas = 50; //25 
+            Cards.CantidadPares = 11;
             break;
             case 20:
             cantidadRandoms = 11;
-            vidas = 40;      
+            vidas = 40; //20  
+            Cards.CantidadPares = 10;  
             break;
             case 18:
             cantidadRandoms = 10;
-            vidas = 30;       
+            vidas = 30;  //15    
+            Cards.CantidadPares = 9; 
             break;
             case 16:
             cantidadRandoms = 9; 
-            vidas = 24;      
+            vidas = 24; //12  
+            Cards.CantidadPares = 8;   
             break;
             case 14:
             cantidadRandoms = 8; 
-            vidas = 22;      
+            vidas = 22; //11   
+            Cards.CantidadPares = 7;  
             break;
             case 12:
             cantidadRandoms = 7; 
-            vidas = 20;      
+            vidas = 20; //10  
+            Cards.CantidadPares = 6;    
             break;        
         }        
         refinadosDestruidos = 0;      
