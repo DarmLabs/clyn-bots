@@ -725,6 +725,7 @@ GameObject:
   - component: {fileID: 5632591732191661180}
   - component: {fileID: 2841242062828340197}
   - component: {fileID: 9162024610739342521}
+  - component: {fileID: 3309204480612535094}
   - component: {fileID: 2147110628447813322}
   - component: {fileID: 5843166987038188405}
   - component: {fileID: 7786663313550116066}
@@ -792,6 +793,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3309204480612535094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4999326517514622662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3d33738a4183a4ebf94795fc1d4563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveSystem: {fileID: 0}
+  globalVariables: {fileID: 0}
+  playerAnim: {fileID: 0}
+  player_UI: {fileID: 0}
+  general_UI: {fileID: 0}
+  BasuralPoint: {fileID: 0}
+  LobbyPointB: {fileID: 0}
+  LobbyPointGZ: {fileID: 0}
+  GreenZonePoint: {fileID: 0}
+  basural: {fileID: 0}
+  central: {fileID: 0}
+  greenZone: {fileID: 0}
+  targetConstruction: {fileID: 0}
 --- !u!114 &2147110628447813322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,15 +846,19 @@ MonoBehaviour:
   SaveLoadGameObject: {fileID: 0}
   GlobalVariables: {fileID: 0}
   globalVariables: {fileID: 0}
+  playerAnim: {fileID: 0}
   UIManager: {fileID: 0}
   BasuralPoint: {fileID: 0}
   LobbyPointB: {fileID: 0}
   LobbyPointGZ: {fileID: 0}
   GreenZonePoint: {fileID: 0}
-  sun: {fileID: 0}
-  spotCentral: {fileID: 0}
-  spotGreenZone: {fileID: 0}
+  basural: {fileID: 0}
+  central: {fileID: 0}
+  greenZone: {fileID: 0}
   targetConstruction: {fileID: 0}
+  interactionHappen: 0
+  isAspiring: 0
+  minigameAsipire: 0
   inDoor: 
   bagPercentage: 0
 --- !u!114 &7786663313550116066

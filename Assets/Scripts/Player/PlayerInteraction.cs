@@ -2,25 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteraction : Player
 {
-    [SerializeField]
-    #region Imports & Required Objects
-    public GameObject SaveLoadGameObject;
-    SaveLoadSystem saveSystem;
-    public GameObject GlobalVariables;
-    public GlobalVariables globalVariables;
-    public PlayerAnimations playerAnim;
-    public GameObject UIManager;
-    Player_UI player_UI;
-    General_UI general_UI;
-    public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
-    public GameObject basural, central, greenZone;
-    GameObject currentTrashPile;
-    public GameObject targetConstruction;
-    [Space(10)]
-    //**************************************************
-    #endregion
     float timePressed;
     bool facingTrash;
     bool onInteraction;
@@ -34,11 +17,6 @@ public class PlayerInteraction : MonoBehaviour
     public float bagPercentage;
     void Start()
     {
-        saveSystem = SaveLoadGameObject.GetComponent<SaveLoadSystem>();
-        globalVariables = GlobalVariables.GetComponent<GlobalVariables>();
-        playerAnim = GetComponent<PlayerAnimations>();
-        player_UI = UIManager.GetComponent<Player_UI>();
-        general_UI = UIManager.GetComponent<General_UI>();
         IntializeFunctions();
     }
     void IntializeFunctions()
@@ -136,7 +114,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void MovmentState(bool state)
     {
-        GetComponent<PlayersMovement>().enabled = state;
+        GetComponent<PlayerMovement>().enabled = state;
     }
     void StageChange(GameObject stageOn, GameObject stageOff)
     {
@@ -244,18 +222,5 @@ public class PlayerInteraction : MonoBehaviour
             currentTrashPile = null;
         }
         general_UI.InteractionCloud(onInteraction);
-    }
-    void OnPause()
-    {
-        Time.timeScale = 0;
-    }
-    void OnResume()
-    {
-        Time.timeScale = 1;
-    }
-    public void SaveTransform()
-    {
-        GetComponent<SavePosition>().PositionUpdated();
-        GetComponent<SavePosition>().RotationUpdated();
     }
 }
