@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimations : Player
+public class PlayerAnimations : MonoBehaviour
 {
+    PlayerInteraction playerInteraction;
     Animator playerAnimator;
 
     void Start()
     {
+        playerInteraction = GetComponent<PlayerInteraction>();
         playerAnimator = GetComponent<Animator>();
     }
     void LateUpdate()
     {
-        if (!playerMovement.enabled)
+        if (!playerInteraction.playerMovement.enabled)
         {
             Walking(false);
         }

@@ -2,11 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteraction : Player
+public class PlayerInteraction : MonoBehaviour
 {
+    #region Imports & Required Objects
+    [Header("Imports & Required Objects")]
+    public SaveLoadSystem saveSystem;
+    public GlobalVariables globalVariables;
+    public PlayerAnimations playerAnim;
+    public PlayerMovement playerMovement;
+    public Player_UI player_UI;
+    public General_UI general_UI;
+    public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
+    public GameObject basural, central, greenZone;
+    public GameObject currentTrashPile;
+    public GameObject targetConstruction;
+    #endregion
     float timePressed;
     bool facingTrash;
-    bool onInteraction;
+    public bool canInteract;
     public bool interactionHappen;
     bool facingArcade;
     bool changingStage;
@@ -17,6 +30,8 @@ public class PlayerInteraction : Player
     public float bagPercentage;
     void Start()
     {
+        playerAnim = GetComponent<PlayerAnimations>();
+        playerMovement = GetComponent<PlayerMovement>();
         IntializeFunctions();
     }
     void IntializeFunctions()
@@ -41,7 +56,6 @@ public class PlayerInteraction : Player
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            interactionHappen = false;
             if (facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace)
             {
                 playerAnim.Aspire(true);
@@ -64,7 +78,6 @@ public class PlayerInteraction : Player
             if (interactionHappen)
             {
                 playerAnim.Interaction(true);
-                OnObjectExit();
             }
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -114,7 +127,7 @@ public class PlayerInteraction : Player
     }
     public void MovmentState(bool state)
     {
-        GetComponent<PlayerMovement>().enabled = state;
+        playerMovement.enabled = state;
     }
     void StageChange(GameObject stageOn, GameObject stageOff)
     {
@@ -150,6 +163,7 @@ public class PlayerInteraction : Player
         MovmentState(true);
         changingStage = false;
         inDoor = "";
+        InteractionEnds();
     }
     public void BuildObject()
     {
@@ -160,67 +174,74 @@ public class PlayerInteraction : Player
     {
         targetConstruction.GetComponent<Seed>().GrowSeed();
     }
-    void OnTriggerEnter(Collider other)
+    public void EnterDetectObject(GameObject targetObject)
     {
-        if (other.tag == "trash")
+        if (targetObject.tag == "trash")
         {
             facingTrash = true;
-            currentTrashPile = other.gameObject;
-            onInteraction = true;
+            currentTrashPile = targetObject.gameObject;
+            canInteract = true;
         }
-        if (other.tag == "door")
+        if (targetObject.tag == "door")
         {
-            inDoor = other.name;
-            onInteraction = true;
+            inDoor = targetObject.name;
+            canInteract = true;
         }
-        if (other.tag == "arcade")
+        if (targetObject.tag == "arcade")
         {
             facingArcade = true;
-            onInteraction = true;
+            canInteract = true;
         }
-        if (other.tag == "construction")
+        if (targetObject.tag == "construction")
         {
-            targetConstruction = other.gameObject;
-            onInteraction = true;
+            targetConstruction = targetObject.gameObject;
+            canInteract = true;
         }
-        general_UI.InteractionCloud(onInteraction);
+        general_UI.InteractionCloud(canInteract);
     }
-    void OnTriggerExit(Collider other)
+    public void ExitDetectObject(GameObject targetObject)
     {
-        if (other.tag == "trash")
+        if (targetObject.tag == "trash")
         {
             facingTrash = false;
             currentTrashPile = null;
-            onInteraction = false;
+            canInteract = false;
         }
-        if (other.tag == "door")
+        if (targetObject.tag == "door")
         {
             if (!changingStage)
             {
                 inDoor = "";
-                onInteraction = false;
+                canInteract = false;
             }
         }
-        if (other.tag == "arcade")
+        if (targetObject.tag == "arcade")
         {
             facingArcade = false;
-            onInteraction = false;
+            canInteract = false;
         }
-        if (other.tag == "construction")
+        if (targetObject.tag == "construction")
         {
             targetConstruction = null;
-            onInteraction = false;
+            canInteract = false;
         }
-        general_UI.InteractionCloud(onInteraction);
+        general_UI.InteractionCloud(canInteract);
     }
-    public void OnObjectExit()
+    public void InteractionEnds()
     {
-        onInteraction = false;
-        if (currentTrashPile != null && !currentTrashPile.activeSelf)
-        {
-            facingTrash = false;
-            currentTrashPile = null;
-        }
-        general_UI.InteractionCloud(onInteraction);
+        interactionHappen = false;
+    }
+    public void OnPause()
+    {
+        Time.timeScale = 0;
+    }
+    public void OnResume()
+    {
+        Time.timeScale = 1;
+    }
+    public void SaveTransform()
+    {
+        GetComponent<SavePosition>().PositionUpdated();
+        GetComponent<SavePosition>().RotationUpdated();
     }
 }

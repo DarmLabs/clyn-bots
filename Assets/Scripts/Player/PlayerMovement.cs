@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : Player
+public class PlayerMovement : MonoBehaviour
 {
+    PlayerAnimations playerAnim;
     float speed = 6f;
     float speedValue;
     Vector3 forward, right, heading, rightMovement, upMovement;
@@ -12,6 +13,7 @@ public class PlayerMovement : Player
 
     void Start()
     {
+        playerAnim = GetComponent<PlayerAnimations>();
         rb = GetComponent<Rigidbody>();
         forward = Camera.main.transform.forward;
         forward.y = 0;

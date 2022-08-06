@@ -6,16 +6,20 @@ public class LockMovement : StateMachineBehaviour
 {
     GameObject player;
     PlayerInteraction playerInteraction;
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
         player = GameObject.Find("Player");
         playerInteraction = player.GetComponent<PlayerInteraction>();
         playerInteraction.MovmentState(false);
     }
-    public override void  OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex) {
-        if(playerInteraction.inDoor != ""){
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        if (playerInteraction.inDoor != "")
+        {
             playerInteraction.ChangeStage();
         }
-        if(animatorStateInfo.IsName("Suction_Pose_Anim Reverse")){
+        if (animatorStateInfo.IsName("Suction_Pose_Anim Reverse"))
+        {
             playerInteraction.MovmentState(true);
             playerInteraction.isAspiring = false;
         }

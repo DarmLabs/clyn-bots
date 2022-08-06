@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Aspiradora : MonoBehaviour
 {
-    public General_UI general_UI;    
+    public General_UI general_UI;
     [Header("Dirty Area")]
     [SerializeField] Transform topBounds;
     [SerializeField] Transform bottomBounds;
@@ -32,12 +32,12 @@ public class Aspiradora : MonoBehaviour
     [SerializeField] float progressBarDecay;
     float catchProgress;
     //private GameObject globalaux;
-    public GlobalVariables gv; 
+    public GlobalVariables gv;
     //private GameObject saveaux;
     public SaveLoadSystem saveSystem;
     public bool primeraVez = false;
     public bool activoJuego = false;
-    
+
     void Start()
     {
         catchProgress = 0.1f;
@@ -63,17 +63,17 @@ public class Aspiradora : MonoBehaviour
         Vector3 progressBarScale = progressBarContainer.localScale;
         progressBarScale.x = catchProgress;
         progressBarContainer.localScale = progressBarScale;
-        float min = VacuumPosition-VacuumSize/2;
-        float max = VacuumPosition+VacuumSize/2;
-        if(min<TrashPosition && TrashPosition<max)
+        float min = VacuumPosition - VacuumSize / 2;
+        float max = VacuumPosition + VacuumSize / 2;
+        if (min < TrashPosition && TrashPosition < max)
         {
-            if(activoJuego)
+            if (activoJuego)
             {
-                catchProgress += VacuumPower*Time.deltaTime;
-                Debug.Log("PrimeraVez: "+primeraVez);
+                catchProgress += VacuumPower * Time.deltaTime;
+                Debug.Log("PrimeraVez: " + primeraVez);
             }
-            
-            if(catchProgress>=2)
+
+            if (catchProgress >= 2)
             {
                 general_UI.MinigameAspireSwitcher(false);
                 if (!primeraVez)
@@ -90,18 +90,17 @@ public class Aspiradora : MonoBehaviour
                     TrashPosition = 0.5f;
                     VacuumPosition = 0.5f;
                     general_UI.playerInteraction.ReduceTrashPile();
-                    general_UI.playerInteraction.OnObjectExit();
                     saveSystem.Save();
                     general_UI.playerInteraction.BagPercentage();
-                }                
-            }                        
+                }
+            }
         }
         else
         {
             if (activoJuego)
             {
-                catchProgress -=  progressBarDecay*Time.deltaTime;
-                if(catchProgress<=0)
+                catchProgress -= progressBarDecay * Time.deltaTime;
+                if (catchProgress <= 0)
                 {
                     general_UI.MinigameAspireSwitcher(false);
                     primeraVez = true;
@@ -114,37 +113,37 @@ public class Aspiradora : MonoBehaviour
                     Debug.Log("La aspiradora exploto");
                 }
             }
-            
-        }     
-        catchProgress=Mathf.Clamp(catchProgress,0,2);
-        
-        
+
+        }
+        catchProgress = Mathf.Clamp(catchProgress, 0, 2);
+
+
     }
 
     private void MoveVacuum()
     {
-        if(Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
             VacuumPullVelocity += VacuumSpeed * Time.deltaTime;
             activoJuego = true;
         }
-        if(activoJuego)
+        if (activoJuego)
         {
-            VacuumPullVelocity -= VacuumGravity * Time.deltaTime;        
+            VacuumPullVelocity -= VacuumGravity * Time.deltaTime;
             VacuumPosition += VacuumPullVelocity;
 
-            if(VacuumPosition - VacuumSize/2 <= 0 && VacuumPullVelocity<0)
+            if (VacuumPosition - VacuumSize / 2 <= 0 && VacuumPullVelocity < 0)
             {
                 VacuumPullVelocity = 0;
             }
 
-            if(VacuumPosition + VacuumSize/2 >= 1 && VacuumPullVelocity>0)
+            if (VacuumPosition + VacuumSize / 2 >= 1 && VacuumPullVelocity > 0)
             {
                 VacuumPullVelocity = 0;
             }
         }
-        
-        VacuumPosition = Mathf.Clamp(VacuumPosition,VacuumSize/2,1-VacuumSize/2);
+
+        VacuumPosition = Mathf.Clamp(VacuumPosition, VacuumSize / 2, 1 - VacuumSize / 2);
         Vacuum.position = Vector3.Lerp(bottomBounds.position, topBounds.position, VacuumPosition);
     }
 
@@ -153,14 +152,14 @@ public class Aspiradora : MonoBehaviour
         if (activoJuego)
         {
             TrashTimer -= Time.deltaTime;
-            if(TrashTimer < 0)
+            if (TrashTimer < 0)
             {
                 TrashTimer = Random.value * TrashTimeRandomizer;
                 TrashTargetPosition = Random.value;
 
             }
-            TrashPosition = Mathf.SmoothDamp(TrashPosition,TrashTargetPosition, ref TrashSpeed, smoothMotion);
-            Trash.position = Vector3.Lerp(bottomBounds.position,topBounds.position,TrashPosition);
+            TrashPosition = Mathf.SmoothDamp(TrashPosition, TrashTargetPosition, ref TrashSpeed, smoothMotion);
+            Trash.position = Vector3.Lerp(bottomBounds.position, topBounds.position, TrashPosition);
         }
     }
 }
