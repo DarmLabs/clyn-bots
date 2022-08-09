@@ -5,12 +5,17 @@ using UnityEngine;
 public class RotatePipe : MonoBehaviour
 {
    private bool origen = false;
-   private bool primeraVez = false;   
+   private bool primeraVez = false;
+   public bool coroutineAllowed;
+   private Renderer rend;
+   [SerializeField] Color colorCorrecto = Color.white;   
 
    void Start()
    {
+        coroutineAllowed =true;
         origen = false;
         primeraVez = false;
+        rend = GetComponent<Renderer>();
    }
 
    void Update() 
@@ -21,10 +26,12 @@ public class RotatePipe : MonoBehaviour
             origen = true;
             if(!primeraVez)
             {
-                PipeController.contadorCorrectas +=1;
-                Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
-                primeraVez = true;
-            }           
+               PipeController.contadorCorrectas +=1;
+               Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
+               primeraVez = true;
+               rend.material.color = colorCorrecto;
+            } 
+
         }            
         else
         {
@@ -39,8 +46,24 @@ public class RotatePipe : MonoBehaviour
            if (!origen)
            {
                 transform.Rotate(0f,0f,+90f);
+                //StartCoroutine(RotatePipes()); 
            }                 
                      
         }
    }
+
+    public IEnumerator RotatePipes()
+    {             
+          coroutineAllowed=false;
+          if(!origen)
+          {                            
+               for (float i = 0f; i < 90f; i+=10)
+               {
+               transform.rotation = Quaternion.Euler(0f,0f,i);
+               yield return new WaitForSeconds(0.04f* Time.deltaTime);
+               }                        
+          }          
+          coroutineAllowed=true;                       
+                    
+    }
 }
