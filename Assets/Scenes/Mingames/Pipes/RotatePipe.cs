@@ -10,7 +10,7 @@ public class RotatePipe : MonoBehaviour
 
    void Start()
    {
-        randomIndex = Random.Range(0,3);
+        randomIndex = Random.Range(0,6);
         transform.Rotate(ArrayRotaciones[randomIndex]);
         Debug.Log("pieza: "+this.gameObject.name+"  array:"+ArrayRotaciones[randomIndex]);
    }
