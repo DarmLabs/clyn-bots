@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 28325195}
   - component: {fileID: 28325194}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_25
+  m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -149,14 +149,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28325191}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.233288, y: -6.408917, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &28325193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 2096181672, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -221,6 +221,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &28325195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -260,7 +265,7 @@ GameObject:
   - component: {fileID: 124950194}
   - component: {fileID: 124950193}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_17
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -273,14 +278,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124950190}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.233288, y: -4.288918, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &124950192
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -323,7 +328,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 859824469, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -345,6 +350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &124950194
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -499,7 +509,7 @@ GameObject:
   - component: {fileID: 288150314}
   - component: {fileID: 288150313}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_4
+  m_Name: 10
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -512,14 +522,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288150310}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8867149, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &288150312
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -562,7 +572,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1697995876, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -584,6 +594,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &288150314
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -623,7 +638,7 @@ GameObject:
   - component: {fileID: 386862932}
   - component: {fileID: 386862931}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_5
+  m_Name: 17
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -636,14 +651,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386862928}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9267159, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &386862930
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -686,7 +701,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1564996194, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -708,6 +723,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &386862932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -747,7 +767,7 @@ GameObject:
   - component: {fileID: 397987717}
   - component: {fileID: 397987716}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_9
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -760,14 +780,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 397987713}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.233288, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &397987715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -810,7 +830,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1736403042, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -832,6 +852,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &397987717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -871,7 +896,7 @@ GameObject:
   - component: {fileID: 453633705}
   - component: {fileID: 453633704}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_30
+  m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -884,14 +909,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453633701}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.966717, y: -6.408917, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
   m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &453633703
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -934,7 +959,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1731655604, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -956,6 +981,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &453633705
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -995,7 +1025,7 @@ GameObject:
   - component: {fileID: 566795651}
   - component: {fileID: 566795650}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_12
+  m_Name: 11
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1008,14 +1038,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566795647}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8867149, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &566795649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1058,7 +1088,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1306774100, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1080,6 +1110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &566795651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1135,28 +1170,28 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1694371745}
+  - {fileID: 1929288557}
+  - {fileID: 397987714}
+  - {fileID: 124950191}
+  - {fileID: 28325192}
+  - {fileID: 1958012571}
+  - {fileID: 896966945}
+  - {fileID: 1609413255}
   - {fileID: 2082909786}
   - {fileID: 1779184626}
   - {fileID: 288150311}
-  - {fileID: 386862929}
-  - {fileID: 1184498886}
-  - {fileID: 1951523148}
-  - {fileID: 1929288557}
-  - {fileID: 397987714}
-  - {fileID: 1609413255}
-  - {fileID: 629433782}
   - {fileID: 566795648}
-  - {fileID: 1132557186}
-  - {fileID: 1347770564}
-  - {fileID: 1344965704}
-  - {fileID: 124950191}
-  - {fileID: 896966945}
+  - {fileID: 629433782}
   - {fileID: 1464695640}
   - {fileID: 2067925833}
   - {fileID: 1330622264}
+  - {fileID: 1132557186}
+  - {fileID: 386862929}
+  - {fileID: 1184498886}
+  - {fileID: 1951523148}
+  - {fileID: 1344965704}
+  - {fileID: 1347770564}
   - {fileID: 1331016088}
-  - {fileID: 28325192}
-  - {fileID: 1958012571}
   - {fileID: 453633702}
   - {fileID: 1505580403}
   m_Father: {fileID: 0}
@@ -1175,7 +1210,7 @@ GameObject:
   - component: {fileID: 629433785}
   - component: {fileID: 629433784}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_11
+  m_Name: 12
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1188,14 +1223,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629433781}
-  m_LocalRotation: {x: -0, y: 0, z: -0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.15328598, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &629433783
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1238,7 +1273,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 749449495, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1260,6 +1295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &629433785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1299,7 +1339,7 @@ GameObject:
   - component: {fileID: 896966948}
   - component: {fileID: 896966947}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_18
+  m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1312,14 +1352,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896966944}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.193287, y: -4.288918, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &896966946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1362,7 +1402,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1586992892, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1384,6 +1424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &896966948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1507,7 +1552,7 @@ GameObject:
   - component: {fileID: 1132557189}
   - component: {fileID: 1132557188}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_13
+  m_Name: 16
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1520,14 +1565,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132557185}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9267159, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1132557187
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1570,7 +1615,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1133281977, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1592,6 +1637,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1132557189
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1631,7 +1681,7 @@ GameObject:
   - component: {fileID: 1184498889}
   - component: {fileID: 1184498888}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_6
+  m_Name: 18
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1644,14 +1694,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184498885}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.966717, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1184498887
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1694,7 +1744,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -586244737, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1716,6 +1766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1184498889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1873,7 +1928,7 @@ GameObject:
   - component: {fileID: 1330622267}
   - component: {fileID: 1330622266}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_21
+  m_Name: 15
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -1886,14 +1941,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330622263}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.9267159, y: -4.288918, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1330622265
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1936,7 +1991,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -281243314, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1958,6 +2013,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1330622267
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1997,7 +2057,7 @@ GameObject:
   - component: {fileID: 1331016091}
   - component: {fileID: 1331016090}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_22
+  m_Name: 22
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2010,14 +2070,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331016087}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.966717, y: -4.288918, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 20
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1331016089
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2060,7 +2120,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1457402697, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2082,6 +2142,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1331016091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2121,7 +2186,7 @@ GameObject:
   - component: {fileID: 1344965707}
   - component: {fileID: 1344965706}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_15
+  m_Name: 20
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2134,14 +2199,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344965703}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.006718, y: -2.1689186, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1344965705
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2184,7 +2249,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 938924312, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2206,6 +2271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1344965707
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2245,7 +2315,7 @@ GameObject:
   - component: {fileID: 1347770567}
   - component: {fileID: 1347770566}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_14
+  m_Name: 21
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2258,14 +2328,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347770563}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.966717, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1347770565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2308,7 +2378,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1805708563, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2330,6 +2400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1347770567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2369,7 +2444,7 @@ GameObject:
   - component: {fileID: 1464695643}
   - component: {fileID: 1464695642}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_19
+  m_Name: 13
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2382,14 +2457,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464695639}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.15328598, y: -4.288918, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 17
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1464695641
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2432,7 +2507,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 2042600438, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2454,6 +2529,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1464695643
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2493,7 +2573,7 @@ GameObject:
   - component: {fileID: 1505580406}
   - component: {fileID: 1505580405}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_31
+  m_Name: 24
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2506,14 +2586,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1505580402}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.006718, y: -6.408919, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
   m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1505580404
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2556,7 +2636,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1617443081, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2578,6 +2658,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1505580406
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2617,7 +2702,7 @@ GameObject:
   - component: {fileID: 1609413258}
   - component: {fileID: 1609413257}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_10
+  m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2630,14 +2715,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1609413254}
-  m_LocalRotation: {x: -0, y: 0, z: -0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.193287, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1609413256
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2680,7 +2765,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 273448260, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2702,6 +2787,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1609413258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2825,7 +2915,7 @@ GameObject:
   - component: {fileID: 1694371748}
   - component: {fileID: 1694371747}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_0
+  m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2838,14 +2928,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694371744}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.2732887, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1694371746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2888,7 +2978,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -2143136979, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2910,6 +3000,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1694371748
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2949,7 +3044,7 @@ GameObject:
   - component: {fileID: 1779184629}
   - component: {fileID: 1779184628}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_3
+  m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2962,14 +3057,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1779184625}
-  m_LocalRotation: {x: -0, y: 0, z: -0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.15328598, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1779184627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3012,7 +3107,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1564368327, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3034,6 +3129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1779184629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3073,7 +3173,7 @@ GameObject:
   - component: {fileID: 1929288560}
   - component: {fileID: 1929288559}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_8
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3086,14 +3186,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1929288556}
-  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.2732887, y: -2.1689181, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1929288558
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3136,7 +3236,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -679701903, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3158,6 +3258,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1929288560
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3197,7 +3302,7 @@ GameObject:
   - component: {fileID: 1951523151}
   - component: {fileID: 1951523150}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_7
+  m_Name: 19
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3210,14 +3315,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951523147}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.006718, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1951523149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3260,7 +3365,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1215678158, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3282,6 +3387,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1951523151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3321,7 +3431,7 @@ GameObject:
   - component: {fileID: 1958012574}
   - component: {fileID: 1958012573}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_26
+  m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3334,14 +3444,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958012570}
-  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.193287, y: -6.408917, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 22
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1958012572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3384,7 +3494,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1490474904, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3406,6 +3516,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &1958012574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3445,7 +3560,7 @@ GameObject:
   - component: {fileID: 2067925836}
   - component: {fileID: 2067925835}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_20
+  m_Name: 14
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3458,14 +3573,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067925832}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.8867149, y: -4.288918, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2067925834
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3508,7 +3623,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1465904939, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3530,6 +3645,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &2067925836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3569,7 +3689,7 @@ GameObject:
   - component: {fileID: 2082909789}
   - component: {fileID: 2082909788}
   m_Layer: 0
-  m_Name: Tuberias_sin_fondo_2
+  m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -3582,14 +3702,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082909785}
-  m_LocalRotation: {x: -0, y: 0, z: -0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.193287, y: -0.048918247, z: -0.06980453}
   m_LocalScale: {x: 0.9100001, y: 0.9100001, z: 0.9100001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 607804652}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -270}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2082909787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3632,7 +3752,7 @@ SpriteRenderer:
   m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: -1543326377, guid: 896db3e50e9407943a354f73f34d1913, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3654,6 +3774,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2e1d37e88090be4e8e75ad3e670f527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ArrayRotaciones:
+  - {x: 0, y: 0, z: -270}
+  - {x: 0, y: 0, z: -180}
+  - {x: 0, y: 0, z: -90}
+  - {x: 0, y: 0, z: 270}
 --- !u!61 &2082909789
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3781,27 +3906,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tubos:
   - {fileID: 1694371745}
+  - {fileID: 1929288557}
+  - {fileID: 397987714}
+  - {fileID: 124950191}
+  - {fileID: 28325192}
+  - {fileID: 1958012571}
+  - {fileID: 896966945}
+  - {fileID: 1609413255}
   - {fileID: 2082909786}
   - {fileID: 1779184626}
   - {fileID: 288150311}
-  - {fileID: 386862929}
-  - {fileID: 1184498886}
-  - {fileID: 1951523148}
-  - {fileID: 1929288557}
-  - {fileID: 397987714}
-  - {fileID: 1609413255}
-  - {fileID: 629433782}
   - {fileID: 566795648}
-  - {fileID: 1132557186}
-  - {fileID: 1347770564}
-  - {fileID: 1344965704}
-  - {fileID: 124950191}
-  - {fileID: 896966945}
+  - {fileID: 629433782}
   - {fileID: 1464695640}
   - {fileID: 2067925833}
   - {fileID: 1330622264}
+  - {fileID: 1132557186}
+  - {fileID: 386862929}
+  - {fileID: 1184498886}
+  - {fileID: 1951523148}
+  - {fileID: 1344965704}
+  - {fileID: 1347770564}
   - {fileID: 1331016088}
-  - {fileID: 28325192}
-  - {fileID: 1958012571}
   - {fileID: 453633702}
   - {fileID: 1505580403}
