@@ -19,7 +19,7 @@ public class PipeController : MonoBehaviour
         for (int i = 0; i < Tubos.Length; i++)
         {
             banderaTubo[i]=false; 
-            randomIndex = Random.Range(0,5);
+            randomIndex = Random.Range(0,3);
             Tubos[i].transform.Rotate(ArrayRotaciones[randomIndex]);
             Debug.Log("pieza: "+Tubos[i].gameObject.name+"  array:"+ArrayRotaciones[randomIndex]);            
         }       
