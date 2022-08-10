@@ -45,9 +45,9 @@ public class RotatePipe : MonoBehaviour
         {
            if (!origen)
            {
-               //transform.Rotate(0f,0f,+90f);
+               transform.Rotate(0f,0f,+90f);
 
-               StartCoroutine(RotatePipes()); 
+               //StartCoroutine(RotatePipes()); 
            }                 
                      
         }
