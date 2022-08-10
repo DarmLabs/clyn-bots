@@ -28,15 +28,6 @@ public class PipeController : MonoBehaviour
    
     void Update()
     {
-        /*if (Tubos[0].rotation== Quaternion.identity  && Tubos[1].rotation== Quaternion.identity  && Tubos[2].rotation== Quaternion.identity  && Tubos[3].rotation== Quaternion.identity  && Tubos[4].rotation== Quaternion.identity  &&
-            Tubos[5].rotation== Quaternion.identity  && Tubos[9].rotation== Quaternion.identity  && Tubos[13].rotation== Quaternion.identity  && Tubos[17].rotation== Quaternion.identity  && Tubos[21].rotation== Quaternion.identity  &&
-            Tubos[6].rotation== Quaternion.identity  && Tubos[10].rotation== Quaternion.identity  && Tubos[14].rotation== Quaternion.identity  && Tubos[18].rotation== Quaternion.identity  && Tubos[22].rotation== Quaternion.identity  &&
-            Tubos[7].rotation== Quaternion.identity  && Tubos[11].rotation== Quaternion.identity  && Tubos[15].rotation== Quaternion.identity  && Tubos[19].rotation== Quaternion.identity  && Tubos[23].rotation== Quaternion.identity  &&
-            Tubos[8].rotation== Quaternion.identity  && Tubos[12].rotation== Quaternion.identity  && Tubos[16].rotation== Quaternion.identity  && Tubos[20].rotation== Quaternion.identity  && Tubos[24].rotation== Quaternion.identity )
-        {
-            gano = true;
-            Debug.Log("GANASTE NIÑO BOBO");            
-        }*/
         Origenes();
         if (contadorCorrectas == 25)
         {
