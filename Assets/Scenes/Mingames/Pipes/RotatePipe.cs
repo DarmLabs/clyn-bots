@@ -53,7 +53,7 @@ public class RotatePipe : MonoBehaviour
         }
    }
 
-    public IEnumerator RotatePipes()
+    /*public IEnumerator RotatePipes()
     {             
           coroutineAllowed=false;
           if(!origen)
@@ -69,5 +69,5 @@ public class RotatePipe : MonoBehaviour
           }          
           coroutineAllowed=true;                       
                     
-    }
+    }*/
 }
