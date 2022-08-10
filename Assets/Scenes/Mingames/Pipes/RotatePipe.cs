@@ -45,8 +45,9 @@ public class RotatePipe : MonoBehaviour
         {
            if (!origen)
            {
-                transform.Rotate(0f,0f,+90f);
-                //StartCoroutine(RotatePipes()); 
+               transform.Rotate(0f,0f,+90f);
+
+               //StartCoroutine(RotatePipes()); 
            }                 
                      
         }
@@ -59,9 +60,12 @@ public class RotatePipe : MonoBehaviour
           {                            
                for (float i = 0f; i < 90f; i+=10)
                {
-               transform.rotation = Quaternion.Euler(0f,0f,i);
-               yield return new WaitForSeconds(0.04f* Time.deltaTime);
-               }                        
+               //transform.rotation = Quaternion.Euler(0f,0f,i);
+               //transform.Rotate(0f,0f,+i);
+               transform.rotation = transform.rotation * Quaternion.Euler(0f,0f,i);
+               yield return new WaitForSeconds(1f* Time.deltaTime);
+               }       
+                              
           }          
           coroutineAllowed=true;                       
                     
