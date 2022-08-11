@@ -7,35 +7,52 @@ public class RotatePipe : MonoBehaviour
    private bool origen = false;
    private bool primeraVez = false;
    public bool coroutineAllowed;
+   public string nombre;
+   public int numero;
    private Renderer rend;
    [SerializeField] Color colorCorrecto = Color.white;   
 
    void Start()
    {
-        coroutineAllowed =true;
-        origen = false;
-        primeraVez = false;
-        rend = GetComponent<Renderer>();
+          coroutineAllowed =true;
+          origen = false;
+          primeraVez = false;
+          rend = GetComponent<Renderer>();
+          nombre = this.gameObject.name;
+          numero = int.Parse(nombre);
+          Debug.Log("numero:  "+numero);
    }
 
    void Update() 
    {
         if (transform.rotation == Quaternion.identity || transform.rotation.z == 0)
         {
-            transform.localScale = new Vector3(1.09f,1.09f,1.09f);
-            origen = true;
-            if(!primeraVez)
-            {
-               PipeController.contadorCorrectas +=1;
-               Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
-               primeraVez = true;
-               rend.material.color = colorCorrecto;
-            } 
+               transform.localScale = new Vector3(1.09f,1.09f,1.09f);
+               origen = true;               
+               if(numero > 0)
+               {
+                    if (PipeController.banderaTubo[numero-1])
+                    {
+                         if(!primeraVez)
+                         {
+                              PipeController.contadorCorrectas +=1;
+                              Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
+                              primeraVez = true;
+                              rend.material.color = colorCorrecto;
+                         } 
 
+                    }
+               }
+               else
+               {
+                    rend.material.color = colorCorrecto;
+               } 
+              
         }            
         else
         {
             transform.localScale = new Vector3(0.91f,0.91f,0.91f);
+            rend.material.color = Color.white;
         }
    }
 
@@ -43,17 +60,16 @@ public class RotatePipe : MonoBehaviour
    {
         if(!PipeController.gano)
         {
-           if (!origen)
+           if (!origen) //&& !PipeController.banderaTubo[numero-1])
            {
-               //transform.Rotate(0f,0f,+90f);
-
-               StartCoroutine(RotatePipes()); 
+               transform.Rotate(0f,0f,+90f);
+               
            }                 
                      
         }
    }
 
-    public IEnumerator RotatePipes()
+    /*public IEnumerator RotatePipes()
     {             
           coroutineAllowed=false;
           if(!origen)
@@ -69,5 +85,5 @@ public class RotatePipe : MonoBehaviour
           }          
           coroutineAllowed=true;                       
                     
-    }
+    }*/
 }
