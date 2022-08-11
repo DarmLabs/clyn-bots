@@ -6,7 +6,7 @@ using System.Linq;
 public class PrefabScatter : MonoBehaviour
 {
     [SerializeField] GameObject[] trash;
-    [SerializeField] float spaceAboveGround = 0.1f;
+    [SerializeField] float spaceAboveGround = 0.2f;
     [SerializeField] float yPos;
     [SerializeField] bool isAboveWater;
 
@@ -24,15 +24,16 @@ public class PrefabScatter : MonoBehaviour
             int xPos = Random.Range(-73, 76);
             int zPos = Random.Range(-122, 128);
             CheckHeight(xPos, zPos);
+            int randomIndex = Random.Range(0, trash.Length);
             if (!isAboveWater)
             {
-                Instantiate(trash[Random.Range(0, trash.Length)], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                Instantiate(trash[randomIndex], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(trash[randomIndex].transform.eulerAngles.x, Random.Range(0, 360), trash[randomIndex].transform.eulerAngles.z), transform);
+                Debug.Log(trash[randomIndex].tag);
             }
             else
             {
                 i--;
             }
-
         }
     }
     void CheckHeight(int xPos, int zPos)
