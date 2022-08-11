@@ -14,16 +14,25 @@ public class AspireInteraction : MonoBehaviour
                 switch (this.gameObject.tag)
                 {
                     case "Vidrio":
+                        playerInteraction.globalVariables.vidrioTrash++;
                         break;
                     case "Plastico":
+                        playerInteraction.globalVariables.plasticoTrash++;
                         break;
-                    case "Compost":
+                    case "Compostable":
+                        playerInteraction.globalVariables.organicTrash++;
                         break;
                     case "Carton":
+                        playerInteraction.globalVariables.cartonTrash++;
                         break;
                     case "Metal":
+                        playerInteraction.globalVariables.metalTrash++;
+                        break;
+                    case "NoRecuperable":
+                        playerInteraction.globalVariables.noRecTrash++;
                         break;
                 }
+                playerInteraction.BagPercentage();
             }
         }
     }

@@ -115,7 +115,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void BagPercentage()
     {
-        itemsInBag = globalVariables.recTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
+        itemsInBag = globalVariables.vidrioTrash + globalVariables.cartonTrash + globalVariables.metalTrash + globalVariables.plasticoTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
         bagPercentage = (itemsInBag * 100) / 30;
         player_UI.DisplayBagPercentage();
     }
