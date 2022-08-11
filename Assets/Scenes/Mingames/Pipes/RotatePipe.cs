@@ -25,7 +25,7 @@ public class RotatePipe : MonoBehaviour
 
    void Update() 
    {
-        if (transform.rotation == Quaternion.identity || transform.rotation.z == 0)
+        if (transform.rotation == Quaternion.identity || transform.rotation.z == 0 || transform.rotation.z == 360)
         {
                transform.localScale = new Vector3(1.09f,1.09f,1.09f);
                origen = true;               
@@ -60,11 +60,11 @@ public class RotatePipe : MonoBehaviour
    {
         if(!PipeController.gano)
         {
-           if (!origen) //&& !PipeController.banderaTubo[numero-1])
-           {
+           //if (!origen) //&& !PipeController.banderaTubo[numero-1])
+           //{
                transform.Rotate(0f,0f,+90f);
                
-           }                 
+           //}                 
                      
         }
    }
