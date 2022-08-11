@@ -6,7 +6,9 @@ using System.Linq;
 public class PrefabScatter : MonoBehaviour
 {
     [SerializeField] GameObject[] trash;
-    [SerializeField] float spaceAboveGround = 0.5f;
+    [SerializeField] float spaceAboveGround = 0.1f;
+    [SerializeField] float yPos;
+    [SerializeField] bool isAboveWater;
 
     void Awake()
     {
@@ -18,19 +20,31 @@ public class PrefabScatter : MonoBehaviour
     {
         for (int i = 0; i < 1000; i++)
         {
+            isAboveWater = false;
             int xPos = Random.Range(-73, 76);
             int zPos = Random.Range(-122, 128);
-            Instantiate(trash[Random.Range(0, trash.Length + 1)], new Vector3(xPos, CalculateHeight(xPos, zPos), zPos), Quaternion.identity);
+            CheckHeight(xPos, zPos);
+            if (!isAboveWater)
+            {
+                Instantiate(trash[Random.Range(0, trash.Length)], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(0, Random.Range(0, 360), 0));
+            }
+            else
+            {
+                i--;
+            }
+
         }
     }
-
-    float CalculateHeight(int xPos, int zPos)
+    void CheckHeight(int xPos, int zPos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(new Vector3(xPos, 10, zPos), Vector3.down, out hit) && hit.transform.gameObject.tag != "Water")
+        if (Physics.Raycast(new Vector3(transform.position.x + xPos, 100, transform.position.z + zPos), Vector3.down, out hit) && hit.transform.gameObject.tag != "Agua")
         {
-            return hit.point.y + spaceAboveGround;
+            yPos = hit.point.y + spaceAboveGround;
         }
-        return 0;
+        else
+        {
+            isAboveWater = true;
+        }
     }
 }
