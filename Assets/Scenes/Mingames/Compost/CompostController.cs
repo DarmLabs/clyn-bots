@@ -15,14 +15,16 @@ public class CompostController : MonoBehaviour
     private Vector3 escalaProgreso_Humedo;
     private Vector3 escalaProgreso_Olor;
     private Vector3 escalaProgreso_Seco;
-    //0 Humeda - 1 Seca - 3 Olor - 4 Correcta
+    //0 Humeda - 1 Seca - 2 Olor - 3 Correcta
     [SerializeField] Transform Compostera;
     private int randomIndex;  
+    private bool gano = false;
 
     void Start()
     {
+        gano = false;
         randomIndex = Random.Range(0,3);
-        Compostera.GetChild(randomIndex).gameObject.SetActive(true);
+        Compostera.GetChild(randomIndex).gameObject.SetActive(true);        
         escalaProgreso_Humedo = ProgresoHumedo.localScale;
         escalaProgreso_Olor = ProgresoOlor.localScale;
         escalaProgreso_Seco = ProgresoSeco.localScale; 
@@ -57,6 +59,45 @@ public class CompostController : MonoBehaviour
 
     void Update()
     {
+        VictoriaDerrota();
+    }
+
+    public void Boton_Secar()
+    {
+        escalaProgreso_Humedo.x = escalaProgreso_Humedo.x - (EscalaMax/8);        
+        if(escalaProgreso_Humedo.x < 0.5f)
+        {
+            escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/8);
+        }        
+        ProgresoSeco.localScale = escalaProgreso_Seco; 
+        ProgresoHumedo.localScale = escalaProgreso_Humedo;
+        ProgresoOlor.localScale = escalaProgreso_Olor;
+    }
+    public void Boton_Humedecer()
+    {
+        escalaProgreso_Seco.x = escalaProgreso_Seco.x - (EscalaMax/8);        
+        if(escalaProgreso_Seco.x < 0.5f)
+        {
+            escalaProgreso_Humedo.x = escalaProgreso_Humedo.x + (EscalaMax/8);
+        }        
+        ProgresoSeco.localScale = escalaProgreso_Seco; 
+        ProgresoHumedo.localScale = escalaProgreso_Humedo;
+        ProgresoOlor.localScale = escalaProgreso_Olor;        
+    }
+    public void Boton_Remover()
+    {
+        escalaProgreso_Olor.x = escalaProgreso_Olor.x - (EscalaMax/8);        
+        if(escalaProgreso_Olor.x < 0.5f)
+        {
+            escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/8);
+        }        
+        ProgresoSeco.localScale = escalaProgreso_Seco; 
+        ProgresoHumedo.localScale = escalaProgreso_Humedo;
+        ProgresoOlor.localScale = escalaProgreso_Olor;        
+    }
+
+    void VictoriaDerrota()
+    {
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
@@ -65,30 +106,63 @@ public class CompostController : MonoBehaviour
         {
             Debug.Log("PERDISTE NIÑITO :(");
         }
-    }
+        if (escalaProgreso_Humedo.x >= EscalaMax)
+        {
+            Debug.Log("PERDISTE NIÑITO :(");
+        }
+        if (escalaProgreso_Humedo.x <= EscalaMin)
+        {
+            Debug.Log("PERDISTE NIÑITO :(");
+        }
+        if (escalaProgreso_Olor.x >= EscalaMax)
+        {
+            Debug.Log("PERDISTE NIÑITO :(");
+        }
+        if (escalaProgreso_Olor.x <= EscalaMin)
+        {
+            Debug.Log("PERDISTE NIÑITO :(");
+        }
 
-    public void Boton_Secar()
-    {
-        //escalaProgreso_Humedo.x = 2f;
-        //escalaProgreso_Olor.x = 1.325f;
-        escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/8);
-        //ProgresoHumedo.localScale = escalaProgreso_Humedo;
-        //ProgresoOlor.localScale = escalaProgreso_Olor;
-        ProgresoSeco.localScale = escalaProgreso_Seco; 
-    }
-
-    public void Boton_Humedecer()
-    {
+        if (escalaProgreso_Humedo.x == 0.5f)
+        {
+            if(escalaProgreso_Olor.x == 0.5f)
+            {
+                if(escalaProgreso_Seco.x == 0.5f)
+                {
+                    Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
+                    gano = true;
+                    Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                    Compostera.GetChild(3).gameObject.SetActive(true);
+                }
+            }           
+        }
+        //0 Humeda - 1 Seca - 2 Olor - 3 Correcta
+        if(escalaProgreso_Humedo.x > 0.5)
+        {
+            if (randomIndex != 0 && !gano)
+            {
+                Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                Compostera.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+         if(escalaProgreso_Seco.x > 0.5)
+        {
+            if (randomIndex != 1 && !gano)
+            {
+                Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                Compostera.GetChild(1).gameObject.SetActive(true);
+            }
+        }
+         if(escalaProgreso_Olor.x > 0.5)
+        {
+            if (randomIndex != 2 && !gano)
+            {
+                Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                Compostera.GetChild(2).gameObject.SetActive(true);
+            }
+        }
         
-    }
-
-    public void Boton_Remover()
-    {
-        
-    }
-
-
-    
+    }  
     
 
 
