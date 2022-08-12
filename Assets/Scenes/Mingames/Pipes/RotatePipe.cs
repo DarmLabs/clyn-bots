@@ -37,7 +37,7 @@ public class RotatePipe : MonoBehaviour
                               PipeController.contadorCorrectas +=1;
                               IndiceFlecha = numero +1;
                               //Debug.Log("IndiceFlecha: "+RotatePipe.IndiceFlecha); 
-                              //Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
+                              Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
                               primeraVez = true;
                               rend.material.color = colorCorrecto;                              
                          } 

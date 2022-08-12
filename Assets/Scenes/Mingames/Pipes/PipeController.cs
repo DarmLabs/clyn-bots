@@ -18,7 +18,7 @@ public class PipeController : MonoBehaviour
         for (int i = 0; i < Tubos.Length; i++)
         {
             banderaTubo[i]=false; 
-            randomIndex = Random.Range(0,3);
+            randomIndex = Random.Range(0,2);
             Tubos[i].transform.Rotate(ArrayRotaciones[randomIndex]);
             //Debug.Log("pieza: "+Tubos[i].gameObject.name+"  array:"+ArrayRotaciones[randomIndex]);            
         }       
@@ -30,7 +30,7 @@ public class PipeController : MonoBehaviour
         Origenes();
         FlechasFeedback();
         //Debug.Log("Update RotatePipe.IndiceFlecha: "+RotatePipe.IndiceFlecha);          
-        if (contadorCorrectas == 25)
+        if (contadorCorrectas == 24)
         {
             gano = true;
             Debug.Log("GANASTE NIÑO BOBO");     
