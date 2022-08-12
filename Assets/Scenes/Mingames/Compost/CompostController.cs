@@ -7,7 +7,7 @@ public class CompostController : MonoBehaviour
     [SerializeField] Transform ProgresoHumedo;
     [SerializeField] Transform ProgresoOlor;
     [SerializeField] Transform ProgresoSeco;
-    private float EscalaMax = 2.65f;
+    private float EscalaMax = 1f;
     private float EscalaMin = 0f;
     [SerializeField] Transform BotonSecar;
     [SerializeField] Transform BotonHumedecer;
@@ -29,25 +29,25 @@ public class CompostController : MonoBehaviour
         switch (randomIndex)
         {
             case 0://Humeda
-            escalaProgreso_Humedo.x = 1.9875f;
-            escalaProgreso_Olor.x = 1.325f;
-            escalaProgreso_Seco.x = 1.325f;
+            escalaProgreso_Humedo.x = 0.75f;
+            escalaProgreso_Olor.x = 0.5f;
+            escalaProgreso_Seco.x = 0.5f;
             ProgresoHumedo.localScale = escalaProgreso_Humedo;
             ProgresoOlor.localScale = escalaProgreso_Olor;
             ProgresoSeco.localScale = escalaProgreso_Seco;            
             break;
             case 1://Seca
-            escalaProgreso_Humedo.x =1.325f;
-            escalaProgreso_Olor.x = 1.325f;
-            escalaProgreso_Seco.x = 1.9875f;
+            escalaProgreso_Humedo.x =0.5f;
+            escalaProgreso_Olor.x = 0.5f;
+            escalaProgreso_Seco.x = 0.75f;
             ProgresoHumedo.localScale = escalaProgreso_Humedo;
             ProgresoOlor.localScale = escalaProgreso_Olor;
             ProgresoSeco.localScale = escalaProgreso_Seco;
             break;
             case 2://Olor
-            escalaProgreso_Humedo.x = 1.325f;
-            escalaProgreso_Olor.x = 1.9875f;
-            escalaProgreso_Seco.x = 1.325f;
+            escalaProgreso_Humedo.x = 0.5f;
+            escalaProgreso_Olor.x = 0.75f;
+            escalaProgreso_Seco.x = 0.5f;
             ProgresoHumedo.localScale = escalaProgreso_Humedo;
             ProgresoOlor.localScale = escalaProgreso_Olor;
             ProgresoSeco.localScale = escalaProgreso_Seco;
@@ -71,7 +71,7 @@ public class CompostController : MonoBehaviour
     {
         //escalaProgreso_Humedo.x = 2f;
         //escalaProgreso_Olor.x = 1.325f;
-        escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/5);
+        escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/8);
         //ProgresoHumedo.localScale = escalaProgreso_Humedo;
         //ProgresoOlor.localScale = escalaProgreso_Olor;
         ProgresoSeco.localScale = escalaProgreso_Seco; 
