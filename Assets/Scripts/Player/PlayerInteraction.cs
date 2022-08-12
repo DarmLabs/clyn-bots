@@ -197,6 +197,10 @@ public class PlayerInteraction : MonoBehaviour
             targetConstruction = targetObject.gameObject;
             canInteract = true;
         }
+        if (targetObject.tag == "Recycler")
+        {
+            //targetObject.GetComponent<RecyclerNPC>().CallDialogue();
+        }
         general_UI.InteractionCloud(canInteract);
     }
     public void ExitDetectObject(GameObject targetObject)

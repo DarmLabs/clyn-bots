@@ -18,17 +18,16 @@ public class PrefabScatter : MonoBehaviour
     }
     void Start()
     {
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 2000; i++)
         {
             isAboveWater = false;
-            int xPos = Random.Range(-73, 76);
-            int zPos = Random.Range(-122, 128);
+            int xPos = Random.Range(-99, 99);
+            int zPos = Random.Range(-100, 100);
             CheckHeight(xPos, zPos);
             int randomIndex = Random.Range(0, trash.Length);
             if (!isAboveWater)
             {
                 Instantiate(trash[randomIndex], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(trash[randomIndex].transform.eulerAngles.x, Random.Range(0, 360), trash[randomIndex].transform.eulerAngles.z), transform);
-                Debug.Log(trash[randomIndex].tag);
             }
             else
             {
