@@ -100,10 +100,10 @@ public class CompostController : MonoBehaviour
     public void Boton_Remover()
     {
         escalaProgreso_Olor.x = escalaProgreso_Olor.x - (EscalaMax/8);        
-        if(escalaProgreso_Olor.x < 0.5f)
-        {
-            escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/8);
-        }        
+        //if(escalaProgreso_Olor.x < 0.5f)
+        //{
+        //    escalaProgreso_Seco.x = escalaProgreso_Seco.x + (EscalaMax/8);
+        //}        
         ProgresoSeco.localScale = escalaProgreso_Seco; 
         ProgresoHumedo.localScale = escalaProgreso_Humedo;
         ProgresoOlor.localScale = escalaProgreso_Olor;        
