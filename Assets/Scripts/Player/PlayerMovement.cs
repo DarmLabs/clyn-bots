@@ -42,6 +42,14 @@ public class PlayerMovement : MonoBehaviour
     }
     void Movement()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 10f;
+        }
+        else
+        {
+            speed = 6f;
+        }
         rb.position += heading;
     }
     void Rotation()
