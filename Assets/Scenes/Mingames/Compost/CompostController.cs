@@ -114,7 +114,6 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
-            Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
             BotonHumedecer.gameObject.SetActive(false);
@@ -124,7 +123,6 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Seco.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
-            Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
             BotonHumedecer.gameObject.SetActive(false);
@@ -134,7 +132,6 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Humedo.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
-            Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
             BotonHumedecer.gameObject.SetActive(false);
@@ -144,7 +141,6 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Humedo.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
-            Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
             BotonHumedecer.gameObject.SetActive(false);
@@ -154,7 +150,6 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Olor.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
-            Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
             BotonHumedecer.gameObject.SetActive(false);
@@ -164,7 +159,6 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Olor.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
-            Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
             BotonHumedecer.gameObject.SetActive(false);
@@ -179,7 +173,6 @@ public class CompostController : MonoBehaviour
                 if(escalaProgreso_Seco.x == 0.5f)
                 {
                     Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
-                    Compostera.gameObject.SetActive(false);
                     PanelVictoria.SetActive(true);
                     UI_Desactivar.SetActive(false);
                     BotonHumedecer.gameObject.SetActive(false);
