@@ -197,7 +197,7 @@ public class CompostController : MonoBehaviour
                 Compostera.GetChild(0).gameObject.SetActive(true);
             }
         }
-         if(escalaProgreso_Seco.x > 0.5)
+        if(escalaProgreso_Seco.x > 0.5)
         {
             if (randomIndex != 1 && !gano)
             {
@@ -205,7 +205,7 @@ public class CompostController : MonoBehaviour
                 Compostera.GetChild(1).gameObject.SetActive(true);
             }
         }
-         if(escalaProgreso_Olor.x > 0.5)
+        if(escalaProgreso_Olor.x > 0.5)
         {
             if (randomIndex != 2 && !gano)
             {
