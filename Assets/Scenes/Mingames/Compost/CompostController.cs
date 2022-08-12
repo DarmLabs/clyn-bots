@@ -57,21 +57,19 @@ public class CompostController : MonoBehaviour
         }        
     }
 
-    void  OnMouseDown() 
+    public void Boton_Secar()
     {
-        if (this.gameObject.name == "Secar")
-        {
-            Debug.Log("SECAR");
-        }
-        if (this.gameObject.name == "Humedecer")
-        {
-            Debug.Log("HUMEDECER");
-        } 
-        if (this.gameObject.name == "Remover")
-        {
-            Debug.Log("REMOVER");
-        } 
-    } 
+        Debug.Log("SECAR");
+    }
+    public void Boton_Humedecer()
+    {
+        Debug.Log("HUMEDECER");
+    }
+    public void Boton_Remover()
+    {
+        Debug.Log("REMOVER");
+    }
+
 
     
     void Update()
