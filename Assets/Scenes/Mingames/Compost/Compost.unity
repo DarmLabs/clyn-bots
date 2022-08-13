@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 22539240}
   m_OnClick:
     m_PersistentCalls:
@@ -2925,13 +2925,16 @@ MonoBehaviour:
   BotonHumedecer: {fileID: 2053840687}
   BotonRemover: {fileID: 22539238}
   ProgresoHumedo: {fileID: 617186020}
-  ProgresoOlor: {fileID: 0}
   ProgresoSeco: {fileID: 1734690120}
   Compostera: {fileID: 1346427450}
   Compostera_Cerrada: {fileID: 1402537791}
   BarraHumedo: {fileID: 2119118949}
-  BarraOlor: {fileID: 0}
   BarraSeco: {fileID: 815054505}
+  Button_Abrir: {fileID: 2048469391}
+  Button_Cerrar: {fileID: 1560904873}
+  Button_Secar: {fileID: 1527254896}
+  Button_Humedecer: {fileID: 2053840688}
+  Button_Mezclar: {fileID: 22539239}
 --- !u!1 &1402537789
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,7 +3274,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1527254897}
   m_OnClick:
     m_PersistentCalls:
@@ -3472,7 +3475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1560904872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3487,11 +3490,11 @@ RectTransform:
   m_Children:
   - {fileID: 2069128061}
   m_Father: {fileID: 2049512552}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -781.2, y: 102}
+  m_AnchoredPosition: {x: -781.2, y: 250}
   m_SizeDelta: {x: 342, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1560904873
@@ -4754,7 +4757,7 @@ RectTransform:
   m_Children:
   - {fileID: 922419094}
   m_Father: {fileID: 2049512552}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4950,8 +4953,8 @@ RectTransform:
   m_Children:
   - {fileID: 1119291697}
   - {fileID: 248319092}
-  - {fileID: 2048469390}
   - {fileID: 1560904872}
+  - {fileID: 2048469390}
   - {fileID: 543161080}
   - {fileID: 62994755}
   - {fileID: 1645793442}
@@ -5056,7 +5059,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2053840689}
   m_OnClick:
     m_PersistentCalls:

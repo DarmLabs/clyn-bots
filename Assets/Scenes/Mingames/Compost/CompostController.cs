@@ -28,7 +28,13 @@ public class CompostController : MonoBehaviour
     private bool abierto = false;
 
     [SerializeField] private Image BarraHumedo;    
-    [SerializeField] private Image BarraSeco;    
+    [SerializeField] private Image BarraSeco; 
+
+    [SerializeField] private Button Button_Abrir;
+    [SerializeField] private Button Button_Cerrar;
+    [SerializeField] private Button Button_Secar;
+    [SerializeField] private Button Button_Humedecer;
+    [SerializeField] private Button Button_Mezclar;
 
     void Start()
     {        
@@ -67,6 +73,11 @@ public class CompostController : MonoBehaviour
         Compostera.gameObject.SetActive(true);
         Compostera.GetChild(randomIndex).gameObject.SetActive(true);
         Compostera_Cerrada.gameObject.SetActive(false);
+        Button_Abrir.gameObject.SetActive(false);
+        Button_Cerrar.gameObject.SetActive(true);
+        Button_Secar.interactable = true;
+        Button_Humedecer.interactable = true;
+        Button_Mezclar.interactable = true;
     }
 
     public void Cerrar()
@@ -75,6 +86,11 @@ public class CompostController : MonoBehaviour
         Compostera.gameObject.SetActive(false);
         Compostera.GetChild(randomIndex).gameObject.SetActive(false);
         Compostera_Cerrada.gameObject.SetActive(true);
+        Button_Abrir.gameObject.SetActive(true);
+        Button_Cerrar.gameObject.SetActive(false);
+        Button_Secar.interactable = false;
+        Button_Humedecer.interactable = false;
+        Button_Mezclar.interactable = false;
     }
 
     public void Boton_Secar()
