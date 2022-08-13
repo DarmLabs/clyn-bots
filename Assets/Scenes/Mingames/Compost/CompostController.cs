@@ -105,6 +105,20 @@ public class CompostController : MonoBehaviour
 
     void VictoriaDerrota()
     {
+        if (gano) 
+        {
+                Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
+                Compostera.gameObject.SetActive(true);
+                UI_Desactivar.SetActive(false);
+                BotonHumedecer.gameObject.SetActive(false);
+                BotonSecar.gameObject.SetActive(false);
+                BotonRemover.gameObject.SetActive(false);
+                gano = true;
+                Compostera.GetChild(0).gameObject.SetActive(false);
+                Compostera.GetChild(1).gameObject.SetActive(false);
+                Compostera.GetChild(2).gameObject.SetActive(true);
+        } 
+
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
@@ -144,36 +158,8 @@ public class CompostController : MonoBehaviour
             BotonHumedecer.gameObject.SetActive(false);
             BotonSecar.gameObject.SetActive(false);
             BotonRemover.gameObject.SetActive(false);
-        }/*
-        if (escalaProgreso_Humedo.x == 0.5f)
-        {
-            if(escalaProgreso_Seco.x == 0.5f)
-            {
-                Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
-                Compostera.gameObject.SetActive(true);
-                UI_Desactivar.SetActive(false);
-                BotonHumedecer.gameObject.SetActive(false);
-                BotonSecar.gameObject.SetActive(false);
-                BotonRemover.gameObject.SetActive(false);
-                gano = true;
-                Compostera.GetChild(0).gameObject.SetActive(false);
-                Compostera.GetChild(1).gameObject.SetActive(false);
-                Compostera.GetChild(2).gameObject.SetActive(true);
-            }          
-        }*/
-        if (gano) 
-        {
-                Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
-                Compostera.gameObject.SetActive(true);
-                UI_Desactivar.SetActive(false);
-                BotonHumedecer.gameObject.SetActive(false);
-                BotonSecar.gameObject.SetActive(false);
-                BotonRemover.gameObject.SetActive(false);
-                gano = true;
-                Compostera.GetChild(0).gameObject.SetActive(false);
-                Compostera.GetChild(1).gameObject.SetActive(false);
-                Compostera.GetChild(2).gameObject.SetActive(true);
-        }      
+        }       
+             
     } 
 
     void CambiarCompostActiva()
