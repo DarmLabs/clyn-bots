@@ -164,25 +164,38 @@ public class CompostController : MonoBehaviour
                 Compostera.GetChild(1).gameObject.SetActive(false);
                 Compostera.GetChild(2).gameObject.SetActive(true);
             }          
-        }        
+        } 
+        if (gano) 
+        {
+                Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
+                Compostera.gameObject.SetActive(true);
+                UI_Desactivar.SetActive(false);
+                BotonHumedecer.gameObject.SetActive(false);
+                BotonSecar.gameObject.SetActive(false);
+                BotonRemover.gameObject.SetActive(false);
+                gano = true;
+                Compostera.GetChild(0).gameObject.SetActive(false);
+                Compostera.GetChild(1).gameObject.SetActive(false);
+                Compostera.GetChild(2).gameObject.SetActive(true);
+        }      
     } 
 
     void CambiarCompostActiva()
     {
         //0 Humeda - 1 Seca - 2 Olor - 3 Correcta
-        if(escalaProgreso_Humedo.x > 0.5)
+        if(escalaProgreso_Humedo.x > escalaProgreso_Seco.x )
         {
-            if (randomIndex != 0 && !gano)
+            if (!gano)
             {
-                Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                Compostera.GetChild(1).gameObject.SetActive(false);
                 Compostera.GetChild(0).gameObject.SetActive(true);
             }
         }
-        if(escalaProgreso_Seco.x > 0.5)
+        if(escalaProgreso_Seco.x > escalaProgreso_Humedo.x)
         {
-            if (randomIndex != 1 && !gano)
+            if (!gano)
             {
-                Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                Compostera.GetChild(0).gameObject.SetActive(false);
                 Compostera.GetChild(1).gameObject.SetActive(true);
             }
         }
@@ -190,6 +203,13 @@ public class CompostController : MonoBehaviour
     
     void ActualizarColores()
     {
+        if(escalaProgreso_Seco.x == escalaProgreso_Humedo.x)
+        {
+            BarraSeco.color = Color.green;
+            BarraHumedo.color = Color.green;
+            gano = true;
+        }
+
         if(escalaProgreso_Seco.x == 0.5f)
         {
             BarraSeco.color = Color.green;
