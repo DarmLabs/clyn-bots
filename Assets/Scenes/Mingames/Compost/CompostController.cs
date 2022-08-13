@@ -32,9 +32,13 @@ public class CompostController : MonoBehaviour
 
     [SerializeField] private Button Button_Abrir;
     [SerializeField] private Button Button_Cerrar;
+
     [SerializeField] private Button Button_Secar;
     [SerializeField] private Button Button_Humedecer;
     [SerializeField] private Button Button_Mezclar;
+    [SerializeField] Image Imagen_Secar;
+    [SerializeField] Image Imagen_Humedecer;
+    [SerializeField] Image Imagen_Mezclar;   
 
     void Start()
     {        
@@ -78,6 +82,9 @@ public class CompostController : MonoBehaviour
         Button_Secar.interactable = true;
         Button_Humedecer.interactable = true;
         Button_Mezclar.interactable = true;
+        Imagen_Secar.color = Color.white;
+        Imagen_Humedecer.color = Color.white;
+        Imagen_Mezclar.color = Color.white;
     }
 
     public void Cerrar()
@@ -91,6 +98,9 @@ public class CompostController : MonoBehaviour
         Button_Secar.interactable = false;
         Button_Humedecer.interactable = false;
         Button_Mezclar.interactable = false;
+        Imagen_Secar.color = Button_Secar.colors.disabledColor;
+        Imagen_Humedecer.color = Button_Humedecer.colors.disabledColor;
+        Imagen_Mezclar.color = Button_Mezclar.colors.disabledColor;
     }
 
     public void Boton_Secar()
