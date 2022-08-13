@@ -58,9 +58,7 @@ public class CompostController : MonoBehaviour
     {
         VictoriaDerrota();
         CambiarCompostActiva();
-        ActualizarColores();
-        Debug.Log("BANDERA: "+abierto);
-       
+        ActualizarColores();       
     }
 
     public void Abrir()
@@ -69,7 +67,6 @@ public class CompostController : MonoBehaviour
         Compostera.gameObject.SetActive(true);
         Compostera.GetChild(randomIndex).gameObject.SetActive(true);
         Compostera_Cerrada.gameObject.SetActive(false);
-        Debug.Log("BANDERA ABIERTA");
     }
 
     public void Cerrar()
@@ -78,7 +75,6 @@ public class CompostController : MonoBehaviour
         Compostera.gameObject.SetActive(false);
         Compostera.GetChild(randomIndex).gameObject.SetActive(false);
         Compostera_Cerrada.gameObject.SetActive(true);
-        Debug.Log("BANDERA CERRADA");
     }
 
     public void Boton_Secar()
@@ -148,7 +144,7 @@ public class CompostController : MonoBehaviour
             BotonHumedecer.gameObject.SetActive(false);
             BotonSecar.gameObject.SetActive(false);
             BotonRemover.gameObject.SetActive(false);
-        }
+        }/*
         if (escalaProgreso_Humedo.x == 0.5f)
         {
             if(escalaProgreso_Seco.x == 0.5f)
@@ -164,7 +160,7 @@ public class CompostController : MonoBehaviour
                 Compostera.GetChild(1).gameObject.SetActive(false);
                 Compostera.GetChild(2).gameObject.SetActive(true);
             }          
-        } 
+        }*/
         if (gano) 
         {
                 Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
