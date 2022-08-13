@@ -23,9 +23,11 @@ public class CompostController : MonoBehaviour
     private Vector3 escalaProgreso_Seco;
 
     //0 Humeda - 1 Seca - 2 Olor - 3 Correcta
-    [SerializeField] Transform Compostera;    
+    [SerializeField] Transform Compostera;  
+    [SerializeField] Transform Compostera_Cerrada;  
     private int randomIndex;
     private bool gano = false;
+    private bool abierto = false;
 
     [SerializeField] private Image BarraHumedo;
     [SerializeField] private Image BarraOlor;
@@ -34,8 +36,12 @@ public class CompostController : MonoBehaviour
     void Start()
     {        
         gano = false;
+        abierto = false;
         randomIndex = Random.Range(0,3);
-        Compostera.GetChild(randomIndex).gameObject.SetActive(true);        
+        Compostera_Cerrada.gameObject.SetActive(true);
+        //Compostera_Cerrada.gameObject.SetActive(true);
+        //Compostera.GetChild(randomIndex).gameObject.SetActive(true);
+        //Compostera.GetChild(randomIndex).gameObject.SetActive(false);                
         escalaProgreso_Humedo = ProgresoHumedo.localScale;
         escalaProgreso_Olor = ProgresoOlor.localScale;
         escalaProgreso_Seco = ProgresoSeco.localScale; 
@@ -73,6 +79,33 @@ public class CompostController : MonoBehaviour
         VictoriaDerrota();
         CambiarCompostActiva();
         ActualizarColores();
+        Debug.Log("BANDERA: "+abierto);
+        if (abierto)
+        {
+            Compostera.gameObject.SetActive(true);
+            Compostera.GetChild(randomIndex).gameObject.SetActive(true);
+            Compostera_Cerrada.gameObject.SetActive(false);
+            Debug.Log("ABIERTA");
+        }
+        if (!abierto)
+        {
+            Compostera.gameObject.SetActive(false);
+            Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+            Compostera_Cerrada.gameObject.SetActive(true);
+            Debug.Log("CERRADA");
+        }
+    }
+
+    public void Abrir()
+    {
+        abierto = true;
+        Debug.Log("BANDERA ABIERTA");
+    }
+
+    public void Cerrar()
+    {
+        abierto = false;
+        Debug.Log("BANDERA CERRADA");
     }
 
     public void Boton_Secar()
