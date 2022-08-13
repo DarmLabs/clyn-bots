@@ -154,13 +154,14 @@ public class CompostController : MonoBehaviour
             if(escalaProgreso_Seco.x == 0.5f)
             {
                 Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
-                Compostera.gameObject.SetActive(false);
+                Compostera.gameObject.SetActive(true);
                 UI_Desactivar.SetActive(false);
                 BotonHumedecer.gameObject.SetActive(false);
                 BotonSecar.gameObject.SetActive(false);
                 BotonRemover.gameObject.SetActive(false);
                 gano = true;
-                Compostera.GetChild(randomIndex).gameObject.SetActive(false);
+                Compostera.GetChild(0).gameObject.SetActive(false);
+                Compostera.GetChild(1).gameObject.SetActive(false);
                 Compostera.GetChild(2).gameObject.SetActive(true);
             }          
         }        
