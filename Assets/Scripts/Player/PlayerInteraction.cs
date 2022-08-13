@@ -16,9 +16,9 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject basural, central, greenZone;
     public GameObject currentTrashPile;
     public GameObject targetConstruction;
+    public GameObject targetRecycler;
     #endregion
     float timePressed;
-    bool facingTrash;
     public bool canInteract;
     public bool interactionHappen;
     bool facingArcade;
@@ -56,9 +56,8 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (facingTrash && currentTrashPile.activeSelf && itemsInBag < maxBagSpace)
-            {
-                playerAnim.Aspire(true);
+            if(targetRecycler != null){
+                speakWithRecycler();
             }
             if (inDoor != "")
             {
@@ -111,7 +110,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         currentTrashPile.SetActive(false);
         currentTrashPile = null;
-        facingTrash = false;
     }
     public void BagPercentage()
     {
@@ -174,11 +172,13 @@ public class PlayerInteraction : MonoBehaviour
     {
         targetConstruction.GetComponent<Seed>().GrowSeed();
     }
+    public void speakWithRecycler(){
+        targetRecycler.GetComponent<RecyclerNPC>().Speak();
+    }
     public void EnterDetectObject(GameObject targetObject)
     {
         if (targetObject.tag == "trash")
         {
-            facingTrash = true;
             currentTrashPile = targetObject.gameObject;
             canInteract = true;
         }
@@ -199,7 +199,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (targetObject.tag == "Recycler")
         {
-            //targetObject.GetComponent<RecyclerNPC>().CallDialogue();
+            targetRecycler = targetObject.gameObject;
         }
         general_UI.InteractionCloud(canInteract);
     }
@@ -207,7 +207,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (targetObject.tag == "trash")
         {
-            facingTrash = false;
             currentTrashPile = null;
             canInteract = false;
         }
@@ -228,6 +227,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             targetConstruction = null;
             canInteract = false;
+        }
+        if (targetObject.tag == "Recycler")
+        {
+            targetRecycler = null;
         }
         general_UI.InteractionCloud(canInteract);
     }

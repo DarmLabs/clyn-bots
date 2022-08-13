@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using TMPro;
 public class RecyclerNPC : MonoBehaviour
 {
     public GameObject dialogueBox;
-    public Text recyclerText;
+    public TextMeshProUGUI recyclerText;
     public bool idle;
     public Vector3 pointA, pointB;
     Rigidbody rb;
@@ -14,33 +15,41 @@ public class RecyclerNPC : MonoBehaviour
     NavMeshAgent nav;
     Animator anim;
     bool isSpeaking;
-    public Vector3 offset;
+    public GameObject player;
+    public GameObject cinematicCamera;
+    GameObject mainCamera;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        mainCamera = Camera.main.gameObject;
     }
     void Update()
     {
         CheckIdle();
-        CheckSpeaking();
     }
-    public void CallDialogue()
+    void CallDialogue()
     {
-        dialogueBox.SetActive(true);
         recyclerText.text = Resources.Load("Textos/" + gameObject.name).ToString();
     }
     void Wander(Vector3 target)
     {
         nav.SetDestination(target);
     }
+    public void Speak(){
+        isSpeaking = true;
+        CheckSpeaking();
+    }
     void CheckSpeaking()
     {
         if (isSpeaking)
         {
             dialogueBox.SetActive(true);
-            dialogueBox.transform.position = Camera.main.WorldToScreenPoint(transform.position + offset);
+            transform.LookAt(player.transform);
+            CinematicCamera();
+            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(-0.8f, 2.5f, 0));
+            CallDialogue();
         }
     }
     void CheckIdle()
@@ -56,5 +65,11 @@ public class RecyclerNPC : MonoBehaviour
                 Wander(pointA);
             }
         }
+    }
+    void CinematicCamera(){
+        cinematicCamera.transform.position = transform.position + transform.forward;
+        cinematicCamera.transform.LookAt(transform.position + transform.up);
+        mainCamera.SetActive(false);
+        cinematicCamera.SetActive(true);
     }
 }
