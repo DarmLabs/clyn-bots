@@ -69,7 +69,7 @@ public class RecyclerNPC : MonoBehaviour
                 transform.LookAt(player.transform);
             }
             CinematicCamera();
-            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, -0.1f, 0));
+            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, 0.1f, 0));
             CallDialogue();
         }
     }
@@ -98,8 +98,8 @@ public class RecyclerNPC : MonoBehaviour
     void CinematicCamera()
     {
         player.transform.GetChild(3).transform.gameObject.SetActive(false);
-        cinematicCamera.transform.position = transform.position + transform.forward * 2.5f + transform.up / 2;
-        cinematicCamera.transform.LookAt(transform.position + transform.up / 2);
+        cinematicCamera.transform.position = transform.position + transform.forward * 3.5f + transform.up * 1f;
+        cinematicCamera.transform.LookAt(transform.position + transform.up * 1f);
         general_UI.MainPanelSwitcher(false);
         mainCamera.SetActive(false);
         cinematicCamera.SetActive(true);

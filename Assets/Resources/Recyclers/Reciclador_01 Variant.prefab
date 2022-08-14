@@ -12,6 +12,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ec0a48127daebb5448830df3879eded5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ec0a48127daebb5448830df3879eded5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ec0a48127daebb5448830df3879eded5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ec0a48127daebb5448830df3879eded5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 398.84265
       objectReference: {fileID: 0}
@@ -50,6 +62,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ec0a48127daebb5448830df3879eded5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ec0a48127daebb5448830df3879eded5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec0a48127daebb5448830df3879eded5, type: 3}
       propertyPath: m_Name
@@ -110,7 +126,9 @@ MonoBehaviour:
   dialogueBox: {fileID: 0}
   recyclerText: {fileID: 0}
   idle: 0
+  isGreeting: 0
   lockedIdle: 0
+  isBlocker: 0
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
   speed: 0

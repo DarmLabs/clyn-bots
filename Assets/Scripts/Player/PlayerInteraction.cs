@@ -183,10 +183,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         targetRecycler.GetComponent<RecyclerNPC>().RestoreRotation();
         targetRecycler.GetComponent<RecyclerNPC>().CheckLockedIdle();
-        if (targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
-        {
-            targetRecycler = null;
-        }
     }
     public void EnterDetectObject(GameObject targetObject)
     {
