@@ -71,13 +71,11 @@ public class RecyclerNPC : MonoBehaviour
             {
                 Wander(pointB);
                 going = false;
-                Debug.Log("toPointB");
             }
             else if (!going && nav.remainingDistance <= nav.stoppingDistance)
             {
                 Wander(pointA);
                 going = true;
-                Debug.Log("toPointA");
             }
             anim.Play(walkingStyle);
             previousRot = transform.eulerAngles;
