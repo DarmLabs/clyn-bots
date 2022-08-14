@@ -9,6 +9,7 @@ public class RecyclerNPC : MonoBehaviour
     public GameObject dialogueBox;
     public TextMeshProUGUI recyclerText;
     public bool idle;
+    public bool lockedIdle;
     public Vector3 pointA, pointB;
     Rigidbody rb;
     [SerializeField] float speed;
@@ -18,8 +19,15 @@ public class RecyclerNPC : MonoBehaviour
     public GameObject player;
     public GameObject cinematicCamera;
     GameObject mainCamera;
+    public General_UI general_UI;
+    Vector3 previousRot;
+    bool going = true;
+    public string walkingStyle;
     void Start()
     {
+        pointA = pointA + transform.parent.position;
+        pointB = pointB + transform.parent.position;
+        previousRot = transform.eulerAngles;
         rb = GetComponent<Rigidbody>();
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -35,10 +43,13 @@ public class RecyclerNPC : MonoBehaviour
     }
     void Wander(Vector3 target)
     {
-        nav.SetDestination(target);
+        nav.destination = target;
     }
-    public void Speak(){
+    public void Speak()
+    {
         isSpeaking = true;
+        idle = true;
+        nav.destination = transform.position;
         CheckSpeaking();
     }
     void CheckSpeaking()
@@ -48,7 +59,7 @@ public class RecyclerNPC : MonoBehaviour
             dialogueBox.SetActive(true);
             transform.LookAt(player.transform);
             CinematicCamera();
-            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(-0.8f, 2.5f, 0));
+            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, -0.1f, 0));
             CallDialogue();
         }
     }
@@ -56,20 +67,48 @@ public class RecyclerNPC : MonoBehaviour
     {
         if (!idle)
         {
-            if (nav.remainingDistance < 0.1 && nav.destination == pointA)
+            if (going && nav.remainingDistance <= nav.stoppingDistance)
             {
                 Wander(pointB);
+                going = false;
+                Debug.Log("toPointB");
             }
-            else if (nav.remainingDistance < 0.1 && nav.destination == pointB)
+            else if (!going && nav.remainingDistance <= nav.stoppingDistance)
             {
                 Wander(pointA);
+                going = true;
+                Debug.Log("toPointA");
             }
+            anim.Play(walkingStyle);
+            previousRot = transform.eulerAngles;
+        }
+        else
+        {
+            anim.Play("Idle");
         }
     }
-    void CinematicCamera(){
-        cinematicCamera.transform.position = transform.position + transform.forward;
-        cinematicCamera.transform.LookAt(transform.position + transform.up);
+    void CinematicCamera()
+    {
+        player.SetActive(false);
+        cinematicCamera.transform.position = transform.position + transform.forward * 2.5f + transform.up / 2;
+        cinematicCamera.transform.LookAt(transform.position + transform.up / 2);
+        general_UI.MainPanelSwitcher(false);
         mainCamera.SetActive(false);
         cinematicCamera.SetActive(true);
+    }
+    public void RestoreRotation()
+    {
+        transform.rotation = Quaternion.Euler(previousRot);
+    }
+    public void Attention()
+    {
+        anim.Play("Attention");
+    }
+    public void CheckLockedIdle()
+    {
+        if (!lockedIdle)
+        {
+            idle = false;
+        }
     }
 }

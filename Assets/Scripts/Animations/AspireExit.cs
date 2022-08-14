@@ -2,28 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LockMovement : StateMachineBehaviour
+public class AspireExit : StateMachineBehaviour
 {
     GameObject player;
     PlayerInteraction playerInteraction;
-    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("Player_VF");
         playerInteraction = player.GetComponent<PlayerInteraction>();
         playerInteraction.MovmentState(false);
     }
-    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
-    {
-        if (playerInteraction.inDoor != "")
-        {
-            playerInteraction.ChangeStage();
-        }
-    }
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

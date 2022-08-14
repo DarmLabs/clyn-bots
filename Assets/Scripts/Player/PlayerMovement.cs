@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 forward, right, heading, rightMovement, upMovement;
     Rigidbody rb;
     public bool wallAhed = false;
+    public bool isWalking, isRunning;
 
     void Start()
     {
@@ -27,29 +28,36 @@ public class PlayerMovement : MonoBehaviour
             if (!wallAhed)
             {
                 Movement();
-                playerAnim.Walking(true);
+                playerAnim.Moving(true);
             }
             else
             {
-                playerAnim.Walking(false);
+                playerAnim.Moving(false);
             }
             Rotation();
         }
         else
         {
-            playerAnim.Walking(false);
+            playerAnim.Moving(false);
         }
     }
     void Movement()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.Space))
         {
             speed = 10f;
+        }
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            speed = 6f;
+            playerAnim.Aspire(true);
         }
         else
         {
             speed = 6f;
+            playerAnim.Aspire(false);
         }
+        playerAnim.CheckSpeed(speed);
         rb.position += heading;
     }
     void Rotation()

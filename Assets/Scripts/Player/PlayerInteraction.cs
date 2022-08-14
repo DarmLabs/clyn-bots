@@ -56,7 +56,8 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(targetRecycler != null){
+            if (targetRecycler != null)
+            {
                 speakWithRecycler();
             }
             if (inDoor != "")
@@ -102,9 +103,16 @@ public class PlayerInteraction : MonoBehaviour
             BagPercentage();
             saveSystem.Save();
         }
-        /*if(Input.GetKeyDown(KeyCode.Q)){
-            playerAnim.Celebrate();
-        }*/
+        if (Input.GetKey(KeyCode.Space))
+        {
+            playerAnim.Aspire(true);
+            isAspiring = true;
+        }
+        else
+        {
+            isAspiring = false;
+            playerAnim.Aspire(false);
+        }
     }
     public void ReduceTrashPile()
     {
@@ -172,8 +180,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         targetConstruction.GetComponent<Seed>().GrowSeed();
     }
-    public void speakWithRecycler(){
+    public void speakWithRecycler()
+    {
         targetRecycler.GetComponent<RecyclerNPC>().Speak();
+    }
+    public void stopSpeakingWithRecycler()
+    {
+        targetRecycler.GetComponent<RecyclerNPC>().RestoreRotation();
+        targetRecycler.GetComponent<RecyclerNPC>().CheckLockedIdle();
     }
     public void EnterDetectObject(GameObject targetObject)
     {
@@ -200,6 +214,7 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = targetObject.gameObject;
+            targetRecycler.GetComponent<RecyclerNPC>().Attention();
         }
         general_UI.InteractionCloud(canInteract);
     }

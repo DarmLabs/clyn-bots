@@ -16,23 +16,23 @@ public class PlayerAnimations : MonoBehaviour
     {
         if (!playerInteraction.playerMovement.enabled)
         {
-            Walking(false);
+            Moving(false);
         }
     }
-    public void Walking(bool state)
+    public void CheckSpeed(float speed)
     {
-        playerAnimator.SetBool("isWalking", state);
+        playerAnimator.SetFloat("speed", speed);
+    }
+    public void Moving(bool state)
+    {
+        playerAnimator.SetBool("isMoving", state);
     }
     public void Interaction(bool state)
     {
-        playerAnimator.SetBool("isInteracting", state);
+        playerAnimator.Play("Interaction");
     }
     public void Aspire(bool state)
     {
         playerAnimator.SetBool("isAspiring", state);
-    }
-    public void Celebrate()
-    {
-        playerAnimator.Play("Celebration_Anim");
     }
 }
