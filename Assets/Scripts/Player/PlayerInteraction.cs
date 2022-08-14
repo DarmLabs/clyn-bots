@@ -103,7 +103,7 @@ public class PlayerInteraction : MonoBehaviour
             BagPercentage();
             saveSystem.Save();
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30)
         {
             playerAnim.Aspire(true);
             isAspiring = true;
@@ -113,11 +113,6 @@ public class PlayerInteraction : MonoBehaviour
             isAspiring = false;
             playerAnim.Aspire(false);
         }
-    }
-    public void ReduceTrashPile()
-    {
-        currentTrashPile.SetActive(false);
-        currentTrashPile = null;
     }
     public void BagPercentage()
     {
@@ -188,6 +183,10 @@ public class PlayerInteraction : MonoBehaviour
     {
         targetRecycler.GetComponent<RecyclerNPC>().RestoreRotation();
         targetRecycler.GetComponent<RecyclerNPC>().CheckLockedIdle();
+        if (targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
+        {
+            targetRecycler = null;
+        }
     }
     public void EnterDetectObject(GameObject targetObject)
     {
@@ -214,7 +213,14 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = targetObject.gameObject;
-            targetRecycler.GetComponent<RecyclerNPC>().Attention();
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
+            {
+                targetRecycler.GetComponent<RecyclerNPC>().Attention();
+            }
+            else
+            {
+                speakWithRecycler();
+            }
         }
         general_UI.InteractionCloud(canInteract);
     }
@@ -245,7 +251,10 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (targetObject.tag == "Recycler")
         {
-            targetRecycler = null;
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
+            {
+                targetRecycler = null;
+            }
         }
         general_UI.InteractionCloud(canInteract);
     }

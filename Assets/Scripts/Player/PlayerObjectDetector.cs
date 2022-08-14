@@ -38,5 +38,9 @@ public class PlayerObjectDetector : MonoBehaviour
                 targetObject = null;
             }
         }
+        else
+        {
+            playerMovement.wallAhed = false;
+        }
     }
 }

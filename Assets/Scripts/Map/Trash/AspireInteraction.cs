@@ -6,12 +6,11 @@ public class AspireInteraction : MonoBehaviour
 {
     bool startLerp;
     GameObject target;
-    PlayerInteraction playerInteraction;
+    public PlayerInteraction playerInteraction;
     void Update()
     {
         if (startLerp)
         {
-            Debug.Log(gameObject.name);
             LerpToHand();
         }
         if (playerInteraction != null && !startLerp)
@@ -57,13 +56,13 @@ public class AspireInteraction : MonoBehaviour
                 break;
 
         }
+        playerInteraction.saveSystem.Save();
         playerInteraction.BagPercentage();
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("detect player " + gameObject.name);
             target = other.gameObject.transform.parent.gameObject;
             playerInteraction = target.GetComponent<PlayerInteraction>();
         }

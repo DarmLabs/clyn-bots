@@ -10,7 +10,7 @@ public class Player_UI : MonoBehaviour
     public GlobalVariables globalVariables;
     public GameObject bag;
     TextMeshProUGUI trashText;
-    GameObject firstArrow, secondArrow, greenButton;
+    GameObject firstArrow, secondArrow, thirdArrow, greenButton;
     public TextMeshProUGUI vidrioRefText, plasticoRefText, compostText, cartonRefText, metalRefText;
     public GameObject FadePanel;
     public PlayerInteraction playerInteraction;
@@ -23,7 +23,8 @@ public class Player_UI : MonoBehaviour
         trashText = bag.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         firstArrow = bag.transform.GetChild(1).gameObject;
         secondArrow = bag.transform.GetChild(2).gameObject;
-        greenButton = bag.transform.GetChild(3).gameObject;
+        thirdArrow = bag.transform.GetChild(3).gameObject;
+        greenButton = bag.transform.GetChild(4).gameObject;
         Color oldColor = FadePanel.GetComponent<Image>().color;
     }
 
@@ -47,13 +48,17 @@ public class Player_UI : MonoBehaviour
             case 0:
                 firstArrow.SetActive(false);
                 secondArrow.SetActive(false);
+                thirdArrow.SetActive(false);
                 greenButton.SetActive(false);
                 break;
-            case 50:
+            case 33:
                 firstArrow.SetActive(true);
                 break;
-            case 100:
+            case 66:
                 secondArrow.SetActive(true);
+                break;
+            case 100:
+                thirdArrow.SetActive(true);
                 greenButton.SetActive(true);
                 break;
         }
