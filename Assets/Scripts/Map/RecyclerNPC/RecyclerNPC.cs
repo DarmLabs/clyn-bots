@@ -17,7 +17,7 @@ public class RecyclerNPC : MonoBehaviour
     [SerializeField] float speed;
     NavMeshAgent nav;
     Animator anim;
-    bool isSpeaking;
+    public bool isSpeaking;
     public GameObject player;
     public GameObject cinematicCamera;
     GameObject mainCamera;

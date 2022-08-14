@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Controls();
+    }
+    void Controls()
+    {
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
             if (!wallAhed)

@@ -42,7 +42,21 @@ public class PlayerInteraction : MonoBehaviour
     }
     void Update()
     {
-        Controls();
+        if (targetRecycler != null)
+        {
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isSpeaking)
+            {
+                Controls();
+            }
+            else
+            {
+                MovmentState(false);
+            }
+        }
+        else
+        {
+            Controls();
+        }
     }
     void Controls()
     {
@@ -183,6 +197,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         targetRecycler.GetComponent<RecyclerNPC>().RestoreRotation();
         targetRecycler.GetComponent<RecyclerNPC>().CheckLockedIdle();
+        targetRecycler.GetComponent<RecyclerNPC>().isSpeaking = false;
     }
     public void EnterDetectObject(GameObject targetObject)
     {
@@ -250,6 +265,7 @@ public class PlayerInteraction : MonoBehaviour
             if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
             {
                 targetRecycler = null;
+                Debug.Log("esNull");
             }
         }
         general_UI.InteractionCloud(canInteract);

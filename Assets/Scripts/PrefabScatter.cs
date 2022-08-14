@@ -38,7 +38,7 @@ public class PrefabScatter : MonoBehaviour
     void CheckHeight(int xPos, int zPos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(new Vector3(transform.position.x + xPos, 100, transform.position.z + zPos), Vector3.down, out hit) && hit.transform.gameObject.tag != "Agua")
+        if (Physics.Raycast(new Vector3(transform.position.x + xPos, 100, transform.position.z + zPos), Vector3.down, out hit) && hit.transform.gameObject.tag != "Agua" && hit.transform.gameObject.tag != "Player" && hit.transform.gameObject.tag != "Recycler")
         {
             yPos = hit.point.y + spaceAboveGround;
         }
