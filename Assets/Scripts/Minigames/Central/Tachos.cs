@@ -50,7 +50,7 @@ public class Tachos : MonoBehaviour
             Time.timeScale = 0f;
             saveSystem.Save();  
         }
-        if (Generador.Terminaste && errores < 6 && ContadorTotal == Generador.contadorBasura)
+        if (Generador.Terminaste && errores < 7 && ContadorTotal == Generador.contadorBasura)
         {
             Debug.Log ("Ganaste niño inteligente");
             switch (errores)
@@ -86,6 +86,7 @@ public class Tachos : MonoBehaviour
             Time.timeScale = 0f;
             saveSystem.Save();
             Generador.Terminaste = false;
+            gv.memoriaAccesible = true;
         }
             
     }

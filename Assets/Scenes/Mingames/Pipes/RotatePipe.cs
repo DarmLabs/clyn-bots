@@ -10,7 +10,8 @@ public class RotatePipe : MonoBehaviour
    public int numero;
    public static int IndiceFlecha = 0;
    private Renderer rend;
-   [SerializeField] Color colorCorrecto = Color.white;   
+   [SerializeField] Color colorCorrecto = Color.white; 
+   
 
    void Start()
    {
@@ -37,7 +38,7 @@ public class RotatePipe : MonoBehaviour
                               PipeController.contadorCorrectas +=1;
                               IndiceFlecha = numero +1;
                               //Debug.Log("IndiceFlecha: "+RotatePipe.IndiceFlecha); 
-                              Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
+                             // Debug.Log("CONTADOR CORRECTAS: "+PipeController.contadorCorrectas);
                               primeraVez = true;
                               rend.material.color = colorCorrecto;                              
                          } 

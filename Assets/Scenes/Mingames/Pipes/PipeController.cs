@@ -1,20 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PipeController : MonoBehaviour
 {
-    [SerializeField] private Transform[] Tubos;  
+    [SerializeField] private Transform[] Tubos;
+    [SerializeField] private Transform tuboFinal; 
+    [SerializeField] Color colorCorrecto = Color.white; 
+    private Renderer rend;
     [SerializeField] public static bool[] banderaTubo = new bool[25];  
     public static bool gano = false;
     public static int contadorCorrectas = 0;    
     [SerializeField] private Vector3[] ArrayRotaciones;   
     private int randomIndex = 0;
+
+    [SerializeField] private GameObject PanelVictoria;
     
     void Start()
     {
         contadorCorrectas = 0;
-        gano = false;        
+        gano = false;     
+        rend = tuboFinal.gameObject.GetComponent<Renderer>();
         for (int i = 0; i < Tubos.Length; i++)
         {
             banderaTubo[i]=false; 
@@ -30,9 +37,11 @@ public class PipeController : MonoBehaviour
         Origenes();
         FlechasFeedback();
         //Debug.Log("Update RotatePipe.IndiceFlecha: "+RotatePipe.IndiceFlecha);          
-        if (contadorCorrectas == 24)
+        if (contadorCorrectas >= 24)
         {
             gano = true;
+            rend.material.color = colorCorrecto;
+            PanelVictoria.SetActive(true);
             Debug.Log("GANASTE NIÑO BOBO");     
         }
         
@@ -195,8 +204,12 @@ public class PipeController : MonoBehaviour
 
     void FlechasFeedback()
     {
-        Tubos[RotatePipe.IndiceFlecha].GetChild(0).gameObject.SetActive(true);
-        Tubos[RotatePipe.IndiceFlecha].GetChild(1).gameObject.SetActive(true); 
+        if(contadorCorrectas<24)
+        {
+            Tubos[RotatePipe.IndiceFlecha].GetChild(0).gameObject.SetActive(true);
+            Tubos[RotatePipe.IndiceFlecha].GetChild(1).gameObject.SetActive(true); 
+        }
+        
              
     }
 }

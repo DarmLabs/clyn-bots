@@ -12,6 +12,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal;
     public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
     public bool cardDistribution = false;
+    public bool memoriaAccesible = false;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -21,6 +22,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     {
         return new SaveData()
         {
+            //bandera de acceso
+            memoriaAccesible = this.memoriaAccesible,
             //Old 
             recTrash = this.recTrash,
             divisionRec = this.divisionRec,
@@ -64,6 +67,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         divisionRec = saveData.divisionRec;
         //
         cardDistribution = saveData.cardDistribution;
+        memoriaAccesible = saveData.memoriaAccesible;
         //Divisiones
         divisionNoRec = saveData.divisionNoRec;
         divisionOrganic = saveData.divisionOrganic;
@@ -87,5 +91,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal;
         public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
+        public bool memoriaAccesible;
     }
 }
