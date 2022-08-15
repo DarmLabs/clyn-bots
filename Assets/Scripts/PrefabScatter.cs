@@ -21,7 +21,7 @@ public class PrefabScatter : MonoBehaviour
         for (int i = 0; i < 2000; i++)
         {
             isAboveWater = false;
-            int xPos = Random.Range(-99, 99);
+            int xPos = Random.Range(-98, 196);
             int zPos = Random.Range(-100, 100);
             CheckHeight(xPos, zPos);
             int randomIndex = Random.Range(0, trash.Length);
@@ -38,7 +38,7 @@ public class PrefabScatter : MonoBehaviour
     void CheckHeight(int xPos, int zPos)
     {
         RaycastHit hit;
-        if (Physics.Raycast(new Vector3(transform.position.x + xPos, 100, transform.position.z + zPos), Vector3.down, out hit) && hit.transform.gameObject.tag != "Agua" && hit.transform.gameObject.tag != "Player" && hit.transform.gameObject.tag != "Recycler")
+        if (Physics.Raycast(new Vector3(transform.position.x + xPos, 100, transform.position.z + zPos), Vector3.down, out hit) && hit.transform.gameObject.tag == "Terrain")
         {
             yPos = hit.point.y + spaceAboveGround;
         }
