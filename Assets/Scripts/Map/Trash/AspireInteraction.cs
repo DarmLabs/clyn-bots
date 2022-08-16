@@ -37,22 +37,22 @@ public class AspireInteraction : MonoBehaviour
         switch (this.gameObject.tag)
         {
             case "Vidrio":
-                playerInteraction.globalVariables.vidrioTrash++;
+                playerInteraction.gv.vidrioTrash++;
                 break;
             case "Plastico":
-                playerInteraction.globalVariables.plasticoTrash++;
+                playerInteraction.gv.plasticoTrash++;
                 break;
             case "Compostable":
-                playerInteraction.globalVariables.organicTrash++;
+                playerInteraction.gv.organicTrash++;
                 break;
             case "Carton":
-                playerInteraction.globalVariables.cartonTrash++;
+                playerInteraction.gv.cartonTrash++;
                 break;
             case "Metal":
-                playerInteraction.globalVariables.metalTrash++;
+                playerInteraction.gv.metalTrash++;
                 break;
             case "NoRecuperable":
-                playerInteraction.globalVariables.noRecTrash++;
+                playerInteraction.gv.noRecTrash++;
                 break;
 
         }
@@ -61,7 +61,7 @@ public class AspireInteraction : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "PlayerAspire")
         {
             target = other.gameObject.transform.parent.gameObject;
             playerInteraction = target.GetComponent<PlayerInteraction>();
@@ -69,7 +69,7 @@ public class AspireInteraction : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "PlayerAspire")
         {
             target = null;
             playerInteraction = null;

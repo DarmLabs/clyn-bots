@@ -9,9 +9,10 @@ public class SmoothFollow : MonoBehaviour
     float smoothSpeed = 10f;
     public Vector3 offset;
     Vector3 targetOffset;
-    void Start()
+    void OnEnable()
     {
-        targetOffset = new Vector3(0, 1.3f,0);
+        targetOffset = new Vector3(0, 1.3f, 0);
+        transform.rotation = Quaternion.Euler(23, 90, 0);
     }
     void FixedUpdate()
     {
