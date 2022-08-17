@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 public class SaveLoadSystem : MonoBehaviour
 {
-    public string SavePath => $"{Application.persistentDataPath}/save.txt";  
+    public string SavePath => $"{Application.persistentDataPath}/save.txt";
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -31,31 +31,31 @@ public class SaveLoadSystem : MonoBehaviour
             formatter.Serialize(stream, state);
         }
     }
-    Dictionary<string,object> LoadFile()
+    Dictionary<string, object> LoadFile()
     {
-        if(!File.Exists(SavePath))
+        if (!File.Exists(SavePath))
         {
             Debug.Log("No save file found");
             return new Dictionary<string, object>();
         }
-        using(FileStream stream = File.Open(SavePath, FileMode.Open))
+        using (FileStream stream = File.Open(SavePath, FileMode.Open))
         {
             var formatter = new BinaryFormatter();
-            return  (Dictionary<string, object>)formatter.Deserialize(stream);
+            return (Dictionary<string, object>)formatter.Deserialize(stream);
         }
     }
     void SaveState(Dictionary<string, object> state)
     {
-        foreach(var saveable in FindObjectsOfType<SavableEntity>())
+        foreach (var saveable in FindObjectsOfType<SavableEntity>())
         {
             state[saveable.Id] = saveable.SaveState();
         }
     }
     void LoadState(Dictionary<string, object> state)
     {
-        foreach(var saveable in FindObjectsOfType<SavableEntity>())
+        foreach (var saveable in FindObjectsOfType<SavableEntity>())
         {
-            if(state.TryGetValue(saveable.Id, out object savedState))
+            if (state.TryGetValue(saveable.Id, out object savedState))
             {
                 saveable.LoadState(savedState);
             }

@@ -22,6 +22,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetDeposit;
     public GameObject targetCentralPad;
     public GameObject targetMemoryPad;
+    public GameObject targetCompostPad;
     #endregion
     public bool interactionHappen;
     public bool isAspiring;
@@ -39,6 +40,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
         IntializeFunctions();
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)
@@ -132,6 +135,11 @@ public class PlayerInteraction : MonoBehaviour
             else if (targetMemoryPad != null)
             {
                 Debug.Log("No tienes los recursos suficientes para jugar a la memoria");
+            }
+
+            if (targetCompostPad != null)
+            {
+
             }
 
             if (targetConstruction != null && targetConstruction.tag != "Untagged")

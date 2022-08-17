@@ -11,6 +11,7 @@ public class General_UI : MonoBehaviour
     public GameObject mainPanel;
     [SerializeField] GameObject centralMinigame;
     [SerializeField] GameObject memoryMinigame;
+    [SerializeField] GameObject compostMinigame;
     public GameObject constructionPanel;
     public GameObject minimap;
     public GameObject constructonRender;
@@ -25,7 +26,7 @@ public class General_UI : MonoBehaviour
     public Color32 unlockColor;
     public GameObject minigameAspire;
     public GameObject interactionCloud;
-    [SerializeField] GameObject changeStagePanel, btnChangeStage;
+    [SerializeField] GameObject changeStagePanel;
     [SerializeField] TextMeshProUGUI textChangeStage;
 
 
@@ -182,6 +183,10 @@ public class General_UI : MonoBehaviour
         {
             upgradeBtn.GetComponent<Button>().image.color = unlockColor;
         }
+    }
+    public void CompostMinigameSwitcher(bool state)
+    {
+
     }
     public void CentralMinigameSwitcher(bool state)
     {

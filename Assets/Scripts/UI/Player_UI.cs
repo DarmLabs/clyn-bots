@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player_UI : MonoBehaviour
 {
     #region Imports & Required Objects
-    public GlobalVariables globalVariables;
+    GlobalVariables globalVariables;
     public GameObject bag;
     TextMeshProUGUI trashText;
     GameObject firstArrow, secondArrow, thirdArrow, greenButton;
@@ -20,6 +20,7 @@ public class Player_UI : MonoBehaviour
     Color oldColor;
     void Start()
     {
+        globalVariables = playerInteraction.gv;
         trashText = bag.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         firstArrow = bag.transform.GetChild(1).gameObject;
         secondArrow = bag.transform.GetChild(2).gameObject;
