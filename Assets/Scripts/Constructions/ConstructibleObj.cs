@@ -18,7 +18,7 @@ public class ConstructibleObj : MonoBehaviour
     void Start()
     {
         cinematicCamera = GameObject.Find("CinematicCamera");
-        globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
+        globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
         UIManager = GameObject.Find("CanvasOverlay");
         general_UI = UIManager.GetComponent<General_UI>();
     }

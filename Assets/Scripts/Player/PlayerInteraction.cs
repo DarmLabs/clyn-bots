@@ -40,8 +40,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
-        gv = GameObject.FindObjectOfType<GlobalVariables>();
-        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
         IntializeFunctions();
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)
@@ -297,7 +297,7 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = targetObject.gameObject;
-            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker || targetRecycler.GetComponent<RecyclerNPC>().lockedIdle)
             {
                 targetRecycler.GetComponent<RecyclerNPC>().Attention();
             }

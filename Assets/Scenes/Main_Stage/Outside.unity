@@ -11013,6 +11013,7 @@ GameObject:
   - component: {fileID: 904744513}
   - component: {fileID: 904744518}
   - component: {fileID: 904744519}
+  - component: {fileID: 904744520}
   m_Layer: 5
   m_Name: CanvasOverlay
   m_TagString: Untagged
@@ -11181,6 +11182,20 @@ MonoBehaviour:
   interactionCloud: {fileID: 44970751}
   changeStagePanel: {fileID: 754097949}
   textChangeStage: {fileID: 604686816}
+--- !u!114 &904744520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904744512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad3752e622023f0428c60913303b6bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preloadObjects:
+  - {fileID: 1327580360}
 --- !u!1001 &912097845
 PrefabInstance:
   m_ObjectHideFlags: 0

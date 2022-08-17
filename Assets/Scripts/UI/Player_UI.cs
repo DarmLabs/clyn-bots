@@ -20,13 +20,13 @@ public class Player_UI : MonoBehaviour
     Color oldColor;
     void Start()
     {
-        globalVariables = playerInteraction.gv;
         trashText = bag.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         firstArrow = bag.transform.GetChild(1).gameObject;
         secondArrow = bag.transform.GetChild(2).gameObject;
         thirdArrow = bag.transform.GetChild(3).gameObject;
         greenButton = bag.transform.GetChild(4).gameObject;
         Color oldColor = FadePanel.GetComponent<Image>().color;
+        globalVariables = playerInteraction.gv;
     }
 
     void LateUpdate()
