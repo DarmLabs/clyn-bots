@@ -37,7 +37,7 @@ public class General_UI : MonoBehaviour
     {
         playerInteraction.MovmentState(false);
         playerInteraction.inDoor = target;
-        if (target == "ToOutside")
+        if (target == "Outside")
         {
             textChangeStage.text = "¿Quieres salir de la central?";
         }
@@ -183,7 +183,7 @@ public class General_UI : MonoBehaviour
             upgradeBtn.GetComponent<Button>().image.color = unlockColor;
         }
     }
-    public void CentralMinigameSwitcher(bool state, bool btnState)
+    public void CentralMinigameSwitcher(bool state)
     {
         centralMinigame.SetActive(state);
     }

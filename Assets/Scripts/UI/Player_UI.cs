@@ -93,4 +93,10 @@ public class Player_UI : MonoBehaviour
             FadePanel.SetActive(false);
         }
     }
+    public void SetFade(int value)
+    {
+        fadeTime = 1;
+        FadePanel.SetActive(true);
+        FadePanel.GetComponent<Image>().color = new Color(oldColor.r, oldColor.g, oldColor.b, value);
+    }
 }

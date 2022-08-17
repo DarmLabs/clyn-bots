@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetConstruction;
     public GameObject targetRecycler;
     public GameObject targetDeposit;
-    public GameObject targetPad;
+    public GameObject targetCentralPad;
     #endregion
     public bool interactionHappen;
     public bool isAspiring;
@@ -28,17 +29,31 @@ public class PlayerInteraction : MonoBehaviour
     int maxBagSpace = 30, itemsInBag;
     public float bagPercentage;
     bool isDepositing;
+    LoadSceneMode mode;
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoadScene;
+    }
     void Start()
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
         IntializeFunctions();
     }
+    void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+        this.mode = mode;
+    }
     void IntializeFunctions()
     {
         OnResume();
         Generador.contadorBasura = 0;
         BagPercentage();
+        if (mode == LoadSceneMode.Single)
+        {
+            player_UI.SetFade(255);
+            player_UI.fadeState = 2;
+        }
     }
     void Update()
     {
@@ -92,9 +107,17 @@ public class PlayerInteraction : MonoBehaviour
                     Debug.Log("No tienes la mochila llena");
                 }
             }
-            else
+            else if (targetDeposit != null)
             {
                 Debug.Log("El deposito esta lleno, juega a la central");
+            }
+            if (targetCentralPad != null && targetCentralPad.GetComponent<CentralMinigamePad>().deposit.isFull)
+            {
+                targetCentralPad.GetComponent<CentralMinigamePad>().ActivatePanel();
+            }
+            else if (targetCentralPad)
+            {
+                Debug.Log("No hay basura en el deposito");
             }
             if (targetConstruction != null && targetConstruction.tag != "Untagged")
             {
@@ -159,57 +182,33 @@ public class PlayerInteraction : MonoBehaviour
     {
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
-        StartCoroutine(WaitInDoor(1));
+        StartCoroutine(LoadAsyncScene(inDoor));
     }
     public void MovmentState(bool state)
     {
         playerMovement.enabled = state;
     }
-    void StageChange(GameObject stageOn, GameObject stageOff)
+    IEnumerator LoadAsyncScene(string scene)
     {
-        stageOn.SetActive(true);
-        stageOff.SetActive(false);
-        MovmentState(false);
-    }
-    IEnumerator WaitInDoor(float secs)
-    {
-        yield return new WaitForSeconds(secs);
-        switch (inDoor)
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        while (!asyncLoad.isDone)
         {
-            case "ToOutside":
-                transform.position = outisdePoint.transform.position;
-                transform.rotation = Quaternion.Euler(0, -90, 0);
-                StageChange(outside, inside);
-                general_UI.MinimapSwitcher(true);
-                //ChangeCameraMode(false, true);
-                break;
-            case "ToInside":
-                transform.position = insidePoint.transform.position;
-                transform.rotation = Quaternion.Euler(0, 90, 0);
-                StageChange(inside, outside);
-                general_UI.MinimapSwitcher(false);
-                //ChangeCameraMode(true, false);
-                break;
+            yield return null;
         }
-        player_UI.fadeState = 2;
-        MovmentState(true);
-        ChangeCameraMode(false, true);
-        general_UI.MainPanelSwitcher(true);
-        InteractionEnds();
     }
     public void CancelChangeStage()
     {
         switch (inDoor)
         {
-            case "ToOutside":
+            case "Outside":
                 transform.position = insidePoint.transform.position;
                 transform.Rotate(0, 180, 0);
-                inDoor = "ToInside";
+                inDoor = "Inside";
                 break;
-            case "ToInside":
+            case "Inside":
                 transform.position = outisdePoint.transform.position;
                 transform.Rotate(0, 180, 0);
-                inDoor = "ToOutside";
+                inDoor = "Outside";
                 break;
         }
         MovmentState(true);
@@ -231,9 +230,15 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void stopSpeakingWithRecycler()
     {
-        targetRecycler.GetComponent<RecyclerNPC>().RestoreRotation();
-        targetRecycler.GetComponent<RecyclerNPC>().CheckLockedIdle();
-        targetRecycler.GetComponent<RecyclerNPC>().isSpeaking = false;
+        RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
+        targetRecyclerScript.RestoreRotation();
+        targetRecyclerScript.CheckLockedIdle();
+        targetRecyclerScript.isSpeaking = false;
+        if (targetRecyclerScript.isBlocker)
+        {
+            transform.position = targetRecycler.transform.position + targetRecycler.transform.forward * 3;
+            transform.rotation = targetRecycler.transform.rotation;
+        }
     }
     void DepositTrash()
     {
@@ -298,12 +303,9 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (targetObject.tag == "Recycler")
         {
-            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
-            {
-                targetRecycler = null;
-                Debug.Log("esNull");
-                general_UI.InteractionCloud(false);
-            }
+            targetRecycler = null;
+            Debug.Log("esNull");
+            general_UI.InteractionCloud(false);
         }
     }
     public void InteractionEnds()

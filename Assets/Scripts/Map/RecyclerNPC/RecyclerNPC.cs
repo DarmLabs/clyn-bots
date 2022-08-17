@@ -59,12 +59,7 @@ public class RecyclerNPC : MonoBehaviour
         if (isSpeaking)
         {
             dialogueBox.SetActive(true);
-            if (isBlocker)
-            {
-                player.transform.position = transform.position + transform.forward * 2;
-                player.transform.rotation = transform.rotation;
-            }
-            else
+            if (!isBlocker)
             {
                 transform.LookAt(player.transform);
             }
