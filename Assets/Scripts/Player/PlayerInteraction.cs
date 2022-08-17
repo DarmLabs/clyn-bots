@@ -348,5 +348,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
+        saveSystem.Save();
     }
 }
