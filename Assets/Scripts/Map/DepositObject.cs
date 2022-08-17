@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class DepositObject : MonoBehaviour
+public class DepositObject : MonoBehaviour, ISaveable
 {
     public bool isFull;
-    int dVidrio, dCarton, dOrganico, dNoRecu, dPlastico, dMetal;
+    [SerializeField] int dVidrio, dCarton, dOrganico, dNoRecu, dPlastico, dMetal;
     public Transform depositPoint;
     [SerializeField] General_UI general_UI;
 

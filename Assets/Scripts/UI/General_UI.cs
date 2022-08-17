@@ -9,7 +9,7 @@ public class General_UI : MonoBehaviour
 {
     public PlayerInteraction playerInteraction;
     public GameObject mainPanel;
-    [SerializeField] GameObject centralMinigame, acceptCentral;
+    [SerializeField] GameObject centralMinigame;
     [SerializeField] GameObject memoryMinigame;
     public GameObject constructionPanel;
     public GameObject minimap;
@@ -186,6 +186,10 @@ public class General_UI : MonoBehaviour
     public void CentralMinigameSwitcher(bool state)
     {
         centralMinigame.SetActive(state);
+    }
+    public void MemoryMinigameSwitcher(bool state)
+    {
+        memoryMinigame.SetActive(state);
     }
     public void MinigameAspireSwitcher(bool state)
     {

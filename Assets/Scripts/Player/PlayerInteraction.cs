@@ -21,6 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetRecycler;
     public GameObject targetDeposit;
     public GameObject targetCentralPad;
+    public GameObject targetMemoryPad;
     #endregion
     public bool interactionHappen;
     public bool isAspiring;
@@ -96,6 +97,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 speakWithRecycler();
             }
+
             if (targetDeposit != null && !targetDeposit.GetComponent<DepositObject>().isFull)
             {
                 if (bagPercentage == 100)
@@ -111,23 +113,32 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Debug.Log("El deposito esta lleno, juega a la central");
             }
+
             if (targetCentralPad != null && targetCentralPad.GetComponent<CentralMinigamePad>().deposit.isFull)
             {
                 targetCentralPad.GetComponent<CentralMinigamePad>().ActivatePanel();
+                MovmentState(false);
             }
-            else if (targetCentralPad)
+            else if (targetCentralPad != null)
             {
                 Debug.Log("No hay basura en el deposito");
             }
+
+            if (targetMemoryPad != null && gv.memoriaAccesible)
+            {
+                targetMemoryPad.GetComponent<MemoryMinigamePad>().ActivatePanel();
+                MovmentState(false);
+            }
+            else if (targetMemoryPad != null)
+            {
+                Debug.Log("No tienes los recursos suficientes para jugar a la memoria");
+            }
+
             if (targetConstruction != null && targetConstruction.tag != "Untagged")
             {
                 general_UI.ConstructionPanelSwitcher(true);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
                 interactionHappen = true;
-            }
-            if (interactionHappen)
-            {
-                playerAnim.Interaction(true);
             }
         }
         if (Input.GetKeyDown(KeyCode.O))

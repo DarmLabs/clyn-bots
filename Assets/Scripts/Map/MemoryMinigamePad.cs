@@ -2,15 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class CentralMinigamePad : MonoBehaviour
+public class MemoryMinigamePad : MonoBehaviour
 {
-    public DepositObject deposit;
     [SerializeField] General_UI general_UI;
 
     public void ActivatePanel()
     {
-        general_UI.CentralMinigameSwitcher(true);
+        general_UI.MemoryMinigameSwitcher(true);
         general_UI.MainPanelSwitcher(false);
     }
     void OnTriggerEnter(Collider other)
@@ -18,7 +16,7 @@ public class CentralMinigamePad : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             general_UI.InteractionCloud(true);
-            general_UI.playerInteraction.targetCentralPad = gameObject;
+            general_UI.playerInteraction.targetMemoryPad = gameObject;
         }
     }
     void OnTriggerExit(Collider other)
@@ -26,11 +24,11 @@ public class CentralMinigamePad : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             general_UI.InteractionCloud(false);
-            general_UI.playerInteraction.targetCentralPad = null;
+            general_UI.playerInteraction.targetMemoryPad = null;
         }
     }
     public void ChangeScene()
     {
-        SceneManager.LoadScene("Central");
+        SceneManager.LoadScene("Memory");
     }
 }
