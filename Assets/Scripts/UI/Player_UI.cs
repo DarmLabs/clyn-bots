@@ -26,7 +26,7 @@ public class Player_UI : MonoBehaviour
         thirdArrow = bag.transform.GetChild(3).gameObject;
         greenButton = bag.transform.GetChild(4).gameObject;
         Color oldColor = FadePanel.GetComponent<Image>().color;
-        globalVariables = playerInteraction.gv;
+        globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
     }
 
     void LateUpdate()
