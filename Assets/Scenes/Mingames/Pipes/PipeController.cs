@@ -16,9 +16,17 @@ public class PipeController : MonoBehaviour
     private int randomIndex = 0;
 
     [SerializeField] private GameObject PanelVictoria;
+    private GameObject globalaux;
+    private GlobalVariables gv;
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
     
     void Start()
     {
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        saveaux = GameObject.Find ("SaveLoadSystem");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         contadorCorrectas = 0;
         gano = false;     
         rend = tuboFinal.gameObject.GetComponent<Renderer>();
@@ -42,6 +50,8 @@ public class PipeController : MonoBehaviour
             gano = true;
             rend.material.color = colorCorrecto;
             PanelVictoria.SetActive(true);
+            gv.pipesActiva = true;
+            saveSystem.Save();
             Debug.Log("GANASTE NIÑO BOBO");     
         }
         

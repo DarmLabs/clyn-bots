@@ -83,10 +83,10 @@ public class Tachos : MonoBehaviour
             gv.recTrash = 0;
             gv.noRecTrash = 0;
             gv.organicTrash = 0;
-            Time.timeScale = 0f;
-            saveSystem.Save();
+            Time.timeScale = 0f;            
             Generador.Terminaste = false;
             gv.memoriaAccesible = true;
+            saveSystem.Save();
         }
             
     }

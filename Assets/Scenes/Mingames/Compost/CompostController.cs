@@ -43,15 +43,27 @@ public class CompostController : MonoBehaviour
     [SerializeField] private Button Button_Mezclar;
     [SerializeField] Image Imagen_Secar;
     [SerializeField] Image Imagen_Humedecer;
-    [SerializeField] Image Imagen_Mezclar;   
+    [SerializeField] Image Imagen_Mezclar; 
 
-    //húmedo: -seco +húmedo || temperatura: +humedad -grados 
-    //seco: -humedad +seco || temperatura: +humedad -grados
-    //temperatura: +mezclar +grados   
-    // 
+    private GameObject globalaux;
+    private GlobalVariables gv;
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
+      
+
+    //botón húmedo: -seco +húmedo || temperatura: +humedad -grados 
+
+    //botón seco: -humedad +seco || temperatura: +humedad -grados
+
+    //botón mezclar-temperatura: +mezclar +grados   
+   
     
     void Start()
     {        
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        saveaux = GameObject.Find ("SaveLoadSystem");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         gano = false;
         abierto = false;
         humedadCorrecta = false;
@@ -157,10 +169,7 @@ public class CompostController : MonoBehaviour
     }
     public void Boton_Remover()
     {
-        if (escalaProgreso_Temperatura.x <= (1f-(EscalaMax/10)))
-        {
-            escalaProgreso_Temperatura.x = escalaProgreso_Temperatura.x + (EscalaMax/10);
-        }
+        escalaProgreso_Temperatura.x = escalaProgreso_Temperatura.x + (EscalaMax/10);       
         ProgresoSeco.localScale = escalaProgreso_Seco; 
         ProgresoHumedo.localScale = escalaProgreso_Humedo;
         ProgresoTemperatura.localScale = escalaProgreso_Temperatura;        
@@ -175,16 +184,31 @@ public class CompostController : MonoBehaviour
                     Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
                     Compostera.gameObject.SetActive(true);
                     UI_Desactivar.SetActive(false);
+                    PanelVictoria.SetActive(true);
                     BotonHumedecer.gameObject.SetActive(false);
                     BotonSecar.gameObject.SetActive(false);
                     BotonRemover.gameObject.SetActive(false);
-                    //gano = true;
+                    gano = true;
                     Compostera.GetChild(0).gameObject.SetActive(false);
                     Compostera.GetChild(1).gameObject.SetActive(false);
                     Compostera.GetChild(2).gameObject.SetActive(true);
+                    gv.compostActiva = false;
+                    saveSystem.Save();
                 }
                 
         } 
+
+        if(escalaProgreso_Temperatura.x >= EscalaMax)
+        {
+            Debug.Log("PERDISTE NIÑITO :(");
+            Compostera.gameObject.SetActive(false);
+            PanelDerrota.SetActive(true);
+            UI_Desactivar.SetActive(false);
+            BotonHumedecer.gameObject.SetActive(false);
+            BotonSecar.gameObject.SetActive(false);
+            BotonRemover.gameObject.SetActive(false);
+            
+        }
 
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
