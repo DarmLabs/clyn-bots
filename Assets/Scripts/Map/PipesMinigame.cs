@@ -18,6 +18,7 @@ public class PipesMinigame : MonoBehaviour
     {
         general_UI.PipesMinigameSwitcher(true);
         general_UI.MainPanelSwitcher(false);
+        general_UI.InteractionCloud(false);
     }
     public void ChangeScene()
     {
