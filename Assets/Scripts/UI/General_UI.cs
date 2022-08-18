@@ -12,6 +12,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject centralMinigame;
     [SerializeField] GameObject memoryMinigame;
     [SerializeField] GameObject compostMinigame;
+    [SerializeField] GameObject pipesMinigame;
     [SerializeField] GameObject mainMissionPanel;
     public GameObject constructionPanel;
     public GameObject minimap;
@@ -188,9 +189,13 @@ public class General_UI : MonoBehaviour
             upgradeBtn.GetComponent<Button>().image.color = unlockColor;
         }
     }
+    public void PipesMinigameSwitcher(bool state)
+    {
+        pipesMinigame.SetActive(state);
+    }
     public void CompostMinigameSwitcher(bool state)
     {
-
+        compostMinigame.SetActive(state);
     }
     public void CentralMinigameSwitcher(bool state)
     {

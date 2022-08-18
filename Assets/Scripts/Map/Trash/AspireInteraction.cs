@@ -7,6 +7,11 @@ public class AspireInteraction : MonoBehaviour
     bool startLerp;
     GameObject target;
     public PlayerInteraction playerInteraction;
+    MainMission mainMission;
+    void Start()
+    {
+        mainMission = playerInteraction.mainMission;
+    }
     void Update()
     {
         if (startLerp)
@@ -56,6 +61,7 @@ public class AspireInteraction : MonoBehaviour
                 break;
 
         }
+        mainMission.trashRecolected++;
         playerInteraction.saveSystem.Save();
         playerInteraction.BagPercentage();
     }

@@ -6,8 +6,8 @@ public class Seed : MonoBehaviour, ISaveable
 {
     ConstructibleObj constructibleObj;
     public SaveLoadSystem saveSystem;
-    public GameObject []plantacion = new GameObject[3];
-    public GameObject semilla;
+    public GameObject[] plantacion = new GameObject[3];
+    [SerializeField] GameObject semilla;
     public GameObject target;
     public GameObject building;
     public int index;
@@ -17,12 +17,14 @@ public class Seed : MonoBehaviour, ISaveable
         constructibleObj = GetComponent<ConstructibleObj>();
     }
 
-    public void ChooseSeed(int index){
+    public void ChooseSeed(int index)
+    {
         building = plantacion[index];
         this.index = index;
         GetComponent<ConstructibleObj>().seeded = true;
     }
-    public void PlaceSeed(){
+    public void PlaceSeed()
+    {
         semilla.transform.position = target.transform.position;
         semilla.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
@@ -31,7 +33,8 @@ public class Seed : MonoBehaviour, ISaveable
         GetComponent<ConstructibleObj>().PlayCinematic(semilla);
         saveSystem.Save();
     }
-    public void GrowSeed(){
+    public void GrowSeed()
+    {
         building.transform.position = semilla.transform.position;
         semilla.transform.position = new Vector3(semilla.transform.position.x, semilla.transform.position.y - 10000, semilla.transform.position.z);
         building.GetComponent<SavePosition>().PositionUpdated();
@@ -41,22 +44,26 @@ public class Seed : MonoBehaviour, ISaveable
         GetComponent<ConstructibleObj>().PlayCinematic(building);
         saveSystem.Save();
     }
-    public object SaveState(){
-        return new SaveData(){
+    public object SaveState()
+    {
+        return new SaveData()
+        {
             index = this.index,
             currentState = this.currentState
-            
+
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
-    public void LoadState(object state){
+    public void LoadState(object state)
+    {
         var saveData = (SaveData)state;
         index = saveData.index;
         currentState = saveData.currentState;
         ChooseSeed(index);
     }
     [Serializable]
-    private struct SaveData{
+    private struct SaveData
+    {
         public int index;
         public string currentState;
     }

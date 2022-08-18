@@ -15,23 +15,22 @@ public class PlayerInteraction : MonoBehaviour
     public Player_UI player_UI;
     public General_UI general_UI;
     [SerializeField] GameObject outisdePoint, insidePoint;
-    [SerializeField] GameObject inside, outside;
-    public GameObject currentTrashPile;
     public GameObject targetConstruction;
     public GameObject targetRecycler;
     public GameObject targetDeposit;
     public GameObject targetCentralPad;
     public GameObject targetMemoryPad;
     public GameObject targetCompostPad;
+    public GameObject targetPipes;
     #endregion
     public bool interactionHappen;
     public bool isAspiring;
-    public bool minigameAsipire;
     public string inDoor;
     int maxBagSpace = 30, itemsInBag;
     public float bagPercentage;
     bool isDepositing;
     LoadSceneMode mode;
+    public MainMission mainMission;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
@@ -40,8 +39,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
-        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
-        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
+        mainMission = GameObject.FindObjectOfType<MainMission>();
         IntializeFunctions();
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)
@@ -135,7 +135,6 @@ public class PlayerInteraction : MonoBehaviour
             else if (targetMemoryPad != null)
             {
                 targetMemoryPad.GetComponent<MemoryMinigamePad>().Response(null);
-                Debug.Log("No tienes los recursos suficientes para jugar a la memoria");
             }
 
             if (targetCompostPad != null /*&& gv.composteraActiva*/)
@@ -147,7 +146,10 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Debug.Log("La compostera esta bien");
             }
-
+            if (targetPipes != null)
+            {
+                targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
+            }
             if (targetConstruction != null && targetConstruction.tag != "Untagged")
             {
                 general_UI.ConstructionPanelSwitcher(true);
@@ -296,19 +298,19 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void EnterDetectObject(GameObject targetObject)
     {
-        if (targetObject.tag == "trash")
+        if (targetObject.tag == "Pipes")
         {
-            currentTrashPile = targetObject.gameObject;
+            targetPipes = targetObject;
             general_UI.InteractionCloud(true);
         }
         if (targetObject.tag == "construction")
         {
-            targetConstruction = targetObject.gameObject;
+            targetConstruction = targetObject;
             general_UI.InteractionCloud(true);
         }
         if (targetObject.tag == "Recycler")
         {
-            targetRecycler = targetObject.gameObject;
+            targetRecycler = targetObject;
             if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker || !targetRecycler.GetComponent<RecyclerNPC>().lockedIdle)
             {
                 targetRecycler.GetComponent<RecyclerNPC>().Attention();
@@ -322,9 +324,9 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void ExitDetectObject(GameObject targetObject)
     {
-        if (targetObject.tag == "trash")
+        if (targetObject.tag == "Pipes")
         {
-            currentTrashPile = null;
+            targetPipes = null;
             general_UI.InteractionCloud(false);
         }
         if (targetObject.tag == "construction")

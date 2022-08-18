@@ -146,7 +146,14 @@ public class ConstructibleObj : MonoBehaviour
         }
         else
         {
-            gameObject.tag = "Untagged";
+            if (building.name == "Bomba de Agua")
+            {
+                gameObject.tag = "Pipes";
+            }
+            else
+            {
+                gameObject.tag = "Untagged";
+            }
         }
         PlayCinematic(building);
         ResourcesSubstraction();
