@@ -8,9 +8,17 @@ public class CompostMinigamePad : MonoBehaviour
     [SerializeField] General_UI general_UI;
     [SerializeField] GameObject compostera;
     [SerializeField] GlobalVariables gv;
+    [SerializeField] PlayerInteraction player;
+    [SerializeField] GameObject responseRecycler;
     void Start()
     {
         gv = GameObject.FindObjectOfType<GlobalVariables>();
+    }
+    public void Response(string id)
+    {
+        player.targetRecycler = responseRecycler;
+        responseRecycler.GetComponent<RecyclerNPC>().fromResponse = true;
+        responseRecycler.GetComponent<RecyclerNPC>().Speak(id);
     }
     void LateUpdate()
     {
