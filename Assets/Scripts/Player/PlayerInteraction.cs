@@ -109,12 +109,12 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("No tienes la mochila llena");
+                    targetDeposit.GetComponent<DepositObject>().Response("_01");
                 }
             }
             else if (targetDeposit != null)
             {
-                Debug.Log("El deposito esta lleno, juega a la central");
+                targetDeposit.GetComponent<DepositObject>().Response("_02");
             }
 
             if (targetCentralPad != null && targetCentralPad.GetComponent<CentralMinigamePad>().deposit.isFull)
@@ -124,7 +124,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (targetCentralPad != null)
             {
-                Debug.Log("No hay basura en el deposito");
+                targetCentralPad.GetComponent<CentralMinigamePad>().Response(null);
             }
 
             if (targetMemoryPad != null && gv.memoriaAccesible)
@@ -134,6 +134,7 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (targetMemoryPad != null)
             {
+                targetMemoryPad.GetComponent<MemoryMinigamePad>().Response(null);
                 Debug.Log("No tienes los recursos suficientes para jugar a la memoria");
             }
 
@@ -251,7 +252,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void speakWithRecycler()
     {
-        targetRecycler.GetComponent<RecyclerNPC>().Speak();
+        targetRecycler.GetComponent<RecyclerNPC>().Speak(null);
     }
     public void stopSpeakingWithRecycler()
     {
@@ -263,6 +264,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             transform.position = targetRecycler.transform.position + targetRecycler.transform.forward * 3;
             transform.rotation = targetRecycler.transform.rotation;
+        }
+        if (targetRecyclerScript.fromResponse)
+        {
+            targetRecyclerScript.fromResponse = false;
+            targetRecycler = null;
         }
     }
     void DepositTrash()

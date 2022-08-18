@@ -24,6 +24,7 @@ public class RecyclerNPC : MonoBehaviour
     General_UI general_UI;
     Vector3 previousRot;
     bool going = true;
+    public bool fromResponse;
     [SerializeField] string walkingStyle;
     void Awake()
     {
@@ -49,23 +50,38 @@ public class RecyclerNPC : MonoBehaviour
     {
         CheckIdle();
     }
-    void CallDialogue()
+    void CallDialogue(string id)
     {
-        recyclerText.text = Resources.Load("Textos/" + gameObject.name).ToString();
+        if (fromResponse)
+        {
+            if (id != null)
+            {
+                recyclerText.text = Resources.Load("Textos/" + gameObject.name + "_Response" + id).ToString();
+            }
+            else
+            {
+                recyclerText.text = Resources.Load("Textos/" + gameObject.name + "_Response_01").ToString();
+            }
+        }
+        else
+        {
+            recyclerText.text = Resources.Load("Textos/" + gameObject.name).ToString();
+        }
+
     }
     void Wander(Vector3 target)
     {
         nav.destination = target;
     }
-    public void Speak()
+    public void Speak(string id)
     {
         isSpeaking = true;
         idle = true;
         nav.destination = transform.position;
-        CheckSpeaking();
+        CheckSpeaking(id);
         Greet();
     }
-    void CheckSpeaking()
+    void CheckSpeaking(string id)
     {
         if (isSpeaking)
         {
@@ -84,7 +100,7 @@ public class RecyclerNPC : MonoBehaviour
             }
             CinematicCamera();
             dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, 0.1f, 0));
-            CallDialogue();
+            CallDialogue(id);
         }
     }
     void CheckIdle()

@@ -7,7 +7,14 @@ public class CentralMinigamePad : MonoBehaviour
 {
     public DepositObject deposit;
     [SerializeField] General_UI general_UI;
-
+    [SerializeField] PlayerInteraction player;
+    [SerializeField] GameObject responseRecycler;
+    public void Response(string id)
+    {
+        player.targetRecycler = responseRecycler;
+        responseRecycler.GetComponent<RecyclerNPC>().fromResponse = true;
+        responseRecycler.GetComponent<RecyclerNPC>().Speak(id);
+    }
     public void ActivatePanel()
     {
         general_UI.CentralMinigameSwitcher(true);

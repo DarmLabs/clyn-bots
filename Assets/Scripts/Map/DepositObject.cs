@@ -8,8 +8,16 @@ public class DepositObject : MonoBehaviour, ISaveable
     public bool isFull;
     [SerializeField] int dVidrio, dCarton, dOrganico, dNoRecu, dPlastico, dMetal;
     public Transform depositPoint;
+    [SerializeField] PlayerInteraction player;
     [SerializeField] General_UI general_UI;
+    [SerializeField] GameObject responseRecycler;
 
+    public void Response(string id)
+    {
+        player.targetRecycler = responseRecycler;
+        responseRecycler.GetComponent<RecyclerNPC>().fromResponse = true;
+        responseRecycler.GetComponent<RecyclerNPC>().Speak(id);
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
