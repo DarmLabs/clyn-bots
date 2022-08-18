@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
     Vector3 forward, right, heading, rightMovement, upMovement;
     Rigidbody rb;
     public bool wallAhed = false;
-
+    [SerializeField] PhysicMaterial antiClimb;
+    CapsuleCollider playerCollider;
     void Start()
     {
         playerAnim = GetComponent<PlayerAnimations>();
         rb = GetComponent<Rigidbody>();
+        playerCollider = GetComponent<CapsuleCollider>();
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -22,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-
         Controls();
     }
     void Controls()
@@ -71,10 +72,18 @@ public class PlayerMovement : MonoBehaviour
         heading = rightMovement + upMovement;
         transform.rotation = Quaternion.LookRotation(heading);
     }
-    public void ResetValues()
+    void OnTriggerEnter(Collider other)
     {
-        rightMovement = new Vector3(0, 0, 0);
-        upMovement = new Vector3(0, 0, 0);
-        heading = new Vector3(0, 0, 0);
+        if (other.gameObject.tag == "Recycler")
+        {
+            playerCollider.material = antiClimb;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Recycler")
+        {
+            playerCollider.material = null;
+        }
     }
 }

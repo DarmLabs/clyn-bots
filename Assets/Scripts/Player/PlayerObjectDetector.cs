@@ -16,7 +16,6 @@ public class PlayerObjectDetector : MonoBehaviour
     {
         RaycastHit hit;
         Ray forwardRay = new Ray(transform.position, transform.parent.forward);
-
         if (Physics.Raycast(forwardRay, out hit))
         {
             if (hit.distance < 0.5 && !hit.collider.isTrigger)

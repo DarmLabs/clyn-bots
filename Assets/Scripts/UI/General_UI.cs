@@ -12,6 +12,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject centralMinigame;
     [SerializeField] GameObject memoryMinigame;
     [SerializeField] GameObject compostMinigame;
+    [SerializeField] GameObject mainMissionPanel;
     public GameObject constructionPanel;
     public GameObject minimap;
     public GameObject constructonRender;
@@ -34,6 +35,10 @@ public class General_UI : MonoBehaviour
     {
         mainPanel.SetActive(state);
     }
+    public void MainMissionSwitcher(bool state)
+    {
+        mainMissionPanel.SetActive(state);
+    }
     public void BuildChangeStagePanel(string target)
     {
         playerInteraction.MovmentState(false);
@@ -50,7 +55,6 @@ public class General_UI : MonoBehaviour
     public void ChangeStageSwitcher(bool state)
     {
         changeStagePanel.SetActive(state);
-        playerInteraction.ChangeCameraMode(false, false);
     }
     public void ConstructionPanelSwitcher(bool state)
     {

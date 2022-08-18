@@ -137,16 +137,23 @@ public class PlayerInteraction : MonoBehaviour
                 Debug.Log("No tienes los recursos suficientes para jugar a la memoria");
             }
 
-            if (targetCompostPad != null)
+            if (targetCompostPad != null /*&& gv.composteraActiva*/)
             {
-
+                targetCompostPad.GetComponent<CompostMinigamePad>().ActivatePanel();
+                MovmentState(false);
+            }
+            else/* if (gv.composteraActiva)*/
+            {
+                Debug.Log("La compostera esta bien");
             }
 
             if (targetConstruction != null && targetConstruction.tag != "Untagged")
             {
                 general_UI.ConstructionPanelSwitcher(true);
+                general_UI.MinimapSwitcher(false);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
-                interactionHappen = true;
+                MovmentState(false);
+                general_UI.InteractionCloud(false);
             }
         }
         if (Input.GetKeyDown(KeyCode.O))
@@ -231,7 +238,6 @@ public class PlayerInteraction : MonoBehaviour
                 break;
         }
         MovmentState(true);
-        ChangeCameraMode(false, false);
         general_UI.MainPanelSwitcher(true);
     }
     public void BuildObject()
@@ -297,7 +303,7 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = targetObject.gameObject;
-            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker || targetRecycler.GetComponent<RecyclerNPC>().lockedIdle)
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker || !targetRecycler.GetComponent<RecyclerNPC>().lockedIdle)
             {
                 targetRecycler.GetComponent<RecyclerNPC>().Attention();
             }
@@ -326,15 +332,6 @@ public class PlayerInteraction : MonoBehaviour
             Debug.Log("esNull");
             general_UI.InteractionCloud(false);
         }
-    }
-    public void InteractionEnds()
-    {
-        interactionHappen = false;
-    }
-    public void ChangeCameraMode(bool stateStanding, bool stateFollow)
-    {
-        Camera.main.GetComponent<SmoothFollow>().enabled = stateFollow;
-        Camera.main.GetComponent<StandingCamera>().enabled = stateStanding;
     }
     public void OnPause()
     {

@@ -96,10 +96,10 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 122
   m_CollisionDetection: 0
---- !u!65 &1099431701207743056
-BoxCollider:
+--- !u!136 &-8284301252379265184
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,9 +108,30 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.15, y: 1.5, z: 1.15}
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &-5037408286115974423
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6230424450325498828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f160453b66fa4564c8b13b98972e4e22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!195 &41291031399384432
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -146,15 +167,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueBox: {fileID: 0}
+  okSection: {fileID: 0}
+  missionSection: {fileID: 0}
   recyclerText: {fileID: 0}
   idle: 0
   isGreeting: 0
+  haveMission: 0
   lockedIdle: 0
   isBlocker: 0
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
-  speed: 0
-  player: {fileID: 0}
-  cinematicCamera: {fileID: 0}
-  general_UI: {fileID: 0}
+  isSpeaking: 0
   walkingStyle: 

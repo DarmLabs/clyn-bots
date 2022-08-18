@@ -6,26 +6,26 @@ using UnityEngine.AI;
 using TMPro;
 public class RecyclerNPC : MonoBehaviour
 {
-    public GameObject dialogueBox;
-    public TextMeshProUGUI recyclerText;
-    public bool idle;
+    [SerializeField] GameObject dialogueBox;
+    [SerializeField] GameObject okSection, missionSection;
+    [SerializeField] TextMeshProUGUI recyclerText;
+    [SerializeField] bool idle;
     public bool isGreeting;
+    [SerializeField] bool haveMission;
     public bool lockedIdle;
     public bool isBlocker;
     public Vector3 pointA, pointB;
-    Rigidbody rb;
-    [SerializeField] float speed;
     NavMeshAgent nav;
     Animator anim;
     public bool isSpeaking;
-    public GameObject player;
-    public GameObject cinematicCamera;
+    GameObject player;
+    GameObject cinematicCamera;
     GameObject mainCamera;
-    public General_UI general_UI;
+    General_UI general_UI;
     Vector3 previousRot;
     bool going = true;
-    public string walkingStyle;
-    void Start()
+    [SerializeField] string walkingStyle;
+    void Awake()
     {
         pointA = pointA + transform.parent.position;
         pointB = pointB + transform.parent.position;
@@ -33,6 +33,17 @@ public class RecyclerNPC : MonoBehaviour
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         mainCamera = Camera.main.gameObject;
+        FindImports();
+    }
+    void FindImports()
+    {
+        dialogueBox = GameObject.Find("DialogueBox");
+        okSection = GameObject.Find("Ok");
+        missionSection = GameObject.Find("MissionSection");
+        recyclerText = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        cinematicCamera = GameObject.Find("CinematicCamera");
+        general_UI = GameObject.FindObjectOfType<General_UI>().GetComponent<General_UI>();
     }
     void Update()
     {
@@ -62,6 +73,14 @@ public class RecyclerNPC : MonoBehaviour
             if (!isBlocker)
             {
                 transform.LookAt(player.transform);
+            }
+            if (haveMission)
+            {
+                missionSection.SetActive(true);
+            }
+            else
+            {
+                okSection.SetActive(true);
             }
             CinematicCamera();
             dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, 0.1f, 0));
