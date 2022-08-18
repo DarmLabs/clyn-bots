@@ -4117,6 +4117,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570019102}
   m_CullTransparentMesh: 1
+--- !u!1 &572007161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 572007163}
+  - component: {fileID: 572007162}
+  m_Layer: 0
+  m_Name: MissionController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &572007162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572007161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5998ad606d4095640a4587212c6824de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trashRecolected: 0
+  constructionsFinished: 0
+  compostPlayed: 0
+  lakesCleaned: 0
+  cropsGrew: 0
+--- !u!4 &572007163
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572007161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 428.07367, y: 31.70928, z: 301.87994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &578919519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6623,6 +6672,7 @@ MonoBehaviour:
   centralMinigame: {fileID: 1433666620}
   memoryMinigame: {fileID: 937924041}
   compostMinigame: {fileID: 0}
+  pipesMinigame: {fileID: 0}
   mainMissionPanel: {fileID: 224380861}
   constructionPanel: {fileID: 0}
   minimap: {fileID: 1316353926}
@@ -18817,20 +18867,18 @@ MonoBehaviour:
   general_UI: {fileID: 904744519}
   outisdePoint: {fileID: 0}
   insidePoint: {fileID: 944561381}
-  inside: {fileID: 919132147917588311}
-  outside: {fileID: 0}
-  currentTrashPile: {fileID: 0}
   targetConstruction: {fileID: 0}
   targetRecycler: {fileID: 0}
   targetDeposit: {fileID: 0}
   targetCentralPad: {fileID: 0}
   targetMemoryPad: {fileID: 0}
   targetCompostPad: {fileID: 0}
+  targetPipes: {fileID: 0}
   interactionHappen: 0
   isAspiring: 0
-  minigameAsipire: 1
   inDoor: 
   bagPercentage: 0
+  mainMission: {fileID: 0}
 --- !u!4 &2677069049820550291
 Transform:
   m_ObjectHideFlags: 0

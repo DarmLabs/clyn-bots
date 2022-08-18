@@ -39,9 +39,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
-        gv = GameObject.FindObjectOfType<GlobalVariables>();
-        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
-        mainMission = GameObject.FindObjectOfType<MainMission>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
+        mainMission = GameObject.FindObjectOfType<MainMission>().GetComponent<MainMission>();
         IntializeFunctions();
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)

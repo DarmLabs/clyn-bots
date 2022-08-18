@@ -8,10 +8,6 @@ public class AspireInteraction : MonoBehaviour
     GameObject target;
     public PlayerInteraction playerInteraction;
     MainMission mainMission;
-    void Start()
-    {
-        mainMission = playerInteraction.mainMission;
-    }
     void Update()
     {
         if (startLerp)
@@ -39,6 +35,7 @@ public class AspireInteraction : MonoBehaviour
     }
     void Aspire()
     {
+        mainMission = playerInteraction.mainMission;
         switch (this.gameObject.tag)
         {
             case "Vidrio":
