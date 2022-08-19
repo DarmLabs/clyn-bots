@@ -34,19 +34,20 @@ public class PlayerInteraction : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
+        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
+        mainMission = GameObject.FindObjectOfType<MainMission>().GetComponent<MainMission>();
     }
     void Start()
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
-        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
-        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
-        mainMission = GameObject.FindObjectOfType<MainMission>().GetComponent<MainMission>();
         IntializeFunctions();
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
         this.mode = mode;
+        inDoor = scene.name;
     }
     void IntializeFunctions()
     {
@@ -137,20 +138,20 @@ public class PlayerInteraction : MonoBehaviour
                 targetMemoryPad.GetComponent<MemoryMinigamePad>().Response(null);
             }
 
-            if (targetCompostPad != null /*&& gv.composteraActiva*/)
+            if (targetCompostPad != null && gv.compostActiva)
             {
                 targetCompostPad.GetComponent<CompostMinigamePad>().ActivatePanel();
                 MovmentState(false);
             }
-            else/* if (gv.composteraActiva)*/
+            else if (targetCompostPad != null && !gv.compostActiva)
             {
-                Debug.Log("La compostera esta bien");
+                targetCompostPad.GetComponent<CompostMinigamePad>().Response(null);
             }
             if (targetPipes != null)
             {
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
             }
-            if (targetConstruction != null && targetConstruction.tag != "Untagged")
+            if (targetConstruction != null && (targetConstruction.tag != "Untagged" || targetConstruction.tag != "Pipes"))
             {
                 general_UI.ConstructionPanelSwitcher(true);
                 general_UI.MinimapSwitcher(false);
@@ -188,13 +189,13 @@ public class PlayerInteraction : MonoBehaviour
             BagPercentage();
             saveSystem.Save();
         }
-        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30 && inDoor == "ToOutside")
+        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30 && inDoor == "Outside")
         {
             cone.enabled = true;
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else if (!isDepositing)
+        else if (!isDepositing || itemsInBag == 30)
         {
             cone.enabled = false;
             isAspiring = false;

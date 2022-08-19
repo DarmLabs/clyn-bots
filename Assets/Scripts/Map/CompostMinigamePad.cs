@@ -13,17 +13,20 @@ public class CompostMinigamePad : MonoBehaviour
     void Start()
     {
         gv = GameObject.FindObjectOfType<GlobalVariables>();
+        if(gv.compostActiva)
+        {
+            CompostState(true);
+        }
+        else
+        {
+            CompostState(false);
+        }
     }
     public void Response(string id)
     {
         player.targetRecycler = responseRecycler;
         responseRecycler.GetComponent<RecyclerNPC>().fromResponse = true;
         responseRecycler.GetComponent<RecyclerNPC>().Speak(id);
-    }
-    void LateUpdate()
-    {
-        CompostState(true);
-        CompostState(false);
     }
     public void CompostState(bool state)
     {
@@ -44,6 +47,7 @@ public class CompostMinigamePad : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
+   
         if (other.gameObject.tag == "Player")
         {
             general_UI.InteractionCloud(false);

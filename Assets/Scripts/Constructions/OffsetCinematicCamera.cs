@@ -15,6 +15,7 @@ public class OffsetCinematicCamera : MonoBehaviour
         gameObject.SetActive(true);
         transform.LookAt(target.transform);
         general_UI.MainPanelSwitcher(false);
+        general_UI.MinimapSwitcher(true);
         StartCoroutine(WaitInCinematic(5f));
     }
 

@@ -8,6 +8,7 @@ using TMPro;
 public class General_UI : MonoBehaviour
 {
     public PlayerInteraction playerInteraction;
+    public SaveLoadSystem saveSystem;
     public GameObject mainPanel;
     [SerializeField] GameObject centralMinigame;
     [SerializeField] GameObject memoryMinigame;
@@ -30,8 +31,10 @@ public class General_UI : MonoBehaviour
     public GameObject interactionCloud;
     [SerializeField] GameObject changeStagePanel;
     [SerializeField] TextMeshProUGUI textChangeStage;
-
-
+    void Start()
+    {
+        saveSystem = playerInteraction.saveSystem;
+    }
     public void MainPanelSwitcher(bool state)
     {
         mainPanel.SetActive(state);

@@ -6,6 +6,7 @@ public class ConstructibleObj : MonoBehaviour
     GlobalVariables globalVariables;
     GameObject UIManager;
     General_UI general_UI;
+    SaveLoadSystem saveSystem;
     GameObject cinematicCamera;
     public bool seeded;
 
@@ -134,6 +135,7 @@ public class ConstructibleObj : MonoBehaviour
     }
     public void BuildObject()
     {
+        saveSystem = general_UI.saveSystem;
         building.transform.position = target.transform.position;
         target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 10000, target.transform.position.z);
         building.GetComponent<SavePosition>().PositionUpdated();
@@ -158,6 +160,7 @@ public class ConstructibleObj : MonoBehaviour
         }
         PlayCinematic(building);
         ResourcesSubstraction();
+        saveSystem.Save();
     }
     public void PlayCinematic(GameObject target)
     {
