@@ -1,46 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteraction : MonoBehaviour
 {
     #region Imports & Required Objects
     [Header("Imports & Required Objects")]
     public SaveLoadSystem saveSystem;
-    public GlobalVariables globalVariables;
+    public GlobalVariables gv;
+    [SerializeField] ConeCollider cone;
     public PlayerAnimations playerAnim;
     public PlayerMovement playerMovement;
     public Player_UI player_UI;
     public General_UI general_UI;
-    public GameObject BasuralPoint, LobbyPointB, LobbyPointGZ, GreenZonePoint;
-    public GameObject basural, central, greenZone;
-    public GameObject currentTrashPile;
+    [SerializeField] GameObject outisdePoint, insidePoint;
     public GameObject targetConstruction;
     public GameObject targetRecycler;
+    public GameObject targetDeposit;
+    public GameObject targetCentralPad;
+    public GameObject targetMemoryPad;
+    public GameObject targetCompostPad;
+    public GameObject targetPipes;
     #endregion
-    float timePressed;
-    public bool canInteract;
     public bool interactionHappen;
-    bool facingArcade;
-    bool changingStage;
     public bool isAspiring;
-    public bool minigameAsipire;
     public string inDoor;
     int maxBagSpace = 30, itemsInBag;
     public float bagPercentage;
+    bool isDepositing;
+    LoadSceneMode mode;
+    public MainMission mainMission;
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoadScene;
+    }
     void Start()
     {
         playerAnim = GetComponent<PlayerAnimations>();
         playerMovement = GetComponent<PlayerMovement>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
+        mainMission = GameObject.FindObjectOfType<MainMission>().GetComponent<MainMission>();
         IntializeFunctions();
+    }
+    void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+        this.mode = mode;
     }
     void IntializeFunctions()
     {
         OnResume();
         Generador.contadorBasura = 0;
         BagPercentage();
+        if (mode == LoadSceneMode.Single)
+        {
+            player_UI.SetFade(255);
+            player_UI.fadeState = 2;
+        }
     }
     void Update()
+    {
+        CheckExceptions();
+    }
+    void CheckExceptions()
     {
         if (targetRecycler != null)
         {
@@ -52,6 +75,10 @@ public class PlayerInteraction : MonoBehaviour
             {
                 MovmentState(false);
             }
+        }
+        else if (isDepositing)
+        {
+            MovmentState(false);
         }
         else
         {
@@ -65,7 +92,6 @@ public class PlayerInteraction : MonoBehaviour
             general_UI.ExitPanelSwitcher(true);
             general_UI.MainPanelSwitcher(false);
             general_UI.ConstructionPanelSwitcher(false);
-            general_UI.MinigamePanelSwitcher(false);
             general_UI.MinigameAspireSwitcher(false);
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -74,63 +100,110 @@ public class PlayerInteraction : MonoBehaviour
             {
                 speakWithRecycler();
             }
-            if (inDoor != "")
+
+            if (targetDeposit != null && !targetDeposit.GetComponent<DepositObject>().isFull)
             {
-                changingStage = true;
-                interactionHappen = true;
+                if (bagPercentage == 100)
+                {
+                    DepositTrash();
+                }
+                else
+                {
+                    targetDeposit.GetComponent<DepositObject>().Response("_01");
+                }
             }
-            if (facingArcade)
+            else if (targetDeposit != null)
             {
-                general_UI.MinigamePanelSwitcher(true);
+                targetDeposit.GetComponent<DepositObject>().Response("_02");
+            }
+
+            if (targetCentralPad != null && targetCentralPad.GetComponent<CentralMinigamePad>().deposit.isFull)
+            {
+                targetCentralPad.GetComponent<CentralMinigamePad>().ActivatePanel();
+                MovmentState(false);
+            }
+            else if (targetCentralPad != null)
+            {
+                targetCentralPad.GetComponent<CentralMinigamePad>().Response(null);
+            }
+
+            if (targetMemoryPad != null && gv.memoriaAccesible)
+            {
+                targetMemoryPad.GetComponent<MemoryMinigamePad>().ActivatePanel();
+                MovmentState(false);
+            }
+            else if (targetMemoryPad != null)
+            {
+                targetMemoryPad.GetComponent<MemoryMinigamePad>().Response(null);
+            }
+
+            if (targetCompostPad != null /*&& gv.composteraActiva*/)
+            {
+                targetCompostPad.GetComponent<CompostMinigamePad>().ActivatePanel();
+                MovmentState(false);
+            }
+            else/* if (gv.composteraActiva)*/
+            {
+                Debug.Log("La compostera esta bien");
+            }
+            if (targetPipes != null)
+            {
+                targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
             }
             if (targetConstruction != null && targetConstruction.tag != "Untagged")
             {
                 general_UI.ConstructionPanelSwitcher(true);
+                general_UI.MinimapSwitcher(false);
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
-                interactionHappen = true;
-            }
-            if (interactionHappen)
-            {
-                playerAnim.Interaction(true);
+                MovmentState(false);
+                general_UI.InteractionCloud(false);
             }
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
             int aux;
-            aux = (maxBagSpace - itemsInBag) / 3;
-            globalVariables.recTrash += aux;
-            globalVariables.organicTrash += aux;
-            globalVariables.noRecTrash += aux;
+            aux = (maxBagSpace - itemsInBag) / 6;
+            gv.vidrioTrash = aux;
+            gv.plasticoTrash = aux;
+            gv.organicTrash = aux;
+            gv.noRecTrash = aux;
+            gv.metalTrash = aux;
+            gv.cartonTrash = aux;
             BagPercentage();
-            globalVariables.compostRefinado += 5;
-            globalVariables.metalRefinado += 5;
-            globalVariables.vidrioRefinado += 5;
-            globalVariables.plasticoRefinado += 5;
-            globalVariables.cartonRefinado += 5;
+            gv.compostRefinado += 5;
+            gv.metalRefinado += 5;
+            gv.vidrioRefinado += 5;
+            gv.plasticoRefinado += 5;
+            gv.cartonRefinado += 5;
             saveSystem.Save();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            globalVariables.recTrash = 0;
-            globalVariables.organicTrash = 0;
-            globalVariables.noRecTrash = 0;
+            gv.vidrioTrash = 0;
+            gv.plasticoTrash = 0;
+            gv.organicTrash = 0;
+            gv.noRecTrash = 0;
+            gv.metalTrash = 0;
+            gv.cartonTrash = 0;
             BagPercentage();
             saveSystem.Save();
         }
-        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30)
+        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30 && inDoor == "ToOutside")
         {
+            cone.enabled = true;
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else
+        else if (!isDepositing)
         {
+            cone.enabled = false;
             isAspiring = false;
             playerAnim.Aspire(false);
         }
     }
     public void BagPercentage()
     {
-        itemsInBag = globalVariables.vidrioTrash + globalVariables.cartonTrash + globalVariables.metalTrash + globalVariables.plasticoTrash + globalVariables.organicTrash + globalVariables.noRecTrash;
+        itemsInBag = gv.vidrioTrash + gv.cartonTrash + gv.metalTrash + gv.plasticoTrash + gv.organicTrash + gv.noRecTrash;
         bagPercentage = (itemsInBag * 100) / 30;
         player_UI.DisplayBagPercentage();
     }
@@ -138,47 +211,37 @@ public class PlayerInteraction : MonoBehaviour
     {
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
-        StartCoroutine(WaitInDoor(1));
+        StartCoroutine(LoadAsyncScene(inDoor));
     }
     public void MovmentState(bool state)
     {
         playerMovement.enabled = state;
     }
-    void StageChange(GameObject stageOn, GameObject stageOff)
+    IEnumerator LoadAsyncScene(string scene)
     {
-        stageOn.SetActive(true);
-        stageOff.SetActive(false);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
-    IEnumerator WaitInDoor(float secs)
+    public void CancelChangeStage()
     {
-        yield return new WaitForSeconds(secs);
         switch (inDoor)
         {
-            case "ToBasural":
-                transform.position = BasuralPoint.transform.position;
-                StageChange(basural, central);
-                general_UI.MinimapSwitcher(true);
+            case "Outside":
+                transform.position = insidePoint.transform.position;
+                transform.Rotate(0, 180, 0);
+                inDoor = "Inside";
                 break;
-            case "ToLobbyFB":
-                transform.position = LobbyPointB.transform.position;
-                StageChange(central, basural);
-                general_UI.MinimapSwitcher(false);
-                break;
-            case "ToLobbyFGZ":
-                transform.position = LobbyPointGZ.transform.position;
-                StageChange(central, greenZone);
-                general_UI.MinimapSwitcher(false);
-                break;
-            case "ToGreenZone":
-                transform.position = GreenZonePoint.transform.position;
-                StageChange(greenZone, central);
+            case "Inside":
+                transform.position = outisdePoint.transform.position;
+                transform.Rotate(0, 180, 0);
+                inDoor = "Outside";
                 break;
         }
-        player_UI.fadeState = 2;
         MovmentState(true);
-        changingStage = false;
-        inDoor = "";
-        InteractionEnds();
+        general_UI.MainPanelSwitcher(true);
     }
     public void BuildObject()
     {
@@ -191,40 +254,64 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void speakWithRecycler()
     {
-        targetRecycler.GetComponent<RecyclerNPC>().Speak();
+        targetRecycler.GetComponent<RecyclerNPC>().Speak(null);
     }
     public void stopSpeakingWithRecycler()
     {
-        targetRecycler.GetComponent<RecyclerNPC>().RestoreRotation();
-        targetRecycler.GetComponent<RecyclerNPC>().CheckLockedIdle();
-        targetRecycler.GetComponent<RecyclerNPC>().isSpeaking = false;
+        RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
+        targetRecyclerScript.RestoreRotation();
+        targetRecyclerScript.CheckLockedIdle();
+        targetRecyclerScript.isSpeaking = false;
+        if (targetRecyclerScript.isBlocker)
+        {
+            transform.position = targetRecycler.transform.position + targetRecycler.transform.forward * 3;
+            transform.rotation = targetRecycler.transform.rotation;
+        }
+        if (targetRecyclerScript.fromResponse)
+        {
+            targetRecyclerScript.fromResponse = false;
+            targetRecycler = null;
+        }
+    }
+    void DepositTrash()
+    {
+        isDepositing = true;
+        transform.position = targetDeposit.GetComponent<DepositObject>().depositPoint.position;
+        transform.rotation = Quaternion.Euler(0, 90, 0);
+        playerAnim.Aspire(true);
+        StartCoroutine(WaitForAnimation(3f));
+    }
+    IEnumerator WaitForAnimation(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        playerAnim.Aspire(false);
+        targetDeposit.GetComponent<DepositObject>().SetValues(gv.vidrioTrash, gv.cartonTrash, gv.organicTrash, gv.noRecTrash, gv.plasticoTrash, gv.metalTrash);
+        gv.vidrioTrash = 0;
+        gv.plasticoTrash = 0;
+        gv.organicTrash = 0;
+        gv.noRecTrash = 0;
+        gv.metalTrash = 0;
+        gv.cartonTrash = 0;
+        isDepositing = false;
+        BagPercentage();
+        saveSystem.Save();
     }
     public void EnterDetectObject(GameObject targetObject)
     {
-        if (targetObject.tag == "trash")
+        if (targetObject.tag == "Pipes")
         {
-            currentTrashPile = targetObject.gameObject;
-            canInteract = true;
-        }
-        if (targetObject.tag == "door")
-        {
-            inDoor = targetObject.name;
-            canInteract = true;
-        }
-        if (targetObject.tag == "arcade")
-        {
-            facingArcade = true;
-            canInteract = true;
+            targetPipes = targetObject;
+            general_UI.InteractionCloud(true);
         }
         if (targetObject.tag == "construction")
         {
-            targetConstruction = targetObject.gameObject;
-            canInteract = true;
+            targetConstruction = targetObject;
+            general_UI.InteractionCloud(true);
         }
         if (targetObject.tag == "Recycler")
         {
-            targetRecycler = targetObject.gameObject;
-            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
+            targetRecycler = targetObject;
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker || !targetRecycler.GetComponent<RecyclerNPC>().lockedIdle)
             {
                 targetRecycler.GetComponent<RecyclerNPC>().Attention();
             }
@@ -232,47 +319,27 @@ public class PlayerInteraction : MonoBehaviour
             {
                 speakWithRecycler();
             }
+            general_UI.InteractionCloud(true);
         }
-        general_UI.InteractionCloud(canInteract);
     }
     public void ExitDetectObject(GameObject targetObject)
     {
-        if (targetObject.tag == "trash")
+        if (targetObject.tag == "Pipes")
         {
-            currentTrashPile = null;
-            canInteract = false;
-        }
-        if (targetObject.tag == "door")
-        {
-            if (!changingStage)
-            {
-                inDoor = "";
-                canInteract = false;
-            }
-        }
-        if (targetObject.tag == "arcade")
-        {
-            facingArcade = false;
-            canInteract = false;
+            targetPipes = null;
+            general_UI.InteractionCloud(false);
         }
         if (targetObject.tag == "construction")
         {
             targetConstruction = null;
-            canInteract = false;
+            general_UI.InteractionCloud(false);
         }
         if (targetObject.tag == "Recycler")
         {
-            if (!targetRecycler.GetComponent<RecyclerNPC>().isBlocker)
-            {
-                targetRecycler = null;
-                Debug.Log("esNull");
-            }
+            targetRecycler = null;
+            Debug.Log("esNull");
+            general_UI.InteractionCloud(false);
         }
-        general_UI.InteractionCloud(canInteract);
-    }
-    public void InteractionEnds()
-    {
-        interactionHappen = false;
     }
     public void OnPause()
     {
@@ -286,5 +353,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
+        saveSystem.Save();
     }
 }

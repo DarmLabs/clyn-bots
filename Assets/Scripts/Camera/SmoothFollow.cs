@@ -7,11 +7,13 @@ public class SmoothFollow : MonoBehaviour
     public Transform target;
 
     float smoothSpeed = 10f;
-    public Vector3 offset;
+    [SerializeField] Vector3 offset;
+    [SerializeField] Vector3 rot;
     Vector3 targetOffset;
-    void Start()
+    void OnEnable()
     {
-        targetOffset = new Vector3(0, 1.3f,0);
+        targetOffset = new Vector3(0, 1.3f, 0);
+        transform.rotation = Quaternion.Euler(rot);
     }
     void FixedUpdate()
     {

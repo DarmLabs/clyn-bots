@@ -9,7 +9,11 @@ public class General_UI : MonoBehaviour
 {
     public PlayerInteraction playerInteraction;
     public GameObject mainPanel;
-    public GameObject miniGamePanel;
+    [SerializeField] GameObject centralMinigame;
+    [SerializeField] GameObject memoryMinigame;
+    [SerializeField] GameObject compostMinigame;
+    [SerializeField] GameObject pipesMinigame;
+    [SerializeField] GameObject mainMissionPanel;
     public GameObject constructionPanel;
     public GameObject minimap;
     public GameObject constructonRender;
@@ -24,11 +28,34 @@ public class General_UI : MonoBehaviour
     public Color32 unlockColor;
     public GameObject minigameAspire;
     public GameObject interactionCloud;
+    [SerializeField] GameObject changeStagePanel;
+    [SerializeField] TextMeshProUGUI textChangeStage;
 
 
     public void MainPanelSwitcher(bool state)
     {
         mainPanel.SetActive(state);
+    }
+    public void MainMissionSwitcher(bool state)
+    {
+        mainMissionPanel.SetActive(state);
+    }
+    public void BuildChangeStagePanel(string target)
+    {
+        playerInteraction.MovmentState(false);
+        playerInteraction.inDoor = target;
+        if (target == "Outside")
+        {
+            textChangeStage.text = "¿Quieres salir de la central?";
+        }
+        else
+        {
+            textChangeStage.text = "¿Quieres entrar a la central?";
+        }
+    }
+    public void ChangeStageSwitcher(bool state)
+    {
+        changeStagePanel.SetActive(state);
     }
     public void ConstructionPanelSwitcher(bool state)
     {
@@ -162,44 +189,21 @@ public class General_UI : MonoBehaviour
             upgradeBtn.GetComponent<Button>().image.color = unlockColor;
         }
     }
-    public void MinigamePanelSwitcher(bool state)
+    public void PipesMinigameSwitcher(bool state)
     {
-        GameObject memoryBtn;
-        GameObject centarlBtn;
-        memoryBtn = miniGamePanel.transform.GetChild(2).gameObject;
-        centarlBtn = miniGamePanel.transform.GetChild(1).gameObject;
-        GlobalVariables globalVariables;
-        globalVariables = playerInteraction.globalVariables;
-        bool noResources = true;
-        if (globalVariables.divisionNoRec == 0 && globalVariables.divisionRec == 0 && globalVariables.divisionOrganic == 0)
-        {
-            memoryBtn.SetActive(false);
-        }
-        else
-        {
-            memoryBtn.SetActive(true);
-            noResources = false;
-        }
-        if (globalVariables.recTrash == 0 && globalVariables.noRecTrash == 0 && globalVariables.organicTrash == 0)
-        {
-            centarlBtn.SetActive(false);
-        }
-        else
-        {
-            centarlBtn.SetActive(true);
-            noResources = false;
-        }
-        if (noResources)
-        {
-            Debug.Log("No tienes basura para separar en los minijuegos");
-        }
-        else
-        {
-            playerInteraction.interactionHappen = true;
-            miniGamePanel.SetActive(state);
-            MainPanelSwitcher(false);
-            playerInteraction.SaveTransform();
-        }
+        pipesMinigame.SetActive(state);
+    }
+    public void CompostMinigameSwitcher(bool state)
+    {
+        compostMinigame.SetActive(state);
+    }
+    public void CentralMinigameSwitcher(bool state)
+    {
+        centralMinigame.SetActive(state);
+    }
+    public void MemoryMinigameSwitcher(bool state)
+    {
+        memoryMinigame.SetActive(state);
     }
     public void MinigameAspireSwitcher(bool state)
     {
@@ -228,7 +232,6 @@ public class General_UI : MonoBehaviour
     public void InteractionCloud(bool state)
     {
         interactionCloud.SetActive(state);
-        playerInteraction.canInteract = false;
     }
     public void ChangeScene(string scene)
     {

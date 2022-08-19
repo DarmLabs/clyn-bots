@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Player_UI : MonoBehaviour
 {
     #region Imports & Required Objects
-    public GlobalVariables globalVariables;
+    GlobalVariables globalVariables;
     public GameObject bag;
     TextMeshProUGUI trashText;
     GameObject firstArrow, secondArrow, thirdArrow, greenButton;
@@ -26,6 +26,7 @@ public class Player_UI : MonoBehaviour
         thirdArrow = bag.transform.GetChild(3).gameObject;
         greenButton = bag.transform.GetChild(4).gameObject;
         Color oldColor = FadePanel.GetComponent<Image>().color;
+        globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
     }
 
     void LateUpdate()
@@ -92,5 +93,11 @@ public class Player_UI : MonoBehaviour
             fadeState = 0;
             FadePanel.SetActive(false);
         }
+    }
+    public void SetFade(int value)
+    {
+        fadeTime = 1;
+        FadePanel.SetActive(true);
+        FadePanel.GetComponent<Image>().color = new Color(oldColor.r, oldColor.g, oldColor.b, value);
     }
 }
