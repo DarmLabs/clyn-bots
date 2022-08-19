@@ -59,6 +59,10 @@ public class PlayerInteraction : MonoBehaviour
             player_UI.SetFade(255);
             player_UI.fadeState = 2;
         }
+        if(gv.pipesActiva){
+            gv.pipesActiva = false;
+            targetPipes.GetComponent<PipesMinigame>().Block();
+        }
     }
     void Update()
     {
