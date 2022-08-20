@@ -8,8 +8,16 @@ public class PipesMinigame : MonoBehaviour
     [SerializeField] General_UI general_UI;
     [SerializeField] PlayerInteraction player;
     [SerializeField] GameObject responseRecycler;
-    public void Block(){
-        gameObject.tag= "Untagged";
+    void Start()
+    {
+        if (player.gv.pipesActiva)
+        {
+            Block();
+        }
+    }
+    public void Block()
+    {
+        gameObject.tag = "Untagged";
         this.enabled = false;
     }
     public void Response(string id)

@@ -7,6 +7,7 @@ public class ConstructibleObj : MonoBehaviour
     GameObject UIManager;
     General_UI general_UI;
     SaveLoadSystem saveSystem;
+    MainMission mainMission;
     GameObject cinematicCamera;
     Orchard orchard;
     [Header("[0] = Vidrio\n[1] = Plastico\n[2] = Carton\n[3] = Metal\n[4] = Compost")]
@@ -24,6 +25,7 @@ public class ConstructibleObj : MonoBehaviour
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
         UIManager = GameObject.Find("CanvasOverlay");
         general_UI = UIManager.GetComponent<General_UI>();
+        mainMission = GameObject.FindObjectOfType<MainMission>();
     }
     public void ShowResources()
     {
@@ -105,6 +107,10 @@ public class ConstructibleObj : MonoBehaviour
         }
         PlayCinematic(building);
         ResourcesSubstraction();
+        if (mainMission.constructionsFinished < mainMission.maxConstructions)
+        {
+            mainMission.constructionsFinished++;
+        }
         saveSystem.Save();
     }
     public void PlayCinematic(GameObject target)

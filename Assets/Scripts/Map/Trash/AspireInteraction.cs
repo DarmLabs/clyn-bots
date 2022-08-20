@@ -58,7 +58,11 @@ public class AspireInteraction : MonoBehaviour
                 break;
 
         }
-        mainMission.trashRecolected++;
+        if (mainMission.trashRecolected < mainMission.maxTrash)
+        {
+            mainMission.trashRecolected++;
+        }
+
         playerInteraction.saveSystem.Save();
         playerInteraction.BagPercentage();
     }

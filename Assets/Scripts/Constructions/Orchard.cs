@@ -12,10 +12,12 @@ public class Orchard : MonoBehaviour
     public string seedType;
     [SerializeField] GameObject seedSelection, seedBtn, growBtn;
     [SerializeField] ConstructibleObj constructible;
+    MainMission mainMission;
     void Start()
     {
         land = landParent.GetComponentsInChildren<Transform>();
         constructible = GetComponent<ConstructibleObj>();
+        mainMission = GameObject.FindObjectOfType<MainMission>();
     }
     public void ActivatePanel()
     {
@@ -34,6 +36,7 @@ public class Orchard : MonoBehaviour
             }
         }
         currentState = "Seeded";
+        general_UI.saveSystem.Save();
     }
     public void GrowSeed()
     {
@@ -49,6 +52,7 @@ public class Orchard : MonoBehaviour
                     targetMesh = smallCarrot;
                     break;
             }
+            currentState = "Mini";
         }
         else if (currentState == "Mini")
         {
@@ -62,6 +66,10 @@ public class Orchard : MonoBehaviour
                     break;
             }
             gameObject.tag = "Untagged";
+            if (mainMission.cropsGrew < mainMission.maxCrops)
+            {
+                mainMission.cropsGrew++;
+            }
         }
         foreach (var pot in land)
         {
@@ -70,7 +78,7 @@ public class Orchard : MonoBehaviour
                 pot.gameObject.GetComponent<MeshFilter>().mesh = targetMesh;
             }
         }
-        currentState = "Mini";
+        general_UI.saveSystem.Save();
     }
     public void CheckState()
     {

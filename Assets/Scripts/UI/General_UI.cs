@@ -25,18 +25,19 @@ public class General_UI : MonoBehaviour
     public GameObject exitPanel;
     public TextMeshProUGUI constructionTitle, reqVidrio, reqPlastico, reqCompost, reqMetal, reqCarton;
     public GameObject constructionBtn;
-    public GameObject upgradeBtn;
-    public GameObject seedSection;
-    public GameObject[] plantacionBtns = new GameObject[3];
     public Color32 lockColor;
     public Color32 unlockColor;
     public GameObject minigameAspire;
     public GameObject interactionCloud;
     [SerializeField] GameObject changeStagePanel;
     [SerializeField] TextMeshProUGUI textChangeStage;
+    [SerializeField] TextMeshProUGUI[] mainMissionTexts;
+    [SerializeField] Slider[] mainMissionProgressBars;
+    MainMission mainMission;
     void Start()
     {
         saveSystem = playerInteraction.saveSystem;
+        mainMission = playerInteraction.mainMission;
     }
     public void MainPanelSwitcher(bool state)
     {
@@ -45,6 +46,23 @@ public class General_UI : MonoBehaviour
     public void MainMissionSwitcher(bool state)
     {
         mainMissionPanel.SetActive(state);
+    }
+    public void CheckMainMissionStatus()
+    {
+        mainMissionTexts[0].text = mainMission.trashRecolected + "/" + mainMission.maxTrash;
+        mainMissionTexts[1].text = mainMission.constructionsFinished + "/" + mainMission.maxConstructions;
+        mainMissionTexts[2].text = mainMission.maintainancePlayed + "/" + mainMission.maxMaintainance;
+        mainMissionTexts[3].text = mainMission.lakesCleaned + "/" + mainMission.maxLakes;
+        mainMissionTexts[4].text = mainMission.cropsGrew + "/" + mainMission.maxCrops;
+        RefreshProgressBars();
+    }
+    void RefreshProgressBars()
+    {
+        mainMissionProgressBars[0].value = Mathf.Round((mainMission.trashRecolected * 100) / mainMission.maxTrash);
+        mainMissionProgressBars[1].value = Mathf.Round((mainMission.constructionsFinished * 100) / mainMission.maxConstructions);
+        mainMissionProgressBars[2].value = Mathf.Round((mainMission.maintainancePlayed * 100) / mainMission.maxMaintainance);
+        mainMissionProgressBars[3].value = Mathf.Round((mainMission.lakesCleaned * 100) / mainMission.maxLakes);
+        mainMissionProgressBars[4].value = Mathf.Round((mainMission.cropsGrew * 100) / mainMission.maxCrops);
     }
     public void BuildChangeStagePanel(string target)
     {

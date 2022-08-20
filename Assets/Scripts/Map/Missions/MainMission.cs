@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 public class MainMission : MonoBehaviour
 {
-    public int trashRecolected, constructionsFinished, compostPlayed, lakesCleaned, cropsGrew;
+    public int trashRecolected, constructionsFinished, maintainancePlayed, lakesCleaned, cropsGrew;
+    public int maxTrash = 500, maxConstructions = 8, maxMaintainance = 5, maxLakes = 2, maxCrops = 4;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -15,7 +16,7 @@ public class MainMission : MonoBehaviour
         {
             trashRecolected = this.trashRecolected,
             constructionsFinished = this.constructionsFinished,
-            compostPlayed = this.compostPlayed,
+            maintainancePlayed = this.maintainancePlayed,
             lakesCleaned = this.lakesCleaned,
             cropsGrew = this.cropsGrew
         };
@@ -25,13 +26,13 @@ public class MainMission : MonoBehaviour
         var saveData = (SaveData)state;
         trashRecolected = saveData.trashRecolected;
         constructionsFinished = saveData.constructionsFinished;
-        compostPlayed = saveData.compostPlayed;
+        maintainancePlayed = saveData.maintainancePlayed;
         lakesCleaned = saveData.lakesCleaned;
         cropsGrew = saveData.cropsGrew;
     }
     [Serializable]
     private struct SaveData
     {
-        public int trashRecolected, constructionsFinished, compostPlayed, lakesCleaned, cropsGrew;
+        public int trashRecolected, constructionsFinished, maintainancePlayed, lakesCleaned, cropsGrew;
     }
 }
