@@ -15,8 +15,11 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject compostMinigame;
     [SerializeField] GameObject pipesMinigame;
     [SerializeField] GameObject mainMissionPanel;
-    public GameObject constructionPanel;
-    public GameObject minimap;
+    [SerializeField] GameObject constructionPanel;
+    [SerializeField] GameObject orchardPanel;
+    [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
+    int selection;
+    [SerializeField] GameObject minimap;
     public GameObject constructonRender;
     public Sprite Panel, Molino, Bomba, Trigo, Zanahoria, Tomate;
     public GameObject exitPanel;
@@ -60,20 +63,56 @@ public class General_UI : MonoBehaviour
     {
         changeStagePanel.SetActive(state);
     }
+    public void OrchardPanelSwitcher(bool state)
+    {
+        orchardPanel.SetActive(state);
+    }
+    public void OrchardSelection(GameObject targetBtn)
+    {
+        if (targetBtn.name == "Derecha")
+        {
+            selection++;
+        }
+        else
+        {
+            selection--;
+        }
+        if (selection < 1)
+        {
+            selection = 2;
+        }
+        Orchard orchard = playerInteraction.targetOrchard.GetComponent<Orchard>();
+        switch (selection)
+        {
+            case 1:
+                orchard.seedType = "Tomate";
+                break;
+            case 2:
+                orchard.seedType = "Zanahoria";
+                selection = 0;
+                break;
+        }
+    }
     public void ConstructionPanelSwitcher(bool state)
     {
         constructionPanel.SetActive(state);
     }
-    public void BuildingConstructionMenu(string title, string[] req, string reqSprite)
+    public void BuildingConstructionMenu(string title, string[] req, string reqSprite, bool isOrchard)
     {
-        constructionTitle.text = title;
-
-        reqVidrio.text = req[0];
-        reqPlastico.text = req[1];
-        reqCarton.text = req[2];
-        reqMetal.text = req[3];
-        reqCompost.text = req[4];
-
+        if (!isOrchard)
+        {
+            constructionTitle.text = title;
+            reqVidrio.text = req[0];
+            reqPlastico.text = req[1];
+            reqCarton.text = req[2];
+            reqMetal.text = req[3];
+            reqCompost.text = req[4];
+        }
+        else
+        {
+            orchardTitle.text = title;
+            reqCompostOrchard.text = req[4];
+        }
         bool found = false;
         switch (reqSprite)
         {
@@ -107,27 +146,6 @@ public class General_UI : MonoBehaviour
             constructonRender.GetComponent<Image>().sprite = null;
         }
     }
-    public void EnabledSection(string name)
-    {
-        switch (name)
-        {
-            case "Construir":
-                constructionBtn.SetActive(true);
-                seedSection.SetActive(false);
-                upgradeBtn.SetActive(false);
-                break;
-            case "Sembrar":
-                seedSection.SetActive(true);
-                constructionBtn.SetActive(false);
-                upgradeBtn.SetActive(false);
-                break;
-            case "Mejorar":
-                seedSection.SetActive(false);
-                upgradeBtn.SetActive(true);
-                constructionBtn.SetActive(false);
-                break;
-        }
-    }
     public void ConstructionButtonState(bool state)
     {
         constructionBtn.GetComponent<Button>().enabled = state;
@@ -140,58 +158,7 @@ public class General_UI : MonoBehaviour
             constructionBtn.GetComponent<Button>().image.color = unlockColor;
         }
     }
-    public void SeedButtonsState(bool state)
-    {
-        if (!state)
-        {
-            foreach (var button in plantacionBtns)
-            {
-                button.GetComponent<Button>().enabled = state;
-                button.GetComponent<Button>().image.color = lockColor;
-            }
-        }
-        else
-        {
-            int i = 0;
-            foreach (var button in plantacionBtns)
-            {
-                button.GetComponent<Button>().onClick.RemoveAllListeners();
-                button.GetComponent<Button>().enabled = state;
-                button.GetComponent<Button>().image.color = unlockColor;
-                if (playerInteraction.targetConstruction.GetComponent<Seed>() != null)
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            button.GetComponent<Button>().onClick.AddListener(() => { playerInteraction.targetConstruction.GetComponent<Seed>().ChooseSeed(0); });
-                            break;
-                        case 1:
-                            button.GetComponent<Button>().onClick.AddListener(() => { playerInteraction.targetConstruction.GetComponent<Seed>().ChooseSeed(1); });
-                            break;
-                        case 2:
-                            button.GetComponent<Button>().onClick.AddListener(() => { playerInteraction.targetConstruction.GetComponent<Seed>().ChooseSeed(2); });
-                            break;
-                    }
-                    button.GetComponent<Button>().onClick.AddListener(delegate { playerInteraction.targetConstruction.GetComponent<Seed>().PlaceSeed(); });
-                }
-                i += 1;
-            }
-        }
-    }
-    public void UpgradeButtonState(bool state)
-    {
-        upgradeBtn.GetComponent<Button>().enabled = state;
-        upgradeBtn.GetComponent<Button>().onClick.RemoveAllListeners();
-        upgradeBtn.GetComponent<Button>().onClick.AddListener(delegate { playerInteraction.targetConstruction.GetComponent<Seed>().GrowSeed(); });
-        if (!state)
-        {
-            upgradeBtn.GetComponent<Button>().image.color = lockColor;
-        }
-        else
-        {
-            upgradeBtn.GetComponent<Button>().image.color = unlockColor;
-        }
-    }
+
     public void PipesMinigameSwitcher(bool state)
     {
         pipesMinigame.SetActive(state);

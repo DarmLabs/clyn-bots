@@ -48,19 +48,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Movement()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 10f;
-        }
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            speed = 6f;
-            playerAnim.Aspire(true);
         }
         else
         {
             speed = 6f;
-            playerAnim.Aspire(false);
         }
         playerAnim.CheckSpeed(speed);
         rb.position += heading;

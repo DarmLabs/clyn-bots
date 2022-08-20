@@ -16,6 +16,7 @@ public class PlayerInteraction : MonoBehaviour
     public General_UI general_UI;
     [SerializeField] GameObject outisdePoint, insidePoint;
     public GameObject targetConstruction;
+    public GameObject targetOrchard;
     public GameObject targetRecycler;
     public GameObject targetDeposit;
     public GameObject targetCentralPad;
@@ -59,7 +60,8 @@ public class PlayerInteraction : MonoBehaviour
             player_UI.SetFade(255);
             player_UI.fadeState = 2;
         }
-        if(gv.pipesActiva){
+        if (gv.pipesActiva)
+        {
             gv.pipesActiva = false;
             targetPipes.GetComponent<PipesMinigame>().Block();
         }
@@ -100,6 +102,53 @@ public class PlayerInteraction : MonoBehaviour
             general_UI.MinigameAspireSwitcher(false);
         }
         if (Input.GetKeyDown(KeyCode.E))
+        {
+            Interaction();
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            int aux;
+            aux = (maxBagSpace - itemsInBag) / 6;
+            gv.vidrioTrash = aux;
+            gv.plasticoTrash = aux;
+            gv.organicTrash = aux;
+            gv.noRecTrash = aux;
+            gv.metalTrash = aux;
+            gv.cartonTrash = aux;
+            BagPercentage();
+            gv.compostRefinado += 5;
+            gv.metalRefinado += 5;
+            gv.vidrioRefinado += 5;
+            gv.plasticoRefinado += 5;
+            gv.cartonRefinado += 5;
+            saveSystem.Save();
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            gv.vidrioTrash = 0;
+            gv.plasticoTrash = 0;
+            gv.organicTrash = 0;
+            gv.noRecTrash = 0;
+            gv.metalTrash = 0;
+            gv.cartonTrash = 0;
+            BagPercentage();
+            saveSystem.Save();
+        }
+        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30 && inDoor == "Outside")
+        {
+            cone.enabled = true;
+            playerAnim.Aspire(true);
+            isAspiring = true;
+        }
+        else if (!isDepositing || itemsInBag == 30)
+        {
+            cone.enabled = false;
+            isAspiring = false;
+            playerAnim.Aspire(false);
+        }
+    }
+    void Interaction()
+    {
         {
             if (targetRecycler != null)
             {
@@ -151,6 +200,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 targetCompostPad.GetComponent<CompostMinigamePad>().Response(null);
             }
+
             if (targetPipes != null)
             {
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
@@ -163,47 +213,14 @@ public class PlayerInteraction : MonoBehaviour
                 MovmentState(false);
                 general_UI.InteractionCloud(false);
             }
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            int aux;
-            aux = (maxBagSpace - itemsInBag) / 6;
-            gv.vidrioTrash = aux;
-            gv.plasticoTrash = aux;
-            gv.organicTrash = aux;
-            gv.noRecTrash = aux;
-            gv.metalTrash = aux;
-            gv.cartonTrash = aux;
-            BagPercentage();
-            gv.compostRefinado += 5;
-            gv.metalRefinado += 5;
-            gv.vidrioRefinado += 5;
-            gv.plasticoRefinado += 5;
-            gv.cartonRefinado += 5;
-            saveSystem.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            gv.vidrioTrash = 0;
-            gv.plasticoTrash = 0;
-            gv.organicTrash = 0;
-            gv.noRecTrash = 0;
-            gv.metalTrash = 0;
-            gv.cartonTrash = 0;
-            BagPercentage();
-            saveSystem.Save();
-        }
-        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30 && inDoor == "Outside")
-        {
-            cone.enabled = true;
-            playerAnim.Aspire(true);
-            isAspiring = true;
-        }
-        else if (!isDepositing || itemsInBag == 30)
-        {
-            cone.enabled = false;
-            isAspiring = false;
-            playerAnim.Aspire(false);
+            if (targetOrchard != null && targetOrchard.tag != "Untagged")
+            {
+                targetOrchard.GetComponent<Orchard>().ActivatePanel();
+            }
+            else if (targetOrchard != null && targetOrchard.tag == "Untagged")
+            {
+                Debug.Log("Ya esta sembarado y crecido");
+            }
         }
     }
     public void BagPercentage()
@@ -253,9 +270,13 @@ public class PlayerInteraction : MonoBehaviour
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
         targetConstruction.GetComponent<SaveTag>().UpdateTag();
     }
-    public void UpgradeObject()
+    public void PlantSeed()
     {
-        targetConstruction.GetComponent<Seed>().GrowSeed();
+        targetOrchard.GetComponent<Orchard>().PlantSeed();
+    }
+    public void GrowSeed()
+    {
+        targetOrchard.GetComponent<Orchard>().GrowSeed();
     }
     public void speakWithRecycler()
     {
@@ -313,6 +334,11 @@ public class PlayerInteraction : MonoBehaviour
             targetConstruction = targetObject;
             general_UI.InteractionCloud(true);
         }
+        if (targetObject.tag == "Orchard")
+        {
+            targetOrchard = targetObject;
+            general_UI.InteractionCloud(true);
+        }
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = targetObject;
@@ -339,10 +365,14 @@ public class PlayerInteraction : MonoBehaviour
             targetConstruction = null;
             general_UI.InteractionCloud(false);
         }
+        if (targetObject.tag == "Orchard")
+        {
+            targetOrchard = null;
+            general_UI.InteractionCloud(false);
+        }
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = null;
-            Debug.Log("esNull");
             general_UI.InteractionCloud(false);
         }
     }
