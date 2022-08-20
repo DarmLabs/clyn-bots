@@ -18,9 +18,9 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject constructionPanel;
     [SerializeField] GameObject orchardPanel;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
-    int selection;
+    int selection = 1;
     [SerializeField] GameObject minimap;
-    public GameObject constructonRender;
+    public GameObject constructonRender, orchardRender;
     public Sprite Panel, Molino, Bomba, Trigo, Zanahoria, Tomate;
     public GameObject exitPanel;
     public TextMeshProUGUI constructionTitle, reqVidrio, reqPlastico, reqCompost, reqMetal, reqCarton;
@@ -95,11 +95,16 @@ public class General_UI : MonoBehaviour
         {
             selection--;
         }
-        if (selection < 1)
+        if (selection <= 0)
         {
             selection = 2;
         }
+        if (selection >= 3)
+        {
+            selection = 1;
+        }
         Orchard orchard = playerInteraction.targetOrchard.GetComponent<Orchard>();
+        Debug.Log(selection);
         switch (selection)
         {
             case 1:
@@ -107,9 +112,10 @@ public class General_UI : MonoBehaviour
                 break;
             case 2:
                 orchard.seedType = "Zanahoria";
-                selection = 0;
                 break;
         }
+        orchardTitle.text = "Plantando " + orchard.seedType;
+        RenderConstruction(orchard.seedType, orchardRender);
     }
     public void ConstructionPanelSwitcher(bool state)
     {
@@ -117,7 +123,13 @@ public class General_UI : MonoBehaviour
     }
     public void BuildingConstructionMenu(string title, string[] req, string reqSprite, bool isOrchard)
     {
-        if (!isOrchard)
+        if (isOrchard)
+        {
+            orchardTitle.text = title;
+            reqCompostOrchard.text = req[4];
+            RenderConstruction(reqSprite, orchardRender);
+        }
+        else
         {
             constructionTitle.text = title;
             reqVidrio.text = req[0];
@@ -125,37 +137,36 @@ public class General_UI : MonoBehaviour
             reqCarton.text = req[2];
             reqMetal.text = req[3];
             reqCompost.text = req[4];
+            RenderConstruction(reqSprite, constructonRender);
         }
-        else
-        {
-            orchardTitle.text = title;
-            reqCompostOrchard.text = req[4];
-        }
+    }
+    public void RenderConstruction(string reqSprite, GameObject render)
+    {
         bool found = false;
         switch (reqSprite)
         {
             case "Panel Solar":
-                constructonRender.GetComponent<Image>().sprite = Panel;
+                render.GetComponent<Image>().sprite = Panel;
                 found = true;
                 break;
             case "Molino":
-                constructonRender.GetComponent<Image>().sprite = Molino;
+                render.GetComponent<Image>().sprite = Molino;
                 found = true;
                 break;
             case "Bomba de Agua":
-                constructonRender.GetComponent<Image>().sprite = Bomba;
+                render.GetComponent<Image>().sprite = Bomba;
                 found = true;
                 break;
             case "Trigo":
-                constructonRender.GetComponent<Image>().sprite = Trigo;
+                render.GetComponent<Image>().sprite = Trigo;
                 found = true;
                 break;
             case "Zanahoria":
-                constructonRender.GetComponent<Image>().sprite = Zanahoria;
+                render.GetComponent<Image>().sprite = Zanahoria;
                 found = true;
                 break;
             case "Tomate":
-                constructonRender.GetComponent<Image>().sprite = Tomate;
+                render.GetComponent<Image>().sprite = Tomate;
                 found = true;
                 break;
         }

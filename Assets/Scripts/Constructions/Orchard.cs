@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Orchard : MonoBehaviour
 {
     General_UI general_UI;
     [SerializeField] GameObject landParent;
-    [SerializeField] Transform[] land;
+    [SerializeField] MeshFilter[] land;
     [SerializeField] Mesh brote, smallTomato, growTomato, smallCarrot, growCarrot;
     [SerializeField] string currentState;
     public string seedType;
@@ -15,7 +15,7 @@ public class Orchard : MonoBehaviour
     MainMission mainMission;
     void Start()
     {
-        land = landParent.GetComponentsInChildren<Transform>();
+        land = landParent.GetComponentsInChildren<MeshFilter>();
         constructible = GetComponent<ConstructibleObj>();
         mainMission = GameObject.FindObjectOfType<MainMission>();
     }
@@ -24,6 +24,9 @@ public class Orchard : MonoBehaviour
         general_UI = GameObject.FindObjectOfType<General_UI>();
         general_UI.OrchardPanelSwitcher(true);
         general_UI.MinimapSwitcher(false);
+        general_UI.InteractionCloud(false);
+        seedType = "Tomate";
+        general_UI.RenderConstruction(seedType, general_UI.orchardRender);
         CheckState();
     }
     public void PlantSeed()
@@ -99,6 +102,33 @@ public class Orchard : MonoBehaviour
                 seedBtn.SetActive(false);
                 growBtn.SetActive(true);
                 break;
+        }
+    }
+    public void ButtonsStates(bool state)
+    {
+        if (currentState == "")
+        {
+            seedBtn.GetComponent<Button>().enabled = state;
+            if (!state)
+            {
+                seedBtn.GetComponent<Button>().image.color = general_UI.lockColor;
+            }
+            else
+            {
+                seedBtn.GetComponent<Button>().image.color = general_UI.unlockColor;
+            }
+        }
+        else
+        {
+            growBtn.GetComponent<Button>().enabled = state;
+            if (!state)
+            {
+                growBtn.GetComponent<Button>().image.color = general_UI.lockColor;
+            }
+            else
+            {
+                growBtn.GetComponent<Button>().image.color = general_UI.unlockColor;
+            }
         }
     }
 }

@@ -32,7 +32,6 @@ public class ConstructibleObj : MonoBehaviour
         string title = "";
         string[] req = new string[5];
         reqMeet = true;
-        bool isOrchard = false;
         for (int i = 0; i < reqResources.Length; i++)
         {
             req[i] = reqResources[i].ToString();
@@ -73,13 +72,16 @@ public class ConstructibleObj : MonoBehaviour
         if (orchard == null)
         {
             title = "Construyendo " + building.name;
+            general_UI.ConstructionButtonState(reqMeet);
+            general_UI.BuildingConstructionMenu(title, req, building.name, false);
         }
         else
         {
+            orchard.ButtonsStates(reqMeet);
             title = "Plantando" + orchard.seedType;
-            isOrchard = true;
+            general_UI.BuildingConstructionMenu(title, req, orchard.seedType, true);
         }
-        general_UI.BuildingConstructionMenu(title, req, building.name, isOrchard);
+
     }
     public void ResourcesSubstraction()
     {

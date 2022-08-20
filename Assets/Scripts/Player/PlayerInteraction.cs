@@ -216,6 +216,7 @@ public class PlayerInteraction : MonoBehaviour
             if (targetOrchard != null && targetOrchard.tag != "Untagged")
             {
                 targetOrchard.GetComponent<Orchard>().ActivatePanel();
+                targetOrchard.GetComponent<ConstructibleObj>().ShowResources();
             }
             else if (targetOrchard != null && targetOrchard.tag == "Untagged")
             {
