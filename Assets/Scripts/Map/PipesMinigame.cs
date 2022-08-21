@@ -8,6 +8,8 @@ public class PipesMinigame : MonoBehaviour
     [SerializeField] General_UI general_UI;
     [SerializeField] PlayerInteraction player;
     [SerializeField] GameObject responseRecycler;
+    [SerializeField] GameObject lake;
+    [SerializeField] Material cleanWater;
     void Start()
     {
         if (player.gv.pipesActiva)
@@ -18,6 +20,7 @@ public class PipesMinigame : MonoBehaviour
     public void Block()
     {
         gameObject.tag = "Untagged";
+        lake.GetComponent<MeshRenderer>().material = cleanWater;
         this.enabled = false;
     }
     public void Response(string id)
