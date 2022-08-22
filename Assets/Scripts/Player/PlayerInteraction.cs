@@ -24,7 +24,6 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetCompostPad;
     public GameObject targetPipes;
     #endregion
-    public bool interactionHappen;
     public bool isAspiring;
     public string inDoor;
     int maxBagSpace = 30, itemsInBag;

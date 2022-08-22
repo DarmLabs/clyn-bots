@@ -101,6 +101,8 @@ public class ConstructibleObj : MonoBehaviour
         if (building.name == "Bomba de Agua")
         {
             gameObject.tag = "Pipes";
+            general_UI.playerInteraction.targetPipes = general_UI.playerInteraction.targetConstruction;
+            general_UI.playerInteraction.targetConstruction = null;
             general_UI.InteractionCloud(true);
         }
         else

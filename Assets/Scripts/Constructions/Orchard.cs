@@ -42,6 +42,7 @@ public class Orchard : MonoBehaviour, ISaveable
         if (!fromLoad)
         {
             currentState = "Seeded";
+            constructible.ResourcesSubstraction();
             general_UI.saveSystem.Save();
         }
     }
@@ -85,6 +86,7 @@ public class Orchard : MonoBehaviour, ISaveable
         }
         if (!fromLoad)
         {
+            constructible.ResourcesSubstraction();
             general_UI.saveSystem.Save();
         }
     }

@@ -26,7 +26,7 @@ public class PlayerObjectDetector : MonoBehaviour
             {
                 playerMovement.wallAhed = false;
             }
-            if (hit.distance < 1 && !playerInteraction.interactionHappen && targetObject == null && hit.transform.gameObject.tag != "Untagged")
+            if (hit.distance < 1 && targetObject == null && hit.transform.gameObject.tag != "Untagged")
             {
                 targetObject = hit.transform.gameObject;
                 playerInteraction.EnterDetectObject(targetObject);
