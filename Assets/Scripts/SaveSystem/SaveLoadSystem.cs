@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 public class SaveLoadSystem : MonoBehaviour
 {
     public string SavePath => $"{Application.persistentDataPath}/save.txt";
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLoadScene;
+    }
+    void OnLoadScene(Scene scene, LoadSceneMode mode)
+    {
+        Load();
+        Debug.Log("cargo");
+    }
     void Awake()
     {
         DontDestroyOnLoad(this);
-        Load();
     }
 
     public void Save()

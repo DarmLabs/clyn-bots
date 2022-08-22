@@ -2,46 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Orchard : MonoBehaviour
+using System;
+public class Orchard : MonoBehaviour, ISaveable
 {
     General_UI general_UI;
-    [SerializeField] GameObject landParent;
     [SerializeField] MeshFilter[] land;
     [SerializeField] Mesh brote, smallTomato, growTomato, smallCarrot, growCarrot;
-    [SerializeField] string currentState;
+    public string currentState;
     public string seedType;
     [SerializeField] GameObject seedSelection, seedBtn, growBtn;
     [SerializeField] ConstructibleObj constructible;
     MainMission mainMission;
     void Start()
     {
-        land = landParent.GetComponentsInChildren<MeshFilter>();
         constructible = GetComponent<ConstructibleObj>();
         mainMission = GameObject.FindObjectOfType<MainMission>();
+        general_UI = GameObject.FindObjectOfType<General_UI>();
     }
     public void ActivatePanel()
     {
-        general_UI = GameObject.FindObjectOfType<General_UI>();
         general_UI.OrchardPanelSwitcher(true);
         general_UI.MinimapSwitcher(false);
         general_UI.InteractionCloud(false);
-        seedType = "Tomate";
-        general_UI.RenderConstruction(seedType, general_UI.orchardRender);
+        if (currentState == "")
+        {
+            seedType = "Tomate";
+        }
         CheckState();
     }
-    public void PlantSeed()
+    public void PlantSeed(bool fromLoad)
     {
+        Debug.Log(land);
+        Debug.Log(brote);
         foreach (var pot in land)
         {
-            if (pot.gameObject.name != "Compu_Portatil")
-            {
-                pot.gameObject.GetComponent<MeshFilter>().mesh = brote;
-            }
+            pot.mesh = brote;
+            Debug.Log("mesh change");
         }
-        currentState = "Seeded";
-        general_UI.saveSystem.Save();
+        if (!fromLoad)
+        {
+            currentState = "Seeded";
+            general_UI.saveSystem.Save();
+        }
     }
-    public void GrowSeed()
+    public void GrowSeed(bool fromLoad)
     {
         Mesh targetMesh = new Mesh();
         if (currentState == "Seeded")
@@ -56,6 +60,7 @@ public class Orchard : MonoBehaviour
                     break;
             }
             currentState = "Mini";
+            general_UI.InteractionCloud(true);
         }
         else if (currentState == "Mini")
         {
@@ -69,19 +74,19 @@ public class Orchard : MonoBehaviour
                     break;
             }
             gameObject.tag = "Untagged";
-            if (mainMission.cropsGrew < mainMission.maxCrops)
+            if (mainMission.cropsGrew < mainMission.maxCrops && !fromLoad)
             {
                 mainMission.cropsGrew++;
             }
         }
         foreach (var pot in land)
         {
-            if (pot.gameObject.name != "Compu_Portatil")
-            {
-                pot.gameObject.GetComponent<MeshFilter>().mesh = targetMesh;
-            }
+            pot.mesh = targetMesh;
         }
-        general_UI.saveSystem.Save();
+        if (!fromLoad)
+        {
+            general_UI.saveSystem.Save();
+        }
     }
     public void CheckState()
     {
@@ -103,6 +108,7 @@ public class Orchard : MonoBehaviour
                 growBtn.SetActive(true);
                 break;
         }
+        general_UI.RenderConstruction(seedType, general_UI.orchardRender);
     }
     public void ButtonsStates(bool state)
     {
@@ -130,5 +136,37 @@ public class Orchard : MonoBehaviour
                 growBtn.GetComponent<Button>().image.color = general_UI.unlockColor;
             }
         }
+    }
+    public object SaveState()
+    {
+        return new SaveData()
+        {
+            currentState = this.currentState,
+            seedType = this.seedType
+        };
+    }
+    public void LoadState(object state)
+    {
+        var saveData = (SaveData)state;
+        currentState = saveData.currentState;
+        seedType = saveData.seedType;
+        if (currentState == "Seeded")
+        {
+            PlantSeed(true);
+        }
+        else if (currentState == "Mini" && gameObject.tag != "Untagged")
+        {
+            currentState = "Seeded";
+            GrowSeed(true);
+        }
+        else if (gameObject.tag == "Untagged")
+        {
+            GrowSeed(true);
+        }
+    }
+    [Serializable]
+    private struct SaveData
+    {
+        public string currentState, seedType;
     }
 }

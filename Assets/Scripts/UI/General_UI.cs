@@ -104,7 +104,6 @@ public class General_UI : MonoBehaviour
             selection = 1;
         }
         Orchard orchard = playerInteraction.targetOrchard.GetComponent<Orchard>();
-        Debug.Log(selection);
         switch (selection)
         {
             case 1:

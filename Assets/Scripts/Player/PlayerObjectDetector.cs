@@ -18,7 +18,7 @@ public class PlayerObjectDetector : MonoBehaviour
         Ray forwardRay = new Ray(transform.position, transform.parent.forward);
         if (Physics.Raycast(forwardRay, out hit))
         {
-            if (hit.distance < 0.5 && !hit.collider.isTrigger)
+            if (hit.distance < 1 && !hit.collider.isTrigger)
             {
                 playerMovement.wallAhed = true;
             }

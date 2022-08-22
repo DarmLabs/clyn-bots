@@ -273,11 +273,11 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void PlantSeed()
     {
-        targetOrchard.GetComponent<Orchard>().PlantSeed();
+        targetOrchard.GetComponent<Orchard>().PlantSeed(false);
     }
     public void GrowSeed()
     {
-        targetOrchard.GetComponent<Orchard>().GrowSeed();
+        targetOrchard.GetComponent<Orchard>().GrowSeed(false);
     }
     public void speakWithRecycler()
     {
