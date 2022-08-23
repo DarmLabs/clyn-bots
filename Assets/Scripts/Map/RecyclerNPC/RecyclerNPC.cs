@@ -19,6 +19,7 @@ public class RecyclerNPC : MonoBehaviour
     Animator anim;
     public bool isSpeaking;
     GameObject player;
+    GameObject playerBody;
     GameObject cinematicCamera;
     GameObject mainCamera;
     General_UI general_UI;
@@ -43,6 +44,7 @@ public class RecyclerNPC : MonoBehaviour
         missionSection = GameObject.Find("MissionSection");
         recyclerText = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
         player = GameObject.FindGameObjectWithTag("Player");
+        playerBody = GameObject.FindGameObjectWithTag("PlayerBody");
         cinematicCamera = GameObject.Find("CinematicCamera");
         general_UI = GameObject.FindObjectOfType<General_UI>().GetComponent<General_UI>();
     }
@@ -52,22 +54,30 @@ public class RecyclerNPC : MonoBehaviour
     }
     void CallDialogue(string id)
     {
+        TextAsset file;
         if (fromResponse)
         {
             if (id != null)
             {
-                recyclerText.text = Resources.Load("Textos/" + gameObject.name + "_Response" + id).ToString();
+                file = Resources.Load<TextAsset>("Textos/" + gameObject.name + "_Response" + id);
             }
             else
             {
-                recyclerText.text = Resources.Load("Textos/" + gameObject.name + "_Response_01").ToString();
+                file = Resources.Load<TextAsset>("Textos/" + gameObject.name + "_Response_01");
             }
         }
         else
         {
-            recyclerText.text = Resources.Load("Textos/" + gameObject.name).ToString();
+            file = Resources.Load<TextAsset>("Textos/" + gameObject.name);
         }
-
+        if(file != null){
+            general_UI.debugText.text = "file isnt null";
+            recyclerText.text = file.text;
+        }
+        else
+        {
+            general_UI.debugText.text = "file is null";
+        }
     }
     void Wander(Vector3 target)
     {
@@ -127,8 +137,8 @@ public class RecyclerNPC : MonoBehaviour
     }
     void CinematicCamera()
     {
-        player.transform.GetChild(3).transform.gameObject.SetActive(false);
-        cinematicCamera.transform.position = transform.position + transform.forward * 3.5f + transform.up * 1f;
+        playerBody.SetActive(false);
+        cinematicCamera.transform.position = player.transform.position - player.transform.forward * 1.5f + player.transform.up;
         cinematicCamera.transform.LookAt(transform.position + transform.up * 1f);
         general_UI.MainPanelSwitcher(false);
         mainCamera.SetActive(false);

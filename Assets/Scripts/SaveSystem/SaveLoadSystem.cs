@@ -14,7 +14,6 @@ public class SaveLoadSystem : MonoBehaviour
     void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
         Load();
-        Debug.Log("cargo");
     }
     void Awake()
     {

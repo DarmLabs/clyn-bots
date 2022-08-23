@@ -139,7 +139,7 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else if (!isDepositing || itemsInBag == 30)
+        else if ((!isDepositing || itemsInBag == 30) && isAspiring)
         {
             cone.enabled = false;
             isAspiring = false;

@@ -18,6 +18,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject constructionPanel;
     [SerializeField] GameObject orchardPanel;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
+    public TextMeshProUGUI debugText;
     int selection = 1;
     [SerializeField] GameObject minimap;
     public GameObject constructonRender, orchardRender;

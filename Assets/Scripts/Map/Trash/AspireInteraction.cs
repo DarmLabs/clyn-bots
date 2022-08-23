@@ -25,11 +25,11 @@ public class AspireInteraction : MonoBehaviour
     }
     void LerpToHand()
     {
+        Aspire();
         transform.position = Vector3.Lerp(transform.position, target.transform.GetChild(0).position, 0.5f);
         transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 0.5f);
         if (transform.localScale.x == 0)
         {
-            Aspire();
             Destroy(gameObject);
         }
     }
