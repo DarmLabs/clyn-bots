@@ -21,6 +21,7 @@ public class General_UI : MonoBehaviour
     public TextMeshProUGUI debugText;
     int selection = 1;
     [SerializeField] GameObject minimap;
+    [SerializeField] GameObject fullMap;
     public GameObject constructonRender, orchardRender;
     public Sprite Panel, Molino, Bomba, Trigo, Zanahoria, Tomate;
     public GameObject exitPanel;
@@ -223,6 +224,10 @@ public class General_UI : MonoBehaviour
     public void MinimapSwitcher(bool state)
     {
         minimap.SetActive(state);
+    }
+    public void FullMapSwitcher(bool state)
+    {
+        fullMap.SetActive(state);
     }
     public void ExitPanelSwitcher(bool state)
     {

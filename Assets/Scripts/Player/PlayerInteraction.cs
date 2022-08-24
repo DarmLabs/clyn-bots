@@ -145,6 +145,16 @@ public class PlayerInteraction : MonoBehaviour
             isAspiring = false;
             playerAnim.Aspire(false);
         }
+        if (Input.GetKeyDown(KeyCode.M) && inDoor == "Outside" && general_UI.mainPanel.activeSelf != false)
+        {
+            general_UI.FullMapSwitcher(true);
+            general_UI.MainPanelSwitcher(false);
+        }
+        if (Input.GetKeyUp(KeyCode.M) && inDoor == "Outside")
+        {
+            general_UI.FullMapSwitcher(false);
+            general_UI.MainPanelSwitcher(true);
+        }
     }
     void Interaction()
     {

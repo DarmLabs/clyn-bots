@@ -9,8 +9,9 @@ public class Player_UI : MonoBehaviour
     #region Imports & Required Objects
     GlobalVariables globalVariables;
     public GameObject bag;
-    TextMeshProUGUI trashText;
-    GameObject firstArrow, secondArrow, thirdArrow, greenButton;
+    [SerializeField] TextMeshProUGUI trashText;
+    [SerializeField] GameObject greenButton;
+    [SerializeField] Slider aspireProgress;
     public TextMeshProUGUI vidrioRefText, plasticoRefText, compostText, cartonRefText, metalRefText;
     public GameObject FadePanel;
     public PlayerInteraction playerInteraction;
@@ -20,11 +21,6 @@ public class Player_UI : MonoBehaviour
     Color oldColor;
     void Start()
     {
-        trashText = bag.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        firstArrow = bag.transform.GetChild(1).gameObject;
-        secondArrow = bag.transform.GetChild(2).gameObject;
-        thirdArrow = bag.transform.GetChild(3).gameObject;
-        greenButton = bag.transform.GetChild(4).gameObject;
         Color oldColor = FadePanel.GetComponent<Image>().color;
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
     }
@@ -44,24 +40,14 @@ public class Player_UI : MonoBehaviour
     public void DisplayBagPercentage()
     {
         trashText.text = playerInteraction.bagPercentage + " %";
-        switch (playerInteraction.bagPercentage)
+        aspireProgress.value = playerInteraction.bagPercentage;
+        if (playerInteraction.bagPercentage == 100)
         {
-            case 0:
-                firstArrow.SetActive(false);
-                secondArrow.SetActive(false);
-                thirdArrow.SetActive(false);
-                greenButton.SetActive(false);
-                break;
-            case 33:
-                firstArrow.SetActive(true);
-                break;
-            case 66:
-                secondArrow.SetActive(true);
-                break;
-            case 100:
-                thirdArrow.SetActive(true);
-                greenButton.SetActive(true);
-                break;
+            greenButton.SetActive(true);
+        }
+        else
+        {
+            greenButton.SetActive(false);
         }
     }
     void DisplayRefTrash()
