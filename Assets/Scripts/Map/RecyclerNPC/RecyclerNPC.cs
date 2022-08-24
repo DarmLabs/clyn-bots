@@ -20,13 +20,14 @@ public class RecyclerNPC : MonoBehaviour
     public bool isSpeaking;
     GameObject player;
     GameObject playerBody;
-    GameObject cinematicCamera;
+    public GameObject cinematicCamera;
     GameObject mainCamera;
     General_UI general_UI;
     Vector3 previousRot;
     bool going = true;
     public bool fromResponse;
     [SerializeField] string walkingStyle;
+    [SerializeField] Transform cinematicCameraPoint;
     void Awake()
     {
         pointA = pointA + transform.parent.position;
@@ -70,13 +71,9 @@ public class RecyclerNPC : MonoBehaviour
         {
             file = Resources.Load<TextAsset>("Textos/" + gameObject.name);
         }
-        if(file != null){
-            general_UI.debugText.text = "file isnt null";
-            recyclerText.text = file.text;
-        }
-        else
+        if (file != null)
         {
-            general_UI.debugText.text = "file is null";
+            recyclerText.text = file.text;
         }
     }
     void Wander(Vector3 target)
@@ -109,7 +106,7 @@ public class RecyclerNPC : MonoBehaviour
                 okSection.SetActive(true);
             }
             CinematicCamera();
-            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, 0.1f, 0));
+            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, -0.2f, 0));
             CallDialogue(id);
         }
     }
@@ -138,8 +135,9 @@ public class RecyclerNPC : MonoBehaviour
     void CinematicCamera()
     {
         playerBody.SetActive(false);
-        cinematicCamera.transform.position = player.transform.position - player.transform.forward * 1.5f + player.transform.up;
-        cinematicCamera.transform.LookAt(transform.position + transform.up * 1f);
+        cinematicCamera.transform.parent = this.transform;
+        cinematicCamera.transform.position = cinematicCameraPoint.position;
+        cinematicCamera.transform.rotation = cinematicCameraPoint.rotation;
         general_UI.MainPanelSwitcher(false);
         mainCamera.SetActive(false);
         cinematicCamera.SetActive(true);

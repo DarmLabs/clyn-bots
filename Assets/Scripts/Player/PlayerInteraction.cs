@@ -288,6 +288,7 @@ public class PlayerInteraction : MonoBehaviour
         targetRecyclerScript.RestoreRotation();
         targetRecyclerScript.CheckLockedIdle();
         targetRecyclerScript.isSpeaking = false;
+        targetRecyclerScript.cinematicCamera.transform.parent = null;
         if (targetRecyclerScript.isBlocker)
         {
             transform.position = targetRecycler.transform.position + targetRecycler.transform.forward * 3;

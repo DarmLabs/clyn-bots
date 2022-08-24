@@ -5343,7 +5343,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587568273}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0.1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11092,7 +11092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327580360}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.79073, y: -14.733061, z: 118.44554}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11638,6 +11638,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 904744519}
+        m_TargetAssemblyTypeName: General_UI, Assembly-CSharp
+        m_MethodName: MainPanelSwitcher
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1448714650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12105,7 +12117,7 @@ CapsuleCollider:
   m_Radius: 0.6
   m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0.02, y: 0.9, z: -0.26}
+  m_Center: {x: 0.02, y: 0.9, z: 0}
 --- !u!65 &1540834239
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13055,6 +13067,22 @@ PrefabInstance:
     - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
       propertyPath: idle
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
+      propertyPath: lookPos.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
+      propertyPath: lookPos.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
+      propertyPath: lookPos.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
+      propertyPath: lookRot.y
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
       propertyPath: lockedIdle
@@ -25652,7 +25680,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1.8
   m_Direction: 1
-  m_Center: {x: 0.02, y: 0.9, z: -0.26}
+  m_Center: {x: 0.02, y: 0.9, z: 0}
 --- !u!23 &5512091193948811192
 MeshRenderer:
   m_ObjectHideFlags: 0
