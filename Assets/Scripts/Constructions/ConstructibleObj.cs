@@ -15,6 +15,7 @@ public class ConstructibleObj : MonoBehaviour
     public GameObject target;
     public GameObject building;
     bool reqMeet = true;
+    [SerializeField] RecyclerNPC recycler;
     void Start()
     {
         if (GetComponent<Orchard>() != null)
@@ -108,6 +109,10 @@ public class ConstructibleObj : MonoBehaviour
         else
         {
             gameObject.tag = "Untagged";
+        }
+        if (recycler != null)
+        {
+            recycler.gameObject.name += "_Constructed";
         }
         PlayCinematic(building);
         ResourcesSubstraction();
