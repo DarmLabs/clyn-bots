@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetMemoryPad;
     public GameObject targetCompostPad;
     public GameObject targetPipes;
+    [SerializeField] MissionTrack missionTrack;
     #endregion
     public bool isAspiring;
     public string inDoor;
@@ -34,9 +35,10 @@ public class PlayerInteraction : MonoBehaviour
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
-        gv = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
-        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>().GetComponent<SaveLoadSystem>();
-        mainMission = GameObject.FindObjectOfType<MainMission>().GetComponent<MainMission>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
+        saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
+        mainMission = GameObject.FindObjectOfType<MainMission>();
+        missionTrack = GameObject.FindObjectOfType<MissionTrack>();
     }
     void Start()
     {
@@ -291,6 +293,11 @@ public class PlayerInteraction : MonoBehaviour
     public void speakWithRecycler()
     {
         targetRecycler.GetComponent<RecyclerNPC>().Speak(null);
+        if (targetRecycler.GetComponent<RecyclerNPC>().missionTarget)
+        {
+            targetRecycler.GetComponent<RecyclerNPC>().missionTarget = false;
+            missionTrack.TransportMissionTraget();
+        }
     }
     public void stopSpeakingWithRecycler()
     {

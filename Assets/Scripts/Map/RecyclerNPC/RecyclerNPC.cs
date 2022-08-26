@@ -10,6 +10,7 @@ public class RecyclerNPC : MonoBehaviour
     [SerializeField] GameObject okSection, missionSection;
     [SerializeField] TextMeshProUGUI recyclerText;
     [SerializeField] bool idle;
+    public bool missionTarget;
     public bool isGreeting;
     [SerializeField] bool haveMission;
     public bool lockedIdle;

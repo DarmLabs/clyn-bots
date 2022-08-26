@@ -15,6 +15,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool memoriaAccesible = false;
     public bool compostActiva = false;
     public bool pipesActiva = false;
+    public int currentMissionStage;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -53,7 +54,9 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             plasticoRefinado = this.plasticoRefinado,
             cartonRefinado = this.cartonRefinado,
             metalRefinado = this.metalRefinado,
-            compostRefinado = this.compostRefinado
+            compostRefinado = this.compostRefinado,
+
+            currentMissionStage = this.currentMissionStage
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
@@ -88,6 +91,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         cartonRefinado = saveData.cartonRefinado;
         metalRefinado = saveData.metalRefinado;
         compostRefinado = saveData.compostRefinado;
+
+        currentMissionStage = saveData.currentMissionStage;
     }
     [Serializable]
     private struct SaveData
@@ -101,6 +106,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public bool memoriaAccesible;
         public bool compostActiva;
         public bool pipesActiva;
-        
+        public int currentMissionStage;
     }
 }
