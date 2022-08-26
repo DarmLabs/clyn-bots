@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MissionTrack : MonoBehaviour
 {
-    [SerializeField] GameObject[] stages;
+    public GameObject[] stages;
     [SerializeField] GameObject door;
     GlobalVariables gv;
     SaveLoadSystem saveSystem;
@@ -12,12 +12,23 @@ public class MissionTrack : MonoBehaviour
     {
         gv = GameObject.FindObjectOfType<GlobalVariables>();
         saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
+        CheckSpecialStages();
         PlaceStage(false);
+    }
+    void CheckSpecialStages()
+    {
+        if (gv.memoriaAccesible && gv.currentMissionStage == 5)
+        {
+            gv.currentMissionStage++;
+        }
+        if (gv.metalRefinado + gv.cartonRefinado + gv.vidrioRefinado + gv.compostRefinado + gv.plasticoRefinado > 0 && gv.currentMissionStage == 7)
+        {
+            gv.currentMissionStage++;
+        }
     }
     public void TransportMissionTraget()
     {
         gv.currentMissionStage++;
-        Debug.Log(gv.currentMissionStage);
         if (stages[gv.currentMissionStage] != null && stages[gv.currentMissionStage].GetComponent<RecyclerNPC>() != null)
         {
             stages[gv.currentMissionStage].GetComponent<RecyclerNPC>().missionTarget = true;
@@ -34,12 +45,15 @@ public class MissionTrack : MonoBehaviour
         else
         {
             transform.position = door.transform.position;
-            transform.position += transform.right * 3;
-            transform.position += transform.up * 2;
+            transform.position += transform.up * 4;
         }
         if (save)
         {
             saveSystem.Save();
+        }
+        else if (!save && stages[gv.currentMissionStage] != null && stages[gv.currentMissionStage].GetComponent<RecyclerNPC>() != null)
+        {
+            stages[gv.currentMissionStage].GetComponent<RecyclerNPC>().missionTarget = true;
         }
     }
 }

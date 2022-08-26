@@ -201,6 +201,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1173661153230142973, guid: 241e9409d3d320642b144d8386abef68, type: 3}
   m_PrefabInstance: {fileID: 13029779}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &13029781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1946256755717924679, guid: 241e9409d3d320642b144d8386abef68, type: 3}
+  m_PrefabInstance: {fileID: 13029779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &13250417
 GameObject:
   m_ObjectHideFlags: 0
@@ -8826,7 +8831,13 @@ MonoBehaviour:
   - {fileID: 704391279}
   - {fileID: 2124375128}
   - {fileID: 0}
-  door: {fileID: 349307085}
+  - {fileID: 235841924}
+  - {fileID: 46693509}
+  - {fileID: 2047359877}
+  - {fileID: 749830877}
+  - {fileID: 713505358}
+  - {fileID: 13029781}
+  door: {fileID: 944561381}
 --- !u!4 &1019755250
 Transform:
   m_ObjectHideFlags: 0
@@ -21567,7 +21578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec0a48127daebb5448830df3879eded5, type: 3}
       propertyPath: m_Name
-      value: RecyclerMissionTrack
+      value: RecyclerGuideInside
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ec0a48127daebb5448830df3879eded5, type: 3}
       propertyPath: m_TagString

@@ -292,11 +292,36 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void speakWithRecycler()
     {
-        targetRecycler.GetComponent<RecyclerNPC>().Speak(null);
-        if (targetRecycler.GetComponent<RecyclerNPC>().missionTarget)
+        RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
+        if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name != "RecyclerGuideOutside")
         {
-            targetRecycler.GetComponent<RecyclerNPC>().missionTarget = false;
+            targetRecyclerScript.Speak(null);
+            targetRecyclerScript.missionTarget = false;
             missionTrack.TransportMissionTraget();
+        }
+        else if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name == "RecyclerGuideOutside")
+        {
+            if (targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
+            {
+                targetRecyclerScript.Speak(null);
+                targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract = false;
+            }
+            else if (bagPercentage == 100)
+            {
+                targetRecyclerScript.fromResponse = true;
+                targetRecyclerScript.Speak("_02");
+                targetRecyclerScript.missionTarget = false;
+                missionTrack.TransportMissionTraget();
+            }
+            else
+            {
+                targetRecyclerScript.fromResponse = true;
+                targetRecyclerScript.Speak(null);
+            }
+        }
+        else
+        {
+            targetRecyclerScript.Speak(null);
         }
     }
     public void stopSpeakingWithRecycler()

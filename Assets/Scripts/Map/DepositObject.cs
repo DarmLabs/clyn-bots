@@ -7,10 +7,16 @@ public class DepositObject : MonoBehaviour, ISaveable
 {
     public bool isFull;
     [SerializeField] int dVidrio, dCarton, dOrganico, dNoRecu, dPlastico, dMetal;
+    GlobalVariables gv;
+    MissionTrack missionTrack;
     public Transform depositPoint;
     [SerializeField] PlayerInteraction player;
     [SerializeField] General_UI general_UI;
     [SerializeField] GameObject responseRecycler;
+    void Start()
+    {
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
+    }
 
     public void Response(string id)
     {
@@ -43,6 +49,10 @@ public class DepositObject : MonoBehaviour, ISaveable
         dPlastico = plastico;
         dMetal = metal;
         isFull = true;
+        if (missionTrack.stages[gv.currentMissionStage] = this.gameObject)
+        {
+            gv.currentMissionStage++;
+        }
     }
     public object SaveState()
     {
