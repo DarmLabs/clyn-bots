@@ -16,6 +16,7 @@ public class DepositObject : MonoBehaviour, ISaveable
     void Start()
     {
         gv = GameObject.FindObjectOfType<GlobalVariables>();
+        missionTrack = GameObject.FindObjectOfType<MissionTrack>();
     }
 
     public void Response(string id)

@@ -295,9 +295,26 @@ public class PlayerInteraction : MonoBehaviour
         RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
         if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name != "RecyclerGuideOutside")
         {
-            targetRecyclerScript.Speak(null);
-            targetRecyclerScript.missionTarget = false;
-            missionTrack.TransportMissionTraget();
+            if (targetRecyclerScript.gameObject.name == "RecyclerGuideInside" && targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
+            {
+                targetRecyclerScript.fromResponse = true;
+                targetRecyclerScript.Speak(null);
+                targetRecyclerScript.missionTarget = false;
+                missionTrack.TransportMissionTraget();
+            }
+            else if (targetRecyclerScript.gameObject.name == "RecyclerConstruction" && targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
+            {
+                targetRecyclerScript.fromResponse = true;
+                targetRecyclerScript.Speak(null);
+                targetRecyclerScript.missionTarget = false;
+                missionTrack.TransportMissionTraget();
+            }
+            else
+            {
+                targetRecyclerScript.Speak(null);
+                targetRecyclerScript.missionTarget = false;
+                missionTrack.TransportMissionTraget();
+            }
         }
         else if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name == "RecyclerGuideOutside")
         {
@@ -319,7 +336,7 @@ public class PlayerInteraction : MonoBehaviour
                 targetRecyclerScript.Speak(null);
             }
         }
-        else
+        else if (targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>() == null)
         {
             targetRecyclerScript.Speak(null);
         }

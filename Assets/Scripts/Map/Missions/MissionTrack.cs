@@ -13,10 +13,17 @@ public class MissionTrack : MonoBehaviour
         gv = GameObject.FindObjectOfType<GlobalVariables>();
         saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
         CheckSpecialStages();
-        PlaceStage(false);
     }
     void CheckSpecialStages()
     {
+        if (gv.currentMissionStage == 16)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            PlaceStage(false);
+        }
         if (gv.memoriaAccesible && gv.currentMissionStage == 5)
         {
             gv.currentMissionStage++;
@@ -29,6 +36,10 @@ public class MissionTrack : MonoBehaviour
     public void TransportMissionTraget()
     {
         gv.currentMissionStage++;
+        if (gv.currentMissionStage == 16)
+        {
+            Destroy(gameObject);
+        }
         if (stages[gv.currentMissionStage] != null && stages[gv.currentMissionStage].GetComponent<RecyclerNPC>() != null)
         {
             stages[gv.currentMissionStage].GetComponent<RecyclerNPC>().missionTarget = true;
