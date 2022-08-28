@@ -18,11 +18,11 @@ public class PrefabScatter : MonoBehaviour
     }
     void Start()
     {
-        for (int i = 0; i < 2000; i++)
+        for (int i = 0; i < 500; i++)
         {
             isAboveWater = false;
-            int xPos = Random.Range(-98, 196);
-            int zPos = Random.Range(-100, 100);
+            int xPos = Random.Range(-97, 0);
+            int zPos = Random.Range(0, 100);
             CheckHeight(xPos, zPos);
             int randomIndex = Random.Range(0, trash.Length);
             if (!isAboveWater)
