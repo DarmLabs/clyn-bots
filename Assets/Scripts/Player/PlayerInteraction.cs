@@ -265,12 +265,12 @@ public class PlayerInteraction : MonoBehaviour
         {
             case "Outside":
                 transform.position = insidePoint.transform.position;
-                transform.Rotate(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0, 90, 0);
                 inDoor = "Inside";
                 break;
             case "Inside":
                 transform.position = outisdePoint.transform.position;
-                transform.Rotate(0, 180, 0);
+                transform.rotation = Quaternion.Euler(0, -90, 0);
                 inDoor = "Outside";
                 break;
         }
