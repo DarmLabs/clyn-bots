@@ -6,29 +6,30 @@ using UnityEngine.AI;
 using TMPro;
 public class RecyclerNPC : MonoBehaviour
 {
-    [SerializeField] GameObject dialogueBox;
-    [SerializeField] GameObject okSection, missionSection;
-    [SerializeField] TextMeshProUGUI recyclerText;
-    [SerializeField] bool idle;
-    public bool missionTarget;
-    public bool isGreeting;
+    GameObject dialogueBox;
+    GameObject okSection, missionSection;
+    TextMeshProUGUI recyclerText;
+    [HideInInspector] public bool missionTarget;
     [SerializeField] bool haveMission;
+    [SerializeField] string scene;
+    [SerializeField] bool idle;
     public bool lockedIdle;
     public bool isBlocker;
     public Vector3 pointA, pointB;
+    [SerializeField] string walkingStyle;
     NavMeshAgent nav;
     Animator anim;
+    public bool isGreeting;
     public bool isSpeaking;
     GameObject player;
     GameObject playerBody;
-    public GameObject cinematicCamera;
+    [HideInInspector] public GameObject cinematicCamera;
     GameObject mainCamera;
     General_UI general_UI;
     Vector3 previousRot;
     bool going = true;
     public bool fromResponse;
-    [SerializeField] string walkingStyle;
-    [SerializeField] Transform cinematicCameraPoint;
+    [HideInInspector][SerializeField] Transform cinematicCameraPoint;
     void Awake()
     {
         pointA = pointA + transform.parent.position;
@@ -76,6 +77,7 @@ public class RecyclerNPC : MonoBehaviour
         {
             recyclerText.text = file.text;
         }
+        fromResponse = false;
     }
     void Wander(Vector3 target)
     {
@@ -100,6 +102,26 @@ public class RecyclerNPC : MonoBehaviour
             }
             if (haveMission)
             {
+                Button yesBtn = missionSection.transform.Find("Yes").GetComponent<Button>();
+                if (gameObject.name == "RecyclerMainMission")
+                {
+                    yesBtn.onClick.AddListener(delegate { general_UI.MainMissionSwitcher(true); });
+                }
+                else
+                {
+                    if (gameObject.name == "RecyclerMinigameCentral" && general_UI.playerInteraction.bagPercentage != 100)
+                    {
+                        fromResponse = true;
+                        CinematicCamera();
+                        CallDialogue(null);
+                        okSection.SetActive(true);
+                        return;
+                    }
+                    else
+                    {
+                        yesBtn.onClick.AddListener(delegate { general_UI.ChangeScene(scene); });
+                    }
+                }
                 missionSection.SetActive(true);
             }
             else
@@ -107,7 +129,6 @@ public class RecyclerNPC : MonoBehaviour
                 okSection.SetActive(true);
             }
             CinematicCamera();
-            dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, -0.2f, 0));
             CallDialogue(id);
         }
     }
@@ -142,6 +163,7 @@ public class RecyclerNPC : MonoBehaviour
         general_UI.MainPanelSwitcher(false);
         mainCamera.SetActive(false);
         cinematicCamera.SetActive(true);
+        dialogueBox.transform.position = cinematicCamera.GetComponent<Camera>().WorldToScreenPoint(transform.position + new Vector3(0, -0.2f, 0));
     }
     public void RestoreRotation()
     {

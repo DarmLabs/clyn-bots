@@ -2819,17 +2819,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
   m_PrefabInstance: {fileID: 136974336}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 136974339}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3767124ed83319439338ef77c752014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &136974339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1946256755717924679, guid: 241e9409d3d320642b144d8386abef68, type: 3}
-  m_PrefabInstance: {fileID: 136974336}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &139418989
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,17 +12931,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
   m_PrefabInstance: {fileID: 495722630}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 495722633}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3767124ed83319439338ef77c752014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &495722633 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1946256755717924679, guid: 241e9409d3d320642b144d8386abef68, type: 3}
-  m_PrefabInstance: {fileID: 495722630}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &497930071
 GameObject:
   m_ObjectHideFlags: 0
@@ -29667,17 +29657,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
   m_PrefabInstance: {fileID: 1352890235}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1352890238}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3767124ed83319439338ef77c752014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1352890238 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1946256755717924679, guid: 241e9409d3d320642b144d8386abef68, type: 3}
-  m_PrefabInstance: {fileID: 1352890235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1355535030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29767,29 +29752,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361544319}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cdba94067be6784aaaab07749e21998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1946256755521457863}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1693459236}
-  - {fileID: 495722633}
-  - {fileID: 136974339}
-  - {fileID: 1352890238}
-  - {fileID: 1784878588}
-  - {fileID: 1057218458}
-  - {fileID: 1693459236}
-  - {fileID: 0}
+  stages: []
   door: {fileID: 2044358146}
 --- !u!4 &1361544321
 Transform:
@@ -34296,6 +34264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RecyclerConstruction
       objectReference: {fileID: 0}
+    - target: {fileID: 1946256755717924679, guid: 241e9409d3d320642b144d8386abef68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2425122968660594324, guid: 241e9409d3d320642b144d8386abef68, type: 3}
       propertyPath: idle
       value: 1
@@ -35400,11 +35372,6 @@ PrefabInstance:
 --- !u!4 &1784878587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1173661153230142973, guid: 241e9409d3d320642b144d8386abef68, type: 3}
-  m_PrefabInstance: {fileID: 1784878586}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1784878588 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1946256755717924679, guid: 241e9409d3d320642b144d8386abef68, type: 3}
   m_PrefabInstance: {fileID: 1784878586}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1793364152
@@ -45001,7 +44968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1949609840379286394
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -45861,22 +45828,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3767124ed83319439338ef77c752014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
-  okSection: {fileID: 0}
-  missionSection: {fileID: 0}
-  recyclerText: {fileID: 0}
-  idle: 1
   missionTarget: 0
-  isGreeting: 0
   haveMission: 0
+  scene: 
+  idle: 1
   lockedIdle: 1
   isBlocker: 0
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
+  walkingStyle: 
+  isGreeting: 0
   isSpeaking: 0
   cinematicCamera: {fileID: 0}
   fromResponse: 0
-  walkingStyle: 
   cinematicCameraPoint: {fileID: 8072134835954103999}
 --- !u!23 &2428605872957637235
 MeshRenderer:
@@ -46246,8 +46210,6 @@ MonoBehaviour:
   targetOrchard: {fileID: 0}
   targetRecycler: {fileID: 0}
   targetDeposit: {fileID: 0}
-  targetCentralPad: {fileID: 0}
-  targetMemoryPad: {fileID: 0}
   targetCompostPad: {fileID: 0}
   targetPipes: {fileID: 0}
   missionTrack: {fileID: 0}

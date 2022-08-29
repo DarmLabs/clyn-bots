@@ -19,8 +19,6 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetOrchard;
     public GameObject targetRecycler;
     public GameObject targetDeposit;
-    public GameObject targetCentralPad;
-    public GameObject targetMemoryPad;
     public GameObject targetCompostPad;
     public GameObject targetPipes;
     [SerializeField] MissionTrack missionTrack;
@@ -141,7 +139,7 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else if ((!isDepositing || itemsInBag == 30) && isAspiring)
+        else if ((!isDepositing || itemsInBag >= 30) && isAspiring)
         {
             cone.enabled = false;
             isAspiring = false;
@@ -181,27 +179,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 targetDeposit.GetComponent<DepositObject>().Response("_02");
             }
-
-            if (targetCentralPad != null && targetCentralPad.GetComponent<CentralMinigamePad>().deposit.isFull)
-            {
-                targetCentralPad.GetComponent<CentralMinigamePad>().ActivatePanel();
-                MovmentState(false);
-            }
-            else if (targetCentralPad != null)
-            {
-                targetCentralPad.GetComponent<CentralMinigamePad>().Response(null);
-            }
-
-            if (targetMemoryPad != null && gv.memoriaAccesible)
-            {
-                targetMemoryPad.GetComponent<MemoryMinigamePad>().ActivatePanel();
-                MovmentState(false);
-            }
-            else if (targetMemoryPad != null)
-            {
-                targetMemoryPad.GetComponent<MemoryMinigamePad>().Response(null);
-            }
-
             if (targetCompostPad != null && gv.compostActiva)
             {
                 targetCompostPad.GetComponent<CompostMinigamePad>().ActivatePanel();
@@ -293,7 +270,8 @@ public class PlayerInteraction : MonoBehaviour
     public void speakWithRecycler()
     {
         RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
-        if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name != "RecyclerGuideOutside")
+        targetRecyclerScript.Speak(null);
+        /*if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name != "RecyclerGuideOutside")
         {
             if (targetRecyclerScript.gameObject.name == "RecyclerGuideInside" && targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
             {
@@ -338,8 +316,8 @@ public class PlayerInteraction : MonoBehaviour
         }
         else if (targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>() == null)
         {
-            targetRecyclerScript.Speak(null);
-        }
+            
+        }*/
     }
     public void stopSpeakingWithRecycler()
     {

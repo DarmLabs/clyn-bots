@@ -48,6 +48,10 @@ public class General_UI : MonoBehaviour
     public void MainMissionSwitcher(bool state)
     {
         mainMissionPanel.SetActive(state);
+        if (state)
+        {
+            CheckMainMissionStatus();
+        }
     }
     public void CheckMainMissionStatus()
     {
@@ -196,14 +200,6 @@ public class General_UI : MonoBehaviour
     public void CompostMinigameSwitcher(bool state)
     {
         compostMinigame.SetActive(state);
-    }
-    public void CentralMinigameSwitcher(bool state)
-    {
-        centralMinigame.SetActive(state);
-    }
-    public void MemoryMinigameSwitcher(bool state)
-    {
-        memoryMinigame.SetActive(state);
     }
     public void MinigameAspireSwitcher(bool state)
     {
