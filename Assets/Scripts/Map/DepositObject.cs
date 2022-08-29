@@ -50,9 +50,9 @@ public class DepositObject : MonoBehaviour, ISaveable
         dPlastico = plastico;
         dMetal = metal;
         isFull = true;
-        if (missionTrack.stages[gv.currentMissionStage] = this.gameObject)
+        if (missionTrack.stages[gv.currentMissionStage + 1] = this.gameObject)
         {
-            gv.currentMissionStage++;
+            missionTrack.TransportMissionTraget();
         }
     }
     public object SaveState()

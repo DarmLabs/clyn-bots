@@ -8,7 +8,7 @@ public class PrefabScatter : MonoBehaviour
     [SerializeField] GameObject[] trash;
     [SerializeField] float spaceAboveGround = 0.2f;
     [SerializeField] float yPos;
-    [SerializeField] bool isAboveWater;
+    [SerializeField] bool isAboveOther;
 
     void Awake()
     {
@@ -20,12 +20,12 @@ public class PrefabScatter : MonoBehaviour
     {
         for (int i = 0; i < 500; i++)
         {
-            isAboveWater = false;
+            isAboveOther = false;
             int xPos = Random.Range(-97, 0);
             int zPos = Random.Range(0, 100);
             CheckHeight(xPos, zPos);
             int randomIndex = Random.Range(0, trash.Length);
-            if (!isAboveWater)
+            if (!isAboveOther)
             {
                 Instantiate(trash[randomIndex], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(trash[randomIndex].transform.eulerAngles.x, Random.Range(0, 360), trash[randomIndex].transform.eulerAngles.z), transform);
             }
@@ -44,7 +44,7 @@ public class PrefabScatter : MonoBehaviour
         }
         else
         {
-            isAboveWater = true;
+            isAboveOther = true;
         }
     }
 }
