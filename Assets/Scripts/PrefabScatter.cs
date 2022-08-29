@@ -5,29 +5,33 @@ using System.Linq;
 
 public class PrefabScatter : MonoBehaviour
 {
-    [SerializeField] GameObject[] trash;
+    GameObject[] prefab;
     [SerializeField] float spaceAboveGround = 0.2f;
-    [SerializeField] float yPos;
-    [SerializeField] bool isAboveOther;
+    float yPos;
+    bool isAboveOther;
+    [SerializeField] string targetFolder;
+    [SerializeField] int xMin, xMax;
+    [SerializeField] int zMin, zMax;
+    [SerializeField] int prefabCount;
 
     void Awake()
     {
-        trash = Resources.LoadAll("Basuras", typeof(GameObject))
+        prefab = Resources.LoadAll(targetFolder, typeof(GameObject))
             .Cast<GameObject>()
             .ToArray();
     }
     void Start()
     {
-        for (int i = 0; i < 500; i++)
+        for (int i = 0; i < prefabCount; i++)
         {
             isAboveOther = false;
-            int xPos = Random.Range(-97, 0);
-            int zPos = Random.Range(0, 100);
+            int xPos = Random.Range(xMin, xMax);
+            int zPos = Random.Range(zMin, zMax);
             CheckHeight(xPos, zPos);
-            int randomIndex = Random.Range(0, trash.Length);
+            int randomIndex = Random.Range(0, prefab.Length);
             if (!isAboveOther)
             {
-                Instantiate(trash[randomIndex], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(trash[randomIndex].transform.eulerAngles.x, Random.Range(0, 360), trash[randomIndex].transform.eulerAngles.z), transform);
+                Instantiate(prefab[randomIndex], new Vector3(transform.position.x + xPos, yPos, transform.position.z + zPos), Quaternion.Euler(prefab[randomIndex].transform.eulerAngles.x, Random.Range(0, 360), prefab[randomIndex].transform.eulerAngles.z), transform);
             }
             else
             {

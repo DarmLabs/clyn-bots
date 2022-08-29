@@ -322,6 +322,7 @@ public class PlayerInteraction : MonoBehaviour
     public void stopSpeakingWithRecycler()
     {
         RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
+        targetRecyclerScript.RestoreDestination();
         targetRecyclerScript.RestoreRotation();
         targetRecyclerScript.CheckLockedIdle();
         targetRecyclerScript.isSpeaking = false;

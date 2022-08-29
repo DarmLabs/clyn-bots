@@ -16,6 +16,7 @@ public class RecyclerNPC : MonoBehaviour
     public bool lockedIdle;
     public bool isBlocker;
     public Vector3 pointA, pointB;
+    Vector3 previousPoint;
     [SerializeField] string walkingStyle;
     NavMeshAgent nav;
     Animator anim;
@@ -83,10 +84,15 @@ public class RecyclerNPC : MonoBehaviour
     {
         nav.destination = target;
     }
+    public void RestoreDestination()
+    {
+        nav.destination = previousPoint;
+    }
     public void Speak(string id)
     {
         isSpeaking = true;
         idle = true;
+        previousPoint = nav.destination;
         nav.destination = transform.position;
         CheckSpeaking(id);
         Greet();
