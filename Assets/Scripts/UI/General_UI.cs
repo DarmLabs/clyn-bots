@@ -10,8 +10,8 @@ public class General_UI : MonoBehaviour
     public PlayerInteraction playerInteraction;
     public SaveLoadSystem saveSystem;
     public GameObject mainPanel;
-    [SerializeField] GameObject centralMinigame;
-    [SerializeField] GameObject memoryMinigame;
+    [SerializeField] GameObject mainMenuPanel;
+    [SerializeField] GameObject startPanel;
     [SerializeField] GameObject compostMinigame;
     [SerializeField] GameObject pipesMinigame;
     [SerializeField] GameObject mainMissionPanel;
@@ -44,6 +44,14 @@ public class General_UI : MonoBehaviour
     public void MainPanelSwitcher(bool state)
     {
         mainPanel.SetActive(state);
+    }
+    public void MainMenuSwitcher(bool state)
+    {
+        mainMenuPanel.SetActive(state);
+    }
+    public void StartPanelSwitcher(bool state)
+    {
+        startPanel.SetActive(state);
     }
     public void MainMissionSwitcher(bool state)
     {
