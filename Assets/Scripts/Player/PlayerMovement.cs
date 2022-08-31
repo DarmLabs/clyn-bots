@@ -17,14 +17,11 @@ public class PlayerMovement : MonoBehaviour
         playerAnim = GetComponent<PlayerAnimations>();
         rb = GetComponent<Rigidbody>();
         playerCollider = GetComponent<CapsuleCollider>();
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
     }
     void FixedUpdate()
     {
         Controls();
+        TakeOrientation();
     }
     void Controls()
     {
@@ -45,6 +42,13 @@ public class PlayerMovement : MonoBehaviour
         {
             playerAnim.Moving(false);
         }
+    }
+    public void TakeOrientation()
+    {
+        forward = Camera.main.transform.forward;
+        forward.y = 0;
+        forward = Vector3.Normalize(forward);
+        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
     }
     void Movement()
     {

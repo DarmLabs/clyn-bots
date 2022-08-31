@@ -130,7 +130,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
@@ -180,20 +180,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3767124ed83319439338ef77c752014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 0}
-  okSection: {fileID: 0}
-  missionSection: {fileID: 0}
-  recyclerText: {fileID: 0}
-  idle: 0
-  isGreeting: 0
+  missionTarget: 0
   haveMission: 0
+  scene: 
+  idle: 0
   lockedIdle: 0
   isBlocker: 0
   pointA: {x: 0, y: 0, z: 0}
   pointB: {x: 0, y: 0, z: 0}
-  isSpeaking: 0
-  fromResponse: 0
   walkingStyle: 
+  isGreeting: 0
+  isSpeaking: 0
+  cinematicCamera: {fileID: 0}
+  fromResponse: 0
   cinematicCameraPoint: {fileID: 8072134836838686527}
 --- !u!195 &2529978828699620474
 NavMeshAgent:
