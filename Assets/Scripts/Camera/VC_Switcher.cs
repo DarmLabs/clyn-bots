@@ -10,6 +10,7 @@ public class VC_Switcher : MonoBehaviour
     [SerializeField] GameObject VC_Transition_01;
     [SerializeField] GameObject VC_PlayerView;
     int checkBlendNeeded;
+    bool transition_01Used;
     void Start()
     {
         CM_Brain = GetComponent<Cinemachine.CinemachineBrain>();
@@ -25,16 +26,38 @@ public class VC_Switcher : MonoBehaviour
     public void VC_MainMenuSwitcher(bool state)
     {
         VC_MainMenu.SetActive(state);
+        if (state)
+        {
+            checkBlendNeeded = 3;
+        }
     }
     public void VC_Transition_01Switcher(bool state)
     {
-        VC_Transition_01.SetActive(state);
-        checkBlendNeeded = 1;
+        if (!transition_01Used)
+        {
+            VC_Transition_01.SetActive(state);
+            if (state)
+            {
+                checkBlendNeeded = 1;
+            }
+            else
+            {
+                transition_01Used = true;
+            }
+        }
+        else
+        {
+            VC_PlayerViewSwitcher(state);
+        }
+
     }
     public void VC_PlayerViewSwitcher(bool state)
     {
         VC_PlayerView.SetActive(state);
-        checkBlendNeeded = 2;
+        if (state)
+        {
+            checkBlendNeeded = 2;
+        }
     }
     void CheckBlend(int code)
     {
@@ -48,6 +71,10 @@ public class VC_Switcher : MonoBehaviour
             {
                 general_UI.playerInteraction.MovmentState(true);
                 general_UI.MainPanelSwitcher(true);
+            }
+            if (code == 3)
+            {
+                general_UI.MainMenuSwitcher(true);
             }
             checkBlendNeeded = 0;
         }

@@ -21,6 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetDeposit;
     public GameObject targetCompostPad;
     public GameObject targetPipes;
+    public GameObject targetMainMenu;
     [SerializeField] MissionTrack missionTrack;
     #endregion
     public bool isAspiring;
@@ -30,6 +31,7 @@ public class PlayerInteraction : MonoBehaviour
     bool isDepositing;
     LoadSceneMode mode;
     public MainMission mainMission;
+    VC_Switcher vC_Switcher;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
@@ -37,6 +39,7 @@ public class PlayerInteraction : MonoBehaviour
         saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
         mainMission = GameObject.FindObjectOfType<MainMission>();
         missionTrack = GameObject.FindObjectOfType<MissionTrack>();
+        vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
     }
     void Start()
     {
@@ -164,21 +167,6 @@ public class PlayerInteraction : MonoBehaviour
                 speakWithRecycler();
             }
 
-            if (targetDeposit != null && !targetDeposit.GetComponent<DepositObject>().isFull)
-            {
-                if (bagPercentage == 100)
-                {
-                    DepositTrash();
-                }
-                else
-                {
-                    targetDeposit.GetComponent<DepositObject>().Response("_01");
-                }
-            }
-            else if (targetDeposit != null)
-            {
-                targetDeposit.GetComponent<DepositObject>().Response("_02");
-            }
             if (targetCompostPad != null && gv.compostActiva)
             {
                 targetCompostPad.GetComponent<CompostMinigamePad>().ActivatePanel();
@@ -193,6 +181,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
             }
+
             if (targetConstruction != null && (targetConstruction.tag != "Untagged" || targetConstruction.tag != "Pipes"))
             {
                 general_UI.ConstructionPanelSwitcher(true);
@@ -201,6 +190,7 @@ public class PlayerInteraction : MonoBehaviour
                 MovmentState(false);
                 general_UI.InteractionCloud(false);
             }
+
             if (targetOrchard != null && targetOrchard.tag != "Untagged")
             {
                 targetOrchard.GetComponent<Orchard>().ActivatePanel();
@@ -209,6 +199,15 @@ public class PlayerInteraction : MonoBehaviour
             else if (targetOrchard != null && targetOrchard.tag == "Untagged")
             {
                 Debug.Log("Ya esta sembarado y crecido");
+            }
+
+            if (targetMainMenu != null)
+            {
+                vC_Switcher.VC_MainMenuSwitcher(true);
+                vC_Switcher.VC_PlayerViewSwitcher(false);
+                MovmentState(false);
+                general_UI.MainPanelSwitcher(false);
+                ExitDetectObject(targetMainMenu);
             }
         }
     }
@@ -391,6 +390,11 @@ public class PlayerInteraction : MonoBehaviour
             }
             general_UI.InteractionCloud(true);
         }
+        if (targetObject.tag == "MainMenu")
+        {
+            targetMainMenu = targetObject;
+            general_UI.InteractionCloud(true);
+        }
     }
     public void ExitDetectObject(GameObject targetObject)
     {
@@ -412,6 +416,11 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Recycler")
         {
             targetRecycler = null;
+            general_UI.InteractionCloud(false);
+        }
+        if (targetObject.tag == "MainMenu")
+        {
+            targetMainMenu = null;
             general_UI.InteractionCloud(false);
         }
     }
