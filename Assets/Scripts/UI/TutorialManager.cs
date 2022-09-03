@@ -6,13 +6,21 @@ using System.Linq;
 public class TutorialManager : MonoBehaviour
 {
     General_UI general_UI;
-    void Start()
+    void OnEnable()
     {
         SpawnTutorialWindow("Intro");
     }
     public void SpawnTutorialWindow(string name)
     {
-        GameObject prefab = Resources.Load<GameObject>("Tutorials/" + name);
-        Instantiate(prefab, this.transform);
+        if (name != "")
+        {
+            GameObject prefab = Resources.Load<GameObject>("Tutorials/" + name);
+            Instantiate(prefab, this.transform);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }
