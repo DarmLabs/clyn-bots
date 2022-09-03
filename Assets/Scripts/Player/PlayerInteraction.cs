@@ -25,7 +25,7 @@ public class PlayerInteraction : MonoBehaviour
     [SerializeField] MissionTrack missionTrack;
     #endregion
     public bool isAspiring;
-    public string inDoor;
+    [HideInInspector] public string inDoor;
     int maxBagSpace = 30, itemsInBag;
     public float bagPercentage;
     bool isDepositing;
@@ -129,7 +129,7 @@ public class PlayerInteraction : MonoBehaviour
             BagPercentage();
             saveSystem.Save();
         }
-        if (Input.GetKey(KeyCode.Space) && itemsInBag < 30 && inDoor == "Outside")
+        if (Input.GetKey(KeyCode.C) && itemsInBag < 30 && inDoor == "Outside")
         {
             cone.enabled = true;
             playerAnim.Aspire(true);

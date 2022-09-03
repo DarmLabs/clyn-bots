@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
     PlayerAnimations playerAnim;
+    PlayerInteraction playerInteraction;
     float speed = 6f;
     float speedValue;
     Vector3 forward, right, heading, rightMovement, upMovement;
@@ -16,8 +17,10 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerAnim = GetComponent<PlayerAnimations>();
+        playerInteraction = GetComponent<PlayerInteraction>();
         rb = GetComponent<Rigidbody>();
         playerCollider = GetComponent<CapsuleCollider>();
+        TakeOrientation();
     }
     void FixedUpdate()
     {
@@ -56,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Movement()
     {
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.LeftShift))
         {
             speed = 10f;
         }

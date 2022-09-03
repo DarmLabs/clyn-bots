@@ -17,6 +17,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject mainMissionPanel;
     [SerializeField] GameObject constructionPanel;
     [SerializeField] GameObject orchardPanel;
+    [SerializeField] GameObject tutorialPanel;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
     public TextMeshProUGUI debugText;
     int selection = 1;
@@ -77,6 +78,10 @@ public class General_UI : MonoBehaviour
         mainMissionProgressBars[2].value = Mathf.Round((mainMission.maintainancePlayed * 100) / mainMission.maxMaintainance);
         mainMissionProgressBars[3].value = Mathf.Round((mainMission.lakesCleaned * 100) / mainMission.maxLakes);
         mainMissionProgressBars[4].value = Mathf.Round((mainMission.cropsGrew * 100) / mainMission.maxCrops);
+    }
+    public void TutorialPanelSwithcer(bool state)
+    {
+        tutorialPanel.SetActive(state);
     }
     public void BuildChangeStagePanel(string target)
     {
