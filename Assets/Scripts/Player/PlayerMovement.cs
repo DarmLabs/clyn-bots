@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] Camera mainCamera;
     PlayerAnimations playerAnim;
     float speed = 6f;
     float speedValue;
@@ -45,14 +46,17 @@ public class PlayerMovement : MonoBehaviour
     }
     public void TakeOrientation()
     {
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+        if (mainCamera != null)
+        {
+            forward = mainCamera.gameObject.transform.forward;
+            forward.y = 0;
+            forward = Vector3.Normalize(forward);
+            right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
+        }
     }
     void Movement()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.X))
         {
             speed = 10f;
         }
