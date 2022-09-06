@@ -8,7 +8,10 @@ public class TutorialManager : MonoBehaviour
     General_UI general_UI;
     void OnEnable()
     {
-        SpawnTutorialWindow("Intro");
+        if (this.gameObject.transform.childCount == 0)
+        {
+            SpawnTutorialWindow("Intro");
+        }
     }
     public void SpawnTutorialWindow(string name)
     {
