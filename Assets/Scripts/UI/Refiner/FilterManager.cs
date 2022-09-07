@@ -8,20 +8,33 @@ public class FilterManager : MonoBehaviour
     [SerializeField] GameObject[] resources;
     [SerializeField] GameObject numPad;
     [SerializeField] GameObject guideText;
+    public GlobalVariables gv;
+    [HideInInspector] public int plasticoValue, vidrioValue, cartonValue, metalValue;
     void Awake()
     {
         filterComponents = GetComponentsInChildren<FilterComponent>();
-    }
-    public void ReciveRefinerQuantity(int number)
-    {
-        numPad.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = number.ToString();
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
     }
     public void ReciveActiveFilter(string code)
     {
-        guideText.SetActive(false);
+        if (code != "")
+        {
+            guideText.SetActive(false);
+        }
+        else
+        {
+            guideText.SetActive(true);
+        }
         foreach (var button in filterComponents)
         {
-            button.OnDeselect();
+            if (button.gameObject.name == code)
+            {
+                button.OnSelected(false);
+            }
+            else
+            {
+                button.OnDeselect();
+            }
         }
         ActiveSelectedResource(code);
     }
@@ -38,6 +51,63 @@ public class FilterManager : MonoBehaviour
                 resource.SetActive(false);
             }
         }
-        numPad.SetActive(true);
+        if (code != "")
+        {
+            RefreshNumPad(code);
+        }
+        else
+        {
+            numPad.SetActive(false);
+        }
+    }
+    public void RefreshNumPad(string code)
+    {
+        if (!numPad.activeSelf)
+        {
+            numPad.SetActive(true);
+        }
+        TextMeshProUGUI numPadText = numPad.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        switch (code)
+        {
+            case "Plastico":
+                numPadText.text = plasticoValue.ToString();
+                break;
+            case "Vidrio":
+                numPadText.text = vidrioValue.ToString();
+                break;
+            case "Carton":
+                numPadText.text = cartonValue.ToString();
+                break;
+            case "Metal":
+                numPadText.text = metalValue.ToString();
+                break;
+        }
+    }
+    public void SaveFilterValues(string code, int value)
+    {
+        switch (code)
+        {
+            case "Plastico":
+                plasticoValue += value;
+                break;
+            case "Vidrio":
+                vidrioValue += value;
+                break;
+            case "Carton":
+                cartonValue += value;
+                break;
+            case "Metal":
+                metalValue += value;
+                break;
+        }
+        ReciveActiveFilter(code);
+    }
+    public void ResetValues()
+    {
+        vidrioValue = 0;
+        plasticoValue = 0;
+        cartonValue = 0;
+        metalValue = 0;
+        ReciveActiveFilter("");
     }
 }

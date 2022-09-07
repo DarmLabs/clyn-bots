@@ -10,7 +10,8 @@ public class RefinerPanelUI : MonoBehaviour
     [SerializeField] GameObject selector;
     [SerializeField] OnPointerOver[] onPointerOvers;
     TextMeshProUGUI selectorText;
-    int selectorMax, selectorMin = 0;
+    int selectorMax = 200, selectorMin = 0;
+    public int selectorValue;
     void OnEnable()
     {
         CheckVariables();
@@ -18,6 +19,7 @@ public class RefinerPanelUI : MonoBehaviour
     void Awake()
     {
         selectorText = selector.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
     }
     void CheckVariables()
     {
@@ -26,13 +28,26 @@ public class RefinerPanelUI : MonoBehaviour
         cartonText.text = gv.divisionCarton.ToString();
         metalText.text = gv.divisionMetal.ToString();
     }
-    public void HighlightSelected(TextMeshProUGUI text)
+    public void SelectorValue(int value)
     {
-        foreach (var components in onPointerOvers)
+        if (selectorValue > selectorMin && selectorValue < selectorMax)
         {
-            components.enabled = false;
+            selectorValue += value;
+            selectorText.text = selectorValue.ToString();
         }
-        selectorMax = Convert.ToInt32(text.text);
-        selector.SetActive(true);
+        else if (selectorValue == 0 && value == 10 || selectorValue == 200 && value == -10)
+        {
+            selectorValue += value;
+            selectorText.text = selectorValue.ToString();
+        }
+    }
+    public void ResetSelectorValue()
+    {
+        selectorValue = 0;
+        selectorText.text = selectorValue.ToString();
+    }
+    public void Locked()
+    {
+        selector.GetComponent<Animator>().Play("Locked");
     }
 }

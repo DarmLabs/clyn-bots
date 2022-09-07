@@ -13,9 +13,12 @@ public class FilterComponent : MonoBehaviour
         originalSprite = gameObject.GetComponent<Image>().sprite;
         filterManager = GetComponentInParent<FilterManager>();
     }
-    public void OnSelected(string code)
+    public void OnSelected(bool fromButton)
     {
-        filterManager.ReciveActiveFilter(code);
+        if (fromButton)
+        {
+            filterManager.ReciveActiveFilter(gameObject.name);
+        }
         gameObject.GetComponent<Image>().sprite = selectedSpirte;
     }
     public void OnDeselect()
@@ -24,6 +27,6 @@ public class FilterComponent : MonoBehaviour
     }
     public void AssignQuantity()
     {
-        filterManager.ReciveRefinerQuantity(refinerCount);
+        filterManager.RefreshNumPad(gameObject.name);
     }
 }

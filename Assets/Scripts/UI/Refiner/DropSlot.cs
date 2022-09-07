@@ -4,25 +4,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class DropSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] GameObject[] points;
-    [SerializeField] GameObject panelText;
+    [SerializeField] FilterManager filterManager;
     public void OnDrop(PointerEventData data)
     {
-        GameObject desiredPoint = new GameObject();
-        bool pointTaken = false;
-        foreach (var point in points)
-        {
-            if (point.transform.childCount == 0 && !pointTaken)
-            {
-                pointTaken = true;
-                desiredPoint = point;
-            }
-        }
         if (data.pointerDrag != null)
         {
-            data.pointerDrag.transform.SetParent(desiredPoint.transform);
-            data.pointerDrag.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 0);
-            panelText.SetActive(false);
+            DragDrop currentDragDrop = data.pointerDrag.gameObject.GetComponent<DragDrop>();
+            if (!currentDragDrop.isLocked)
+            {
+                currentDragDrop.Reset();
+                filterManager.SaveFilterValues(currentDragDrop.gameObject.name, currentDragDrop.movingValue / 10);
+            }
         }
     }
 }
