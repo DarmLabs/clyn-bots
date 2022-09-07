@@ -6,12 +6,11 @@ using System;
 public class RefinerPanelUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI vidrioText, plasticoText, cartonText, metalText;
-    [SerializeField] GlobalVariables gv;
+    [HideInInspector] GlobalVariables gv;
     [SerializeField] GameObject selector;
-    [SerializeField] OnPointerOver[] onPointerOvers;
     TextMeshProUGUI selectorText;
     int selectorMax = 200, selectorMin = 0;
-    public int selectorValue;
+    [HideInInspector] public int selectorValue;
     void OnEnable()
     {
         CheckVariables();

@@ -7,11 +7,11 @@ public class PlayerInteraction : MonoBehaviour
 {
     #region Imports & Required Objects
     [Header("Imports & Required Objects")]
-    public SaveLoadSystem saveSystem;
-    public GlobalVariables gv;
+    [HideInInspector] public SaveLoadSystem saveSystem;
+    [HideInInspector] public GlobalVariables gv;
     [SerializeField] ConeCollider cone;
-    public PlayerAnimations playerAnim;
-    public PlayerMovement playerMovement;
+    [HideInInspector] public PlayerAnimations playerAnim;
+    [HideInInspector] public PlayerMovement playerMovement;
     public Player_UI player_UI;
     public General_UI general_UI;
     [SerializeField] GameObject outisdePoint, insidePoint;
@@ -22,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetCompostPad;
     public GameObject targetPipes;
     public GameObject targetMainMenu;
-    [SerializeField] MissionTrack missionTrack;
+    [HideInInspector][SerializeField] MissionTrack missionTrack;
     #endregion
     public bool isAspiring;
     [HideInInspector] public string inDoor;
@@ -30,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
     public float bagPercentage;
     bool isDepositing;
     LoadSceneMode mode;
-    public MainMission mainMission;
+    [HideInInspector] public MainMission mainMission;
     VC_Switcher vC_Switcher;
     void OnEnable()
     {
@@ -96,7 +96,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     void Controls()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             Interaction();
         }
@@ -129,7 +129,7 @@ public class PlayerInteraction : MonoBehaviour
             BagPercentage();
             saveSystem.Save();
         }
-        if (Input.GetKey(KeyCode.C) && itemsInBag < 30 && inDoor == "Outside")
+        if (Input.GetKey(KeyCode.X) && itemsInBag < 30 && inDoor == "Outside")
         {
             cone.enabled = true;
             playerAnim.Aspire(true);

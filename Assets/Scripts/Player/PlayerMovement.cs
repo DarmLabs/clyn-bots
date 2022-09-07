@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Movement()
     {
-        if (Input.GetKey(KeyCode.X) || Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.C))
         {
             speed = 10f;
         }

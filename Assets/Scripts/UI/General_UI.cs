@@ -18,6 +18,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject constructionPanel;
     [SerializeField] GameObject orchardPanel;
     [SerializeField] GameObject tutorialPanel;
+    [SerializeField] GameObject refinerPanel;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
     public TextMeshProUGUI debugText;
     int selection = 1;
@@ -82,6 +83,10 @@ public class General_UI : MonoBehaviour
     public void TutorialPanelSwithcer(bool state)
     {
         tutorialPanel.SetActive(state);
+    }
+    public void RefinerPanelSwitcher(bool state)
+    {
+        refinerPanel.SetActive(state);
     }
     public void BuildChangeStagePanel(string target)
     {
