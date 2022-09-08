@@ -19,10 +19,9 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetOrchard;
     public GameObject targetRecycler;
     public GameObject targetDeposit;
-    public GameObject targetCompostPad;
     public GameObject targetPipes;
     public GameObject targetMainMenu;
-    [HideInInspector][SerializeField] MissionTrack missionTrack;
+    public GameObject targetRefiner;
     #endregion
     public bool isAspiring;
     [HideInInspector] public string inDoor;
@@ -38,7 +37,6 @@ public class PlayerInteraction : MonoBehaviour
         gv = GameObject.FindObjectOfType<GlobalVariables>();
         saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
         mainMission = GameObject.FindObjectOfType<MainMission>();
-        missionTrack = GameObject.FindObjectOfType<MissionTrack>();
         vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
     }
     void Start()
@@ -159,17 +157,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 speakWithRecycler();
             }
-
-            if (targetCompostPad != null && gv.compostActiva)
-            {
-                targetCompostPad.GetComponent<CompostMinigamePad>().ActivatePanel();
-                MovmentState(false);
-            }
-            else if (targetCompostPad != null && !gv.compostActiva)
-            {
-                targetCompostPad.GetComponent<CompostMinigamePad>().Response(null);
-            }
-
             if (targetPipes != null)
             {
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
@@ -201,6 +188,13 @@ public class PlayerInteraction : MonoBehaviour
                 MovmentState(false);
                 general_UI.MainPanelSwitcher(false);
                 ExitDetectObject(targetMainMenu);
+            }
+            if (targetRefiner != null)
+            {
+                general_UI.RefinerPanelSwitcher(true);
+                general_UI.MinimapSwitcher(false);
+                MovmentState(false);
+                general_UI.InteractionCloud(false);
             }
         }
     }
@@ -263,53 +257,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
         targetRecyclerScript.Speak(null);
-        /*if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name != "RecyclerGuideOutside")
-        {
-            if (targetRecyclerScript.gameObject.name == "RecyclerGuideInside" && targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
-            {
-                targetRecyclerScript.fromResponse = true;
-                targetRecyclerScript.Speak(null);
-                targetRecyclerScript.missionTarget = false;
-                missionTrack.TransportMissionTraget();
-            }
-            else if (targetRecyclerScript.gameObject.name == "RecyclerConstruction" && targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
-            {
-                targetRecyclerScript.fromResponse = true;
-                targetRecyclerScript.Speak(null);
-                targetRecyclerScript.missionTarget = false;
-                missionTrack.TransportMissionTraget();
-            }
-            else
-            {
-                targetRecyclerScript.Speak(null);
-                targetRecyclerScript.missionTarget = false;
-                missionTrack.TransportMissionTraget();
-            }
-        }
-        else if (targetRecyclerScript.missionTarget && targetRecyclerScript.gameObject.name == "RecyclerGuideOutside")
-        {
-            if (targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract)
-            {
-                targetRecyclerScript.Speak(null);
-                targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>().firstTimeInteract = false;
-            }
-            else if (bagPercentage == 100)
-            {
-                targetRecyclerScript.fromResponse = true;
-                targetRecyclerScript.Speak("_02");
-                targetRecyclerScript.missionTarget = false;
-                missionTrack.TransportMissionTraget();
-            }
-            else
-            {
-                targetRecyclerScript.fromResponse = true;
-                targetRecyclerScript.Speak(null);
-            }
-        }
-        else if (targetRecyclerScript.gameObject.GetComponent<FirstTimeInteract>() == null)
-        {
-            
-        }*/
     }
     public void stopSpeakingWithRecycler()
     {
@@ -329,29 +276,6 @@ public class PlayerInteraction : MonoBehaviour
             targetRecyclerScript.fromResponse = false;
             targetRecycler = null;
         }
-    }
-    void DepositTrash()
-    {
-        isDepositing = true;
-        transform.position = targetDeposit.GetComponent<DepositObject>().depositPoint.position;
-        transform.rotation = Quaternion.Euler(0, 90, 0);
-        playerAnim.Aspire(true);
-        StartCoroutine(WaitForAnimation(3f));
-    }
-    IEnumerator WaitForAnimation(float secs)
-    {
-        yield return new WaitForSeconds(secs);
-        playerAnim.Aspire(false);
-        targetDeposit.GetComponent<DepositObject>().SetValues(gv.vidrioTrash, gv.cartonTrash, gv.organicTrash, gv.noRecTrash, gv.plasticoTrash, gv.metalTrash);
-        gv.vidrioTrash = 0;
-        gv.plasticoTrash = 0;
-        gv.organicTrash = 0;
-        gv.noRecTrash = 0;
-        gv.metalTrash = 0;
-        gv.cartonTrash = 0;
-        isDepositing = false;
-        BagPercentage();
-        saveSystem.Save();
     }
     public void EnterDetectObject(GameObject targetObject)
     {
@@ -388,6 +312,11 @@ public class PlayerInteraction : MonoBehaviour
             targetMainMenu = targetObject;
             general_UI.InteractionCloud(true);
         }
+        if (targetObject.tag == "Refiner")
+        {
+            targetRefiner = targetObject;
+            general_UI.InteractionCloud(true);
+        }
     }
     public void ExitDetectObject(GameObject targetObject)
     {
@@ -414,6 +343,11 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "MainMenu")
         {
             targetMainMenu = null;
+            general_UI.InteractionCloud(false);
+        }
+        if (targetObject.tag == "Refiner")
+        {
+            targetRefiner = null;
             general_UI.InteractionCloud(false);
         }
     }

@@ -13,7 +13,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     RectTransform rectTransform;
     Transform originalParent;
     [HideInInspector] public int movingValue;
-    [SerializeField] GameObject thisHighlight;
     [HideInInspector] public bool isLocked;
     int correspondetValue;
     void Awake()

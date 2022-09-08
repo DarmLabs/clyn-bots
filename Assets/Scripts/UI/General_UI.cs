@@ -12,7 +12,6 @@ public class General_UI : MonoBehaviour
     public GameObject mainPanel;
     [SerializeField] GameObject mainMenuPanel;
     [SerializeField] GameObject startPanel;
-    [SerializeField] GameObject compostMinigame;
     [SerializeField] GameObject pipesMinigame;
     [SerializeField] GameObject mainMissionPanel;
     [SerializeField] GameObject constructionPanel;
@@ -214,10 +213,6 @@ public class General_UI : MonoBehaviour
     public void PipesMinigameSwitcher(bool state)
     {
         pipesMinigame.SetActive(state);
-    }
-    public void CompostMinigameSwitcher(bool state)
-    {
-        compostMinigame.SetActive(state);
     }
     public void MinigameAspireSwitcher(bool state)
     {
