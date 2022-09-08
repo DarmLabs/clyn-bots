@@ -8,7 +8,6 @@ public class PipesMinigame : MonoBehaviour
     [SerializeField] General_UI general_UI;
     [SerializeField] PlayerInteraction player;
     [SerializeField] GameObject responseRecycler;
-    [SerializeField] Material cleanWater;
     void Start()
     {
         if (player.gv.pipesActiva)
@@ -19,7 +18,9 @@ public class PipesMinigame : MonoBehaviour
     public void Block()
     {
         gameObject.tag = "Untagged";
+        player.gv.pipesActiva = false;
         this.enabled = false;
+        player.saveSystem.Save();
     }
     public void Response(string id)
     {
