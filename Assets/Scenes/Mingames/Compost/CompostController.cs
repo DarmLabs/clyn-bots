@@ -48,7 +48,10 @@ public class CompostController : MonoBehaviour
     private GameObject globalaux;
     private GlobalVariables gv;
     private GameObject saveaux;
-    private SaveLoadSystem saveSystem;
+    private SaveLoadSystem saveSystem;    
+    private GameObject mainmissionaux;
+    private MainMission MainMiss;
+    
       
 
     //botón húmedo: -seco +húmedo || temperatura: +humedad -grados 
@@ -60,6 +63,8 @@ public class CompostController : MonoBehaviour
     
     void Start()
     {        
+        mainmissionaux = GameObject.Find("MainMission");
+        MainMiss = mainmissionaux.GetComponent<MainMission>();
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -185,6 +190,11 @@ public class CompostController : MonoBehaviour
                     Compostera.gameObject.SetActive(true);
                     UI_Desactivar.SetActive(false);
                     PanelVictoria.SetActive(true);
+                    if (MainMiss.trashRecolected < MainMiss.maxTrash)
+                    {
+                        MainMiss.trashRecolected++;
+                    }
+                    MainMiss.maintainancePlayed++;
                     BotonHumedecer.gameObject.SetActive(false);
                     BotonSecar.gameObject.SetActive(false);
                     BotonRemover.gameObject.SetActive(false);
