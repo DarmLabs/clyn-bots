@@ -55,11 +55,7 @@ public class PipeController : MonoBehaviour
             rend.material.color = colorCorrecto;
             PanelVictoria.SetActive(true);
             MainMiss.lakesCleaned++;
-            if (MainMiss.trashRecolected < MainMiss.maxTrash)
-            {
-                MainMiss.trashRecolected++;
-            }
-            MainMiss.maintainancePlayed++;
+            
             gv.pipesActiva = true;
             saveSystem.Save();
             Debug.Log("GANASTE NIÑO BOBO");     
