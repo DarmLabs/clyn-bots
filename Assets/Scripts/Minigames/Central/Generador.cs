@@ -63,9 +63,9 @@ public class Generador : MonoBehaviour
         TachoNoRecSprite = Tachos.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         TachoRecSprite = Tachos.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         TachoOrgSprite = Tachos.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();        
-        cantidadNoRecuperables = gv.noRecTrash;
-        cantidadOrganicos = gv.organicTrash;
-        cantidadRecuperables = gv.recTrash;
+        cantidadNoRecuperables = 10;//gv.noRecTrash;
+        cantidadOrganicos = 10;//gv.organicTrash;
+        cantidadRecuperables = 10;//gv.recTrash;
         cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;              
         Residuos = new GameObject[cantidadResiduos];
         Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   

@@ -20,9 +20,13 @@ public class PipeController : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
+    private GameObject mainmissionaux;
+    private MainMission MainMiss;
     
     void Start()
     {
+        mainmissionaux = GameObject.Find("MainMission");
+        MainMiss = mainmissionaux.GetComponent<MainMission>();
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -50,6 +54,12 @@ public class PipeController : MonoBehaviour
             gano = true;
             rend.material.color = colorCorrecto;
             PanelVictoria.SetActive(true);
+            MainMiss.lakesCleaned++;
+            if (MainMiss.trashRecolected < MainMiss.maxTrash)
+            {
+                MainMiss.trashRecolected++;
+            }
+            MainMiss.maintainancePlayed++;
             gv.pipesActiva = true;
             saveSystem.Save();
             Debug.Log("GANASTE NIÑO BOBO");     

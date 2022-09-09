@@ -18,6 +18,7 @@ public class MG_UI_Manager : MonoBehaviour
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
 
     }
+    /*
     public void BackTo3D()
     {
         SceneManager.LoadScene("Main_Stage");   
@@ -27,7 +28,29 @@ public class MG_UI_Manager : MonoBehaviour
         gv.compostActiva = true;
         Generador.contadorBasura = 0;
         saveSystem.Save();   
+    }*/
+
+    public void BackToOutside()
+    {
+        SceneManager.LoadScene("Outside");   
+        gv.recTrash = 0;  
+        gv.noRecTrash = 0;
+        gv.organicTrash = 0;
+        gv.compostActiva = true;
+        Generador.contadorBasura = 0;
+        saveSystem.Save();   
     }
+    public void BackToInside()
+    {
+        SceneManager.LoadScene("Inside");   
+        gv.recTrash = 0;  
+        gv.noRecTrash = 0;
+        gv.organicTrash = 0;
+        gv.compostActiva = true;
+        Generador.contadorBasura = 0;
+        saveSystem.Save();   
+    }
+
 
     public void Reintentar()
     {
