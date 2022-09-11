@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AspireInteraction : MonoBehaviour
 {
     bool startLerp;
     GameObject target;
     public PlayerInteraction playerInteraction;
+    EnviromentChanger enviromentChanger;
     MainMission mainMission;
     void Update()
     {
@@ -36,6 +38,8 @@ public class AspireInteraction : MonoBehaviour
     void Aspire()
     {
         mainMission = playerInteraction.mainMission;
+        enviromentChanger = playerInteraction.enviromentChanger;
+        enviromentChanger.CheckZones(Convert.ToInt32(gameObject.name));
         switch (this.gameObject.tag)
         {
             case "Vidrio":

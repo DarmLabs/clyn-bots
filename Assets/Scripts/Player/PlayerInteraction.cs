@@ -30,6 +30,7 @@ public class PlayerInteraction : MonoBehaviour
     bool isDepositing;
     LoadSceneMode mode;
     [HideInInspector] public MainMission mainMission;
+    [HideInInspector] public EnviromentChanger enviromentChanger;
     VC_Switcher vC_Switcher;
     void OnEnable()
     {
@@ -37,6 +38,7 @@ public class PlayerInteraction : MonoBehaviour
         gv = GameObject.FindObjectOfType<GlobalVariables>();
         saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
         mainMission = GameObject.FindObjectOfType<MainMission>();
+        enviromentChanger = GameObject.FindObjectOfType<EnviromentChanger>();
         vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
     }
     void Start()
