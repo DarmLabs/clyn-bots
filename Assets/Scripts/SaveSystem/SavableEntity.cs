@@ -8,6 +8,13 @@ public class SavableEntity : MonoBehaviour
     [SerializeField] private string id;
     public string Id => id;
     [ContextMenu("GenerateID")]
+    void Start()
+    {
+        if (GetComponent<AspireInteraction>() != null)
+        {
+            GenerateId();
+        }
+    }
     private void GenerateId()
     {
         id = Guid.NewGuid().ToString();

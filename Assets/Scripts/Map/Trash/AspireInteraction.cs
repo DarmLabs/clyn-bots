@@ -15,6 +15,7 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     {
         if (startLerp)
         {
+            Debug.Log("Lerp by:" + gameObject.name);
             LerpToHand();
         }
         if (playerInteraction != null && !startLerp)
@@ -40,7 +41,7 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     {
         mainMission = playerInteraction.mainMission;
         enviromentChanger = playerInteraction.enviromentChanger;
-        enviromentChanger.CheckZones(Convert.ToInt32(gameObject.name));
+        enviromentChanger.CheckZones(Convert.ToInt32(transform.parent.gameObject.name));
         switch (this.gameObject.tag)
         {
             case "Vidrio":
@@ -88,6 +89,7 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     }
     public object SaveState()
     {
+        Debug.Log("guardo" + destroyed);
         return new SaveData()
         {
             destroyed = this.destroyed
@@ -98,6 +100,11 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     {
         var saveData = (SaveData)state;
         destroyed = saveData.destroyed;
+        Debug.Log(destroyed);
+        if (destroyed)
+        {
+            Destroy(gameObject);
+        }
     }
     [Serializable]
     private struct SaveData
