@@ -57,6 +57,16 @@ public class PlayerInteraction : MonoBehaviour
         OnResume();
         Generador.contadorBasura = 0;
         BagPercentage();
+        if (gv.firstTime)
+        {
+            if (inDoor == "Inside")
+            {
+                general_UI.TutorialPanelSwithcer(false);
+                vC_Switcher.NotFirstTime();
+                general_UI.MainMenuSwitcher(true);
+                MovmentState(true);
+            }
+        }
         if (mode == LoadSceneMode.Single)
         {
             player_UI.SetFade(255);
@@ -67,6 +77,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.pipesActiva = false;
             targetPipes.GetComponent<PipesMinigame>().Block();
         }
+
     }
     void Update()
     {
@@ -211,6 +222,7 @@ public class PlayerInteraction : MonoBehaviour
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
         StartCoroutine(LoadAsyncScene(inDoor));
+        saveSystem.Save();
     }
     public void MovmentState(bool state)
     {

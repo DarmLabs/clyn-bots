@@ -8,6 +8,7 @@ public class LakeChanger : MonoBehaviour
     MainMission mainMission;
     void OnEnable()
     {
+        mainMission = GameObject.FindObjectOfType<MainMission>();
         if (mainMission.lakesCleaned == 2)
         {
             gameObject.GetComponent<MeshRenderer>().material = cleanWater;

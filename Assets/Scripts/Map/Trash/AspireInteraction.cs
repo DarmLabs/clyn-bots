@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class AspireInteraction : MonoBehaviour
+public class AspireInteraction : MonoBehaviour, ISaveable
 {
+    public bool destroyed;
     bool startLerp;
     GameObject target;
     public PlayerInteraction playerInteraction;
@@ -86,5 +87,22 @@ public class AspireInteraction : MonoBehaviour
             playerInteraction = null;
         }
     }
-
+    public object SaveState()
+    {
+        return new SaveData()
+        {
+            destroyed = this.destroyed
+        };
+    }
+    //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
+    public void LoadState(object state)
+    {
+        var saveData = (SaveData)state;
+        destroyed = saveData.destroyed;
+    }
+    [Serializable]
+    private struct SaveData
+    {
+        public bool destroyed;
+    }
 }

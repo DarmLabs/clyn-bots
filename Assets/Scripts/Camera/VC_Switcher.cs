@@ -9,6 +9,7 @@ public class VC_Switcher : MonoBehaviour
     [SerializeField] GameObject VC_MainMenu;
     [SerializeField] GameObject VC_Transition_01;
     [SerializeField] GameObject VC_PlayerView;
+    [SerializeField] GlobalVariables gv;
     int checkBlendNeeded;
     bool transition_01Used;
     void Start()
@@ -78,5 +79,27 @@ public class VC_Switcher : MonoBehaviour
             }
             checkBlendNeeded = 0;
         }
+    }
+    public void CheckFirstTime()
+    {
+        if (!gv.firstTime)
+        {
+            VC_MainMenuSwitcher(false);
+            VC_Transition_01Switcher(true);
+            general_UI.MainMenuSwitcher(false);
+            gv.firstTime = true;
+        }
+        else
+        {
+            general_UI.MainMenuSwitcher(false);
+            general_UI.MainPanelSwitcher(true);
+        }
+    }
+    public void NotFirstTime()
+    {
+        CM_Brain.m_DefaultBlend.m_Time = 0;
+        VC_MainMenu.SetActive(false);
+        VC_Transition_01.SetActive(false);
+        VC_PlayerView.SetActive(true);
     }
 }

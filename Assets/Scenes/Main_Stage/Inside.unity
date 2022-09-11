@@ -2616,6 +2616,7 @@ MonoBehaviour:
   compostActiva: 0
   pipesActiva: 0
   currentMissionStage: 0
+  firstTime: 0
 --- !u!114 &341408396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4270,7 +4271,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777512, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -8066,7 +8067,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777512, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -11361,6 +11362,7 @@ MonoBehaviour:
   VC_MainMenu: {fileID: 941369944}
   VC_Transition_01: {fileID: 1473205228}
   VC_PlayerView: {fileID: 467237849}
+  gv: {fileID: 341408395}
 --- !u!1 &1313206302
 GameObject:
   m_ObjectHideFlags: 3
@@ -11868,32 +11870,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1312425779}
         m_TargetAssemblyTypeName: VC_Switcher, Assembly-CSharp
-        m_MethodName: VC_MainMenuSwitcher
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1312425779}
-        m_TargetAssemblyTypeName: VC_Switcher, Assembly-CSharp
-        m_MethodName: VC_Transition_01Switcher
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 350823484}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+        m_MethodName: CheckFirstTime
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12761,7 +12739,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.777512, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -23704,6 +23682,7 @@ MonoBehaviour:
   inDoor: 
   bagPercentage: 0
   mainMission: {fileID: 0}
+  enviromentChanger: {fileID: 0}
 --- !u!95 &2630542265957928347
 Animator:
   serializedVersion: 4
