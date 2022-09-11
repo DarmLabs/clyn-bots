@@ -43,7 +43,6 @@ public class Orchard : MonoBehaviour, ISaveable
         {
             currentState = "Seeded";
             constructible.ResourcesSubstraction();
-            general_UI.saveSystem.Save();
         }
     }
     public void GrowSeed(bool fromLoad)
@@ -87,7 +86,6 @@ public class Orchard : MonoBehaviour, ISaveable
         if (!fromLoad)
         {
             constructible.ResourcesSubstraction();
-            general_UI.saveSystem.Save();
         }
     }
     public void CheckState()

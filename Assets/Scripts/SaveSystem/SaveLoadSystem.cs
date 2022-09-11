@@ -31,6 +31,10 @@ public class SaveLoadSystem : MonoBehaviour
         var state = LoadFile();
         LoadState(state);
     }
+    void OnApplicationQuit()
+    {
+        Save();
+    }
     public void SaveFile(object state)
     {
         using (var stream = File.Open(SavePath, FileMode.Create))

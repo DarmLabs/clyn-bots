@@ -20,7 +20,6 @@ public class PipesMinigame : MonoBehaviour
         gameObject.tag = "Untagged";
         player.gv.pipesActiva = false;
         this.enabled = false;
-        player.saveSystem.Save();
     }
     public void Response(string id)
     {

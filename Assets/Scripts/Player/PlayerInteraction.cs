@@ -127,7 +127,6 @@ public class PlayerInteraction : MonoBehaviour
             gv.vidrioRefinado += 5;
             gv.plasticoRefinado += 5;
             gv.cartonRefinado += 5;
-            saveSystem.Save();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -138,7 +137,6 @@ public class PlayerInteraction : MonoBehaviour
             gv.metalTrash = 0;
             gv.cartonTrash = 0;
             BagPercentage();
-            saveSystem.Save();
         }
         if (Input.GetKey(KeyCode.X) && itemsInBag < 30 && inDoor == "Outside")
         {
@@ -222,7 +220,6 @@ public class PlayerInteraction : MonoBehaviour
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
         StartCoroutine(LoadAsyncScene(inDoor));
-        saveSystem.Save();
     }
     public void MovmentState(bool state)
     {
@@ -231,6 +228,7 @@ public class PlayerInteraction : MonoBehaviour
     IEnumerator LoadAsyncScene(string scene)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        saveSystem.Save();
         while (!asyncLoad.isDone)
         {
             yield return null;
@@ -377,6 +375,5 @@ public class PlayerInteraction : MonoBehaviour
     {
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
-        saveSystem.Save();
     }
 }

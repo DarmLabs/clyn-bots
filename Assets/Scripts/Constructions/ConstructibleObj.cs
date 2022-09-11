@@ -120,7 +120,6 @@ public class ConstructibleObj : MonoBehaviour
         {
             mainMission.constructionsFinished++;
         }
-        saveSystem.Save();
     }
     public void PlayCinematic(GameObject target)
     {

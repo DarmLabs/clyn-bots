@@ -18,6 +18,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject orchardPanel;
     [SerializeField] GameObject tutorialPanel;
     [SerializeField] GameObject refinerPanel;
+    [SerializeField] GameObject compostPanel;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
     public TextMeshProUGUI debugText;
     int selection = 1;
@@ -214,6 +215,10 @@ public class General_UI : MonoBehaviour
     {
         pipesMinigame.SetActive(state);
     }
+    public void CompostPanelSwitcher(bool state)
+    {
+        compostPanel.SetActive(state);
+    }
     public void MinigameAspireSwitcher(bool state)
     {
         minigameAspire.SetActive(state);
@@ -248,6 +253,7 @@ public class General_UI : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
+        saveSystem.Save();
         SceneManager.LoadScene(scene);
     }
     public void ExitGame()

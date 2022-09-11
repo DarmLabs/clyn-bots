@@ -67,8 +67,7 @@ public class AspireInteraction : MonoBehaviour, ISaveable
         {
             mainMission.trashRecolected++;
         }
-
-        playerInteraction.saveSystem.Save();
+        destroyed = true;
         playerInteraction.BagPercentage();
     }
     void OnTriggerEnter(Collider other)
