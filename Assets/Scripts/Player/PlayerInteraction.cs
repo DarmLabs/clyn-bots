@@ -59,18 +59,26 @@ public class PlayerInteraction : MonoBehaviour
         BagPercentage();
         if (gv.firstTime)
         {
-            if (inDoor == "Inside")
+            if (inDoor == "Inside" && mode != LoadSceneMode.Single)
             {
                 general_UI.TutorialPanelSwithcer(false);
                 vC_Switcher.NotFirstTime();
                 general_UI.MainMenuSwitcher(true);
                 MovmentState(true);
             }
-        }
-        if (mode == LoadSceneMode.Single)
-        {
-            player_UI.SetFade(255);
-            player_UI.fadeState = 2;
+            else if(mode == LoadSceneMode.Single)
+            {
+                player_UI.SetFade(255);
+                player_UI.fadeState = 2;
+                if(inDoor == "Inside")
+                {
+                    transform.position = insidePoint.transform.position;
+                    general_UI.MainMenuSwitcher(false);
+                    general_UI.TutorialPanelSwithcer(false);
+                    vC_Switcher.NotFirstTime();
+                    MovmentState(true);
+                }
+            }
         }
         if (gv.pipesActiva)
         {
@@ -219,6 +227,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
+        saveSystem.Save();
         StartCoroutine(LoadAsyncScene(inDoor));
     }
     public void MovmentState(bool state)
@@ -228,7 +237,6 @@ public class PlayerInteraction : MonoBehaviour
     IEnumerator LoadAsyncScene(string scene)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
-        saveSystem.Save();
         while (!asyncLoad.isDone)
         {
             yield return null;

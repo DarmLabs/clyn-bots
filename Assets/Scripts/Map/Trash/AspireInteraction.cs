@@ -15,7 +15,6 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     {
         if (startLerp)
         {
-            Debug.Log("Lerp by:" + gameObject.name);
             LerpToHand();
         }
         if (playerInteraction != null && !startLerp)
@@ -30,11 +29,13 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     }
     void LerpToHand()
     {
+        Debug.Log(transform.position + "position");
+        Debug.Log(transform.localScale + "scale");
         transform.position = Vector3.Lerp(transform.position, target.transform.GetChild(0).position, 0.5f);
         transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 0.5f);
         if (transform.localScale.x == 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     void Aspire()
@@ -89,7 +90,6 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     }
     public object SaveState()
     {
-        Debug.Log("guardo" + destroyed);
         return new SaveData()
         {
             destroyed = this.destroyed
