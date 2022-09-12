@@ -258,6 +258,7 @@ public class General_UI : MonoBehaviour
             playerInteraction.takeBools.TakeDestoyed();
             FileHandler.SaveToJSON<bool>(playerInteraction.takeBools.destoyedList, "save.txt");
         }
+        playerInteraction.SaveTransform();
         saveSystem.Save();
         SceneManager.LoadScene(scene);
     }

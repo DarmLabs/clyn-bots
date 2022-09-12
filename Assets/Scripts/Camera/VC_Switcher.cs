@@ -93,6 +93,7 @@ public class VC_Switcher : MonoBehaviour
         {
             general_UI.MainMenuSwitcher(false);
             general_UI.MainPanelSwitcher(true);
+            general_UI.playerInteraction.SetInitialPosition();
         }
     }
     public void NotFirstTime()

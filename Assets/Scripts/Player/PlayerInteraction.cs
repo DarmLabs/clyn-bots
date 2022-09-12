@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetPipes;
     public GameObject targetMainMenu;
     public GameObject targetRefiner;
+    [SerializeField] GameObject initialPlayerPosition;
     #endregion
     public bool isAspiring;
     [HideInInspector] public string inDoor;
@@ -229,6 +230,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
+        SaveTransform();
         saveSystem.Save();
         if (takeBools != null)
         {
@@ -390,5 +392,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
+    }
+    public void SetInitialPosition()
+    {
+        transform.position = initialPlayerPosition.transform.position;
     }
 }
