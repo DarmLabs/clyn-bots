@@ -13,9 +13,6 @@ public class SaveLoadSystem : MonoBehaviour
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "Outside"){
-            Debug.Log("?");
-        }
         Load();
     }
     void Awake()

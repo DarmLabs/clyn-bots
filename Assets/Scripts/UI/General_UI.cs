@@ -253,6 +253,11 @@ public class General_UI : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
+        if (playerInteraction.takeBools != null)
+        {
+            playerInteraction.takeBools.TakeDestoyed();
+            FileHandler.SaveToJSON<bool>(playerInteraction.takeBools.destoyedList, "save.txt");
+        }
         saveSystem.Save();
         SceneManager.LoadScene(scene);
     }

@@ -8,6 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     #region Imports & Required Objects
     [Header("Imports & Required Objects")]
     [HideInInspector] public SaveLoadSystem saveSystem;
+    [HideInInspector] public TakeBools takeBools;
     [HideInInspector] public GlobalVariables gv;
     [SerializeField] ConeCollider cone;
     [HideInInspector] public PlayerAnimations playerAnim;
@@ -37,6 +38,7 @@ public class PlayerInteraction : MonoBehaviour
         SceneManager.sceneLoaded += OnLoadScene;
         gv = GameObject.FindObjectOfType<GlobalVariables>();
         saveSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
+        takeBools = GameObject.FindObjectOfType<TakeBools>();
         mainMission = GameObject.FindObjectOfType<MainMission>();
         enviromentChanger = GameObject.FindObjectOfType<EnviromentChanger>();
         vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
@@ -66,11 +68,11 @@ public class PlayerInteraction : MonoBehaviour
                 general_UI.MainMenuSwitcher(true);
                 MovmentState(true);
             }
-            else if(mode == LoadSceneMode.Single)
+            else if (mode == LoadSceneMode.Single)
             {
                 player_UI.SetFade(255);
                 player_UI.fadeState = 2;
-                if(inDoor == "Inside")
+                if (inDoor == "Inside")
                 {
                     transform.position = insidePoint.transform.position;
                     general_UI.MainMenuSwitcher(false);
@@ -228,6 +230,11 @@ public class PlayerInteraction : MonoBehaviour
         player_UI.FadePanel.SetActive(true);
         player_UI.fadeState = 1;
         saveSystem.Save();
+        if (takeBools != null)
+        {
+            takeBools.TakeDestoyed();
+            FileHandler.SaveToJSON<bool>(takeBools.destoyedList, "saveTrash.txt");
+        }
         StartCoroutine(LoadAsyncScene(inDoor));
     }
     public void MovmentState(bool state)

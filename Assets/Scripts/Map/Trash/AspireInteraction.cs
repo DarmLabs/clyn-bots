@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
-public class AspireInteraction : MonoBehaviour, ISaveable
+[Serializable]
+public class AspireInteraction : MonoBehaviour
 {
     public bool destroyed;
     bool startLerp;
@@ -29,13 +29,12 @@ public class AspireInteraction : MonoBehaviour, ISaveable
     }
     void LerpToHand()
     {
-        Debug.Log(transform.position + "position");
-        Debug.Log(transform.localScale + "scale");
         transform.position = Vector3.Lerp(transform.position, target.transform.GetChild(0).position, 0.5f);
         transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(0, 0, 0), 0.5f);
         if (transform.localScale.x == 0)
         {
-            gameObject.SetActive(false);
+            GetComponent<BoxCollider>().enabled = false;
+            GetComponent<MeshRenderer>().enabled = false;
         }
     }
     void Aspire()
@@ -72,6 +71,13 @@ public class AspireInteraction : MonoBehaviour, ISaveable
         destroyed = true;
         playerInteraction.BagPercentage();
     }
+    public void CheckDestroyed()
+    {
+        if (destroyed)
+        {
+            Destroy(gameObject);
+        }
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "PlayerAspire")
@@ -87,28 +93,5 @@ public class AspireInteraction : MonoBehaviour, ISaveable
             target = null;
             playerInteraction = null;
         }
-    }
-    public object SaveState()
-    {
-        return new SaveData()
-        {
-            destroyed = this.destroyed
-        };
-    }
-    //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
-    public void LoadState(object state)
-    {
-        var saveData = (SaveData)state;
-        destroyed = saveData.destroyed;
-        Debug.Log(destroyed);
-        if (destroyed)
-        {
-            Destroy(gameObject);
-        }
-    }
-    [Serializable]
-    private struct SaveData
-    {
-        public bool destroyed;
     }
 }
