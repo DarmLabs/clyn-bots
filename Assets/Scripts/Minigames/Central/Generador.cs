@@ -20,12 +20,12 @@ public class Generador : MonoBehaviour
     #endregion
     #region Indices de arrays
     //private int indexRecuperables = 0;    
-    private int indexNoRecuperables = 5;
-    private int indexOrganicos = 5;
-    private int indexVidrios = 3;
-    private int indexPlasticos = 3;
-    private int indexCartones = 3;
-    private int indexMetales = 2;
+    private int indexNoRecuperables = 4;
+    private int indexOrganicos = 4;
+    private int indexVidrios = 2;
+    private int indexPlasticos = 2;
+    private int indexCartones = 2;
+    private int indexMetales = 1;
     #endregion
     #region Contadores
     //private int cantidadRecuperables = 0;
