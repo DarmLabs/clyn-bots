@@ -28,9 +28,11 @@ public class RecyclerNPC : MonoBehaviour
     GameObject mainCamera;
     General_UI general_UI;
     Vector3 previousRot;
-    bool going = true;
+    [SerializeField] bool going = true;
     public bool fromResponse;
     [HideInInspector][SerializeField] Transform cinematicCameraPoint;
+    bool isMoving = true;
+    bool lockDestination;
     void Awake()
     {
         pointA = pointA + transform.parent.position;
@@ -83,6 +85,7 @@ public class RecyclerNPC : MonoBehaviour
     void Wander(Vector3 target)
     {
         nav.destination = target;
+        isMoving = true;
     }
     public void RestoreDestination()
     {
@@ -150,15 +153,29 @@ public class RecyclerNPC : MonoBehaviour
     {
         if (!idle)
         {
-            if (going && nav.remainingDistance <= nav.stoppingDistance)
+            if (going && !isMoving)
             {
+                Debug.Log("going to b" + gameObject.name);
                 Wander(pointB);
-                going = false;
             }
-            else if (!going && nav.remainingDistance <= nav.stoppingDistance)
+            else if (!going && !isMoving)
             {
+                Debug.Log("going to a" + gameObject.name);
                 Wander(pointA);
-                going = true;
+            }
+            else if (nav.remainingDistance <= nav.stoppingDistance && !lockDestination)
+            {
+                lockDestination = true;
+                StartCoroutine(UnlockDestination(5f));
+                if (going)
+                {
+                    going = false;
+                }
+                else
+                {
+                    going = true;
+                }
+                isMoving = false;
             }
             anim.Play(walkingStyle);
             previousRot = transform.eulerAngles;
@@ -199,5 +216,10 @@ public class RecyclerNPC : MonoBehaviour
         {
             idle = false;
         }
+    }
+    IEnumerator UnlockDestination(float secs)
+    {
+        yield return new WaitForSeconds(secs);
+        lockDestination = false;
     }
 }

@@ -24,13 +24,14 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetMainMenu;
     public GameObject targetRefiner;
     [SerializeField] GameObject initialPlayerPosition;
+    SceneCache sceneCache;
     #endregion
     public bool isAspiring;
     [HideInInspector] public string inDoor;
     int maxBagSpace = 30, itemsInBag;
     public float bagPercentage;
     bool isDepositing;
-    LoadSceneMode mode;
+    public LoadSceneMode mode;
     [HideInInspector] public MainMission mainMission;
     [HideInInspector] public EnviromentChanger enviromentChanger;
     VC_Switcher vC_Switcher;
@@ -43,6 +44,7 @@ public class PlayerInteraction : MonoBehaviour
         mainMission = GameObject.FindObjectOfType<MainMission>();
         enviromentChanger = GameObject.FindObjectOfType<EnviromentChanger>();
         vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
+        sceneCache = GameObject.FindObjectOfType<SceneCache>();
     }
     void Start()
     {
@@ -68,6 +70,8 @@ public class PlayerInteraction : MonoBehaviour
                 vC_Switcher.NotFirstTime();
                 general_UI.MainMenuSwitcher(true);
                 MovmentState(true);
+                transform.position = initialPlayerPosition.transform.position;
+                transform.eulerAngles = new Vector3(0, 180, 0);
             }
             else if (mode == LoadSceneMode.Single)
             {
@@ -75,11 +79,25 @@ public class PlayerInteraction : MonoBehaviour
                 player_UI.fadeState = 2;
                 if (inDoor == "Inside")
                 {
-                    transform.position = insidePoint.transform.position;
+                    if (sceneCache.previousScene == "Outside")
+                    {
+                        transform.position = insidePoint.transform.position;
+                        transform.eulerAngles = new Vector3(0, 90, 0);
+                    }
                     general_UI.MainMenuSwitcher(false);
                     general_UI.TutorialPanelSwithcer(false);
                     vC_Switcher.NotFirstTime();
+                    general_UI.MainPanelSwitcher(true);
                     MovmentState(true);
+                }
+                if (inDoor == "Outside")
+                {
+                    if (sceneCache.previousScene == "Inside")
+                    {
+                        Debug.Log("a");
+                        transform.position = outisdePoint.transform.position;
+                        transform.eulerAngles = new Vector3(0, -90, 0);
+                    }
                 }
             }
         }
