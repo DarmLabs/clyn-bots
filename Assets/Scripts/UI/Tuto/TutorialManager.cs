@@ -1,16 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
-
+using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
-    General_UI general_UI;
-    void OnEnable()
+    [SerializeField] General_UI general_UI;
+    public void EnableTutorial()
     {
         if (this.gameObject.transform.childCount == 0)
         {
             SpawnTutorialWindow("Intro");
+            GetComponent<Image>().enabled = true;
         }
     }
     public void SpawnTutorialWindow(string name)
@@ -22,6 +22,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
+            general_UI.playerInteraction.gv.firstTime = true;
             gameObject.SetActive(false);
         }
 

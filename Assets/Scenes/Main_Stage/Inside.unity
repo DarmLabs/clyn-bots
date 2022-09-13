@@ -11395,6 +11395,7 @@ MonoBehaviour:
   VC_Transition_01: {fileID: 1473205228}
   VC_PlayerView: {fileID: 467237849}
   gv: {fileID: 341408395}
+  tutorialManager: {fileID: 1971539588}
 --- !u!1 &1313206302
 GameObject:
   m_ObjectHideFlags: 3
@@ -16513,7 +16514,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971539584}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -16556,6 +16557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 590edcdabc64a30498be4a451d8a94a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  general_UI: {fileID: 904744519}
 --- !u!65 &1989882238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23499,6 +23501,7 @@ MonoBehaviour:
   isGreeting: 0
   isSpeaking: 0
   cinematicCamera: {fileID: 0}
+  going: 1
   fromResponse: 0
   cinematicCameraPoint: {fileID: 8072134836173633362}
 --- !u!1 &2456097722182536664

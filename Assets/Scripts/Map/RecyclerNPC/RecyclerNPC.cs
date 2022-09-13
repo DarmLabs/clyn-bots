@@ -155,12 +155,10 @@ public class RecyclerNPC : MonoBehaviour
         {
             if (going && !isMoving)
             {
-                Debug.Log("going to b" + gameObject.name);
                 Wander(pointB);
             }
             else if (!going && !isMoving)
             {
-                Debug.Log("going to a" + gameObject.name);
                 Wander(pointA);
             }
             else if (nav.remainingDistance <= nav.stoppingDistance && !lockDestination)

@@ -10,6 +10,7 @@ public class VC_Switcher : MonoBehaviour
     [SerializeField] GameObject VC_Transition_01;
     [SerializeField] GameObject VC_PlayerView;
     [SerializeField] GlobalVariables gv;
+    [SerializeField] TutorialManager tutorialManager;
     int checkBlendNeeded;
     bool transition_01Used;
     void Start()
@@ -84,16 +85,13 @@ public class VC_Switcher : MonoBehaviour
     {
         if (!gv.firstTime)
         {
-            VC_MainMenuSwitcher(false);
-            VC_Transition_01Switcher(true);
+            tutorialManager.EnableTutorial();
             general_UI.MainMenuSwitcher(false);
-            gv.firstTime = true;
         }
         else
         {
             general_UI.MainMenuSwitcher(false);
             general_UI.MainPanelSwitcher(true);
-            general_UI.playerInteraction.SetInitialPosition();
         }
     }
     public void NotFirstTime()

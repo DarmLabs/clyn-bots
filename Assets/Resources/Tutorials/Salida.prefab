@@ -260,8 +260,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1987979056404629217}
         m_TargetAssemblyTypeName: TutorialPanel, Assembly-CSharp
-        m_MethodName: GetParentScript
-        m_Mode: 5
+        m_MethodName: DestroyThisPanel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -272,8 +272,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1987979056404629217}
         m_TargetAssemblyTypeName: TutorialPanel, Assembly-CSharp
-        m_MethodName: DestroyThisPanel
-        m_Mode: 1
+        m_MethodName: GetParentScript
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

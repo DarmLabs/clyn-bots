@@ -94,7 +94,6 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     if (sceneCache.previousScene == "Inside")
                     {
-                        Debug.Log("a");
                         transform.position = outisdePoint.transform.position;
                         transform.eulerAngles = new Vector3(0, -90, 0);
                     }
@@ -410,9 +409,5 @@ public class PlayerInteraction : MonoBehaviour
     {
         GetComponent<SavePosition>().PositionUpdated();
         GetComponent<SavePosition>().RotationUpdated();
-    }
-    public void SetInitialPosition()
-    {
-        transform.position = initialPlayerPosition.transform.position;
     }
 }
