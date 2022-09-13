@@ -5,24 +5,37 @@ using UnityEngine;
 public class Generador : MonoBehaviour
 {
     #region Arrays en uso
-    [SerializeField] private GameObject[] Recuperables;
+    //[SerializeField] private GameObject[] Recuperables;
+    [SerializeField] private GameObject[] Residuos;
     [SerializeField] private GameObject[] NoRecuperables;
     [SerializeField] private GameObject[] Organicos;
-    [SerializeField] private GameObject[] Residuos;
+    [SerializeField] private GameObject[] Vidrios;
+    [SerializeField] private GameObject[] Plasticos;
+    [SerializeField] private GameObject[] Cartones;
+    [SerializeField] private GameObject[] Metales; 
+
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private GameObject Tachos;  
     [SerializeField] private GameObject[] PosicionesTachos;
     #endregion
     #region Indices de arrays
-    private int indexRecuperables = 10;    
-    private int indexNoRecuperables = 4;
-    private int indexOrganicos = 4;
+    //private int indexRecuperables = 0;    
+    private int indexNoRecuperables = 5;
+    private int indexOrganicos = 5;
+    private int indexVidrios = 3;
+    private int indexPlasticos = 3;
+    private int indexCartones = 3;
+    private int indexMetales = 2;
     #endregion
     #region Contadores
-    private int cantidadResiduos = 0;
-    private int cantidadRecuperables = 0;
+    //private int cantidadRecuperables = 0;
+    private int cantidadResiduos = 0;    
     private int cantidadNoRecuperables = 0;
     private int cantidadOrganicos = 0;
+    private int cantidadVidrios = 0;
+    private int cantidadPlasticos = 0;
+    private int cantidadCartones = 0;
+    private int cantidadMetales = 0;
     public static int contadorBasura = 0;
     private float Tiempo = 0f;
     private float intervalo = 0;    
@@ -63,10 +76,16 @@ public class Generador : MonoBehaviour
         TachoNoRecSprite = Tachos.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         TachoRecSprite = Tachos.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         TachoOrgSprite = Tachos.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();        
-        cantidadNoRecuperables = 10;//gv.noRecTrash;
-        cantidadOrganicos = 10;//gv.organicTrash;
-        cantidadRecuperables = 10;//gv.recTrash;
-        cantidadResiduos = cantidadNoRecuperables + cantidadOrganicos + cantidadRecuperables;              
+        //cantidadNoRecuperables = 10;//gv.noRecTrash;
+        //cantidadOrganicos = 10;//gv.organicTrash;
+        //cantidadRecuperables = 10;//gv.recTrash;           
+        cantidadNoRecuperables = gv.noRecTrash;
+        cantidadOrganicos = gv.organicTrash;
+        cantidadVidrios = gv.vidrioTrash;
+        cantidadPlasticos = gv.plasticoTrash;
+        cantidadCartones = gv.cartonTrash;
+        cantidadMetales = gv.metalTrash;
+        cantidadResiduos = cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+cantidadPlasticos+cantidadCartones+cantidadMetales;              
         Residuos = new GameObject[cantidadResiduos];
         Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   
         CreateResiduos();           
@@ -82,7 +101,7 @@ public class Generador : MonoBehaviour
   
     void CreateResiduos()
     {
-        for (int i = 0; i < (cantidadRecuperables); i++)
+        /*for (int i = 0; i < (cantidadRecuperables); i++)
         {
             Residuos[i] = Recuperables[Random.Range(0,indexRecuperables+1)];            
         }
@@ -93,7 +112,32 @@ public class Generador : MonoBehaviour
         for (int i = 0; i < (cantidadOrganicos); i++)
         {
             Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos+1)];            
+        }*/
+        for (int i = 0; i < (cantidadNoRecuperables); i++)
+        {
+            Residuos[i] = NoRecuperables[Random.Range(0,indexNoRecuperables+1)];            
         }
+        for (int i = 0; i < (cantidadOrganicos); i++)
+        {
+            Residuos[cantidadOrganicos+i]= Organicos[Random.Range(0,indexOrganicos+1)];               
+        }
+        for (int i = 0; i < (cantidadVidrios); i++)
+        {
+            Residuos[cantidadNoRecuperables+cantidadOrganicos+i] = Vidrios[Random.Range(0,indexVidrios+1)];            
+        }
+        for (int i = 0; i < (cantidadPlasticos); i++)
+        {
+            Residuos[cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+i] = Plasticos[Random.Range(0,indexPlasticos+1)];            
+        }
+        for (int i = 0; i < (cantidadCartones); i++)
+        {
+            Residuos[cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+cantidadPlasticos+i]= Cartones[Random.Range(0,indexCartones+1)];               
+        }
+        for (int i = 0; i < (cantidadMetales); i++)
+        {
+            Residuos[cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+cantidadPlasticos+cantidadCartones+i] = Metales[Random.Range(0,indexMetales+1)];            
+        }
+
         for (int t = 0; t < Residuos.Length; t++)
         {
             GameObject temporal = Residuos[t]; 
