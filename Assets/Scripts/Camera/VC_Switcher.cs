@@ -28,10 +28,6 @@ public class VC_Switcher : MonoBehaviour
     public void VC_MainMenuSwitcher(bool state)
     {
         VC_MainMenu.SetActive(state);
-        if (state)
-        {
-            checkBlendNeeded = 3;
-        }
     }
     public void VC_Transition_01Switcher(bool state)
     {
@@ -74,10 +70,6 @@ public class VC_Switcher : MonoBehaviour
                 general_UI.playerInteraction.MovmentState(true);
                 general_UI.MainPanelSwitcher(true);
             }
-            if (code == 3)
-            {
-                general_UI.MainMenuSwitcher(true);
-            }
             checkBlendNeeded = 0;
         }
     }
@@ -90,6 +82,8 @@ public class VC_Switcher : MonoBehaviour
         }
         else
         {
+            NotFirstTime();
+            general_UI.playerInteraction.MovmentState(true);
             general_UI.MainMenuSwitcher(false);
             general_UI.MainPanelSwitcher(true);
         }

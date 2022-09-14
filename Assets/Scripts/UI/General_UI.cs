@@ -37,6 +37,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] TextMeshProUGUI textChangeStage;
     [SerializeField] TextMeshProUGUI[] mainMissionTexts;
     [SerializeField] Slider[] mainMissionProgressBars;
+    [SerializeField] Cinemachine.CinemachineFreeLook freeLookCamera;
     MainMission mainMission;
     void Start()
     {
@@ -87,6 +88,7 @@ public class General_UI : MonoBehaviour
     public void RefinerPanelSwitcher(bool state)
     {
         refinerPanel.SetActive(state);
+        FreeLookCameraSwitcher(state);
     }
     public void BuildChangeStagePanel(string target)
     {
@@ -104,10 +106,12 @@ public class General_UI : MonoBehaviour
     public void ChangeStageSwitcher(bool state)
     {
         changeStagePanel.SetActive(state);
+        FreeLookCameraSwitcher(state);
     }
     public void OrchardPanelSwitcher(bool state)
     {
         orchardPanel.SetActive(state);
+        FreeLookCameraSwitcher(state);
     }
     public void OrchardSelection(GameObject targetBtn)
     {
@@ -143,6 +147,7 @@ public class General_UI : MonoBehaviour
     public void ConstructionPanelSwitcher(bool state)
     {
         constructionPanel.SetActive(state);
+        FreeLookCameraSwitcher(state);
     }
     public void BuildingConstructionMenu(string title, string[] req, string reqSprite, bool isOrchard)
     {
@@ -214,10 +219,12 @@ public class General_UI : MonoBehaviour
     public void PipesMinigameSwitcher(bool state)
     {
         pipesMinigame.SetActive(state);
+        FreeLookCameraSwitcher(state);
     }
     public void CompostPanelSwitcher(bool state)
     {
         compostPanel.SetActive(state);
+        FreeLookCameraSwitcher(state);
     }
     public void MinigameAspireSwitcher(bool state)
     {
@@ -234,6 +241,7 @@ public class General_UI : MonoBehaviour
             playerInteraction.enabled = true;
             playerInteraction.playerAnim.Aspire(false);
         }
+        FreeLookCameraSwitcher(state);
     }
     public void MinimapSwitcher(bool state)
     {
@@ -261,6 +269,13 @@ public class General_UI : MonoBehaviour
         playerInteraction.SaveTransform();
         saveSystem.Save();
         SceneManager.LoadScene(scene);
+    }
+    public void FreeLookCameraSwitcher(bool state)
+    {
+        if (freeLookCamera != null)
+        {
+            freeLookCamera.enabled = state;
+        }
     }
     public void ExitGame()
     {

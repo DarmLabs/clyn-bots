@@ -166,13 +166,13 @@ public class PlayerInteraction : MonoBehaviour
             gv.cartonTrash = 0;
             BagPercentage();
         }
-        if (Input.GetKey(KeyCode.X) && itemsInBag < 30 && inDoor == "Outside")
+        if (Input.GetKey(KeyCode.X) && itemsInBag < 90 && inDoor == "Outside")
         {
             cone.enabled = true;
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else if ((!isDepositing || itemsInBag >= 30) && isAspiring)
+        else if ((!isDepositing || itemsInBag >= 90) && isAspiring)
         {
             cone.enabled = false;
             isAspiring = false;
@@ -226,6 +226,7 @@ public class PlayerInteraction : MonoBehaviour
                 vC_Switcher.VC_PlayerViewSwitcher(false);
                 MovmentState(false);
                 general_UI.MainPanelSwitcher(false);
+                general_UI.MainMenuSwitcher(true);
                 ExitDetectObject(targetMainMenu);
             }
             if (targetRefiner != null)
@@ -240,7 +241,7 @@ public class PlayerInteraction : MonoBehaviour
     public void BagPercentage()
     {
         itemsInBag = gv.vidrioTrash + gv.cartonTrash + gv.metalTrash + gv.plasticoTrash + gv.organicTrash + gv.noRecTrash;
-        bagPercentage = (itemsInBag * 100) / 30;
+        bagPercentage = (itemsInBag * 100) / 90;
         player_UI.DisplayBagPercentage();
     }
     public void ChangeStage()
