@@ -79,12 +79,12 @@ public class Generador : MonoBehaviour
         //cantidadNoRecuperables = 10;//gv.noRecTrash;
         //cantidadOrganicos = 10;//gv.organicTrash;
         //cantidadRecuperables = 10;//gv.recTrash;           
-        cantidadNoRecuperables = gv.noRecTrash;
-        cantidadOrganicos = gv.organicTrash;
-        cantidadVidrios = gv.vidrioTrash;
-        cantidadPlasticos = gv.plasticoTrash;
-        cantidadCartones = gv.cartonTrash;
-        cantidadMetales = gv.metalTrash;
+        cantidadNoRecuperables = Mathf.FloorToInt(Mathf.Round(gv.noRecTrash/3));
+        cantidadOrganicos = Mathf.FloorToInt(Mathf.Round(gv.organicTrash/3));
+        cantidadVidrios = Mathf.FloorToInt(Mathf.Round(gv.vidrioTrash/3));
+        cantidadPlasticos = Mathf.FloorToInt(Mathf.Round(gv.plasticoTrash/3));
+        cantidadCartones = Mathf.FloorToInt(Mathf.Round(gv.cartonTrash/3));
+        cantidadMetales = Mathf.FloorToInt(Mathf.Round(gv.metalTrash/3));
         cantidadResiduos = cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+cantidadPlasticos+cantidadCartones+cantidadMetales;              
         Residuos = new GameObject[cantidadResiduos];
         Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   
