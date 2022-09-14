@@ -13,6 +13,7 @@ public class Tachos : MonoBehaviour
     public static int errores = 0; 
     public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
+    private string nombreRecuperable;
     public Text residuosNoRecuperables;
     public Text residuosRecuperables;
     public Text residuosOrganicos;
@@ -44,9 +45,10 @@ public class Tachos : MonoBehaviour
             Debug.Log ("Perdiste niño bobo");
             CantidadGrilla = 12;
             PanelDerrota.SetActive(true);
+            /*
             gv.recTrash = 0;
             gv.noRecTrash = 0;
-            gv.organicTrash = 0;
+            gv.organicTrash = 0;*/
             Time.timeScale = 0f;
             saveSystem.Save();  
         }
@@ -80,9 +82,12 @@ public class Tachos : MonoBehaviour
             
             }
             PanelVictoria.SetActive(true);
-            gv.recTrash = 0;
-            gv.noRecTrash = 0;
-            gv.organicTrash = 0;
+            gv.noRecTrash =0;
+            gv.organicTrash=0;
+            gv.vidrioTrash=0;
+            gv.plasticoTrash=0;
+            gv.cartonTrash=0;
+            gv.metalTrash=0;
             Time.timeScale = 0f;            
             Generador.Terminaste = false;
             gv.memoriaAccesible = true;
@@ -124,8 +129,30 @@ public class Tachos : MonoBehaviour
                 case "Recuperable":
                     //Destroy(other.gameObject);
                     //Debug.Log("Se separó un recuperable");
-                    gv.recTrash -= 1;
+                    //gv.recTrash -= 1;
                     gv.divisionRec +=1;
+                    nombreRecuperable = this.gameObject.name;
+                    if(nombreRecuperable.Contains("Vidrio"))
+                    {
+                        //gv.vidrioTrash -=1;
+                        gv.divisionVidrio +=1;
+                    }
+                    if(nombreRecuperable.Contains("Plastico"))
+                    {
+                        //gv.plasticoTrash -=1;
+                        gv.divisionPlastico +=1; 
+                    }
+                    if(nombreRecuperable.Contains("Carton"))
+                    {
+                        //gv.cartonTrash -=1;
+                        gv.divisionCarton +=1;
+                    }
+                    if(nombreRecuperable.Contains("Metal"))
+                    {
+                        //gv.metalTrash -=1;
+                        gv.divisionMetal +=1;
+                    }
+                                      
                     Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
                     //Generador.bloqueaMovimiento = false; 
                     residuosRecuperables.text = "Residuos Recuperables:"+gv.divisionRec.ToString();
@@ -133,7 +160,7 @@ public class Tachos : MonoBehaviour
                 case "NoRecuperable":
                     //Destroy(other.gameObject);
                     //Debug.Log("Se separó un no recuperable");
-                    gv.noRecTrash -=1;  
+                    //gv.noRecTrash -=1;  
                     gv.divisionNoRec +=1;  
                     Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
                     //Generador.bloqueaMovimiento = false; 
@@ -142,7 +169,7 @@ public class Tachos : MonoBehaviour
                 case "Organico":
                     //Destroy(other.gameObject);
                     //Debug.Log("Se separó un orgánico");
-                    gv.organicTrash -=1;
+                    //gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
                     Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
                     //Generador.bloqueaMovimiento = false; 
@@ -159,13 +186,13 @@ public class Tachos : MonoBehaviour
             switch (other.gameObject.tag)
             {
                 case "Recuperable":                 
-                    gv.recTrash -= 1;                                      
+                    //gv.recTrash -= 1;                                      
                     break;
                 case "NoRecuperable":
-                    gv.noRecTrash -=1;                    
+                    //gv.noRecTrash -=1;                    
                     break;
                 case "Organico":                    
-                    gv.organicTrash -=1;                   
+                    //gv.organicTrash -=1;                   
                     break;
             } 
             //Generador.bloqueaMovimiento = false;
