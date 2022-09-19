@@ -1,45 +1,32 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
-    [SerializeField] private Sound[] sounds;
-
-    private void Awake()
+    public GameObject musicContainer;
+    public GameObject sfxContainer;
+    void Start()
     {
-        Instance = this;
-        foreach (Sound s in sounds)
+        DontDestroyOnLoad(gameObject);
+    }
+    public void MusicSwitcher(bool state)
+    {
+        musicContainer.SetActive(state);
+    }
+    public void SFXSwitcher(bool state)
+    {
+        sfxContainer.SetActive(state);
+    }
+    public void CallAudio(GameObject type, string name)
+    {
+        if (type.activeSelf)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.audioClip;
-            s.source.loop = s.isLoop;
-            s.source.volume = s.volume;
-
-            if (s.playOnAwake)
+            AudioSource audio = type.transform.Find(name).GetComponent<AudioSource>();
+            if (audio != null)
             {
-                s.source.Play();
+                audio.Play();
             }
         }
-    }
-    public void Play(string clipname)
-    {
-        Sound s = Array.Find(sounds, dummySound => dummySound.clipName == clipname);
-        if (s == null)
-        {
-            Debug.LogError("Sound: " + clipname + "does NOT exist!");
-            return;
-        }
-        s.source.Play();
-    }
-    public void Stop(string clipname)
-    {
-        Sound s = Array.Find(sounds, dummySound => dummySound.clipName == clipname);
-        if (s == null)
-        {
-            Debug.LogError("Sound: " + clipname + "does NOT exist!");
-            return;
-        }
-        s.source.Stop();
     }
 }
