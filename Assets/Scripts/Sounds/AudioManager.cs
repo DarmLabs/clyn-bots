@@ -6,9 +6,12 @@ public class AudioManager : MonoBehaviour
 {
     public GameObject musicContainer;
     public GameObject sfxContainer;
+    [SerializeField] AudioSource currentAudio;
+    [SerializeField] AudioSource currentMusic;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        PlayMusic("Menu_Theme");
     }
     public void MusicSwitcher(bool state)
     {
@@ -18,15 +21,40 @@ public class AudioManager : MonoBehaviour
     {
         sfxContainer.SetActive(state);
     }
-    public void CallAudio(GameObject type, string name)
+    public void PlayAudio(string name)
     {
-        if (type.activeSelf)
+        if (sfxContainer.activeSelf)
         {
-            AudioSource audio = type.transform.Find(name).GetComponent<AudioSource>();
-            if (audio != null)
+            currentAudio = sfxContainer.transform.Find(name).GetComponent<AudioSource>();
+            if (currentAudio != null)
             {
-                audio.Play();
+                currentAudio.Play();
             }
+        }
+    }
+    public void PlayMusic(string name)
+    {
+        currentMusic = musicContainer.transform.Find(name).GetComponent<AudioSource>();
+        if (currentMusic != null)
+        {
+            currentMusic.Play();
+        }
+    }
+
+    public void StopAudio()
+    {
+        if (currentAudio != null)
+        {
+            currentAudio.Stop();
+            currentAudio = null;
+        }
+    }
+    public void StopMusic()
+    {
+        if (currentMusic != null)
+        {
+            currentMusic.Stop();
+            currentMusic = null;
         }
     }
 }

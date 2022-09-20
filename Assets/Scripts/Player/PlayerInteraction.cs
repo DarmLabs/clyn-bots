@@ -35,6 +35,7 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector] public MainMission mainMission;
     [HideInInspector] public EnviromentChanger enviromentChanger;
     VC_Switcher vC_Switcher;
+    [HideInInspector] public AudioManager audioManager;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
@@ -45,6 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         enviromentChanger = GameObject.FindObjectOfType<EnviromentChanger>();
         vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
         sceneCache = GameObject.FindObjectOfType<SceneCache>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
     void Start()
     {
@@ -79,6 +81,8 @@ public class PlayerInteraction : MonoBehaviour
                 player_UI.fadeState = 2;
                 if (inDoor == "Inside")
                 {
+                    audioManager.StopMusic();
+                    audioManager.PlayMusic("Inside_Theme");
                     if (sceneCache.previousScene == "Outside")
                     {
                         transform.position = insidePoint.transform.position;
@@ -92,6 +96,8 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 if (inDoor == "Outside")
                 {
+                    audioManager.StopMusic();
+                    audioManager.PlayMusic("Outside_Theme");
                     if (sceneCache.previousScene == "Inside")
                     {
                         transform.position = outisdePoint.transform.position;
@@ -222,6 +228,8 @@ public class PlayerInteraction : MonoBehaviour
 
             if (targetMainMenu != null)
             {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Menu_Theme");
                 vC_Switcher.VC_MainMenuSwitcher(true);
                 vC_Switcher.VC_PlayerViewSwitcher(false);
                 MovmentState(false);

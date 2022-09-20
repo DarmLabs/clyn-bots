@@ -11,11 +11,13 @@ public class VC_Switcher : MonoBehaviour
     [SerializeField] GameObject VC_PlayerView;
     [SerializeField] GlobalVariables gv;
     [SerializeField] TutorialManager tutorialManager;
+    AudioManager audioManager;
     int checkBlendNeeded;
     bool transition_01Used;
     void Start()
     {
         CM_Brain = GetComponent<Cinemachine.CinemachineBrain>();
+        audioManager = general_UI.playerInteraction.audioManager;
     }
     void LateUpdate()
     {
@@ -24,7 +26,6 @@ public class VC_Switcher : MonoBehaviour
             CheckBlend(checkBlendNeeded);
         }
     }
-
     public void VC_MainMenuSwitcher(bool state)
     {
         VC_MainMenu.SetActive(state);
@@ -36,6 +37,8 @@ public class VC_Switcher : MonoBehaviour
             VC_Transition_01.SetActive(state);
             if (state)
             {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Inside_Theme");
                 checkBlendNeeded = 1;
             }
             else
@@ -86,6 +89,8 @@ public class VC_Switcher : MonoBehaviour
             general_UI.playerInteraction.MovmentState(true);
             general_UI.MainMenuSwitcher(false);
             general_UI.MainPanelSwitcher(true);
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Inside_Theme");
         }
     }
     public void NotFirstTime()

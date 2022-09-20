@@ -69,6 +69,7 @@ public class AspireInteraction : MonoBehaviour
             mainMission.trashRecolected++;
         }
         destroyed = true;
+        playerInteraction.audioManager.PlayAudio("Glup");
         playerInteraction.BagPercentage();
     }
     public void CheckDestroyed()
