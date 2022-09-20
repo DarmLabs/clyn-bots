@@ -1,45 +1,60 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
-    [SerializeField] private Sound[] sounds;
-
-    private void Awake()
+    public GameObject musicContainer;
+    public GameObject sfxContainer;
+    [SerializeField] AudioSource currentAudio;
+    [SerializeField] AudioSource currentMusic;
+    void Start()
     {
-        Instance = this;
-        foreach (Sound s in sounds)
+        DontDestroyOnLoad(gameObject);
+        PlayMusic("Menu_Theme");
+    }
+    public void MusicSwitcher(bool state)
+    {
+        musicContainer.SetActive(state);
+    }
+    public void SFXSwitcher(bool state)
+    {
+        sfxContainer.SetActive(state);
+    }
+    public void PlayAudio(string name)
+    {
+        if (sfxContainer.activeSelf)
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.audioClip;
-            s.source.loop = s.isLoop;
-            s.source.volume = s.volume;
-
-            if (s.playOnAwake)
+            currentAudio = sfxContainer.transform.Find(name).GetComponent<AudioSource>();
+            if (currentAudio != null)
             {
-                s.source.Play();
+                currentAudio.Play();
             }
         }
     }
-    public void Play(string clipname)
+    public void PlayMusic(string name)
     {
-        Sound s = Array.Find(sounds, dummySound => dummySound.clipName == clipname);
-        if (s == null)
+        currentMusic = musicContainer.transform.Find(name).GetComponent<AudioSource>();
+        if (currentMusic != null)
         {
-            Debug.LogError("Sound: " + clipname + "does NOT exist!");
-            return;
+            currentMusic.Play();
         }
-        s.source.Play();
     }
-    public void Stop(string clipname)
+
+    public void StopAudio()
     {
-        Sound s = Array.Find(sounds, dummySound => dummySound.clipName == clipname);
-        if (s == null)
+        if (currentAudio != null)
         {
-            Debug.LogError("Sound: " + clipname + "does NOT exist!");
-            return;
+            currentAudio.Stop();
+            currentAudio = null;
         }
-        s.source.Stop();
+    }
+    public void StopMusic()
+    {
+        if (currentMusic != null)
+        {
+            currentMusic.Stop();
+            currentMusic = null;
+        }
     }
 }
