@@ -6,6 +6,6 @@ public class MolinoAnim : MonoBehaviour
 {
     void LateUpdate()
     {
-        transform.Rotate(-Vector3.right, Space.World);
+        transform.Rotate(-Vector3.up, Space.Self);
     }
 }
