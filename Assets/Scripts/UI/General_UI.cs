@@ -83,7 +83,7 @@ public class General_UI : MonoBehaviour
     }
     public void TutorialPanelSwithcer(bool state)
     {
-        tutorialPanel.SetActive(state);
+        tutorialPanel.GetComponent<Image>().enabled = state;
     }
     public void RefinerPanelSwitcher(bool state)
     {

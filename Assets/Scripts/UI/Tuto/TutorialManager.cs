@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] General_UI general_UI;
+    [HideInInspector] public bool fromMenu;
     public void EnableTutorial()
     {
         if (this.gameObject.transform.childCount == 0)
@@ -26,5 +27,8 @@ public class TutorialManager : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+    }
+    public void SetFromMenu(bool state){
+        fromMenu = state;
     }
 }

@@ -8,9 +8,15 @@ public class TutorialPanel : MonoBehaviour
     {
         if (gameObject.name == "Salida(Clone)")
         {
+            TutorialManager tutorialManager = GetComponentInParent<TutorialManager>();
             VC_Switcher vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
-            vC_Switcher.VC_MainMenuSwitcher(false);
-            vC_Switcher.VC_Transition_01Switcher(true);
+            if(!tutorialManager.fromMenu){
+                vC_Switcher.VC_MainMenuSwitcher(false);
+                vC_Switcher.VC_Transition_01Switcher(true);
+            }
+            else{
+                tutorialManager.fromMenu = false;
+            }
         }
         Destroy(gameObject);
     }

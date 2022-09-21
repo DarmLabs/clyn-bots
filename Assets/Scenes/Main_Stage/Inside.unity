@@ -3048,10 +3048,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1971539588}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: SetFromMenu
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 904744519}
         m_TargetAssemblyTypeName: General_UI, Assembly-CSharp
         m_MethodName: TutorialPanelSwithcer
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1971539588}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: EnableTutorial
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12628,6 +12652,7 @@ GameObject:
   - component: {fileID: 1327580362}
   - component: {fileID: 1327580361}
   - component: {fileID: 1327580364}
+  - component: {fileID: 1327580365}
   m_Layer: 0
   m_Name: CinematicCamera
   m_TagString: Untagged
@@ -12739,6 +12764,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   general_UI: {fileID: 904744519}
+--- !u!81 &1327580365
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327580360}
+  m_Enabled: 1
 --- !u!65 &1335666647
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17673,6 +17706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   general_UI: {fileID: 904744519}
+  fromMenu: 0
 --- !u!65 &1989882238
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21360,10 +21394,34 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1327580360}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1312425770}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2608801654471838204}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: stopSpeakingWithRecycler
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -21383,18 +21441,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Confirm_Button
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2608801654471838204}
-        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
-        m_MethodName: stopSpeakingWithRecycler
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 413863716}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -21444,21 +21490,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 904744519}
-        m_TargetAssemblyTypeName: General_UI, Assembly-CSharp
-        m_MethodName: MainPanelSwitcher
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 904744519}
-        m_TargetAssemblyTypeName: General_UI, Assembly-CSharp
-        m_MethodName: MainPanelSwitcher
+      - m_Target: {fileID: 3492471664926788669}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
