@@ -23,7 +23,6 @@ public class TutorialManager : MonoBehaviour
         }
         else if (!fromMenu)
         {
-            Debug.Log("gurdo");
             general_UI.playerInteraction.gv.firstTime = true;
             gameObject.SetActive(false);
         }

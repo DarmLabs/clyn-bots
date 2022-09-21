@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
     #endregion
     public bool isAspiring;
     [HideInInspector] public string inDoor;
-    int maxBagSpace = 30, itemsInBag;
+    int maxBagSpace = 90, itemsInBag;
     public float bagPercentage;
     bool isDepositing;
     public LoadSceneMode mode;
