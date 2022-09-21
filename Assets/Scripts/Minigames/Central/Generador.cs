@@ -119,7 +119,7 @@ public class Generador : MonoBehaviour
         }
         for (int i = 0; i < (cantidadOrganicos); i++)
         {
-            Residuos[cantidadOrganicos+i]= Organicos[Random.Range(0,indexOrganicos+1)];               
+            Residuos[cantidadNoRecuperables+i]= Organicos[Random.Range(0,indexOrganicos+1)];               
         }
         for (int i = 0; i < (cantidadVidrios); i++)
         {
