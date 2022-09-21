@@ -68,6 +68,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             if (inDoor == "Inside" && mode != LoadSceneMode.Single)
             {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Menu_Theme");
                 general_UI.TutorialPanelSwithcer(false);
                 vC_Switcher.NotFirstTime();
                 general_UI.MainMenuSwitcher(true);
@@ -105,6 +107,10 @@ public class PlayerInteraction : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            audioManager.PlayMusic("Menu_Theme");
         }
         if (gv.pipesActiva)
         {
@@ -235,6 +241,7 @@ public class PlayerInteraction : MonoBehaviour
                 MovmentState(false);
                 general_UI.MainPanelSwitcher(false);
                 general_UI.MainMenuSwitcher(true);
+                general_UI.CheckTutoAvailable();
                 ExitDetectObject(targetMainMenu);
             }
             if (targetRefiner != null)

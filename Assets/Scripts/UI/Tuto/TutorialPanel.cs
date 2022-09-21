@@ -10,12 +10,10 @@ public class TutorialPanel : MonoBehaviour
         {
             TutorialManager tutorialManager = GetComponentInParent<TutorialManager>();
             VC_Switcher vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
-            if(!tutorialManager.fromMenu){
+            if (!tutorialManager.fromMenu)
+            {
                 vC_Switcher.VC_MainMenuSwitcher(false);
                 vC_Switcher.VC_Transition_01Switcher(true);
-            }
-            else{
-                tutorialManager.fromMenu = false;
             }
         }
         Destroy(gameObject);

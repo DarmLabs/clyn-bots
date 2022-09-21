@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] General_UI general_UI;
-    [HideInInspector] public bool fromMenu;
+    public bool fromMenu;
     public void EnableTutorial()
     {
         if (this.gameObject.transform.childCount == 0)
@@ -21,14 +21,20 @@ public class TutorialManager : MonoBehaviour
             GameObject prefab = Resources.Load<GameObject>("Tutorials/" + name);
             Instantiate(prefab, this.transform);
         }
-        else
+        else if (!fromMenu)
         {
+            Debug.Log("gurdo");
             general_UI.playerInteraction.gv.firstTime = true;
             gameObject.SetActive(false);
         }
-
+        else
+        {
+            gameObject.SetActive(false);
+            fromMenu = false;
+        }
     }
-    public void SetFromMenu(bool state){
+    public void SetFromMenu(bool state)
+    {
         fromMenu = state;
     }
 }

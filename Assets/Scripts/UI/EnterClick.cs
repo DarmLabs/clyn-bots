@@ -12,7 +12,7 @@ public class EnterClick : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && gameObject.activeInHierarchy)
         {
             thisBtn.onClick.Invoke();
         }

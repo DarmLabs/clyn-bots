@@ -39,10 +39,22 @@ public class General_UI : MonoBehaviour
     [SerializeField] Slider[] mainMissionProgressBars;
     [SerializeField] Cinemachine.CinemachineFreeLook freeLookCamera;
     MainMission mainMission;
+    [SerializeField] GameObject tutoButton;
     void Start()
     {
         saveSystem = playerInteraction.saveSystem;
         mainMission = playerInteraction.mainMission;
+        if (playerInteraction.inDoor == "Inside")
+        {
+            CheckTutoAvailable();
+        }
+    }
+    public void CheckTutoAvailable()
+    {
+        if (playerInteraction.gv.firstTime)
+        {
+            tutoButton.SetActive(true);
+        }
     }
     public void MainPanelSwitcher(bool state)
     {
@@ -83,7 +95,7 @@ public class General_UI : MonoBehaviour
     }
     public void TutorialPanelSwithcer(bool state)
     {
-        tutorialPanel.GetComponent<Image>().enabled = state;
+        tutorialPanel.SetActive(state);
     }
     public void RefinerPanelSwitcher(bool state)
     {

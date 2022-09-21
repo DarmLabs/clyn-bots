@@ -9,7 +9,7 @@ public class VC_Switcher : MonoBehaviour
     [SerializeField] GameObject VC_MainMenu;
     [SerializeField] GameObject VC_Transition_01;
     [SerializeField] GameObject VC_PlayerView;
-    [SerializeField] GlobalVariables gv;
+    GlobalVariables gv;
     [SerializeField] TutorialManager tutorialManager;
     AudioManager audioManager;
     int checkBlendNeeded;
@@ -18,6 +18,7 @@ public class VC_Switcher : MonoBehaviour
     {
         CM_Brain = GetComponent<Cinemachine.CinemachineBrain>();
         audioManager = general_UI.playerInteraction.audioManager;
+        gv = general_UI.playerInteraction.gv;
     }
     void LateUpdate()
     {
@@ -80,6 +81,7 @@ public class VC_Switcher : MonoBehaviour
     {
         if (!gv.firstTime)
         {
+            general_UI.TutorialPanelSwithcer(true);
             tutorialManager.EnableTutorial();
             general_UI.MainMenuSwitcher(false);
         }

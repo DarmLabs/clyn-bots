@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        PlayMusic("Menu_Theme");
     }
     public void MusicSwitcher(bool state)
     {

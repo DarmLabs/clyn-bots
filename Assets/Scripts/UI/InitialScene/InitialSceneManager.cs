@@ -8,6 +8,8 @@ public class InitialSceneManager : MonoBehaviour
 {
     [SerializeField] GameObject loadStartGamePanel;
     [SerializeField] GameObject confirmationBox;
+    [SerializeField] GameObject globalVariables;
+    [SerializeField] GameObject missionController;
     [HideInInspector] public float fadeTime;
     public void ShowNewLogo(GameObject nextLogo)
     {
@@ -52,10 +54,17 @@ public class InitialSceneManager : MonoBehaviour
     public void NewGame()
     {
         File.Delete(Application.persistentDataPath + "/save.txt");
+        StartSaveGameObjects();
         SceneManager.LoadScene("Inside");
     }
     public void ContinueGame()
     {
+        StartSaveGameObjects();
         SceneManager.LoadScene("Inside");
+    }
+    public void StartSaveGameObjects()
+    {
+        globalVariables.SetActive(true);
+        missionController.SetActive(true);
     }
 }

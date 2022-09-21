@@ -12,7 +12,7 @@ public class EscapeClick : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && gameObject.activeInHierarchy)
         {
             thisBtn.onClick.Invoke();
         }

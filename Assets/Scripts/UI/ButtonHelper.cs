@@ -13,6 +13,7 @@ public class ButtonHelper : MonoBehaviour
     }
     public void CallThisButtonAudio()
     {
+        Debug.Log(gameObject.name);
         audioManager.PlayAudio(audioName);
     }
 }
