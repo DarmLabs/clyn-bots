@@ -10,7 +10,8 @@ public class Tachos : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    public static int errores = 0; 
+    public static int errores = 0;
+    public int auxiliarGrilla = 0; 
     public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
     private string nombreRecuperable;
@@ -55,7 +56,8 @@ public class Tachos : MonoBehaviour
         if (Generador.Terminaste && errores < 7 && ContadorTotal == Generador.contadorBasura)
         {
             Debug.Log ("Ganaste niño inteligente");
-            switch (errores)
+            auxiliarGrilla = Random.Range(0,7);
+            switch (auxiliarGrilla)
             {
                 case 6:
                     CantidadGrilla = 12;
@@ -88,12 +90,12 @@ public class Tachos : MonoBehaviour
             gv.plasticoTrash=0;
             gv.cartonTrash=0;
             gv.metalTrash=0;
-            gv.divisionCarton = gv.divisionCarton*3;
-            gv.divisionMetal = gv.divisionMetal*3;
-            gv.divisionPlastico = gv.divisionPlastico*3;
-            gv.divisionVidrio = gv.divisionVidrio*3;
-            gv.divisionNoRec = gv.divisionNoRec*3;
-            gv.divisionOrganic = gv.divisionOrganic*3;
+            /*gv.divisionCarton = gv.divisionCarton;//*3;
+            gv.divisionMetal = gv.divisionMetal;//*3;
+            gv.divisionPlastico = gv.divisionPlastico;//*3;
+            gv.divisionVidrio = gv.divisionVidrio;//*3;
+            gv.divisionNoRec = gv.divisionNoRec;//*3;
+            gv.divisionOrganic = gv.divisionOrganic;//*3;*/
             Time.timeScale = 0f;            
             Generador.Terminaste = false;
             gv.memoriaAccesible = true;

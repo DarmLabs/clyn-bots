@@ -31,13 +31,15 @@ public class Grilla : MonoBehaviour
 
     private int randomIndex;
     private int cantidadRandoms = 10;
-    List<int> listaRandoms = new List<int>();  
+    List<int> listaRandoms = new List<int>();
+    public int auxiliarGrilla = 0;  
 
    
 
     void Start()
     {        
-        switch (Tachos.CantidadGrilla)
+        auxiliarGrilla = Random.Range(0,7);
+        switch (auxiliarGrilla)
         {
             case 24:
             cantidadRandoms = 13;
