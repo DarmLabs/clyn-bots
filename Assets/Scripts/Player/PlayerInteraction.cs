@@ -90,6 +90,11 @@ public class PlayerInteraction : MonoBehaviour
                         transform.position = insidePoint.transform.position;
                         transform.eulerAngles = new Vector3(0, 90, 0);
                     }
+                    else if (sceneCache.previousScene == "InitalScene")
+                    {
+                        transform.position = initialPlayerPosition.transform.position;
+                        transform.eulerAngles = new Vector3(0, 180, 0);
+                    }
                     general_UI.MainMenuSwitcher(false);
                     general_UI.TutorialPanelSwithcer(false);
                     vC_Switcher.NotFirstTime();
