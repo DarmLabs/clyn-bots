@@ -25,7 +25,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject minimap;
     [SerializeField] GameObject fullMap;
     public GameObject constructonRender, orchardRender;
-    public Sprite Panel, Molino, Bomba, Trigo, Zanahoria, Tomate;
+    public Sprite Panel, Molino, Bomba, Zanahoria, Tomate, Cebolla, Rabanito;
     public GameObject exitPanel;
     public TextMeshProUGUI constructionTitle, reqVidrio, reqPlastico, reqCompost, reqMetal, reqCarton;
     public GameObject constructionBtn;
@@ -137,9 +137,9 @@ public class General_UI : MonoBehaviour
         }
         if (selection <= 0)
         {
-            selection = 2;
+            selection = 4;
         }
-        if (selection >= 3)
+        if (selection >= 5)
         {
             selection = 1;
         }
@@ -151,6 +151,12 @@ public class General_UI : MonoBehaviour
                 break;
             case 2:
                 orchard.seedType = "Zanahoria";
+                break;
+            case 3:
+                orchard.seedType = "Cebolla";
+                break;
+            case 4:
+                orchard.seedType = "Rabanito";
                 break;
         }
         orchardTitle.text = "Plantando " + orchard.seedType;
@@ -197,16 +203,20 @@ public class General_UI : MonoBehaviour
                 render.GetComponent<Image>().sprite = Bomba;
                 found = true;
                 break;
-            case "Trigo":
-                render.GetComponent<Image>().sprite = Trigo;
-                found = true;
-                break;
             case "Zanahoria":
                 render.GetComponent<Image>().sprite = Zanahoria;
                 found = true;
                 break;
             case "Tomate":
                 render.GetComponent<Image>().sprite = Tomate;
+                found = true;
+                break;
+            case "Cebolla":
+                render.GetComponent<Image>().sprite = Cebolla;
+                found = true;
+                break;
+            case "Rabanito":
+                render.GetComponent<Image>().sprite = Rabanito;
                 found = true;
                 break;
         }

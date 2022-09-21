@@ -7,7 +7,7 @@ public class Orchard : MonoBehaviour, ISaveable
 {
     General_UI general_UI;
     [SerializeField] MeshFilter[] land;
-    [SerializeField] Mesh brote, smallTomato, growTomato, smallCarrot, growCarrot;
+    [SerializeField] Mesh brote, smallTomato, growTomato, smallCarrot, growCarrot, smallOnion, growOnion, smallRab, growRab;
     public string currentState;
     public string seedType;
     [SerializeField] GameObject seedSelection, seedBtn, growBtn;
@@ -32,12 +32,9 @@ public class Orchard : MonoBehaviour, ISaveable
     }
     public void PlantSeed(bool fromLoad)
     {
-        Debug.Log(land);
-        Debug.Log(brote);
         foreach (var pot in land)
         {
             pot.mesh = brote;
-            Debug.Log("mesh change");
         }
         if (!fromLoad)
         {
@@ -58,6 +55,12 @@ public class Orchard : MonoBehaviour, ISaveable
                 case "Zanahoria":
                     targetMesh = smallCarrot;
                     break;
+                case "Cebolla":
+                    targetMesh = smallOnion;
+                    break;
+                case "Rabanito":
+                    targetMesh = smallRab;
+                    break;
             }
             currentState = "Mini";
             general_UI.InteractionCloud(true);
@@ -71,6 +74,12 @@ public class Orchard : MonoBehaviour, ISaveable
                     break;
                 case "Zanahoria":
                     targetMesh = growCarrot;
+                    break;
+                case "Cebolla":
+                    targetMesh = growOnion;
+                    break;
+                case "Rabanito":
+                    targetMesh = growRab;
                     break;
             }
             gameObject.tag = "Untagged";
