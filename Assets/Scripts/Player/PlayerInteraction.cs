@@ -66,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
         BagPercentage();
         if (gv.firstTime)
         {
-            if (inDoor == "Inside" && mode != LoadSceneMode.Single)
+            if (sceneCache.currentScene == "Inside" && mode != LoadSceneMode.Single)
             {
                 audioManager.StopMusic();
                 audioManager.PlayMusic("Menu_Theme");
@@ -81,7 +81,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 player_UI.SetFade(255);
                 player_UI.fadeState = 2;
-                if (inDoor == "Inside")
+                if (sceneCache.currentScene == "Inside")
                 {
                     audioManager.StopMusic();
                     audioManager.PlayMusic("Inside_Theme");
@@ -101,7 +101,7 @@ public class PlayerInteraction : MonoBehaviour
                     general_UI.MainPanelSwitcher(true);
                     MovmentState(true);
                 }
-                if (inDoor == "Outside")
+                if (sceneCache.currentScene == "Outside")
                 {
                     audioManager.StopMusic();
                     audioManager.PlayMusic("Outside_Theme");
@@ -180,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.cartonTrash = 0;
             BagPercentage();
         }
-        if (Input.GetKey(KeyCode.X) && itemsInBag < 90 && inDoor == "Outside")
+        if (Input.GetKey(KeyCode.X) && itemsInBag < 90 && sceneCache.currentScene == "Outside")
         {
             cone.enabled = true;
             playerAnim.Aspire(true);
@@ -192,12 +192,12 @@ public class PlayerInteraction : MonoBehaviour
             isAspiring = false;
             playerAnim.Aspire(false);
         }
-        if (Input.GetKeyDown(KeyCode.M) && inDoor == "Outside" && general_UI.mainPanel.activeSelf != false)
+        if (Input.GetKeyDown(KeyCode.M) && sceneCache.currentScene == "Outside" && general_UI.mainPanel.activeSelf != false)
         {
             general_UI.FullMapSwitcher(true);
             general_UI.MainPanelSwitcher(false);
         }
-        if (Input.GetKeyUp(KeyCode.M) && inDoor == "Outside")
+        if (Input.GetKeyUp(KeyCode.M) && sceneCache.currentScene == "Outside")
         {
             general_UI.FullMapSwitcher(false);
             general_UI.MainPanelSwitcher(true);

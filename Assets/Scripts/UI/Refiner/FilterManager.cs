@@ -132,5 +132,6 @@ public class FilterManager : MonoBehaviour
         metalValue = 0;
         ReciveActiveFilter("");
         refinerPanelUI.TakeValuesFromGV();
+        refinerPanelUI.RefineButtonsSwitcher(false);
     }
 }
