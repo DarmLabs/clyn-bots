@@ -37,6 +37,7 @@ public class CompostController : MonoBehaviour
 
     [SerializeField] private Button Button_Abrir;
     [SerializeField] private Button Button_Cerrar;
+    [SerializeField] private Button Button_Reintentar;
 
     [SerializeField] private Button Button_Secar;
     [SerializeField] private Button Button_Humedecer;
@@ -173,11 +174,17 @@ public class CompostController : MonoBehaviour
                 if (!abierto)
                 {
                     Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
-                    Compostera.gameObject.SetActive(true);
+                    //Compostera.gameObject.SetActive(true);
+                    Compostera.gameObject.SetActive(false);
+                    Compostera_Cerrada.gameObject.SetActive(false);
                     UI_Desactivar.SetActive(false);
                     BotonHumedecer.gameObject.SetActive(false);
                     BotonSecar.gameObject.SetActive(false);
                     BotonRemover.gameObject.SetActive(false);
+                    PanelVictoria.SetActive(true);
+                    Button_Abrir.gameObject.SetActive(false);
+                    Button_Cerrar.gameObject.SetActive(false);
+                    Button_Reintentar.gameObject.SetActive(false);
                     //gano = true;
                     Compostera.GetChild(0).gameObject.SetActive(false);
                     Compostera.GetChild(1).gameObject.SetActive(false);
@@ -195,6 +202,9 @@ public class CompostController : MonoBehaviour
             BotonHumedecer.gameObject.SetActive(false);
             BotonSecar.gameObject.SetActive(false);
             BotonRemover.gameObject.SetActive(false);
+            Button_Abrir.gameObject.SetActive(false);
+            Button_Cerrar.gameObject.SetActive(false);
+            Button_Reintentar.gameObject.SetActive(false);
         }
         if (escalaProgreso_Seco.x <= EscalaMin)
         {
@@ -205,6 +215,9 @@ public class CompostController : MonoBehaviour
             BotonHumedecer.gameObject.SetActive(false);
             BotonSecar.gameObject.SetActive(false);
             BotonRemover.gameObject.SetActive(false);
+            Button_Abrir.gameObject.SetActive(false);
+            Button_Cerrar.gameObject.SetActive(false);
+            Button_Reintentar.gameObject.SetActive(false);
         }
         if (escalaProgreso_Humedo.x >= EscalaMax)
         {
@@ -215,6 +228,9 @@ public class CompostController : MonoBehaviour
             BotonHumedecer.gameObject.SetActive(false);
             BotonSecar.gameObject.SetActive(false);
             BotonRemover.gameObject.SetActive(false);
+            Button_Abrir.gameObject.SetActive(false);
+            Button_Cerrar.gameObject.SetActive(false);
+            Button_Reintentar.gameObject.SetActive(false);
         }
         if (escalaProgreso_Humedo.x <= EscalaMin)
         {
@@ -225,6 +241,9 @@ public class CompostController : MonoBehaviour
             BotonHumedecer.gameObject.SetActive(false);
             BotonSecar.gameObject.SetActive(false);
             BotonRemover.gameObject.SetActive(false);
+            Button_Abrir.gameObject.SetActive(false);
+            Button_Cerrar.gameObject.SetActive(false);
+            Button_Reintentar.gameObject.SetActive(false);
         }       
              
     } 
