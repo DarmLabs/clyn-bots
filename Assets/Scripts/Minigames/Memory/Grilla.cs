@@ -89,7 +89,7 @@ public class Grilla : MonoBehaviour
             listaRandoms[i] = randomIndex;                    
         } 
 
-        switch (Tachos.CantidadGrilla)
+        switch (auxiliarGrilla)
         {
             case 24:
                 for (int i = 0; i < 12; i++)
