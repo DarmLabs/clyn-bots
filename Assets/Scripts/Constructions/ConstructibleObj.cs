@@ -102,6 +102,7 @@ public class ConstructibleObj : MonoBehaviour
         if (building.name == "Bomba de Agua")
         {
             gameObject.tag = "Pipes";
+            GetComponent<SaveTag>().UpdateTag();
             general_UI.playerInteraction.targetPipes = general_UI.playerInteraction.targetConstruction;
             general_UI.playerInteraction.targetConstruction = null;
             general_UI.InteractionCloud(true);
@@ -109,6 +110,7 @@ public class ConstructibleObj : MonoBehaviour
         else
         {
             gameObject.tag = "Untagged";
+            GetComponent<SaveTag>().UpdateTag();
         }
         if (recycler != null)
         {

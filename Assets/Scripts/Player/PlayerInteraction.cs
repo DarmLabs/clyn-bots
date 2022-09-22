@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     public GameObject targetPipes;
     public GameObject targetMainMenu;
     public GameObject targetRefiner;
+    public GameObject targetArcade;
     [SerializeField] GameObject initialPlayerPosition;
     SceneCache sceneCache;
     #endregion
@@ -158,6 +159,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.metalTrash = aux;
             gv.cartonTrash = aux;
             BagPercentage();
+            gv.divisionOrganic += 10;
             gv.compostRefinado += 5;
             gv.metalRefinado += 5;
             gv.vidrioRefinado += 5;
@@ -247,6 +249,10 @@ public class PlayerInteraction : MonoBehaviour
                 MovmentState(false);
                 general_UI.InteractionCloud(false);
             }
+            if (targetArcade != null)
+            {
+                general_UI.ChangeScene(targetArcade.name);
+            }
         }
     }
     public void BagPercentage()
@@ -270,7 +276,6 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void MovmentState(bool state)
     {
-        Debug.Log("ptm");
         playerMovement.enabled = state;
     }
     IEnumerator LoadAsyncScene(string scene)
@@ -302,7 +307,6 @@ public class PlayerInteraction : MonoBehaviour
     public void BuildObject()
     {
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
-        targetConstruction.GetComponent<SaveTag>().UpdateTag();
     }
     public void PlantSeed()
     {
@@ -377,6 +381,11 @@ public class PlayerInteraction : MonoBehaviour
             targetRefiner = targetObject;
             general_UI.InteractionCloud(true);
         }
+        if (targetObject.tag == "arcade")
+        {
+            targetArcade = targetObject;
+            general_UI.InteractionCloud(true);
+        }
     }
     public void ExitDetectObject(GameObject targetObject)
     {
@@ -408,6 +417,11 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Refiner")
         {
             targetRefiner = null;
+            general_UI.InteractionCloud(false);
+        }
+        if (targetObject.tag == "arcade")
+        {
+            targetArcade = null;
             general_UI.InteractionCloud(false);
         }
     }

@@ -21,6 +21,7 @@ public class InitialSceneManager : MonoBehaviour
             }
             else
             {
+                StartSaveGameObjects();
                 SceneManager.LoadScene("Inside");
             }
         }

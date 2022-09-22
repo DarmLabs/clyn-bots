@@ -126,7 +126,7 @@ public class RecyclerNPC : MonoBehaviour
                         okSection.SetActive(true);
                         return;
                     }
-                    /*if (gameObject.name == "RecyclerMinigameCompost" && !general_UI.playerInteraction.gv.compostActiva)
+                    if (gameObject.name == "RecyclerMinigameCompost" && general_UI.playerInteraction.gv.divisionOrganic < 10)
                     {
                         fromResponse = true;
                         CinematicCamera();
@@ -137,7 +137,7 @@ public class RecyclerNPC : MonoBehaviour
                     else
                     {
                         yesBtn.onClick.AddListener(delegate { general_UI.ChangeScene(scene); });
-                    }*/
+                    }
                 }
                 missionSection.SetActive(true);
             }
