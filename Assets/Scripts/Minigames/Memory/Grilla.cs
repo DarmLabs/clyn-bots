@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Grilla : MonoBehaviour
 {
-    [SerializeField] private GameObject[] UbicacionCartas24;
+    /*[SerializeField] private GameObject[] UbicacionCartas24;
     [SerializeField] private GameObject[] UbicacionCartas22;
     [SerializeField] private GameObject[] UbicacionCartas20;
     [SerializeField] private GameObject[] UbicacionCartas18;
     [SerializeField] private GameObject[] UbicacionCartas16;
     [SerializeField] private GameObject[] UbicacionCartas14;
-    [SerializeField] private GameObject[] UbicacionCartas12;
+    [SerializeField] private GameObject[] UbicacionCartas12;*/
     [SerializeField] private GameObject[] UbicacionCartas;    
     [SerializeField] private GameObject[] Cartas; //16 distintas
-    [SerializeField] private GameObject[] CartasGrilla24;
+    /*[SerializeField] private GameObject[] CartasGrilla24;
     [SerializeField] private GameObject[] CartasGrilla22;
     [SerializeField] private GameObject[] CartasGrilla20;
     [SerializeField] private GameObject[] CartasGrilla18;
     [SerializeField] private GameObject[] CartasGrilla16;
     [SerializeField] private GameObject[] CartasGrilla14;
-    [SerializeField] private GameObject[] CartasGrilla12;
+    [SerializeField] private GameObject[] CartasGrilla12;*/
     [SerializeField] private GameObject[] CartasGrilla;
     //private int indexUbicacionCartas = 17;
     //private int indexCartas = 0;   
