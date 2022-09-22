@@ -8,13 +8,11 @@ public class DropSlot : MonoBehaviour, IDropHandler
     [SerializeField] RefinerPanelUI refinerPanelUI;
     public void OnDrop(PointerEventData data)
     {
-        Debug.Log("drop");
         if (data.pointerDrag != null)
         {
             DragDrop currentDragDrop = data.pointerDrag.gameObject.GetComponent<DragDrop>();
             if (!currentDragDrop.isLocked)
             {
-                Debug.Log("entro");
                 currentDragDrop.Reset();
                 refinerPanelUI.RefineButtonsSwitcher(true);
                 filterManager.SaveFilterValues(currentDragDrop.gameObject.name, currentDragDrop.movingValue / 10);

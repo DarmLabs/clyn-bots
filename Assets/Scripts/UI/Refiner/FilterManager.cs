@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 public class FilterManager : MonoBehaviour
 {
+    RefinerPanelUI refinerPanelUI;
     FilterComponent[] filterComponents;
     [SerializeField] GameObject[] resources;
     [SerializeField] GameObject numPad;
@@ -12,6 +13,7 @@ public class FilterManager : MonoBehaviour
     [HideInInspector] public int plasticoValue, vidrioValue, cartonValue, metalValue;
     void Awake()
     {
+        refinerPanelUI = GameObject.FindObjectOfType<RefinerPanelUI>();
         filterComponents = GetComponentsInChildren<FilterComponent>();
         gv = GameObject.FindObjectOfType<GlobalVariables>();
     }
@@ -100,7 +102,27 @@ public class FilterManager : MonoBehaviour
                 metalValue += value;
                 break;
         }
+        SubstractDivValues(code, value);
         ReciveActiveFilter(code);
+    }
+    public void SubstractDivValues(string code, int value)
+    {
+        switch (code)
+        {
+            case "Plastico":
+                refinerPanelUI.plasticoDiv -= value * 10;
+                break;
+            case "Vidrio":
+                refinerPanelUI.vidrioDiv -= value * 10;
+                break;
+            case "Carton":
+                refinerPanelUI.cartonDiv -= value * 10;
+                break;
+            case "Metal":
+                refinerPanelUI.metalDiv -= value * 10;
+                break;
+        }
+        refinerPanelUI.CheckVariables();
     }
     public void ResetValues()
     {
@@ -109,5 +131,6 @@ public class FilterManager : MonoBehaviour
         cartonValue = 0;
         metalValue = 0;
         ReciveActiveFilter("");
+        refinerPanelUI.TakeValuesFromGV();
     }
 }

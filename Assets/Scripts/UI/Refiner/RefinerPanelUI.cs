@@ -6,6 +6,7 @@ using System;
 public class RefinerPanelUI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI vidrioText, plasticoText, cartonText, metalText;
+    [HideInInspector] public int vidrioDiv, plasticoDiv, cartonDiv, metalDiv;
     [HideInInspector] GlobalVariables gv;
     [SerializeField] GameObject selector;
     [SerializeField] GameObject toRefineButtons;
@@ -14,19 +15,27 @@ public class RefinerPanelUI : MonoBehaviour
     [HideInInspector] public int selectorValue;
     void OnEnable()
     {
-        CheckVariables();
+        TakeValuesFromGV();
     }
     void Awake()
     {
         selectorText = selector.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         gv = GameObject.FindObjectOfType<GlobalVariables>();
     }
-    void CheckVariables()
+    public void TakeValuesFromGV()
     {
-        vidrioText.text = gv.divisionVidrio.ToString();
-        plasticoText.text = gv.divisionPlastico.ToString();
-        cartonText.text = gv.divisionCarton.ToString();
-        metalText.text = gv.divisionMetal.ToString();
+        vidrioDiv = gv.divisionVidrio;
+        plasticoDiv = gv.divisionPlastico;
+        cartonDiv = gv.divisionCarton;
+        metalDiv = gv.divisionMetal;
+        CheckVariables();
+    }
+    public void CheckVariables()
+    {
+        vidrioText.text = vidrioDiv.ToString();
+        plasticoText.text = plasticoDiv.ToString();
+        cartonText.text = cartonDiv.ToString();
+        metalText.text = metalDiv.ToString();
     }
     public void SelectorValue(int value)
     {
