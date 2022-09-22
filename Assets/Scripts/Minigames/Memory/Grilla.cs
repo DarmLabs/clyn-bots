@@ -77,7 +77,8 @@ public class Grilla : MonoBehaviour
             vidas = 20; //10  
             Cards.CantidadPares = 6;    
             break;        
-        }  */      
+        }  */
+        Grilla.vidas = 20;      
         refinadosDestruidos = 0;      
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)

@@ -39,6 +39,7 @@ public class MG_UI_Manager : MonoBehaviour
         gv.noRecTrash = 0;
         gv.organicTrash = 0;
         gv.compostActiva = true;
+        Grilla.vidas = 20;
         Generador.contadorBasura = 0;
         saveSystem.Save();
     }
@@ -50,6 +51,7 @@ public class MG_UI_Manager : MonoBehaviour
         gv.organicTrash = 0;
         gv.compostActiva = true;
         Generador.contadorBasura = 0;
+        Grilla.vidas = 20;
         saveSystem.Save();
     }
 
