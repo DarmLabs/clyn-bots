@@ -20,8 +20,8 @@ public class MG_UI_Manager : MonoBehaviour
         audioManager.StopMusic();
         //audioManager.PlayMusic("Minigame_Theme");
     }
-    /*
-    public void BackTo3D()
+
+    /*public void BackTo3D()
     {
         SceneManager.LoadScene("Main_Stage");   
         gv.recTrash = 0;  
@@ -39,6 +39,7 @@ public class MG_UI_Manager : MonoBehaviour
         gv.noRecTrash = 0;
         gv.organicTrash = 0;
         gv.compostActiva = true;
+        Grilla.vidas = 20;
         Generador.contadorBasura = 0;
         saveSystem.Save();
     }
@@ -50,6 +51,7 @@ public class MG_UI_Manager : MonoBehaviour
         gv.organicTrash = 0;
         gv.compostActiva = true;
         Generador.contadorBasura = 0;
+        Grilla.vidas = 20;
         saveSystem.Save();
     }
 
@@ -57,8 +59,9 @@ public class MG_UI_Manager : MonoBehaviour
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
-        switch (Tachos.CantidadGrilla)
+        Grilla.vidas = 20;
+        //Time.timeScale = 1f;
+        /*switch (Tachos.CantidadGrilla)
         {
             case 24:
                 Grilla.vidas = 60; //30
@@ -88,12 +91,12 @@ public class MG_UI_Manager : MonoBehaviour
                 Grilla.vidas = 20; //10  
                 Cards.CantidadPares = 6;
                 break;
-        }
+        }*/
     }
 
     public void RetomarTiempo()
     {
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         //Debug.Log("TIEMPO: "+Time.timeScale);
     }
 }

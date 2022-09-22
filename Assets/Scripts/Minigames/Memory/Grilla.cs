@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class Grilla : MonoBehaviour
 {
-    [SerializeField] private GameObject[] UbicacionCartas24;
+    /*[SerializeField] private GameObject[] UbicacionCartas24;
     [SerializeField] private GameObject[] UbicacionCartas22;
     [SerializeField] private GameObject[] UbicacionCartas20;
     [SerializeField] private GameObject[] UbicacionCartas18;
     [SerializeField] private GameObject[] UbicacionCartas16;
     [SerializeField] private GameObject[] UbicacionCartas14;
-    [SerializeField] private GameObject[] UbicacionCartas12;
+    [SerializeField] private GameObject[] UbicacionCartas12;*/
     [SerializeField] private GameObject[] UbicacionCartas;    
     [SerializeField] private GameObject[] Cartas; //16 distintas
-    [SerializeField] private GameObject[] CartasGrilla24;
+    /*[SerializeField] private GameObject[] CartasGrilla24;
     [SerializeField] private GameObject[] CartasGrilla22;
     [SerializeField] private GameObject[] CartasGrilla20;
     [SerializeField] private GameObject[] CartasGrilla18;
     [SerializeField] private GameObject[] CartasGrilla16;
     [SerializeField] private GameObject[] CartasGrilla14;
-    [SerializeField] private GameObject[] CartasGrilla12;
+    [SerializeField] private GameObject[] CartasGrilla12;*/
     [SerializeField] private GameObject[] CartasGrilla;
     //private int indexUbicacionCartas = 17;
     //private int indexCartas = 0;   
@@ -38,7 +38,7 @@ public class Grilla : MonoBehaviour
 
     void Start()
     {        
-        auxiliarGrilla = Random.Range(0,7);
+        /*auxiliarGrilla = Random.Range(0,7);
         Debug.Log("auxiliarGrilla"+auxiliarGrilla);
         switch (auxiliarGrilla)
         {
@@ -77,7 +77,8 @@ public class Grilla : MonoBehaviour
             vidas = 20; //10  
             Cards.CantidadPares = 6;    
             break;        
-        }        
+        }  */
+        Grilla.vidas = 20;      
         refinadosDestruidos = 0;      
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)
@@ -90,7 +91,7 @@ public class Grilla : MonoBehaviour
             listaRandoms[i] = randomIndex;                    
         } 
 
-        switch (auxiliarGrilla)
+        /*switch (auxiliarGrilla)
         {
             case 0:
                 for (int i = 0; i < 12; i++)
@@ -190,8 +191,8 @@ public class Grilla : MonoBehaviour
                     CartasGrilla12[r] = temporal;                    
                 }
             break;        
-        }
-        /*for (int i = 0; i < 9; i++)
+        }*/
+        for (int i = 0; i < 9; i++)
         {
             CartasGrilla[i] = Cartas[listaRandoms[i+1]];                   
             CartasGrilla[i+9] = Cartas[listaRandoms[i+1]];         
@@ -203,8 +204,8 @@ public class Grilla : MonoBehaviour
             CartasGrilla[t] = CartasGrilla[r];
             CartasGrilla[r] = temporal;
             //Debug.Log("TOTAL ARRAY"+CartasGrilla.Length); 
-        }*/
-        switch (auxiliarGrilla)
+        }
+        /*switch (auxiliarGrilla)
         {
             case 0:
                for (int i = 0; i < UbicacionCartas24.Length; i++)
@@ -248,11 +249,11 @@ public class Grilla : MonoBehaviour
                     Instantiate(CartasGrilla12[i],UbicacionCartas12[i].transform.position,transform.rotation); 
                 }
             break;        
-        }
-        /*for (int i = 0; i < UbicacionCartas.Length; i++)
+        }*/
+        for (int i = 0; i < UbicacionCartas.Length; i++)
         {
             Instantiate(CartasGrilla[i],UbicacionCartas[i].transform.position,transform.rotation); 
-        }*/
+        }
             
         
     }

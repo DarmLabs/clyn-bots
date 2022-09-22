@@ -49,7 +49,7 @@ public class Cards : MonoBehaviour
     public static int cartonPartida;
     public static int metalPartida;
     public static int compostPartida;
-    public static int CantidadPares = 0;
+    public static int CantidadPares = 9;
         
 
     void Start()
@@ -73,10 +73,11 @@ public class Cards : MonoBehaviour
     
     void Update() 
     {
+        Debug.Log("pairsFound"+pairsFound);
         if (Grilla.vidas <= 0)
         {
             PanelDerrota.SetActive(true);
-            gv.memoriaAccesible = true; 
+            //gv.memoriaAccesible = true; 
             Destroy(this.gameObject);
             MarcoRefinados.SetActive(false);
             Time.timeScale = 0f;         
@@ -87,7 +88,7 @@ public class Cards : MonoBehaviour
             if(Grilla.refinadosDestruidos == CantidadPares)
             {                
                 PanelVictoria.SetActive(true);
-                gv.memoriaAccesible = true;
+                //gv.memoriaAccesible = true;
                 MarcoRefinados.SetActive(false);
                 Destroy(this.gameObject); 
                 Time.timeScale = 0f;           
