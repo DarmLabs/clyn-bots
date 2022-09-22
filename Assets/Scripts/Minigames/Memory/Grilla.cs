@@ -204,45 +204,45 @@ public class Grilla : MonoBehaviour
             CartasGrilla[r] = temporal;
             //Debug.Log("TOTAL ARRAY"+CartasGrilla.Length); 
         }*/
-        switch (Tachos.CantidadGrilla)
+        switch (auxiliarGrilla)
         {
-            case 24:
+            case 0:
                for (int i = 0; i < UbicacionCartas24.Length; i++)
                 {
                     Instantiate(CartasGrilla24[i],UbicacionCartas24[i].transform.position,transform.rotation); 
                 }
             break;
-            case 22:
+            case 1:
                 for (int i = 0; i < UbicacionCartas22.Length; i++)
                 {
                     Instantiate(CartasGrilla22[i],UbicacionCartas22[i].transform.position,transform.rotation); 
                 }
             break;
-            case 20:
+            case 2:
                 for (int i = 0; i < UbicacionCartas20.Length; i++)
                 {
                     Instantiate(CartasGrilla20[i],UbicacionCartas20[i].transform.position,transform.rotation); 
                 }
             break;
-            case 18:
+            case 3:
                 for (int i = 0; i < UbicacionCartas18.Length; i++)
                 {
                     Instantiate(CartasGrilla18[i],UbicacionCartas18[i].transform.position,transform.rotation); 
                 }
             break;
-            case 16:
+            case 4:
                 for (int i = 0; i < UbicacionCartas16.Length; i++)
                 {
                     Instantiate(CartasGrilla16[i],UbicacionCartas16[i].transform.position,transform.rotation); 
                 }
             break;
-            case 14:
+            case 5:
                 for (int i = 0; i < UbicacionCartas14.Length; i++)
                 {
                     Instantiate(CartasGrilla14[i],UbicacionCartas14[i].transform.position,transform.rotation); 
                 }
             break;
-            case 12:
+            case 6:
                 for (int i = 0; i < UbicacionCartas12.Length; i++)
                 {
                     Instantiate(CartasGrilla12[i],UbicacionCartas12[i].transform.position,transform.rotation); 
