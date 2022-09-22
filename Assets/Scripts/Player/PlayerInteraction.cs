@@ -160,6 +160,10 @@ public class PlayerInteraction : MonoBehaviour
             gv.cartonTrash = aux;
             BagPercentage();
             gv.divisionOrganic += 10;
+            gv.divisionMetal += 10;
+            gv.divisionPlastico += 10;
+            gv.divisionVidrio += 10;
+            gv.divisionCarton += 10;
             gv.compostRefinado += 5;
             gv.metalRefinado += 5;
             gv.vidrioRefinado += 5;
@@ -182,7 +186,7 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else if ((itemsInBag >= 90) && isAspiring)
+        else if (isAspiring)
         {
             cone.enabled = false;
             isAspiring = false;
