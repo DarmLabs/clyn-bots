@@ -6,11 +6,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class InitialSceneManager : MonoBehaviour
 {
+    [SerializeField] GameObject logos;
     [SerializeField] GameObject loadStartGamePanel;
     [SerializeField] GameObject confirmationBox;
     [SerializeField] GameObject globalVariables;
     [SerializeField] GameObject missionController;
     [HideInInspector] public float fadeTime;
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0))
+        {
+            SkipLogos();
+        }
+    }
     public void ShowNewLogo(GameObject nextLogo)
     {
         if (nextLogo == null)
@@ -67,5 +75,21 @@ public class InitialSceneManager : MonoBehaviour
     {
         globalVariables.SetActive(true);
         missionController.SetActive(true);
+    }
+    void SkipLogos()
+    {
+        if (logos.activeSelf)
+        {
+            logos.SetActive(false);
+            if (File.Exists(Application.persistentDataPath + "/save.txt"))
+            {
+                loadStartGamePanel.SetActive(true);
+            }
+            else
+            {
+                StartSaveGameObjects();
+                SceneManager.LoadScene("Inside");
+            }
+        }
     }
 }
