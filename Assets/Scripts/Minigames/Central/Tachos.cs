@@ -11,6 +11,9 @@ public class Tachos : MonoBehaviour
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     public static int errores = 0;
+    public static int errorRecuperable = 0;
+    public static int errorNoRecuperable = 0;
+    public static int errorOrganico = 0;
     public int auxiliarGrilla = 0; 
     public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
@@ -56,7 +59,7 @@ public class Tachos : MonoBehaviour
         if (Generador.Terminaste && errores < 7 && ContadorTotal == Generador.contadorBasura)
         {
             Debug.Log ("Ganaste niño inteligente");
-            auxiliarGrilla = Random.Range(0,7);
+            /*auxiliarGrilla = Random.Range(0,7);
             switch (auxiliarGrilla)
             {
                 case 6:
@@ -82,20 +85,20 @@ public class Tachos : MonoBehaviour
                 break;
 
             
-            }
-            PanelVictoria.SetActive(true);
-            gv.noRecTrash =0;
+            }*/            
+            PanelVictoria.SetActive(true);            
+            gv.divisionCarton = gv.cartonTrash-(3*errorRecuperable);
+            gv.divisionMetal = gv.metalTrash-(3*errorRecuperable);
+            gv.divisionPlastico = gv.plasticoTrash-(3*errorRecuperable);
+            gv.divisionVidrio =  gv.vidrioTrash-(3*errorRecuperable);
+            gv.divisionNoRec = gv.noRecTrash-(3*errorNoRecuperable);
+            gv.divisionOrganic = gv.organicTrash-(3*errorOrganico);
+            gv.noRecTrash=0;
             gv.organicTrash=0;
             gv.vidrioTrash=0;
             gv.plasticoTrash=0;
             gv.cartonTrash=0;
             gv.metalTrash=0;
-            /*gv.divisionCarton = gv.divisionCarton;//*3;
-            gv.divisionMetal = gv.divisionMetal;//*3;
-            gv.divisionPlastico = gv.divisionPlastico;//*3;
-            gv.divisionVidrio = gv.divisionVidrio;//*3;
-            gv.divisionNoRec = gv.divisionNoRec;//*3;
-            gv.divisionOrganic = gv.divisionOrganic;//*3;*/
             Time.timeScale = 0f;            
             Generador.Terminaste = false;
             gv.memoriaAccesible = true;
@@ -194,13 +197,16 @@ public class Tachos : MonoBehaviour
             switch (other.gameObject.tag)
             {
                 case "Recuperable":                 
-                    //gv.recTrash -= 1;                                      
+                    //gv.recTrash -= 1;
+                    errorRecuperable+=1;                                      
                     break;
                 case "NoRecuperable":
-                    //gv.noRecTrash -=1;                    
+                    //gv.noRecTrash -=1; 
+                    errorNoRecuperable+=1;                   
                     break;
                 case "Organico":                    
-                    //gv.organicTrash -=1;                   
+                    //gv.organicTrash -=1;  
+                    errorOrganico+=1;                 
                     break;
             } 
             //Generador.bloqueaMovimiento = false;
