@@ -35,10 +35,10 @@ public class MG_UI_Manager : MonoBehaviour
     public void BackToOutside()
     {
         SceneManager.LoadScene("Outside");
-        gv.recTrash = 0;
-        gv.noRecTrash = 0;
-        gv.organicTrash = 0;
-        gv.compostActiva = true;
+        //gv.recTrash = 0;
+        //gv.noRecTrash = 0;
+        //gv.organicTrash = 0;
+        //gv.compostActiva = true;
         Grilla.vidas = 20;
         Generador.contadorBasura = 0;
         saveSystem.Save();
@@ -49,7 +49,7 @@ public class MG_UI_Manager : MonoBehaviour
         gv.recTrash = 0;
         gv.noRecTrash = 0;
         gv.organicTrash = 0;
-        gv.compostActiva = true;
+        //gv.compostActiva = true;
         Generador.contadorBasura = 0;
         Grilla.vidas = 20;
         saveSystem.Save();
