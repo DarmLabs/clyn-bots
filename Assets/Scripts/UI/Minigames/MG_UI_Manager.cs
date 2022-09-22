@@ -20,8 +20,8 @@ public class MG_UI_Manager : MonoBehaviour
         audioManager.StopMusic();
         //audioManager.PlayMusic("Minigame_Theme");
     }
-    /*
-    public void BackTo3D()
+
+    /*public void BackTo3D()
     {
         SceneManager.LoadScene("Main_Stage");   
         gv.recTrash = 0;  
@@ -57,7 +57,7 @@ public class MG_UI_Manager : MonoBehaviour
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         /*switch (Tachos.CantidadGrilla)
         {
             case 24:
