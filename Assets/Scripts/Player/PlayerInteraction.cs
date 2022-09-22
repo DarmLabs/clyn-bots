@@ -30,7 +30,6 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector] public string inDoor;
     int maxBagSpace = 90, itemsInBag;
     public float bagPercentage;
-    bool isDepositing;
     public LoadSceneMode mode;
     [HideInInspector] public MainMission mainMission;
     [HideInInspector] public EnviromentChanger enviromentChanger;
@@ -136,14 +135,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 Controls();
             }
-            else
-            {
-                MovmentState(false);
-            }
-        }
-        else if (isDepositing)
-        {
-            MovmentState(false);
         }
         else
         {
@@ -189,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
             playerAnim.Aspire(true);
             isAspiring = true;
         }
-        else if ((!isDepositing || itemsInBag >= 90) && isAspiring)
+        else if ((itemsInBag >= 90) && isAspiring)
         {
             cone.enabled = false;
             isAspiring = false;
@@ -279,6 +270,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void MovmentState(bool state)
     {
+        Debug.Log("ptm");
         playerMovement.enabled = state;
     }
     IEnumerator LoadAsyncScene(string scene)
@@ -324,6 +316,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         RecyclerNPC targetRecyclerScript = targetRecycler.GetComponent<RecyclerNPC>();
         targetRecyclerScript.Speak(null);
+        MovmentState(false);
     }
     public void stopSpeakingWithRecycler()
     {

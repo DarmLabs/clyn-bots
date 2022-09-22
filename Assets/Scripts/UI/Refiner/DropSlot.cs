@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class DropSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] FilterManager filterManager;
+    [SerializeField] RefinerPanelUI refinerPanelUI;
     public void OnDrop(PointerEventData data)
     {
         if (data.pointerDrag != null)
@@ -13,6 +14,7 @@ public class DropSlot : MonoBehaviour, IDropHandler
             if (!currentDragDrop.isLocked)
             {
                 currentDragDrop.Reset();
+                refinerPanelUI.RefineButtonsSwitcher(true);
                 filterManager.SaveFilterValues(currentDragDrop.gameObject.name, currentDragDrop.movingValue / 10);
             }
         }

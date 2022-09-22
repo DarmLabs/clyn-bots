@@ -8,6 +8,7 @@ public class RefinerPanelUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI vidrioText, plasticoText, cartonText, metalText;
     [HideInInspector] GlobalVariables gv;
     [SerializeField] GameObject selector;
+    [SerializeField] GameObject toRefineButtons;
     TextMeshProUGUI selectorText;
     int selectorMax = 200, selectorMin = 0;
     [HideInInspector] public int selectorValue;
@@ -48,5 +49,9 @@ public class RefinerPanelUI : MonoBehaviour
     public void Locked()
     {
         selector.GetComponent<Animator>().Play("Locked");
+    }
+    public void RefineButtonsSwitcher(bool state)
+    {
+        toRefineButtons.SetActive(state);
     }
 }
