@@ -87,7 +87,7 @@ public class Cards : MonoBehaviour
             if(Grilla.refinadosDestruidos == CantidadPares)
             {                
                 PanelVictoria.SetActive(true);
-                gv.memoriaAccesible = false;
+                gv.memoriaAccesible = true;
                 MarcoRefinados.SetActive(false);
                 Destroy(this.gameObject); 
                 Time.timeScale = 0f;           

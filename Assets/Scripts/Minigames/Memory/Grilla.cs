@@ -39,6 +39,7 @@ public class Grilla : MonoBehaviour
     void Start()
     {        
         auxiliarGrilla = Random.Range(0,7);
+        Debug.Log("auxiliarGrilla"+auxiliarGrilla);
         switch (auxiliarGrilla)
         {
             case 24:
@@ -89,9 +90,9 @@ public class Grilla : MonoBehaviour
             listaRandoms[i] = randomIndex;                    
         } 
 
-        switch (Tachos.CantidadGrilla)
+        switch (auxiliarGrilla)
         {
-            case 24:
+            case 0:
                 for (int i = 0; i < 12; i++)
                 {
                     CartasGrilla24[i] = Cartas[listaRandoms[i+1]];                   
@@ -105,7 +106,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla24[r] = temporal;
                 }
             break;
-            case 22:
+            case 1:
                 for (int i = 0; i < 11; i++)
                 {
                     CartasGrilla22[i] = Cartas[listaRandoms[i+1]];                   
@@ -119,7 +120,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla22[r] = temporal;
                 }
             break;
-            case 20:
+            case 2:
                 for (int i = 0; i < 10; i++)
                 {
                     CartasGrilla20[i] = Cartas[listaRandoms[i+1]];                   
@@ -133,7 +134,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla20[r] = temporal;
                 }
             break;
-            case 18:
+            case 3:
                 for (int i = 0; i < 9; i++)
                 {
                     CartasGrilla18[i] = Cartas[listaRandoms[i+1]];                   
@@ -147,7 +148,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla18[r] = temporal;
                 }
             break;
-            case 16:
+            case 4:
                 for (int i = 0; i < 8; i++)
                 {
                     CartasGrilla16[i] = Cartas[listaRandoms[i+1]];                   
@@ -161,7 +162,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla16[r] = temporal;
                 }
             break;
-            case 14:
+            case 5:
                 for (int i = 0; i < 7; i++)
                 {
                     CartasGrilla14[i] = Cartas[listaRandoms[i+1]];                   
@@ -175,7 +176,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla14[r] = temporal;                    
                 }
             break;
-            case 12:
+            case 6:
                 for (int i = 0; i < 6; i++)
                 {
                     CartasGrilla12[i] = Cartas[listaRandoms[i+1]];                   
@@ -203,45 +204,45 @@ public class Grilla : MonoBehaviour
             CartasGrilla[r] = temporal;
             //Debug.Log("TOTAL ARRAY"+CartasGrilla.Length); 
         }*/
-        switch (Tachos.CantidadGrilla)
+        switch (auxiliarGrilla)
         {
-            case 24:
+            case 0:
                for (int i = 0; i < UbicacionCartas24.Length; i++)
                 {
                     Instantiate(CartasGrilla24[i],UbicacionCartas24[i].transform.position,transform.rotation); 
                 }
             break;
-            case 22:
+            case 1:
                 for (int i = 0; i < UbicacionCartas22.Length; i++)
                 {
                     Instantiate(CartasGrilla22[i],UbicacionCartas22[i].transform.position,transform.rotation); 
                 }
             break;
-            case 20:
+            case 2:
                 for (int i = 0; i < UbicacionCartas20.Length; i++)
                 {
                     Instantiate(CartasGrilla20[i],UbicacionCartas20[i].transform.position,transform.rotation); 
                 }
             break;
-            case 18:
+            case 3:
                 for (int i = 0; i < UbicacionCartas18.Length; i++)
                 {
                     Instantiate(CartasGrilla18[i],UbicacionCartas18[i].transform.position,transform.rotation); 
                 }
             break;
-            case 16:
+            case 4:
                 for (int i = 0; i < UbicacionCartas16.Length; i++)
                 {
                     Instantiate(CartasGrilla16[i],UbicacionCartas16[i].transform.position,transform.rotation); 
                 }
             break;
-            case 14:
+            case 5:
                 for (int i = 0; i < UbicacionCartas14.Length; i++)
                 {
                     Instantiate(CartasGrilla14[i],UbicacionCartas14[i].transform.position,transform.rotation); 
                 }
             break;
-            case 12:
+            case 6:
                 for (int i = 0; i < UbicacionCartas12.Length; i++)
                 {
                     Instantiate(CartasGrilla12[i],UbicacionCartas12[i].transform.position,transform.rotation); 
