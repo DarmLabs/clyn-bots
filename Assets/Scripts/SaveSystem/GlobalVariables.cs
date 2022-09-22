@@ -20,7 +20,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     void Awake()
     {
         DontDestroyOnLoad(this);
-        Debug.LogError("init");
     }
     //SaveState es el pase de las accesibles a un estado de "dato de guardado" para luego guardarlo, agrega las variables siguiendo las de abajo (no olvides las comas!!)
     public object SaveState()

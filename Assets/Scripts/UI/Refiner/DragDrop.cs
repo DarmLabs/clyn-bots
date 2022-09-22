@@ -29,16 +29,16 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             switch (gameObject.name)
             {
                 case "Plastico":
-                    correspondetValue = filterManager.gv.divisionPlastico;
+                    correspondetValue = refinerPanelUI.plasticoDiv;
                     break;
                 case "Vidrio":
-                    correspondetValue = filterManager.gv.divisionVidrio;
+                    correspondetValue = refinerPanelUI.vidrioDiv;
                     break;
                 case "Carton":
-                    correspondetValue = filterManager.gv.divisionCarton;
+                    correspondetValue = refinerPanelUI.cartonDiv;
                     break;
                 case "Metal":
-                    correspondetValue = filterManager.gv.divisionMetal;
+                    correspondetValue = refinerPanelUI.metalDiv;
                     break;
             }
             if (correspondetValue < movingValue)
