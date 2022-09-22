@@ -63,7 +63,7 @@ public class VC_Switcher : MonoBehaviour
     }
     void CheckBlend(int code)
     {
-        if (CM_Brain.ActiveBlend != null && CM_Brain.ActiveBlend.BlendWeight >= 0.9999f)
+        if (CM_Brain.ActiveBlend != null && CM_Brain.ActiveBlend.BlendWeight >= 0.999f)
         {
             if (code == 1)
             {

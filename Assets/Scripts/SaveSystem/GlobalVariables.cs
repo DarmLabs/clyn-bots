@@ -20,6 +20,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     void Awake()
     {
         DontDestroyOnLoad(this);
+        Debug.LogError("init");
     }
     //SaveState es el pase de las accesibles a un estado de "dato de guardado" para luego guardarlo, agrega las variables siguiendo las de abajo (no olvides las comas!!)
     public object SaveState()
@@ -79,7 +80,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         cardDistribution = saveData.cardDistribution;
         memoriaAccesible = saveData.memoriaAccesible;
         pipesActiva = saveData.pipesActiva;
-       // compostActiva = saveData.compostActiva;
+        // compostActiva = saveData.compostActiva;
         //Divisiones
         divisionNoRec = saveData.divisionNoRec;
         divisionOrganic = saveData.divisionOrganic;
@@ -107,7 +108,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
         public bool memoriaAccesible;
-       // public bool compostActiva;
+        // public bool compostActiva;
         public bool pipesActiva;
         public int currentMissionStage;
         public bool firstTime;
