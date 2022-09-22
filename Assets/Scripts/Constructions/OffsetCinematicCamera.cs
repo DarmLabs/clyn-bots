@@ -6,10 +6,15 @@ public class OffsetCinematicCamera : MonoBehaviour
 {
     public General_UI general_UI;
     Vector3 offset = new Vector3(-15, 20, -15);
-    public void SetTarget(GameObject target){
-        if(target.transform.childCount != 0){
+    [SerializeField] GameObject mainCamera;
+    public void SetTarget(GameObject target)
+    {
+        if (target.transform.childCount != 0)
+        {
             transform.position = target.transform.GetChild(0).transform.position + offset;
-        }else{
+        }
+        else
+        {
             transform.position = target.transform.position + offset;
         }
         gameObject.SetActive(true);
@@ -19,9 +24,11 @@ public class OffsetCinematicCamera : MonoBehaviour
         StartCoroutine(WaitInCinematic(5f));
     }
 
-    IEnumerator WaitInCinematic(float secs){
+    IEnumerator WaitInCinematic(float secs)
+    {
         yield return new WaitForSeconds(secs);
         gameObject.SetActive(false);
+        mainCamera.SetActive(true);
         general_UI.playerInteraction.MovmentState(true);
         general_UI.MainPanelSwitcher(true);
         general_UI.playerInteraction.enabled = true;

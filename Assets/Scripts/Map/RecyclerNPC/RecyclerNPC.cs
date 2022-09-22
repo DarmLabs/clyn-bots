@@ -126,7 +126,7 @@ public class RecyclerNPC : MonoBehaviour
                         okSection.SetActive(true);
                         return;
                     }
-                    if (gameObject.name == "RecyclerMinigameCompost" && !general_UI.playerInteraction.gv.compostActiva)
+                    if (gameObject.name == "RecyclerMinigameCompost" && general_UI.playerInteraction.gv.divisionOrganic < 10)
                     {
                         fromResponse = true;
                         CinematicCamera();
