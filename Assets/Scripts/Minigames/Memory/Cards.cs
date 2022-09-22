@@ -73,6 +73,7 @@ public class Cards : MonoBehaviour
     
     void Update() 
     {
+        Debug.Log("pairsFound"+pairsFound);
         if (Grilla.vidas <= 0)
         {
             PanelDerrota.SetActive(true);

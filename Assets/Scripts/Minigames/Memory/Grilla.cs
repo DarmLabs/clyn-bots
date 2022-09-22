@@ -38,7 +38,7 @@ public class Grilla : MonoBehaviour
 
     void Start()
     {        
-        auxiliarGrilla = Random.Range(0,7);
+        /*auxiliarGrilla = Random.Range(0,7);
         Debug.Log("auxiliarGrilla"+auxiliarGrilla);
         switch (auxiliarGrilla)
         {
@@ -77,7 +77,7 @@ public class Grilla : MonoBehaviour
             vidas = 20; //10  
             Cards.CantidadPares = 6;    
             break;        
-        }        
+        }  */      
         refinadosDestruidos = 0;      
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)
@@ -90,7 +90,7 @@ public class Grilla : MonoBehaviour
             listaRandoms[i] = randomIndex;                    
         } 
 
-        switch (auxiliarGrilla)
+        /*switch (auxiliarGrilla)
         {
             case 0:
                 for (int i = 0; i < 12; i++)
@@ -190,8 +190,8 @@ public class Grilla : MonoBehaviour
                     CartasGrilla12[r] = temporal;                    
                 }
             break;        
-        }
-        /*for (int i = 0; i < 9; i++)
+        }*/
+        for (int i = 0; i < 9; i++)
         {
             CartasGrilla[i] = Cartas[listaRandoms[i+1]];                   
             CartasGrilla[i+9] = Cartas[listaRandoms[i+1]];         
@@ -203,8 +203,8 @@ public class Grilla : MonoBehaviour
             CartasGrilla[t] = CartasGrilla[r];
             CartasGrilla[r] = temporal;
             //Debug.Log("TOTAL ARRAY"+CartasGrilla.Length); 
-        }*/
-        switch (auxiliarGrilla)
+        }
+        /*switch (auxiliarGrilla)
         {
             case 0:
                for (int i = 0; i < UbicacionCartas24.Length; i++)
@@ -248,11 +248,11 @@ public class Grilla : MonoBehaviour
                     Instantiate(CartasGrilla12[i],UbicacionCartas12[i].transform.position,transform.rotation); 
                 }
             break;        
-        }
-        /*for (int i = 0; i < UbicacionCartas.Length; i++)
+        }*/
+        for (int i = 0; i < UbicacionCartas.Length; i++)
         {
             Instantiate(CartasGrilla[i],UbicacionCartas[i].transform.position,transform.rotation); 
-        }*/
+        }
             
         
     }
