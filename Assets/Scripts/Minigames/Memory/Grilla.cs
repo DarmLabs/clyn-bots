@@ -39,6 +39,7 @@ public class Grilla : MonoBehaviour
     void Start()
     {        
         auxiliarGrilla = Random.Range(0,7);
+        Debug.Log("auxiliarGrilla"+auxiliarGrilla);
         switch (auxiliarGrilla)
         {
             case 24:
@@ -91,7 +92,7 @@ public class Grilla : MonoBehaviour
 
         switch (auxiliarGrilla)
         {
-            case 24:
+            case 0:
                 for (int i = 0; i < 12; i++)
                 {
                     CartasGrilla24[i] = Cartas[listaRandoms[i+1]];                   
@@ -105,7 +106,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla24[r] = temporal;
                 }
             break;
-            case 22:
+            case 1:
                 for (int i = 0; i < 11; i++)
                 {
                     CartasGrilla22[i] = Cartas[listaRandoms[i+1]];                   
@@ -119,7 +120,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla22[r] = temporal;
                 }
             break;
-            case 20:
+            case 2:
                 for (int i = 0; i < 10; i++)
                 {
                     CartasGrilla20[i] = Cartas[listaRandoms[i+1]];                   
@@ -133,7 +134,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla20[r] = temporal;
                 }
             break;
-            case 18:
+            case 3:
                 for (int i = 0; i < 9; i++)
                 {
                     CartasGrilla18[i] = Cartas[listaRandoms[i+1]];                   
@@ -147,7 +148,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla18[r] = temporal;
                 }
             break;
-            case 16:
+            case 4:
                 for (int i = 0; i < 8; i++)
                 {
                     CartasGrilla16[i] = Cartas[listaRandoms[i+1]];                   
@@ -161,7 +162,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla16[r] = temporal;
                 }
             break;
-            case 14:
+            case 5:
                 for (int i = 0; i < 7; i++)
                 {
                     CartasGrilla14[i] = Cartas[listaRandoms[i+1]];                   
@@ -175,7 +176,7 @@ public class Grilla : MonoBehaviour
                     CartasGrilla14[r] = temporal;                    
                 }
             break;
-            case 12:
+            case 6:
                 for (int i = 0; i < 6; i++)
                 {
                     CartasGrilla12[i] = Cartas[listaRandoms[i+1]];                   
