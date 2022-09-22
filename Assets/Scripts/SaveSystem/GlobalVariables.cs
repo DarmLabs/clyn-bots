@@ -13,7 +13,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
     public bool cardDistribution = false;
     public bool memoriaAccesible = false;
-    public bool compostActiva = false;
+    //public bool compostActiva = false;
     public bool pipesActiva = false;
     public int currentMissionStage;
     public bool firstTime;
@@ -28,7 +28,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         {
             //bandera de acceso
             memoriaAccesible = this.memoriaAccesible,
-            compostActiva = this.compostActiva,
+            //compostActiva = this.compostActiva,
             pipesActiva = this.pipesActiva,
 
             //Old 
@@ -79,7 +79,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         cardDistribution = saveData.cardDistribution;
         memoriaAccesible = saveData.memoriaAccesible;
         pipesActiva = saveData.pipesActiva;
-        compostActiva = saveData.compostActiva;
+       // compostActiva = saveData.compostActiva;
         //Divisiones
         divisionNoRec = saveData.divisionNoRec;
         divisionOrganic = saveData.divisionOrganic;
@@ -107,7 +107,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
         public bool memoriaAccesible;
-        public bool compostActiva;
+       // public bool compostActiva;
         public bool pipesActiva;
         public int currentMissionStage;
         public bool firstTime;
