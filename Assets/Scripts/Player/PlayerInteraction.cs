@@ -144,7 +144,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     void Controls()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Interaction();
         }
@@ -180,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.cartonTrash = 0;
             BagPercentage();
         }
-        if (Input.GetKey(KeyCode.X) && itemsInBag < 90 && sceneCache.currentScene == "Outside")
+        if (Input.GetKey(KeyCode.Mouse0) && itemsInBag < 90 && sceneCache.currentScene == "Outside")
         {
             cone.enabled = true;
             playerAnim.Aspire(true);

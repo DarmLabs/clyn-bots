@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             freeLook.m_XAxis.m_MaxSpeed = 0;
         }
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 10f;
         }
