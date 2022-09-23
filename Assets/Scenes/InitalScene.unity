@@ -619,11 +619,11 @@ RectTransform:
   m_Children:
   - {fileID: 1999097758}
   m_Father: {fileID: 388325416}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 260, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318955274
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1277205416, guid: f29722c3168e6fb47b95d769d14a611b, type: 3}
+  m_Sprite: {fileID: 1388672043, guid: f29722c3168e6fb47b95d769d14a611b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -756,7 +756,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dee14b9f62db974e94322f4731d300c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioName: Back_Button
+  audioName: Confirm_Button
 --- !u!1 &380702003
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,8 +910,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1022440537}
-  - {fileID: 1708774622}
   - {fileID: 318955273}
+  - {fileID: 1708774622}
   m_Father: {fileID: 1723419484}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1356,7 +1356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xBFQue desea hacer?"
+  m_text: "\xBFQu\xE9 desea hacer?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5336088a5684aba41b8ed74faf4ea919, type: 2}
   m_sharedMaterial: {fileID: 7844591500836071106, guid: 5336088a5684aba41b8ed74faf4ea919, type: 2}
@@ -3668,11 +3668,11 @@ RectTransform:
   m_Children:
   - {fileID: 1379462410}
   m_Father: {fileID: 388325416}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 20}
+  m_AnchoredPosition: {x: 0, y: -150}
   m_SizeDelta: {x: 260, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1708774623
@@ -3775,7 +3775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1388672043, guid: f29722c3168e6fb47b95d769d14a611b, type: 3}
+  m_Sprite: {fileID: 1277205416, guid: f29722c3168e6fb47b95d769d14a611b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3805,7 +3805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dee14b9f62db974e94322f4731d300c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioName: Confirm_Button
+  audioName: Back_Button
 --- !u!1 &1723419483
 GameObject:
   m_ObjectHideFlags: 0
