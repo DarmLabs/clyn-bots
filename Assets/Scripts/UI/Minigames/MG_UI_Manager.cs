@@ -60,7 +60,7 @@ public class MG_UI_Manager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Grilla.vidas = 20;
-        //Time.timeScale = 1f;
+        Time.timeScale = 1f;
         /*switch (Tachos.CantidadGrilla)
         {
             case 24:
