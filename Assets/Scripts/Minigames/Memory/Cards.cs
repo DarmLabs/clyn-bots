@@ -14,24 +14,24 @@ public class Cards : MonoBehaviour
     public static Queue<Cards> sequence;
     public static int pairsFound;
     //public int vidas = 20;
-
+    /*
     [SerializeField] private GameObject vidrioRefinadoGO;
     [SerializeField] private GameObject metalRefinadoGO;
     [SerializeField] private GameObject cartonRefinadoGO;
     [SerializeField] private GameObject plasticoRefinadoGO;
     [SerializeField] private GameObject compostRefinadoGO;
     [SerializeField] private GameObject ubicacionRefinados; 
-
+    */
     [SerializeField] private GameObject PanelVictoria;
     [SerializeField] private GameObject PanelDerrota;
-    [SerializeField] private GameObject MarcoRefinados;     
+    //[SerializeField] private GameObject MarcoRefinados;     
     
     private GameObject globalaux;
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     private Collider colisionAux;    
-
+    /*
     public Text textVidrios;
     public Text textPlasticos;
     public Text textCartones;
@@ -49,16 +49,17 @@ public class Cards : MonoBehaviour
     public static int cartonPartida;
     public static int metalPartida;
     public static int compostPartida;
+    */
     public static int CantidadPares = 9;
-        
+       
 
     void Start()
     {           
-        vidrioPartida=0;
+        /*vidrioPartida=0;
         plasticoPartida=0;
         cartonPartida=0;
         metalPartida=0;
-        compostPartida=0;
+        compostPartida=0;*/
         Debug.Log("VIDAS INICIALES: "+Grilla.vidas);
         facedUp=false;
         coroutineAllowed=true;
@@ -79,7 +80,7 @@ public class Cards : MonoBehaviour
             PanelDerrota.SetActive(true);
             //gv.memoriaAccesible = true; 
             Destroy(this.gameObject);
-            MarcoRefinados.SetActive(false);
+            //MarcoRefinados.SetActive(false);
             Time.timeScale = 0f;         
         }
         if (pairsFound == CantidadPares)
@@ -89,7 +90,7 @@ public class Cards : MonoBehaviour
             {                
                 PanelVictoria.SetActive(true);
                 //gv.memoriaAccesible = true;
-                MarcoRefinados.SetActive(false);
+                //MarcoRefinados.SetActive(false);
                 Destroy(this.gameObject); 
                 Time.timeScale = 0f;           
                 Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
@@ -167,7 +168,7 @@ public class Cards : MonoBehaviour
                 if (firstInPairName == "VasoVidrio" || firstInPairName== "BotellaVidrio" || firstInPairName == "FrascoVidrio")
                 {
                     Debug.Log("VIDRIO REFINADO");
-                    vidrioPartida+=10;
+                    /*vidrioPartida+=10;
                     gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
                     saveSystem.Save();
                     textVidrios.text = "+"+vidrioPartida.ToString();
@@ -179,7 +180,7 @@ public class Cards : MonoBehaviour
                         normalVidrios.gameObject.SetActive(true);
                         StartCoroutine (LateCall(normalVidrios.gameObject));
                         MovimientoRefinados.destruyoRefinado = false;                   
-                    }
+                    }*/
                     Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
@@ -187,7 +188,7 @@ public class Cards : MonoBehaviour
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
                 {
                     Debug.Log("PLASTICO REFINADO");
-                    plasticoPartida+=10;
+                    /*plasticoPartida+=10;
                     gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
                     saveSystem.Save();
                     textPlasticos.text = "+"+plasticoPartida.ToString();
@@ -199,7 +200,7 @@ public class Cards : MonoBehaviour
                         normalPlasticos.gameObject.SetActive(true);
                         StartCoroutine (LateCall(normalPlasticos.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
-                    }
+                    }*/
                     Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
                     
@@ -207,7 +208,7 @@ public class Cards : MonoBehaviour
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
                 {
                     Debug.Log("CARTON REFINADO");
-                    cartonPartida+=10;
+                    /*cartonPartida+=10;
                     gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
                     saveSystem.Save();
                     textCartones.text = "+"+cartonPartida.ToString();
@@ -219,7 +220,7 @@ public class Cards : MonoBehaviour
                         normalCartones.gameObject.SetActive(true);
                         StartCoroutine (LateCall(normalCartones.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
-                    }
+                    }*/
                     Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
@@ -227,7 +228,7 @@ public class Cards : MonoBehaviour
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
                 {
                     Debug.Log("METAL REFINADO");
-                    metalPartida+=10;
+                    /*metalPartida+=10;
                     gv.metalRefinado= gv.metalRefinado + (metalPartida);
                     saveSystem.Save();
                     textMetales.text = "+"+metalPartida.ToString();
@@ -239,7 +240,7 @@ public class Cards : MonoBehaviour
                         normalMetales.gameObject.SetActive(true);
                         StartCoroutine (LateCall(normalMetales.gameObject));
                         MovimientoRefinados.destruyoRefinado = false; 
-                    }
+                    }*/
                     Grilla.vidas = Grilla.vidas +2;
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
@@ -248,7 +249,7 @@ public class Cards : MonoBehaviour
             if (firstInPair.tag == "Organico")
             {
                 Debug.Log("COMPOST y BIOMASA");
-                compostPartida+=10;
+                /*compostPartida+=10;
                 gv.compostRefinado= gv.compostRefinado + (compostPartida); 
                 saveSystem.Save();
                 textComposts.text = "+"+compostPartida.ToString();
@@ -260,7 +261,7 @@ public class Cards : MonoBehaviour
                     normalComposts.gameObject.SetActive(true);
                     StartCoroutine (LateCall(normalComposts.gameObject));
                     MovimientoRefinados.destruyoRefinado = false; 
-                } 
+                } */
                 Grilla.vidas = Grilla.vidas +2;  
                 Debug.Log("Vidas:"+Grilla.vidas/2);            
             }
@@ -274,12 +275,12 @@ public class Cards : MonoBehaviour
         if (pairsFound == CantidadPares)
         {
                 Debug.Log("GANÓ y se guardaron los refinados");
-                gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
+                /*gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
                 gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
                 gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
                 gv.metalRefinado= gv.metalRefinado + (metalPartida);
                 gv.compostRefinado= gv.compostRefinado + (compostPartida); 
-                saveSystem.Save(); 
+                saveSystem.Save(); */
         }
 
 
