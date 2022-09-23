@@ -15,11 +15,12 @@ public class TakeBools : MonoBehaviour
         if (destoyedList.Count != 0)
         {
             SetDestroyed();
+            destoyedList = new List<bool>();
         }
     }
     public void TakeDestoyed()
     {
-        trashScripts = GameObject.FindObjectsOfType<AspireInteraction>();
+        trashScripts = GameObject.FindObjectsOfType<AspireInteraction>(true);
         foreach (var trashScript in trashScripts)
         {
             destoyedList.Add(trashScript.destroyed);
@@ -27,7 +28,7 @@ public class TakeBools : MonoBehaviour
     }
     public void SetDestroyed()
     {
-        trashScripts = GameObject.FindObjectsOfType<AspireInteraction>();
+        trashScripts = GameObject.FindObjectsOfType<AspireInteraction>(true);
         foreach (var trashScript in trashScripts)
         {
             trashScript.destroyed = destoyedList[index];

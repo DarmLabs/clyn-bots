@@ -63,6 +63,7 @@ public class InitialSceneManager : MonoBehaviour
     public void NewGame()
     {
         File.Delete(Application.persistentDataPath + "/save.txt");
+        File.Delete(Application.persistentDataPath + "/saveTrash.txt");
         StartSaveGameObjects();
         SceneManager.LoadScene("Inside");
     }

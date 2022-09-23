@@ -76,7 +76,7 @@ public class AspireInteraction : MonoBehaviour
     {
         if (destroyed)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
     void OnTriggerEnter(Collider other)
