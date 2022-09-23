@@ -10,15 +10,16 @@ public class Tachos : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    public static int errores = 0;
-    public static int errorRecuperableVidrio = 0;
-    public static int errorRecuperablePlastico = 0;
-    public static int errorRecuperableCarton = 0;
-    public static int errorRecuperableMetal = 0;
-    public static int errorNoRecuperable = 0;
-    public static int errorOrganico = 0;
+    public int errores = 0;
+    public int errorRecuperableVidrio = 0;
+    public int errorRecuperablePlastico = 0;
+    public int errorRecuperableCarton = 0;
+    public int errorRecuperableMetal = 0;
+    public int errorNoRecuperable = 0;
+    public int errorOrganico = 0;
+    public int errorRecuperable = 0;
     public int auxiliarGrilla = 0; 
-    public static int CantidadGrilla = 0;
+    //public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
     private string nombreRecuperable;
     private string nombreAuxiliar;
@@ -33,7 +34,7 @@ public class Tachos : MonoBehaviour
     void Start()
     {       
         Generador.contadorBasura = 0;
-        CantidadGrilla = 0;
+        //CantidadGrilla = 0;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -51,7 +52,7 @@ public class Tachos : MonoBehaviour
         if (errores == 6)
         {
             Debug.Log ("Perdiste niño bobo");
-            CantidadGrilla = 12;
+            //CantidadGrilla = 12;
             PanelDerrota.SetActive(true);
             /*
             gv.recTrash = 0;
@@ -197,11 +198,12 @@ public class Tachos : MonoBehaviour
         else
         {
             errores = errores + 1;
+            erroresText.text = errores.ToString(); 
             Debug.Log("ERROR EN RECOLECCION: "+errores);
             switch (other.gameObject.tag)
             {
                 case "Recuperable":
-                    //gv.recTrash -= 1;
+                    /*//gv.recTrash -= 1;
                     nombreAuxiliar = other.gameObject.name;
                     if(nombreRecuperable.Contains("Vidrio"))
                     {
@@ -218,8 +220,8 @@ public class Tachos : MonoBehaviour
                     if(nombreRecuperable.Contains("Metal"))
                     {
                         errorRecuperableMetal+=1;
-                    }
-                                                          
+                    }  */ 
+                    errorRecuperable+=1;
                     break;
                 case "NoRecuperable":
                     //gv.noRecTrash -=1; 
@@ -230,8 +232,7 @@ public class Tachos : MonoBehaviour
                     errorOrganico+=1;                 
                     break;
             } 
-            //Generador.bloqueaMovimiento = false;
-            erroresText.text = errores.ToString(); 
+            //Generador.bloqueaMovimiento = false;            
             saveSystem.Save(); 
         }       
     }
