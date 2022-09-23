@@ -284,9 +284,17 @@ public class General_UI : MonoBehaviour
         if (playerInteraction.takeBools != null)
         {
             playerInteraction.takeBools.TakeDestoyed();
-            FileHandler.SaveToJSON<bool>(playerInteraction.takeBools.destoyedList, "save.txt");
+            FileHandler.SaveToJSON<bool>(playerInteraction.takeBools.destoyedList, "saveTrash.txt");
         }
-        SceneManager.LoadScene(scene);
+        StartCoroutine(LoadAsyncScene(scene));
+    }
+    IEnumerator LoadAsyncScene(string scene)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(scene);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
     public void FreeLookCameraSwitcher(bool state)
     {
