@@ -26,10 +26,10 @@ public class Cards : MonoBehaviour
     [SerializeField] private GameObject PanelDerrota;
     //[SerializeField] private GameObject MarcoRefinados;     
     
-    private GameObject globalaux;
+    /*private GameObject globalaux;
     private GlobalVariables gv;
     private GameObject saveaux;
-    private SaveLoadSystem saveSystem;
+    private SaveLoadSystem saveSystem;*/
     private Collider colisionAux;    
     /*
     public Text textVidrios;
@@ -66,10 +66,10 @@ public class Cards : MonoBehaviour
         locked=false;
         sequence=new Queue<Cards>();
         pairsFound=0;
-        globalaux = GameObject.Find("GlobalVariables");
+        /*globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
-        saveSystem = saveaux.GetComponent<SaveLoadSystem>();        
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>(); */       
     }
     
     void Update() 
