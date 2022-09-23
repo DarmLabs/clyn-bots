@@ -215,7 +215,7 @@ public class PlayerInteraction : MonoBehaviour
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
             }
 
-            if (targetConstruction != null && (targetConstruction.tag != "Untagged" || targetConstruction.tag != "Pipes"))
+            if (targetConstruction != null && (targetConstruction.tag != "Untagged" && targetConstruction.tag != "Pipes"))
             {
                 general_UI.ConstructionPanelSwitcher(true);
                 general_UI.MinimapSwitcher(false);
@@ -311,6 +311,7 @@ public class PlayerInteraction : MonoBehaviour
     public void BuildObject()
     {
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
+        targetConstruction = null;
     }
     public void PlantSeed()
     {

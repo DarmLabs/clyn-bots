@@ -63,7 +63,10 @@ public class Orchard : MonoBehaviour, ISaveable
                     break;
             }
             currentState = "Mini";
-            general_UI.InteractionCloud(true);
+            if (!fromLoad)
+            {
+                general_UI.InteractionCloud(true);
+            }
         }
         else if (currentState == "Mini")
         {
@@ -83,7 +86,8 @@ public class Orchard : MonoBehaviour, ISaveable
                     break;
             }
             gameObject.tag = "Untagged";
-            if (mainMission.cropsGrew < mainMission.maxCrops && !fromLoad)
+            GetComponent<SaveTag>().UpdateTag();
+            if (!fromLoad && mainMission.cropsGrew < mainMission.maxCrops)
             {
                 mainMission.cropsGrew++;
             }
@@ -165,6 +169,7 @@ public class Orchard : MonoBehaviour, ISaveable
         }
         else if (currentState == "Mini" && gameObject.tag != "Untagged")
         {
+            Debug.Log("im right");
             currentState = "Seeded";
             GrowSeed(true);
         }
