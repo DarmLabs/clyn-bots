@@ -253,10 +253,6 @@ public class PlayerInteraction : MonoBehaviour
                 MovmentState(false);
                 general_UI.InteractionCloud(false);
             }
-            if (targetArcade != null)
-            {
-                general_UI.ChangeScene(targetArcade.name);
-            }
         }
     }
     public void BagPercentage()
@@ -386,11 +382,6 @@ public class PlayerInteraction : MonoBehaviour
             targetRefiner = targetObject;
             general_UI.InteractionCloud(true);
         }
-        if (targetObject.tag == "arcade")
-        {
-            targetArcade = targetObject;
-            general_UI.InteractionCloud(true);
-        }
     }
     public void ExitDetectObject(GameObject targetObject)
     {
@@ -422,11 +413,6 @@ public class PlayerInteraction : MonoBehaviour
         if (targetObject.tag == "Refiner")
         {
             targetRefiner = null;
-            general_UI.InteractionCloud(false);
-        }
-        if (targetObject.tag == "arcade")
-        {
-            targetArcade = null;
             general_UI.InteractionCloud(false);
         }
     }
