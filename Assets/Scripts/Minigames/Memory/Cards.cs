@@ -86,15 +86,15 @@ public class Cards : MonoBehaviour
         if (pairsFound == CantidadPares)
         {
             //terminó el juego
-            if(Grilla.refinadosDestruidos == CantidadPares)
-            {                
+            //if(Grilla.refinadosDestruidos == CantidadPares)
+            //{                
                 PanelVictoria.SetActive(true);
                 //gv.memoriaAccesible = true;
                 //MarcoRefinados.SetActive(false);
                 Destroy(this.gameObject); 
                 Time.timeScale = 0f;           
                 Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
-            }
+            //}
             
         }
     }

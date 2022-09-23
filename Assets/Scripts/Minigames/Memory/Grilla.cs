@@ -27,7 +27,7 @@ public class Grilla : MonoBehaviour
     private GlobalVariables gv; 
 
     public static int vidas = 20;    
-    public static int refinadosDestruidos = 0;
+    //public static int refinadosDestruidos = 0;
 
     private int randomIndex;
     private int cantidadRandoms = 10;
@@ -79,7 +79,7 @@ public class Grilla : MonoBehaviour
             break;        
         }  */
         Grilla.vidas = 20;      
-        refinadosDestruidos = 0;      
+        //refinadosDestruidos = 0;      
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)
         {

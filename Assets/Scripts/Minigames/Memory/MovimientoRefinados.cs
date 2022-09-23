@@ -12,12 +12,12 @@ public class MovimientoRefinados : MonoBehaviour
     private float fraction = 3f;
     private float currentTime = 0f;
     private float startingTime = 1.5f;
-    public static bool destruyoRefinado = false;    
+    //public static bool destruyoRefinado = false;    
 
     void Start() 
     {
         currentTime = startingTime;
-        destruyoRefinado = false;        
+        //destruyoRefinado = false;        
     }
 
     void Update()
@@ -81,7 +81,7 @@ public class MovimientoRefinados : MonoBehaviour
         }
 
         
-    }    
+    }   
     
 
     void OnTriggerEnter(Collider other) 
@@ -91,7 +91,7 @@ public class MovimientoRefinados : MonoBehaviour
         if(this.gameObject.tag == other.gameObject.tag)
         {
             Destroy(this.gameObject);
-            destruyoRefinado = true; 
+            //destruyoRefinado = true; 
             Grilla.refinadosDestruidos += 1;
         }        
     }
