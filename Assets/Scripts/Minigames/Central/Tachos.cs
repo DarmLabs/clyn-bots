@@ -10,15 +10,15 @@ public class Tachos : MonoBehaviour
     private GlobalVariables gv;
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
-    public int errores = 0;
-    public int errorRecuperableVidrio = 0;
-    public int errorRecuperablePlastico = 0;
-    public int errorRecuperableCarton = 0;
-    public int errorRecuperableMetal = 0;
-    public int errorNoRecuperable = 0;
-    public int errorOrganico = 0;
-    public int errorRecuperable = 0;
-    public int auxiliarGrilla = 0; 
+    public static int errores = 0;
+    public static int errorRecuperableVidrio = 0;
+    public static int errorRecuperablePlastico = 0;
+    public static int errorRecuperableCarton = 0;
+    public static int errorRecuperableMetal = 0;
+    public static int errorNoRecuperable = 0;
+    public static int errorOrganico = 0;
+    public static int errorRecuperable = 0;
+    //public int auxiliarGrilla = 0; 
     //public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
     private string nombreRecuperable;
@@ -34,6 +34,14 @@ public class Tachos : MonoBehaviour
     void Start()
     {       
         Generador.contadorBasura = 0;
+        errores = 0;
+        errorRecuperableVidrio = 0;
+        errorRecuperablePlastico = 0;
+        errorRecuperableCarton = 0;
+        errorRecuperableMetal = 0;
+        errorNoRecuperable = 0;
+        errorOrganico = 0;
+        errorRecuperable = 0;
         //CantidadGrilla = 0;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
@@ -143,36 +151,60 @@ public class Tachos : MonoBehaviour
             switch (other.gameObject.tag)
             {
                 case "Recuperable":
+                    gv.divisionRec +=1;
+                    Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
+                    residuosRecuperables.text = gv.divisionRec.ToString();
+                    switch (other.transform.GetChild(0).gameObject.tag)
+                    {
+                        case "Vidrio":
+                            gv.divisionVidrio +=1;
+                            Debug.Log("dividió vidrio"+gv.divisionVidrio);
+                        break;
+                        case "Plastico":
+                            gv.divisionPlastico +=1; 
+                            Debug.Log("dividió plastico"+gv.divisionPlastico);
+                        break;
+                        case "Metal":
+                            gv.divisionMetal +=1;
+                            Debug.Log("dividió metal"+gv.divisionMetal);
+                        break;
+                        case "Carton":
+                            gv.divisionCarton +=1;
+                            Debug.Log("dividió carton"+gv.divisionCarton);
+                        break;
+                    }
                     //Destroy(other.gameObject);
                     //Debug.Log("Se separó un recuperable");
                     //gv.recTrash -= 1;
-                    gv.divisionRec +=1;
-                    nombreRecuperable = this.gameObject.name;
+                    
+                    /*nombreRecuperable = this.gameObject.name;
                     if(nombreRecuperable.Contains("Vidrio"))
                     {
                         //gv.vidrioTrash -=1;
                         gv.divisionVidrio +=1;
+                        Debug.Log("dividió vidrio"+gv.divisionVidrio);
                     }
                     if(nombreRecuperable.Contains("Plastico"))
                     {
                         //gv.plasticoTrash -=1;
                         gv.divisionPlastico +=1; 
+                        Debug.Log("dividió plastico"+gv.divisionPlastico);
                     }
                     if(nombreRecuperable.Contains("Carton"))
                     {
                         //gv.cartonTrash -=1;
                         gv.divisionCarton +=1;
+                        Debug.Log("dividió carton"+gv.divisionCarton);
                     }
                     if(nombreRecuperable.Contains("Metal"))
                     {
                         //gv.metalTrash -=1;
                         gv.divisionMetal +=1;
-                    }
-                                      
-                    Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
+                        Debug.Log("dividió metal"+gv.divisionMetal);
+                    }*/                                    
                     //Generador.bloqueaMovimiento = false; 
-                    residuosRecuperables.text = gv.divisionRec.ToString();
-                    break;
+                    
+                break;
                 case "NoRecuperable":
                     //Destroy(other.gameObject);
                     //Debug.Log("Se separó un no recuperable");
@@ -203,24 +235,21 @@ public class Tachos : MonoBehaviour
             switch (other.gameObject.tag)
             {
                 case "Recuperable":
-                    /*//gv.recTrash -= 1;
-                    nombreAuxiliar = other.gameObject.name;
-                    if(nombreRecuperable.Contains("Vidrio"))
+                    switch (other.transform.GetChild(0).gameObject.tag)
                     {
-                        errorRecuperableVidrio+=1;
+                        case "Vidrio":
+                            errorRecuperableVidrio +=1;                            
+                        break;
+                        case "Plastico":
+                            errorRecuperablePlastico +=1;
+                        break;
+                        case "Metal":
+                            errorRecuperableMetal +=1;
+                        break;
+                        case "Carton":
+                            errorRecuperableCarton +=1;
+                        break;
                     }
-                    if(nombreRecuperable.Contains("Plastico"))
-                    {
-                        errorRecuperablePlastico+=1; 
-                    }
-                    if(nombreRecuperable.Contains("Carton"))
-                    {
-                        errorRecuperableCarton+=1;
-                    }
-                    if(nombreRecuperable.Contains("Metal"))
-                    {
-                        errorRecuperableMetal+=1;
-                    }  */ 
                     errorRecuperable+=1;
                     break;
                 case "NoRecuperable":

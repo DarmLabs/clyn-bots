@@ -169,6 +169,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91791c4e110887748bbbe8aa7bdec5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errores: 0
+  errorRecuperableVidrio: 0
+  errorRecuperablePlastico: 0
+  errorRecuperableCarton: 0
+  errorRecuperableMetal: 0
+  errorNoRecuperable: 0
+  errorOrganico: 0
+  errorRecuperable: 0
   auxiliarGrilla: 0
   residuosNoRecuperables: {fileID: 347681164}
   residuosRecuperables: {fileID: 1916792270}
@@ -484,6 +492,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3699887965558336533, guid: 009f0d05687477543a0c606c6ae62794, type: 3}
   m_PrefabInstance: {fileID: 148532554}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &217681450
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217681451}
+  m_Layer: 0
+  m_Name: Plastico
+  m_TagString: Plastico
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &217681451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217681450}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.887503, y: 0, z: 0}
+  m_LocalScale: {x: 0.8333334, y: 0.8333334, z: 0.83333}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1993538619}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &259726112
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +638,37 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!1 &266847771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266847772}
+  m_Layer: 0
+  m_Name: Plastico
+  m_TagString: Plastico
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &266847772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266847771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1918347280}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347681162
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +869,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91791c4e110887748bbbe8aa7bdec5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errores: 0
+  errorRecuperableVidrio: 0
+  errorRecuperablePlastico: 0
+  errorRecuperableCarton: 0
+  errorRecuperableMetal: 0
+  errorNoRecuperable: 0
+  errorOrganico: 0
+  errorRecuperable: 0
   auxiliarGrilla: 0
   residuosNoRecuperables: {fileID: 0}
   residuosRecuperables: {fileID: 0}
@@ -1185,7 +1263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3738029813021342927, guid: 9cc4bd7e8f585234a92fad06e3917d00, type: 3}
       propertyPath: m_Name
-      value: Vidrio_Recuperable_Copa
+      value: Vidrio Recuperable_Copa
       objectReference: {fileID: 0}
     - target: {fileID: 3738029813021342927, guid: 9cc4bd7e8f585234a92fad06e3917d00, type: 3}
       propertyPath: m_IsActive
@@ -1361,6 +1439,68 @@ Transform:
   m_Father: {fileID: 1291078310}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &652367408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652367409}
+  m_Layer: 0
+  m_Name: Vidrio
+  m_TagString: Vidrio
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652367409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652367408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 742859617}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &683501758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 683501759}
+  m_Layer: 0
+  m_Name: Plastico
+  m_TagString: Plastico
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &683501759
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683501758}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -21.445837, y: 0, z: 0}
+  m_LocalScale: {x: 0.8333334, y: 0.8333334, z: 0.83333}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 947176266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &725595757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1449,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617519983818985671, guid: 189f828918f187a46aff7c8824e22327, type: 3}
       propertyPath: m_Name
-      value: Vidrio_Recuperable_BotellaVidrio
+      value: Vidrio Recuperable_BotellaVidrio
       objectReference: {fileID: 0}
     - target: {fileID: 3617519983818985671, guid: 189f828918f187a46aff7c8824e22327, type: 3}
       propertyPath: m_IsActive
@@ -1457,7 +1597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3617519983818985691, guid: 189f828918f187a46aff7c8824e22327, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3617519983818985691, guid: 189f828918f187a46aff7c8824e22327, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1711,6 +1851,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91791c4e110887748bbbe8aa7bdec5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errores: 0
+  errorRecuperableVidrio: 0
+  errorRecuperablePlastico: 0
+  errorRecuperableCarton: 0
+  errorRecuperableMetal: 0
+  errorNoRecuperable: 0
+  errorOrganico: 0
+  errorRecuperable: 0
   auxiliarGrilla: 0
   residuosNoRecuperables: {fileID: 347681164}
   residuosRecuperables: {fileID: 1916792270}
@@ -2030,7 +2178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1879240569216392259, guid: 7b5d5b8b513352f41a028cda9fce6cc5, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1879240569216392259, guid: 7b5d5b8b513352f41a028cda9fce6cc5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2074,7 +2222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1879240569216392271, guid: 7b5d5b8b513352f41a028cda9fce6cc5, type: 3}
       propertyPath: m_Name
-      value: Carton_Recuperable_CartonHuevos
+      value: Carton Recuperable_CartonHuevos
       objectReference: {fileID: 0}
     - target: {fileID: 1879240569216392271, guid: 7b5d5b8b513352f41a028cda9fce6cc5, type: 3}
       propertyPath: m_IsActive
@@ -2105,7 +2253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2592724573397617991, guid: 06bcfe9bc3c8a02449e7214e2347bfcf, type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2592724573397617991, guid: 06bcfe9bc3c8a02449e7214e2347bfcf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2149,7 +2297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2592724573397618043, guid: 06bcfe9bc3c8a02449e7214e2347bfcf, type: 3}
       propertyPath: m_Name
-      value: Metal_Recuperable_Latas
+      value: Metal Recuperable_Latas
       objectReference: {fileID: 0}
     - target: {fileID: 2592724573397618043, guid: 06bcfe9bc3c8a02449e7214e2347bfcf, type: 3}
       propertyPath: m_IsActive
@@ -2176,7 +2324,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2122890576973240212, guid: 641fc5b6aa4297146bb43fc90307a245, type: 3}
       propertyPath: m_Name
-      value: Plastico_Recuperable_Lavandina
+      value: Plastico Recuperable_Lavandina
       objectReference: {fileID: 0}
     - target: {fileID: 2122890576973240212, guid: 641fc5b6aa4297146bb43fc90307a245, type: 3}
       propertyPath: m_IsActive
@@ -2184,7 +2332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2122890576973240216, guid: 641fc5b6aa4297146bb43fc90307a245, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 2122890576973240216, guid: 641fc5b6aa4297146bb43fc90307a245, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2242,6 +2390,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2122890576973240212, guid: 641fc5b6aa4297146bb43fc90307a245, type: 3}
   m_PrefabInstance: {fileID: 947176265}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &978725547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 978725548}
+  m_Layer: 0
+  m_Name: Metal
+  m_TagString: Metal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &978725548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978725547}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1883181413}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &990971825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2625,6 +2804,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91791c4e110887748bbbe8aa7bdec5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errores: 0
+  errorRecuperableVidrio: 0
+  errorRecuperablePlastico: 0
+  errorRecuperableCarton: 0
+  errorRecuperableMetal: 0
+  errorNoRecuperable: 0
+  errorOrganico: 0
+  errorRecuperable: 0
   auxiliarGrilla: 0
   residuosNoRecuperables: {fileID: 0}
   residuosRecuperables: {fileID: 0}
@@ -2876,7 +3063,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1392978315412850504, guid: dce3d1a93d873c9439dcd0b407369e22, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1392978315412850504, guid: dce3d1a93d873c9439dcd0b407369e22, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2924,7 +3111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1392978315412850508, guid: dce3d1a93d873c9439dcd0b407369e22, type: 3}
       propertyPath: m_Name
-      value: Carton_Recuperable_Caja
+      value: Carton Recuperable_Caja
       objectReference: {fileID: 0}
     - target: {fileID: 1392978315412850508, guid: dce3d1a93d873c9439dcd0b407369e22, type: 3}
       propertyPath: m_IsActive
@@ -3279,6 +3466,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363023939}
   m_CullTransparentMesh: 1
+--- !u!1 &1404703978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1404703979}
+  m_Layer: 0
+  m_Name: Vidrio
+  m_TagString: Vidrio
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1404703979
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404703978}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.591668, y: 0, z: 0}
+  m_LocalScale: {x: 0.8333334, y: 0.8333334, z: 0.83333}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 563083304}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1433317766
 GameObject:
   m_ObjectHideFlags: 0
@@ -3564,6 +3782,37 @@ MonoBehaviour:
   - {fileID: 1616509177}
   - {fileID: 422768899}
   sortingOrder: 0
+--- !u!1 &1481705395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481705396}
+  m_Layer: 0
+  m_Name: Carton
+  m_TagString: Carton
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1481705396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481705395}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.825, y: 0, z: 0}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755452653}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1558479674
 GameObject:
   m_ObjectHideFlags: 0
@@ -3657,7 +3906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2009660893507239194, guid: 81de4b6654eef6844a938e0a61052516, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2009660893507239194, guid: 81de4b6654eef6844a938e0a61052516, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3701,7 +3950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2009660893507239198, guid: 81de4b6654eef6844a938e0a61052516, type: 3}
       propertyPath: m_Name
-      value: Vidrio_Recuperable_Frasco
+      value: Vidrio Recuperable_Frasco
       objectReference: {fileID: 0}
     - target: {fileID: 2009660893507239198, guid: 81de4b6654eef6844a938e0a61052516, type: 3}
       propertyPath: m_IsActive
@@ -3764,6 +4013,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91791c4e110887748bbbe8aa7bdec5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errores: 0
+  errorRecuperableVidrio: 0
+  errorRecuperablePlastico: 0
+  errorRecuperableCarton: 0
+  errorRecuperableMetal: 0
+  errorNoRecuperable: 0
+  errorOrganico: 0
+  errorRecuperable: 0
   auxiliarGrilla: 0
   residuosNoRecuperables: {fileID: 0}
   residuosRecuperables: {fileID: 0}
@@ -3944,6 +4201,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91791c4e110887748bbbe8aa7bdec5b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  errores: 0
+  errorRecuperableVidrio: 0
+  errorRecuperablePlastico: 0
+  errorRecuperableCarton: 0
+  errorRecuperableMetal: 0
+  errorNoRecuperable: 0
+  errorOrganico: 0
+  errorRecuperable: 0
   auxiliarGrilla: 0
   residuosNoRecuperables: {fileID: 347681164}
   residuosRecuperables: {fileID: 1916792270}
@@ -4029,6 +4294,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1693979408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693979409}
+  m_Layer: 0
+  m_Name: Vidrio
+  m_TagString: Vidrio
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693979409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693979408}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.616666, y: 0, z: 0}
+  m_LocalScale: {x: 0.8333334, y: 0.8333334, z: 0.83333}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1612619195}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1755452652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4038,7 +4334,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1346995609460900035, guid: 4c4a36f71af084b42abd20be038877dc, type: 3}
       propertyPath: m_Name
-      value: Carton_Recuperable_Diario
+      value: Carton Recuperable_Diario
       objectReference: {fileID: 0}
     - target: {fileID: 1346995609460900035, guid: 4c4a36f71af084b42abd20be038877dc, type: 3}
       propertyPath: m_IsActive
@@ -4050,7 +4346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1346995609460900039, guid: 4c4a36f71af084b42abd20be038877dc, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1346995609460900039, guid: 4c4a36f71af084b42abd20be038877dc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4143,15 +4439,15 @@ Transform:
   - {fileID: 1635827077}
   - {fileID: 90117103}
   - {fileID: 1918347280}
+  - {fileID: 1993538619}
+  - {fileID: 947176266}
   - {fileID: 742859617}
+  - {fileID: 563083304}
+  - {fileID: 1612619195}
   - {fileID: 1301620165}
   - {fileID: 904413922}
-  - {fileID: 563083304}
-  - {fileID: 1993538619}
   - {fileID: 1755452653}
-  - {fileID: 1612619195}
   - {fileID: 919353544}
-  - {fileID: 947176266}
   - {fileID: 1883181413}
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -4169,7 +4465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8205260495571962306, guid: 0dc8ef49bb19a62438c7f945392b1b44, type: 3}
       propertyPath: m_Name
-      value: Metal_Recuperable_TapasMetal
+      value: Metal Recuperable_TapasMetal
       objectReference: {fileID: 0}
     - target: {fileID: 8205260495571962306, guid: 0dc8ef49bb19a62438c7f945392b1b44, type: 3}
       propertyPath: m_IsActive
@@ -4231,6 +4527,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8205260495571962306, guid: 0dc8ef49bb19a62438c7f945392b1b44, type: 3}
   m_PrefabInstance: {fileID: 1883181412}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1884598747
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1884598748}
+  m_Layer: 0
+  m_Name: Metal
+  m_TagString: Metal
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1884598748
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884598747}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 919353544}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916792268
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,7 +4651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6330947847601689363, guid: d97ae16e8576ab94cb91020811de29e3, type: 3}
       propertyPath: m_Name
-      value: Plastico_Recuperable_BotellaPlastico
+      value: Plastico Recuperable_BotellaPlastico
       objectReference: {fileID: 0}
     - target: {fileID: 6330947847601689363, guid: d97ae16e8576ab94cb91020811de29e3, type: 3}
       propertyPath: m_IsActive
@@ -4386,6 +4713,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6330947847601689363, guid: d97ae16e8576ab94cb91020811de29e3, type: 3}
   m_PrefabInstance: {fileID: 1918347279}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1943851621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1943851622}
+  m_Layer: 0
+  m_Name: Carton
+  m_TagString: Carton
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1943851622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943851621}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.4473753, y: 0, z: 0}
+  m_LocalScale: {x: 1.5789474, y: 1.5789474, z: 1.5789472}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 904413922}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1953137223
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,7 +4862,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8069316140197718854, guid: d331d9224e6ae264c98f2c97792418f7, type: 3}
       propertyPath: m_Name
-      value: Plastico_Recuperable_Cubiertos
+      value: Plastico Recuperable_Cubiertos
       objectReference: {fileID: 0}
     - target: {fileID: 8069316140197718854, guid: d331d9224e6ae264c98f2c97792418f7, type: 3}
       propertyPath: m_IsActive
@@ -4512,7 +4870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8069316140197718858, guid: d331d9224e6ae264c98f2c97792418f7, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8069316140197718858, guid: d331d9224e6ae264c98f2c97792418f7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4570,6 +4928,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8069316140197718854, guid: d331d9224e6ae264c98f2c97792418f7, type: 3}
   m_PrefabInstance: {fileID: 1993538618}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2018815431
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2018815432}
+  m_Layer: 0
+  m_Name: Carton
+  m_TagString: Carton
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2018815432
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018815431}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1301620165}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2043181602
 GameObject:
   m_ObjectHideFlags: 0
