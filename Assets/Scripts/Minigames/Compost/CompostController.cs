@@ -11,6 +11,8 @@ public class CompostController : MonoBehaviour
     [SerializeField] Transform BotonSecar;
     [SerializeField] Transform BotonHumedecer;
     [SerializeField] Transform BotonRemover;
+
+    [SerializeField] private GameObject tutorialParte1;
     
     [SerializeField] Transform ProgresoHumedo;    
     [SerializeField] Transform ProgresoSeco;
@@ -46,6 +48,9 @@ public class CompostController : MonoBehaviour
     [SerializeField] Image Imagen_Humedecer;
     [SerializeField] Image Imagen_Mezclar;   
 
+    private GameObject globalaux;
+    private GlobalVariables gv; 
+
     //húmedo: -seco +húmedo || temperatura: +humedad -grados 
     //seco: -humedad +seco || temperatura: +humedad -grados
     //temperatura: +mezclar +grados   
@@ -57,6 +62,20 @@ public class CompostController : MonoBehaviour
         abierto = false;
         humedadCorrecta = false;
         temperaturaCorrecta = false;
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        if (gv.tutorialCompost == true)
+        {
+            Time.timeScale = 1f;
+            tutorialParte1.gameObject.SetActive(false);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
+        if (gv.tutorialCompost == false)
+        {
+            Time.timeScale = 0f;
+            tutorialParte1.gameObject.SetActive(true);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
         randomIndex = Random.Range(0,2);                       
         escalaProgreso_Humedo = ProgresoHumedo.localScale;        
         escalaProgreso_Seco = ProgresoSeco.localScale; 
