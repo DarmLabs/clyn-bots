@@ -61,6 +61,20 @@ public class MG_UI_Manager : MonoBehaviour
         saveSystem.Save();
     }
 
+    public void completarTutorialMemoria()
+    {
+        gv.tutorialMemoria = true;
+        Debug.Log("Completaste el tutorial de memoria amiguito");
+        saveSystem.Save();
+    }
+
+    public void completarTutorialPipes()
+    {
+        gv.tutorialPipes = true;
+        Debug.Log("Completaste el tutorial de pipes amiguito");
+        saveSystem.Save();
+    }
+
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

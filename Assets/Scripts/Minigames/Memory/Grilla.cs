@@ -25,6 +25,7 @@ public class Grilla : MonoBehaviour
     //private int indexCartas = 0;   
     private GameObject globalaux;
     private GlobalVariables gv; 
+    [SerializeField] private GameObject tutorialParte1;
 
     public static int vidas = 20;    
     //public static int refinadosDestruidos = 0;
@@ -77,9 +78,23 @@ public class Grilla : MonoBehaviour
             vidas = 20; //10  
             Cards.CantidadPares = 6;    
             break;        
-        }  */
-        Grilla.vidas = 20;      
-        //refinadosDestruidos = 0;      
+        }  */        
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        Grilla.vidas = 20;    
+        
+        if (gv.tutorialMemoria == true)
+        {
+            Time.timeScale = 1f;
+            tutorialParte1.gameObject.SetActive(false);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
+        if (gv.tutorialMemoria == false)
+        {
+            Time.timeScale = 0f;
+            tutorialParte1.gameObject.SetActive(true);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }     
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)
         {
