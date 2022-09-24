@@ -100,12 +100,12 @@ public class Tachos : MonoBehaviour
             
             }*/            
             PanelVictoria.SetActive(true);            
-            gv.divisionCarton = gv.cartonTrash-(3*errorRecuperableCarton);
-            gv.divisionMetal = gv.metalTrash-(3*errorRecuperableMetal);
-            gv.divisionPlastico = gv.plasticoTrash-(3*errorRecuperablePlastico);
-            gv.divisionVidrio =  gv.vidrioTrash-(3*errorRecuperableVidrio);
-            gv.divisionNoRec = gv.noRecTrash-(3*errorNoRecuperable);
-            gv.divisionOrganic = gv.organicTrash-(3*errorOrganico);
+            gv.divisionCarton += gv.cartonTrash-(3*errorRecuperableCarton);
+            gv.divisionMetal += gv.metalTrash-(3*errorRecuperableMetal);
+            gv.divisionPlastico += gv.plasticoTrash-(3*errorRecuperablePlastico);
+            gv.divisionVidrio +=  gv.vidrioTrash-(3*errorRecuperableVidrio);
+            gv.divisionNoRec += gv.noRecTrash-(3*errorNoRecuperable);
+            gv.divisionOrganic += gv.organicTrash-(3*errorOrganico);
             gv.noRecTrash=0;
             gv.organicTrash=0;
             gv.vidrioTrash=0;

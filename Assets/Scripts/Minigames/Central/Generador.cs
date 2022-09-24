@@ -89,16 +89,13 @@ public class Generador : MonoBehaviour
         }
         TachoNoRecSprite = Tachos.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         TachoRecSprite = Tachos.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
-        TachoOrgSprite = Tachos.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();        
-        //cantidadNoRecuperables = 10;//gv.noRecTrash;
-        //cantidadOrganicos = 10;//gv.organicTrash;
-        //cantidadRecuperables = 10;//gv.recTrash;           
-        cantidadNoRecuperables = 8;//Mathf.FloorToInt(Mathf.Round(gv.noRecTrash/3));
-        cantidadOrganicos = 10;//Mathf.FloorToInt(Mathf.Round(gv.organicTrash/3));
-        cantidadVidrios = 3;//Mathf.FloorToInt(Mathf.Round(gv.vidrioTrash/3));
-        cantidadPlasticos = 3;//Mathf.FloorToInt(Mathf.Round(gv.plasticoTrash/3));
-        cantidadCartones = 3;//Mathf.FloorToInt(Mathf.Round(gv.cartonTrash/3));
-        cantidadMetales = 3;//Mathf.FloorToInt(Mathf.Round(gv.metalTrash/3));
+        TachoOrgSprite = Tachos.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();            
+        cantidadNoRecuperables = 8;
+        cantidadOrganicos = 10;
+        cantidadVidrios = 3;
+        cantidadPlasticos = 3;
+        cantidadCartones = 3;
+        cantidadMetales = 3;
         cantidadResiduos = cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+cantidadPlasticos+cantidadCartones+cantidadMetales;              
         Residuos = new GameObject[cantidadResiduos];
         Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   
