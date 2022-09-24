@@ -18,7 +18,7 @@ public class MG_UI_Manager : MonoBehaviour
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
         audioManager.StopMusic();
-        //audioManager.PlayMusic("Minigame_Theme");
+        audioManager.PlayMusic("Minigame_Theme");
     }    
 
     public void BackToOutside()
@@ -45,7 +45,7 @@ public class MG_UI_Manager : MonoBehaviour
         Generador.contadorBasura = 0;
         Grilla.vidas = 20;
         saveSystem.Save();
-    }
+    }    
 
     public void Reintentar()
     {
