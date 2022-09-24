@@ -23,13 +23,17 @@ public class MG_UI_Manager : MonoBehaviour
 
     public void BackToOutside()
     {
-        SceneManager.LoadScene("Outside");
-        //gv.recTrash = 0;
-        //gv.noRecTrash = 0;
-        //gv.organicTrash = 0;        
-        Grilla.vidas = 20;
+        SceneManager.LoadScene("Outside");               
+        Grilla.vidas = 20;        
         Generador.contadorBasura = 0;
-        saveSystem.Save();
+        for (int i = 0; i < 26; i++)
+        {
+            PipeController.banderaTubo[i]=false; 
+        }
+        PipeController.gano = false;
+        PipeController.contadorCorrectas = 0; 
+        RotatePipe.IndiceFlecha = 0;       
+        //saveSystem.Save();
     }
 
     public void BackToInside()

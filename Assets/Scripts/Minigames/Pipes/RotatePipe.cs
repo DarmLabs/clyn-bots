@@ -15,6 +15,7 @@ public class RotatePipe : MonoBehaviour
 
    void Start()
    {
+          IndiceFlecha = 0;
           coroutineAllowed =true;          
           primeraVez = false;
           rend = GetComponent<Renderer>();
