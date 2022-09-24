@@ -50,7 +50,14 @@ public class MG_UI_Manager : MonoBehaviour
     public void completarTutorialCentral()
     {
         gv.tutorialCentral = true;
-        Debug.Log("Completaste el tutorial amiguito");
+        Debug.Log("Completaste el tutorial de central amiguito");
+        saveSystem.Save();
+    }
+
+    public void completarTutorialCompostera()
+    {
+        gv.tutorialCompost = true;
+        Debug.Log("Completaste el tutorial de compostera amiguito");
         saveSystem.Save();
     }
 
