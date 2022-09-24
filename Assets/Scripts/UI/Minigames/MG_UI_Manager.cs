@@ -19,84 +19,46 @@ public class MG_UI_Manager : MonoBehaviour
         audioManager = GameObject.FindObjectOfType<AudioManager>();
         audioManager.StopMusic();
         //audioManager.PlayMusic("Minigame_Theme");
-    }
-
-    /*public void BackTo3D()
-    {
-        SceneManager.LoadScene("Main_Stage");   
-        gv.recTrash = 0;  
-        gv.noRecTrash = 0;
-        gv.organicTrash = 0;
-        gv.compostActiva = true;
-        Generador.contadorBasura = 0;
-        saveSystem.Save();   
-    }*/
+    }    
 
     public void BackToOutside()
     {
         SceneManager.LoadScene("Outside");
         //gv.recTrash = 0;
         //gv.noRecTrash = 0;
-        //gv.organicTrash = 0;
-        //gv.compostActiva = true;
+        //gv.organicTrash = 0;        
         Grilla.vidas = 20;
         Generador.contadorBasura = 0;
         saveSystem.Save();
     }
+
     public void BackToInside()
     {
         SceneManager.LoadScene("Inside");
         gv.recTrash = 0;
         gv.noRecTrash = 0;
-        gv.organicTrash = 0;
-        //gv.compostActiva = true;
+        gv.organicTrash = 0;        
         Generador.contadorBasura = 0;
         Grilla.vidas = 20;
         saveSystem.Save();
     }
 
-
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Grilla.vidas = 20;
-        Time.timeScale = 1f;
-        /*switch (Tachos.CantidadGrilla)
-        {
-            case 24:
-                Grilla.vidas = 60; //30
-                Cards.CantidadPares = 12;
-                break;
-            case 22:
-                Grilla.vidas = 50; //25 
-                Cards.CantidadPares = 11;
-                break;
-            case 20:
-                Grilla.vidas = 40; //20  
-                Cards.CantidadPares = 10;
-                break;
-            case 18:
-                Grilla.vidas = 30;  //15    
-                Cards.CantidadPares = 9;
-                break;
-            case 16:
-                Grilla.vidas = 24; //12  
-                Cards.CantidadPares = 8;
-                break;
-            case 14:
-                Grilla.vidas = 22; //11   
-                Cards.CantidadPares = 7;
-                break;
-            case 12:
-                Grilla.vidas = 20; //10  
-                Cards.CantidadPares = 6;
-                break;
-        }*/
+        Time.timeScale = 1f;       
     }
 
     public void RetomarTiempo()
     {
         Time.timeScale = 1f;
-        //Debug.Log("TIEMPO: "+Time.timeScale);
+        Debug.Log("TIEMPO EN   "+Time.timeScale);        
+    }
+
+    public void PausaTiempo()
+    {
+        Time.timeScale = 0f;
+        Debug.Log("TIEMPO EN   "+Time.timeScale);  
     }
 }
