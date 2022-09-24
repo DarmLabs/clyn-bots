@@ -16,9 +16,26 @@ public class PipeController : MonoBehaviour
     private int randomIndex = 0;
 
     [SerializeField] private GameObject PanelVictoria;
+    private GameObject globalaux;
+    private GlobalVariables gv; 
+    [SerializeField] private GameObject tutorialParte1;
     
-    void Start()
+    void Start()    
     {
+        globalaux = GameObject.Find("GlobalVariables");
+        gv = globalaux.GetComponent<GlobalVariables>();
+        if (gv.tutorialPipes == true)
+        {
+            Time.timeScale = 1f;
+            tutorialParte1.gameObject.SetActive(false);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
+        if (gv.tutorialPipes == false)
+        {
+            Time.timeScale = 0f;
+            tutorialParte1.gameObject.SetActive(true);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
         contadorCorrectas = 0;
         gano = false;     
         rend = tuboFinal.gameObject.GetComponent<Renderer>();
