@@ -18,6 +18,7 @@ public class Generador : MonoBehaviour
     [SerializeField] private GameObject Tachos;  
     [SerializeField] private GameObject[] PosicionesTachos;
     #endregion
+    [SerializeField] private GameObject tutorialParte1;
     #region Indices de arrays
     //private int indexRecuperables = 0;    
     private int indexNoRecuperables = 4;
@@ -57,6 +58,7 @@ public class Generador : MonoBehaviour
     private bool PrimeraVuelta = true;
     #endregion
     public static bool bloqueaMovimiento = false; 
+    
     private Vector3 velocity = Vector3.zero;        
     private GameObject globalaux;
     private GlobalVariables gv; 
@@ -73,6 +75,18 @@ public class Generador : MonoBehaviour
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
+        if (gv.tutorialCentral == true)
+        {
+            Time.timeScale = 1f;
+            tutorialParte1.gameObject.SetActive(false);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
+        if (gv.tutorialCentral == false)
+        {
+            Time.timeScale = 0f;
+            tutorialParte1.gameObject.SetActive(true);
+            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+        }
         TachoNoRecSprite = Tachos.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         TachoRecSprite = Tachos.transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
         TachoOrgSprite = Tachos.transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();        

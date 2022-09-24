@@ -17,6 +17,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool pipesActiva = false;
     public int currentMissionStage;
     public bool firstTime;
+    //Tutoriales:
+    public bool tutorialCentral, tutorialMemoria, tutorialCompost, tutorialPipes = false;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -30,7 +32,11 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             memoriaAccesible = this.memoriaAccesible,
             //compostActiva = this.compostActiva,
             pipesActiva = this.pipesActiva,
-
+            //Tutoriales:
+            tutorialCentral = this.tutorialCentral,
+            tutorialCompost= this.tutorialCompost,
+            tutorialMemoria= this.tutorialMemoria,
+            tutorialPipes= this.tutorialPipes,
             //Old 
             recTrash = this.recTrash,
             divisionRec = this.divisionRec,
@@ -65,6 +71,11 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public void LoadState(object state)
     {
         var saveData = (SaveData)state;
+        //Tutoriales:
+        tutorialCentral =saveData.tutorialCentral;
+        tutorialCompost=saveData.tutorialCompost;
+        tutorialMemoria=saveData.tutorialMemoria;
+        tutorialPipes=saveData.tutorialPipes;
         //Trash
         noRecTrash = saveData.noRecTrash;
         organicTrash = saveData.organicTrash;
@@ -111,5 +122,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public bool pipesActiva;
         public int currentMissionStage;
         public bool firstTime;
+        public bool tutorialCentral, tutorialCompost, tutorialMemoria, tutorialPipes;
     }
 }

@@ -47,11 +47,19 @@ public class MG_UI_Manager : MonoBehaviour
         saveSystem.Save();
     }    
 
+    public void completarTutorialCentral()
+    {
+        gv.tutorialCentral = true;
+        Debug.Log("Completaste el tutorial amiguito");
+        saveSystem.Save();
+    }
+
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Grilla.vidas = 20;
-        Time.timeScale = 1f;       
+        Time.timeScale = 1f;
+        Debug.Log("TIEMPO EN   "+Time.timeScale);        
     }
 
     public void RetomarTiempo()
