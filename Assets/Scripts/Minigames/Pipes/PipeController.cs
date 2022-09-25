@@ -57,8 +57,10 @@ public class PipeController : MonoBehaviour
         if (contadorCorrectas >= 24)
         {
             gano = true;
+            gv.pipesActiva = true;
             rend.material.color = colorCorrecto;
             PanelVictoria.SetActive(true);
+            saveSystem.Save(); 
             Debug.Log("GANASTE NIÑO BOBO");     
         }
         
