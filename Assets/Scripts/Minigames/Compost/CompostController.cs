@@ -93,7 +93,7 @@ public class CompostController : MonoBehaviour
             case 1://Seca
             escalaProgreso_Humedo.x =0.5f;
             escalaProgreso_Seco.x = 0.75f;
-            escalaProgreso_Temperatura.x= 0.75f;
+            escalaProgreso_Temperatura.x= 0.10f;
             ProgresoHumedo.localScale = escalaProgreso_Humedo;
             ProgresoSeco.localScale = escalaProgreso_Seco;
             ProgresoTemperatura.localScale = escalaProgreso_Temperatura; 
