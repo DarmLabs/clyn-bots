@@ -224,6 +224,8 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            gv.divisionOrganic = gv.divisionOrganic-5;
+            saveSystem.Save();
             Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
@@ -237,6 +239,8 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Seco.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            gv.divisionOrganic = gv.divisionOrganic-5;
+            saveSystem.Save();
             Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
@@ -250,6 +254,8 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Humedo.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            gv.divisionOrganic = gv.divisionOrganic-5;
+            saveSystem.Save();
             Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
@@ -263,6 +269,8 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Humedo.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            gv.divisionOrganic = gv.divisionOrganic-5;
+            saveSystem.Save();
             Compostera.gameObject.SetActive(false);
             PanelDerrota.SetActive(true);
             UI_Desactivar.SetActive(false);
