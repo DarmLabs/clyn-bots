@@ -32,6 +32,7 @@ public class Player_UI : MonoBehaviour
         {
             greenButton.SetActive(true);
             playerInteraction.audioManager.PlayAudio("Max_Bag");
+            playerInteraction.missionTrack.MaxBagMission();
         }
         else
         {

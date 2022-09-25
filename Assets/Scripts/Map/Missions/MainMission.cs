@@ -5,7 +5,7 @@ using System;
 public class MainMission : MonoBehaviour
 {
     public int trashRecolected, constructionsFinished, maintainancePlayed, lakesCleaned, cropsGrew;
-    public int maxTrash = 500, maxConstructions = 8, maxMaintainance = 5, maxLakes = 2, maxCrops = 4;
+    public int maxTrash = 500, maxConstructions = 7, maxMaintainance = 5, maxLakes = 2, maxCrops = 2;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);

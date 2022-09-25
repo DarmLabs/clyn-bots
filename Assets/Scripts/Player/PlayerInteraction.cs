@@ -36,6 +36,7 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector] public EnviromentChanger enviromentChanger;
     VC_Switcher vC_Switcher;
     [HideInInspector] public AudioManager audioManager;
+    public MissionTrack missionTrack;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
@@ -47,6 +48,7 @@ public class PlayerInteraction : MonoBehaviour
         vC_Switcher = GameObject.FindObjectOfType<VC_Switcher>();
         sceneCache = GameObject.FindObjectOfType<SceneCache>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
+        missionTrack = GameObject.FindObjectOfType<MissionTrack>();
     }
     void Start()
     {
@@ -117,7 +119,6 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (gv.pipesActiva)
         {
-            gv.pipesActiva = false;
             targetPipes.GetComponent<PipesMinigame>().Block();
         }
 
@@ -304,6 +305,10 @@ public class PlayerInteraction : MonoBehaviour
     public void BuildObject()
     {
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
+        if (missionTrack != null)
+        {
+            missionTrack.NextStage();
+        }
         targetConstruction = null;
     }
     public void PlantSeed()
