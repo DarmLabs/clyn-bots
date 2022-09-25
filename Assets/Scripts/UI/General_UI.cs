@@ -19,6 +19,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject tutorialPanel;
     [SerializeField] GameObject refinerPanel;
     [SerializeField] GameObject compostPanel;
+    [SerializeField] GameObject loadingScreen;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
     public TextMeshProUGUI debugText;
     int selection = 1;
@@ -96,6 +97,10 @@ public class General_UI : MonoBehaviour
     public void TutorialPanelSwithcer(bool state)
     {
         tutorialPanel.SetActive(state);
+    }
+    public void LoadingScreenSwitcher(bool state)
+    {
+        loadingScreen.SetActive(state);
     }
     public void RefinerPanelSwitcher(bool state)
     {
@@ -279,6 +284,7 @@ public class General_UI : MonoBehaviour
     }
     public void ChangeScene(string scene)
     {
+        LoadingScreenSwitcher(true);
         playerInteraction.SaveTransform();
         saveSystem.Save();
         if (playerInteraction.takeBools != null)

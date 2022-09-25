@@ -79,8 +79,6 @@ public class PlayerInteraction : MonoBehaviour
             }
             else if (mode == LoadSceneMode.Single)
             {
-                player_UI.SetFade(255);
-                player_UI.fadeState = 2;
                 if (sceneCache.currentScene == "Inside")
                 {
                     audioManager.StopMusic();
@@ -263,8 +261,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     public void ChangeStage()
     {
-        player_UI.FadePanel.SetActive(true);
-        player_UI.fadeState = 1;
+        general_UI.LoadingScreenSwitcher(true);
         SaveTransform();
         saveSystem.Save();
         if (takeBools != null)
