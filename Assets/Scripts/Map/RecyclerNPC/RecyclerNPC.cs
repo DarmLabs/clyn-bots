@@ -117,15 +117,30 @@ public class RecyclerNPC : MonoBehaviour
             if (missionTarget)
             {
                 RecyclerHelper recyclerHelper = GetComponent<RecyclerHelper>();
-                if (recyclerHelper != null)
+                if (recyclerHelper != null && missionTrack.gv.currentMissionStage == 1)
                 {
                     okSection.GetComponent<Button>().onClick.AddListener(recyclerHelper.ShowPanel);
                 }
-                missionTrack.NextStage();
-            }
-            else if (trackPoint != null)
-            {
-                gameObject.name = "RecyclerNotReady";
+                if (gameObject.name == "RecyclerIdle_09")
+                {
+                    missionTrack.gv.metalRefinado += 2;
+                    missionTrack.gv.plasticoRefinado += 2;
+                    missionTrack.gv.cartonRefinado += 2;
+                }
+                if (missionTrack.gv.currentMissionStage == 9)
+                {
+                    CinematicCamera();
+                    CallDialogue(null);
+                    okSection.SetActive(true);
+                    missionTrack.NextStage();
+                    missionTarget = false;
+                    return;
+                }
+                else
+                {
+                    missionTrack.NextStage();
+                    missionTarget = false;
+                }
             }
             if (haveMission)
             {

@@ -258,6 +258,10 @@ public class PlayerInteraction : MonoBehaviour
     {
         itemsInBag = gv.vidrioTrash + gv.cartonTrash + gv.metalTrash + gv.plasticoTrash + gv.organicTrash + gv.noRecTrash;
         bagPercentage = (itemsInBag * 100) / 90;
+        if (bagPercentage > 100)
+        {
+            bagPercentage = 100;
+        }
         player_UI.DisplayBagPercentage();
     }
     public void ChangeStage()
@@ -305,7 +309,7 @@ public class PlayerInteraction : MonoBehaviour
     public void BuildObject()
     {
         targetConstruction.GetComponent<ConstructibleObj>().BuildObject();
-        if (missionTrack != null)
+        if (gv.currentMissionStage == 8 && targetConstruction.GetComponent<ConstructibleObj>().building.name == "Molino")
         {
             missionTrack.NextStage();
         }

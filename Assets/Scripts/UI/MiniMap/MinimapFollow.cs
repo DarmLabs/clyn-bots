@@ -19,8 +19,16 @@ public class MinimapFollow : MonoBehaviour
     }
     void LateUpdate()
     {
-        Vector3 newPosition = target.position;
-        newPosition.y = transform.position.y;
-        transform.position = newPosition + offset;
+        if (target != null)
+        {
+            Vector3 newPosition = target.position;
+            newPosition.y = transform.position.y;
+            transform.position = newPosition + offset;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17276,7 +17276,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -17285,7 +17285,7 @@ PrefabInstance:
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1433317771}
+      objectReference: {fileID: 4521984151320129297}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -17293,22 +17293,30 @@ PrefabInstance:
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 4748640697219063951}
+      objectReference: {fileID: 1433317771}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToInside
-      objectReference: {fileID: 0}
-    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: CallThisButtonAudio
       objectReference: {fileID: 0}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RetomarTiempo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: BackToInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonHelper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MG_UI_Manager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -17444,7 +17452,7 @@ PrefabInstance:
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1433317771}
+      objectReference: {fileID: 4748640697219063951}
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -17452,22 +17460,30 @@ PrefabInstance:
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 4748640697219063951}
+      objectReference: {fileID: 1433317771}
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToInside
-      objectReference: {fileID: 0}
-    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: CallThisButtonAudio
       objectReference: {fileID: 0}
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: RetomarTiempo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: BackToInside
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonHelper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: MG_UI_Manager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4748640698537239486, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -17580,7 +17596,7 @@ PrefabInstance:
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1433317771}
+      objectReference: {fileID: 4748640697219063949}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -17588,7 +17604,7 @@ PrefabInstance:
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 4748640697219063949}
+      objectReference: {fileID: 1433317771}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -17598,12 +17614,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CallThisButtonAudio
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: RetomarTiempo
+      value: Reintentar
       objectReference: {fileID: 0}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: CallThisButtonAudio
+      value: RetomarTiempo
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ButtonHelper, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -17611,7 +17635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: ButtonHelper, Assembly-CSharp
+      value: MG_UI_Manager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4748640699265616276, guid: 96ebef9954604b6459329d8a8e84c362, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

@@ -11,10 +11,7 @@ public class RecyclerHelper : MonoBehaviour
         GameObject prefab = Resources.Load<GameObject>("Tutorials/" + infoPanel);
         tutoPanel.SetActive(true);
         Instantiate(prefab, tutoPanel.transform);
-        if (gameObject.name == "RecyclerGuide_02")
-        {
-            gameObject.name = "RecyclerGuide_02_01";
-        }
         Time.timeScale = 0;
+        Destroy(this);
     }
 }

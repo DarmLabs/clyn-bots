@@ -14,7 +14,10 @@ public class DropSlot : MonoBehaviour, IDropHandler
             if (!currentDragDrop.isLocked)
             {
                 currentDragDrop.Reset();
-                refinerPanelUI.RefineButtonsSwitcher(true);
+                if (currentDragDrop.movingValue != 0)
+                {
+                    refinerPanelUI.RefineButtonsSwitcher(true);
+                }
                 filterManager.SaveFilterValues(currentDragDrop.gameObject.name, currentDragDrop.movingValue / 10);
             }
         }

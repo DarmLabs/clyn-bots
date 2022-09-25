@@ -7,46 +7,56 @@ public class MissionTrack : MonoBehaviour
     public Transform[] trackStages;
     [SerializeField] GameObject trackArrow;
     [SerializeField] GameObject trackArrowIcon;
-    GlobalVariables gv;
+    public GlobalVariables gv;
     [SerializeField] Transform door;
     bool requirements;
-    void Awake()
+    RecyclerNPC recycler;
+    [SerializeField] GameObject[] guideRecycler;
+    void Start()
     {
         gv = GameObject.FindObjectOfType<GlobalVariables>();
-        CheckDestroy();
         CheckGuideStage();
+        CheckDestroy();
+        if (gv.currentMissionStage == 4)
+        {
+            NextStage();
+        }
     }
     public void CheckGuideStage()
     {
-        if (trackStages[gv.currentMissionStage] != null)
+        if (gv.currentMissionStage != 10)
         {
-            Debug.Log("la");
-            trackArrow.transform.position = trackStages[gv.currentMissionStage].position;
+            if (trackStages[gv.currentMissionStage] != null)
+            {
+                trackArrow.transform.position = trackStages[gv.currentMissionStage].position;
+            }
+            else
+            {
+                trackArrow.transform.position = door.position;
+            }
+            CheckStageType();
         }
-        else
-        {
-            Debug.Log("?");
-            trackArrow.transform.position = door.position;
-        }
-        CheckStageType();
     }
     public void CheckStageType()
     {
-        RecyclerNPC recylcer = new RecyclerNPC();
         if (trackStages[gv.currentMissionStage] != null)
         {
-            recylcer = trackStages[gv.currentMissionStage].parent.gameObject.GetComponent<RecyclerNPC>();
+            recycler = trackStages[gv.currentMissionStage].parent.gameObject.GetComponent<RecyclerNPC>();
         }
-        if (recylcer != null)
+        if (recycler != null)
         {
-            recylcer.missionTarget = true;
+            recycler.missionTarget = true;
+            if (gv.currentMissionStage == 3)
+            {
+                recycler.gameObject.name = "RecyclerGuide_02_01";
+            }
             if (gv.currentMissionStage == 5)
             {
-                recylcer.gameObject.name = "RecyclerGuide_02_02";
+                recycler.gameObject.name = "RecyclerGuide_02_02";
             }
             if (gv.currentMissionStage == 9)
             {
-                recylcer.gameObject.name = "RecyclerGuide_02_03";
+                recycler.gameObject.name = "RecyclerGuide_02_03";
             }
         }
     }
@@ -58,11 +68,12 @@ public class MissionTrack : MonoBehaviour
             gv.currentMissionStage++;
             CheckGuideStage();
             requirements = false;
+            CheckDestroy();
         }
     }
     public void MaxBagMission()
     {
-        if (gv.currentMissionStage == 3)
+        if (gv.currentMissionStage == 2)
         {
             NextStage();
         }
@@ -77,14 +88,24 @@ public class MissionTrack : MonoBehaviour
         {
             requirements = true;
         }
-        CheckDestroy();
     }
     public void CheckDestroy()
     {
+        if (gv.currentMissionStage > 1)
+        {
+            if (guideRecycler[0] != null)
+            {
+                guideRecycler[0].name = "RecyclerDone";
+            }
+        }
         if (gv.currentMissionStage == 10)
         {
-            Destroy(trackArrow.gameObject);
+            if (guideRecycler[1] != null)
+            {
+                guideRecycler[1].name = "RecyclerDone";
+            }
             Destroy(trackArrowIcon);
+            Destroy(trackArrow.gameObject);
             Destroy(this.gameObject);
         }
     }
