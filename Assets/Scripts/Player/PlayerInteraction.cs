@@ -37,6 +37,7 @@ public class PlayerInteraction : MonoBehaviour
     VC_Switcher vC_Switcher;
     [HideInInspector] public AudioManager audioManager;
     public MissionTrack missionTrack;
+    bool blockedAspire;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
@@ -179,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.cartonTrash = 0;
             BagPercentage();
         }
-        if (Input.GetKey(KeyCode.Mouse0) && itemsInBag < 90 && sceneCache.currentScene == "Outside")
+        if (Input.GetKey(KeyCode.Mouse0) && itemsInBag < 90 && sceneCache.currentScene == "Outside" && !blockedAspire)
         {
             cone.enabled = true;
             playerAnim.Aspire(true);
@@ -208,10 +209,12 @@ public class PlayerInteraction : MonoBehaviour
             if (targetRecycler != null)
             {
                 speakWithRecycler();
+                blockedAspire = true;
             }
             if (targetPipes != null)
             {
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
+                blockedAspire = true;
             }
 
             if (targetConstruction != null && (targetConstruction.tag != "Untagged" && targetConstruction.tag != "Pipes"))
@@ -221,12 +224,13 @@ public class PlayerInteraction : MonoBehaviour
                 targetConstruction.GetComponent<ConstructibleObj>().ShowResources();
                 MovmentState(false);
                 general_UI.InteractionCloud(false);
+                blockedAspire = true;
             }
-
             if (targetOrchard != null && targetOrchard.tag != "Untagged")
             {
                 targetOrchard.GetComponent<Orchard>().ActivatePanel();
                 targetOrchard.GetComponent<ConstructibleObj>().ShowResources();
+                blockedAspire = true;
             }
             else if (targetOrchard != null && targetOrchard.tag == "Untagged")
             {
@@ -251,6 +255,7 @@ public class PlayerInteraction : MonoBehaviour
                 general_UI.MinimapSwitcher(false);
                 MovmentState(false);
                 general_UI.InteractionCloud(false);
+                blockedAspire = true;
             }
         }
     }
@@ -421,6 +426,15 @@ public class PlayerInteraction : MonoBehaviour
             targetRefiner = null;
             general_UI.InteractionCloud(false);
         }
+    }
+    public void UnlockAspire()
+    {
+        StartCoroutine(UnlockAspireCorutine(0.5f));
+    }
+    IEnumerator UnlockAspireCorutine(float secs)
+    {
+        yield return new WaitForSecondsRealtime(secs);
+        blockedAspire = false;
     }
     public void OnPause()
     {

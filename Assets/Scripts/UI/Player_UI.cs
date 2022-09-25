@@ -8,21 +8,19 @@ public class Player_UI : MonoBehaviour
 {
     #region Imports & Required Objects
     GlobalVariables globalVariables;
-    public GameObject bag;
     [SerializeField] TextMeshProUGUI trashText;
     [SerializeField] GameObject greenButton;
     [SerializeField] Slider aspireProgress;
+    [SerializeField] GameObject refMarco;
+    [SerializeField] GameObject divMarco;
     public TextMeshProUGUI vidrioRefText, plasticoRefText, compostText, cartonRefText, metalRefText;
+    [SerializeField] TextMeshProUGUI vidrioDivText, plasticoDivText, compostDivText, cartonDivText, metalDivText;
     public PlayerInteraction playerInteraction;
     #endregion
     void Start()
     {
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
-    }
-
-    void LateUpdate()
-    {
-        DisplayRefTrash();
+        DisplayDivTrash();
     }
     public void DisplayBagPercentage()
     {
@@ -41,10 +39,33 @@ public class Player_UI : MonoBehaviour
     }
     void DisplayRefTrash()
     {
+        refMarco.SetActive(true);
         vidrioRefText.text = globalVariables.vidrioRefinado.ToString();
         plasticoRefText.text = globalVariables.plasticoRefinado.ToString();
         compostText.text = globalVariables.compostRefinado.ToString();
         cartonRefText.text = globalVariables.cartonRefinado.ToString();
         metalRefText.text = globalVariables.metalRefinado.ToString();
+    }
+    void DisplayDivTrash()
+    {
+        divMarco.SetActive(true);
+        vidrioDivText.text = globalVariables.divisionVidrio.ToString();
+        plasticoDivText.text = globalVariables.divisionPlastico.ToString();
+        compostDivText.text = globalVariables.divisionOrganic.ToString();
+        cartonDivText.text = globalVariables.divisionCarton.ToString();
+        metalDivText.text = globalVariables.divisionMetal.ToString();
+    }
+    public void SwitchMarcos(bool state)
+    {
+        if (state)
+        {
+            DisplayDivTrash();
+            refMarco.SetActive(false);
+        }
+        else
+        {
+            DisplayRefTrash();
+            divMarco.SetActive(false);
+        }
     }
 }

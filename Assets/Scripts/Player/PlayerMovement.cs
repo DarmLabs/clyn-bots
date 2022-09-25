@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Camera mainCamera;
-    [SerializeField] Cinemachine.CinemachineFreeLook freeLook;
     PlayerAnimations playerAnim;
     PlayerInteraction playerInteraction;
     float speed = 6f;
@@ -42,19 +41,9 @@ public class PlayerMovement : MonoBehaviour
                 playerAnim.Moving(false);
             }
             Rotation();
-            if (freeLook != null)
-            {
-                freeLook.m_XAxis.m_MaxSpeed = 0f;
-                freeLook.m_YAxis.m_MaxSpeed = 0f;
-            }
         }
         else
         {
-            if (freeLook != null)
-            {
-                freeLook.m_XAxis.m_MaxSpeed = 300;
-                freeLook.m_YAxis.m_MaxSpeed = 2;
-            }
             playerAnim.Moving(false);
         }
     }
@@ -70,10 +59,6 @@ public class PlayerMovement : MonoBehaviour
     }
     void Movement()
     {
-        if (freeLook != null)
-        {
-            freeLook.m_XAxis.m_MaxSpeed = 0;
-        }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             speed = 10f;

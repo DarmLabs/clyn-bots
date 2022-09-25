@@ -55,5 +55,9 @@ public class ToggleHelper : MonoBehaviour
             audioManager.MusicSwitcher(false);
         }
     }
-
+    public void ToggleMarcos()
+    {
+        Player_UI player_UI = GameObject.FindObjectOfType<Player_UI>();
+        player_UI.SwitchMarcos(toggle.isOn);
+    }
 }
