@@ -19,7 +19,9 @@ public class PipeController : MonoBehaviour
     private GameObject globalaux;
     private GlobalVariables gv;
     private GameObject mainaux;
-    private MainMission MainMission;
+    private MainMission MainMission;    
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
 
     [SerializeField] private GameObject tutorialParte1;
     
@@ -29,6 +31,8 @@ public class PipeController : MonoBehaviour
         gv = globalaux.GetComponent<GlobalVariables>();
         mainaux = GameObject.Find("MainMission");
         MainMission = mainaux.GetComponent<MainMission>();
+        saveaux = GameObject.Find ("SaveLoadSystem");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         if (gv.tutorialPipes == true)
         {
             Time.timeScale = 1f;
@@ -66,7 +70,7 @@ public class PipeController : MonoBehaviour
             rend.material.color = colorCorrecto;
             MainMission.lakesCleaned++;
             PanelVictoria.SetActive(true);
-            saveSystem.Save(); 
+            saveSystem.Save();
             Debug.Log("GANASTE NIÑO BOBO");     
         }
         
