@@ -23,6 +23,7 @@ public class CompostController : MonoBehaviour
     private Vector3 escalaProgreso_Humedo;   
     private Vector3 escalaProgreso_Seco;
     private Vector3 escalaProgreso_Temperatura;
+    private int auxiliarOrganicosDivididos = 0;
 
     //0 Humeda - 1 Seca - 2 Olor - 3 Correcta
     [SerializeField] Transform Compostera;  
@@ -49,7 +50,9 @@ public class CompostController : MonoBehaviour
     [SerializeField] Image Imagen_Mezclar;   
 
     private GameObject globalaux;
-    private GlobalVariables gv; 
+    private GlobalVariables gv;    
+    private GameObject saveaux;
+    private SaveLoadSystem saveSystem;
 
     //húmedo: -seco +húmedo || temperatura: +humedad -grados 
     //seco: -humedad +seco || temperatura: +humedad -grados
@@ -63,7 +66,9 @@ public class CompostController : MonoBehaviour
         humedadCorrecta = false;
         temperaturaCorrecta = false;
         globalaux = GameObject.Find("GlobalVariables");
-        gv = globalaux.GetComponent<GlobalVariables>();
+        gv = globalaux.GetComponent<GlobalVariables>();        
+        saveaux = GameObject.Find ("SaveLoadSystem");
+        saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         if (gv.tutorialCompost == true)
         {
             Time.timeScale = 1f;
@@ -194,6 +199,10 @@ public class CompostController : MonoBehaviour
                 {
                     Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
                     //Compostera.gameObject.SetActive(true);
+                    auxiliarOrganicosDivididos = (Mathf.RoundToInt(gv.divisionOrganic/10));
+                    gv.compostRefinado += auxiliarOrganicosDivididos;
+                    gv.divisionOrganic = gv.divisionOrganic-(auxiliarOrganicosDivididos*10);
+                    saveSystem.Save();
                     Compostera.gameObject.SetActive(false);
                     Compostera_Cerrada.gameObject.SetActive(false);
                     UI_Desactivar.SetActive(false);
