@@ -9,7 +9,8 @@ public class RecyclerNPC : MonoBehaviour
     GameObject dialogueBox;
     GameObject okSection, missionSection;
     TextMeshProUGUI recyclerText;
-    [HideInInspector] public bool missionTarget;
+    public bool missionTarget;
+    [SerializeField] Transform trackPoint;
     [SerializeField] bool haveMission;
     [SerializeField] string scene;
     [SerializeField] bool idle;
@@ -33,6 +34,7 @@ public class RecyclerNPC : MonoBehaviour
     [HideInInspector][SerializeField] Transform cinematicCameraPoint;
     bool isMoving = true;
     bool lockDestination;
+    MissionTrack missionTrack;
     void Awake()
     {
         pointA = pointA + transform.parent.position;
@@ -52,7 +54,8 @@ public class RecyclerNPC : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerBody = GameObject.FindGameObjectWithTag("PlayerBody");
         cinematicCamera = GameObject.Find("CinematicCamera");
-        general_UI = GameObject.FindObjectOfType<General_UI>().GetComponent<General_UI>();
+        general_UI = GameObject.FindObjectOfType<General_UI>();
+        missionTrack = GameObject.FindObjectOfType<MissionTrack>();
     }
     void Update()
     {
@@ -102,12 +105,27 @@ public class RecyclerNPC : MonoBehaviour
     }
     void CheckSpeaking(string id)
     {
+        string originalName = gameObject.name;
+        okSection.GetComponent<Button>().onClick.RemoveAllListeners();
         if (isSpeaking)
         {
             dialogueBox.SetActive(true);
             if (!isBlocker)
             {
                 transform.LookAt(player.transform);
+            }
+            if (missionTarget)
+            {
+                RecyclerHelper recyclerHelper = GetComponent<RecyclerHelper>();
+                if (recyclerHelper != null)
+                {
+                    okSection.GetComponent<Button>().onClick.AddListener(recyclerHelper.ShowPanel);
+                }
+                missionTrack.NextStage();
+            }
+            else if (trackPoint != null)
+            {
+                gameObject.name = "RecyclerNotReady";
             }
             if (haveMission)
             {
@@ -147,6 +165,7 @@ public class RecyclerNPC : MonoBehaviour
             }
             CinematicCamera();
             CallDialogue(id);
+            gameObject.name = originalName;
         }
     }
     void CheckIdle()
@@ -220,4 +239,5 @@ public class RecyclerNPC : MonoBehaviour
         yield return new WaitForSeconds(secs);
         lockDestination = false;
     }
+
 }

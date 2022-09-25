@@ -10,7 +10,7 @@ public class PipesMinigame : MonoBehaviour
     [SerializeField] GameObject responseRecycler;
     void Start()
     {
-        if (player.gv.pipesActiva)
+        if (player.gv.pipesActiva && player.targetPipes == this.gameObject)
         {
             Block();
         }
@@ -18,23 +18,14 @@ public class PipesMinigame : MonoBehaviour
     public void Block()
     {
         gameObject.tag = "Untagged";
+        GetComponent<SaveTag>().UpdateTag();
         player.gv.pipesActiva = false;
         this.enabled = false;
-    }
-    public void Response(string id)
-    {
-        player.targetRecycler = responseRecycler;
-        responseRecycler.GetComponent<RecyclerNPC>().fromResponse = true;
-        responseRecycler.GetComponent<RecyclerNPC>().Speak(id);
     }
     public void ActivatePanel()
     {
         general_UI.PipesMinigameSwitcher(true);
         general_UI.MainPanelSwitcher(false);
         general_UI.InteractionCloud(false);
-    }
-    public void ChangeScene()
-    {
-        SceneManager.LoadScene("Pipes");
     }
 }
