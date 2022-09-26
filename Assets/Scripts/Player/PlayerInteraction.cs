@@ -37,7 +37,7 @@ public class PlayerInteraction : MonoBehaviour
     VC_Switcher vC_Switcher;
     [HideInInspector] public AudioManager audioManager;
     public MissionTrack missionTrack;
-    bool blockedAspire;
+    public bool blockedAspire;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
@@ -180,7 +180,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.cartonTrash = 0;
             BagPercentage();
         }
-        if (Input.GetKey(KeyCode.Mouse0) && itemsInBag < 90 && sceneCache.currentScene == "Outside" && !blockedAspire)
+        if (Input.GetKey(KeyCode.Mouse0) && itemsInBag < 90 && sceneCache.currentScene == "Outside" && !blockedAspire && targetRecycler == null)
         {
             cone.enabled = true;
             playerAnim.Aspire(true);
@@ -209,6 +209,7 @@ public class PlayerInteraction : MonoBehaviour
             if (targetRecycler != null)
             {
                 speakWithRecycler();
+                general_UI.InteractionCloud(false);
                 blockedAspire = true;
             }
             if (targetPipes != null)

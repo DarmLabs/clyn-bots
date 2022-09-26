@@ -46,6 +46,10 @@ public class MissionTrack : MonoBehaviour
         if (recycler != null)
         {
             recycler.missionTarget = true;
+            if (gv.currentMissionStage == 1)
+            {
+                recycler.gameObject.name = "RecyclerGuide_02";
+            }
             if (gv.currentMissionStage == 3)
             {
                 recycler.gameObject.name = "RecyclerGuide_02_01";

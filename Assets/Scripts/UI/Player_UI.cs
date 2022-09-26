@@ -20,6 +20,10 @@ public class Player_UI : MonoBehaviour
     void Start()
     {
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>().GetComponent<GlobalVariables>();
+    }
+    void LateUpdate()
+    {
+        DisplayRefTrash();
         DisplayDivTrash();
     }
     public void DisplayBagPercentage()
@@ -39,7 +43,6 @@ public class Player_UI : MonoBehaviour
     }
     void DisplayRefTrash()
     {
-        refMarco.SetActive(true);
         vidrioRefText.text = globalVariables.vidrioRefinado.ToString();
         plasticoRefText.text = globalVariables.plasticoRefinado.ToString();
         compostText.text = globalVariables.compostRefinado.ToString();
@@ -48,7 +51,6 @@ public class Player_UI : MonoBehaviour
     }
     void DisplayDivTrash()
     {
-        divMarco.SetActive(true);
         vidrioDivText.text = globalVariables.divisionVidrio.ToString();
         plasticoDivText.text = globalVariables.divisionPlastico.ToString();
         compostDivText.text = globalVariables.divisionOrganic.ToString();
@@ -59,12 +61,12 @@ public class Player_UI : MonoBehaviour
     {
         if (state)
         {
-            DisplayDivTrash();
+            divMarco.SetActive(true);
             refMarco.SetActive(false);
         }
         else
         {
-            DisplayRefTrash();
+            refMarco.SetActive(true);
             divMarco.SetActive(false);
         }
     }

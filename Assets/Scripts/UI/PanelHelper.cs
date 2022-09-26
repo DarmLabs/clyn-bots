@@ -6,7 +6,7 @@ public class PanelHelper : MonoBehaviour
 {
     public void DestroyThisPanel()
     {
-        if (gameObject.name == "Guide01(Clone)")
+        if (transform.parent.name == "Guide01(Clone)")
         {
             transform.parent.gameObject.GetComponentInParent<PanelManager>().EnableNextPanel();
             Destroy(transform.parent.gameObject);
@@ -14,6 +14,7 @@ public class PanelHelper : MonoBehaviour
         else
         {
             Destroy(transform.parent.gameObject);
+            transform.parent.gameObject.GetComponentInParent<PanelManager>().CloseTutoPanel();
             Time.timeScale = 1;
         }
     }

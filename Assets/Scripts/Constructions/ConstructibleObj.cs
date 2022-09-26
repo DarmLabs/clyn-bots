@@ -125,6 +125,21 @@ public class ConstructibleObj : MonoBehaviour
     }
     public void PlayCinematic(GameObject target)
     {
-        cinematicCamera.GetComponent<OffsetCinematicCamera>().SetTarget(target);
+        Vector3 offset = new Vector3();
+        Vector3 lookAtOffset = new Vector3();
+        switch (target.name)
+        {
+            case "Molino":
+                offset = new Vector3(-25, 50, 25);
+                lookAtOffset = new Vector3(0, 10, 0);
+                break;
+            case "Bomba de Agua":
+                offset = new Vector3(-15, 20, -15);
+                break;
+            case "Panel Solar":
+                offset = new Vector3(-25, 40, -25);
+                break;
+        }
+        cinematicCamera.GetComponent<OffsetCinematicCamera>().SetTarget(target, offset, lookAtOffset);
     }
 }

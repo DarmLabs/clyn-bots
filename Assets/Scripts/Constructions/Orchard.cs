@@ -169,7 +169,6 @@ public class Orchard : MonoBehaviour, ISaveable
         }
         else if (currentState == "Mini" && gameObject.tag != "Untagged")
         {
-            Debug.Log("im right");
             currentState = "Seeded";
             GrowSeed(true);
         }
