@@ -169,11 +169,17 @@ public class Generador : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Time.timeScale = 2.5f;
+            if(Time.timeScale != 0f)
+            {
+                Time.timeScale = 2.5f;
+            }                
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
-            Time.timeScale = 1f;
+            if(Time.timeScale != 0f)
+            {
+                Time.timeScale = 1f;
+            }
         }
         /*
         if (!bloqueaMovimiento)
