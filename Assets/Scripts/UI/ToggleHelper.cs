@@ -8,16 +8,18 @@ public class ToggleHelper : MonoBehaviour
     [SerializeField] string audioNameOff;
     AudioManager audioManager;
     Toggle toggle;
+    GlobalVariables gv;
 
     void OnEnable()
     {
         audioManager = GameObject.FindObjectOfType<AudioManager>();
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
         toggle = GetComponent<Toggle>();
-        if (!audioManager.musicContainer.activeSelf && gameObject.name == "Musica")
+        if (gv.musicState && gameObject.name == "Musica")
         {
             toggle.isOn = true;
         }
-        if (!audioManager.sfxContainer.activeSelf && gameObject.name == "Sonido")
+        if (gv.soundState && gameObject.name == "Sonido")
         {
             toggle.isOn = true;
         }
@@ -35,30 +37,29 @@ public class ToggleHelper : MonoBehaviour
     }
     public void ToggleMusic()
     {
+        audioManager.MusicSwitcher(!toggle.isOn);
+        SaveMusicState(toggle.isOn);
         if (!toggle.isOn)
         {
-            audioManager.MusicSwitcher(true);
             audioManager.ReplayMusic();
-        }
-        else
-        {
-            audioManager.MusicSwitcher(false);
         }
     }
     public void ToggleSFX()
     {
-        if (!toggle.isOn)
-        {
-            audioManager.SFXSwitcher(true);
-        }
-        else
-        {
-            audioManager.SFXSwitcher(false);
-        }
+        audioManager.SFXSwitcher(!toggle.isOn);
+        SaveSoundState(toggle.isOn);
     }
     public void ToggleMarcos()
     {
         Player_UI player_UI = GameObject.FindObjectOfType<Player_UI>();
         player_UI.SwitchMarcos(toggle.isOn);
+    }
+    void SaveMusicState(bool state)
+    {
+        gv.musicState = state;
+    }
+    void SaveSoundState(bool state)
+    {
+        gv.soundState = state;
     }
 }

@@ -19,6 +19,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool firstTime;
     //Tutoriales:
     public bool tutorialCentral, tutorialMemoria, tutorialCompost, tutorialPipes = false;
+    //Audio
+    public bool musicState, soundState;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -34,9 +36,9 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             pipesActiva = this.pipesActiva,
             //Tutoriales:
             tutorialCentral = this.tutorialCentral,
-            tutorialCompost= this.tutorialCompost,
-            tutorialMemoria= this.tutorialMemoria,
-            tutorialPipes= this.tutorialPipes,
+            tutorialCompost = this.tutorialCompost,
+            tutorialMemoria = this.tutorialMemoria,
+            tutorialPipes = this.tutorialPipes,
             //Old 
             recTrash = this.recTrash,
             divisionRec = this.divisionRec,
@@ -65,7 +67,10 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             compostRefinado = this.compostRefinado,
 
             currentMissionStage = this.currentMissionStage,
-            firstTime = this.firstTime
+            firstTime = this.firstTime,
+            //Audio
+            musicState = this.musicState,
+            soundState = this.soundState
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
@@ -73,10 +78,10 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     {
         var saveData = (SaveData)state;
         //Tutoriales:
-        tutorialCentral =saveData.tutorialCentral;
-        tutorialCompost=saveData.tutorialCompost;
-        tutorialMemoria=saveData.tutorialMemoria;
-        tutorialPipes=saveData.tutorialPipes;
+        tutorialCentral = saveData.tutorialCentral;
+        tutorialCompost = saveData.tutorialCompost;
+        tutorialMemoria = saveData.tutorialMemoria;
+        tutorialPipes = saveData.tutorialPipes;
         //Trash
         noRecTrash = saveData.noRecTrash;
         organicTrash = saveData.organicTrash;
@@ -109,6 +114,9 @@ public class GlobalVariables : MonoBehaviour, ISaveable
 
         currentMissionStage = saveData.currentMissionStage;
         firstTime = saveData.firstTime;
+        //Audio
+        musicState = saveData.musicState;
+        soundState = saveData.soundState;
     }
     [Serializable]
     private struct SaveData
@@ -116,7 +124,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         //Esto ni me acuerdo para que es pero, asignale las variables como si las estuvieras declarando normalmente, no hay mucha magia 
         public int noRecTrash, organicTrash, vidrioTrash, plasticoTrash, cartonTrash, metalTrash;
         public int recTrash, divisionRec;
-        public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal,divisionCompostables;
+        public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal, divisionCompostables;
         public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
         public bool memoriaAccesible;
@@ -125,5 +133,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int currentMissionStage;
         public bool firstTime;
         public bool tutorialCentral, tutorialCompost, tutorialMemoria, tutorialPipes;
+        public bool musicState, soundState;
     }
 }

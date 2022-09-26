@@ -8,9 +8,22 @@ public class AudioManager : MonoBehaviour
     public GameObject sfxContainer;
     [SerializeField] AudioSource currentAudio;
     [SerializeField] AudioSource currentMusic;
+    [SerializeField] GlobalVariables gv;
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        CheckAudio();
+    }
+    void CheckAudio()
+    {
+        if (gv.musicState)
+        {
+            MusicSwitcher(false);
+        }
+        if (gv.soundState)
+        {
+            SFXSwitcher(false);
+        }
     }
     public void MusicSwitcher(bool state)
     {
