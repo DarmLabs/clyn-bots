@@ -18,7 +18,6 @@ public class ControladorAudios : MonoBehaviour
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
-        
     }
     void Update() 
     {
@@ -30,7 +29,10 @@ public class ControladorAudios : MonoBehaviour
         {
             AudioListener.volume = 1;
         }
-       
+        if(gv.musicaOff)
+        {
+            audioManager.StopMusic();
+        }
         
     }
 
