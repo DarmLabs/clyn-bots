@@ -19,9 +19,55 @@ public class MG_UI_Manager : MonoBehaviour
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
-        audioManager = GameObject.FindObjectOfType<AudioManager>();        
-        audioManager.StopMusic();
-        audioManager.PlayMusic("Tutorial_Theme");      
+        audioManager = GameObject.FindObjectOfType<AudioManager>(); 
+        if (gv.musicaOff)
+        {
+            audioManager.StopMusic();            
+        }
+        if (!gv.musicaOff)
+        {
+            if (!gv.tutorialCentral)
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Tutorial_Theme"); 
+            }
+            else
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Minigame_Theme");                
+            } 
+            if (!gv.tutorialCompost)
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Tutorial_Theme"); 
+            }
+            else
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Minigame_Theme");                
+            } 
+            if (!gv.tutorialMemoria)
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Tutorial_Theme"); 
+            }
+            else
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Minigame_Theme");                
+            } 
+            if (!gv.tutorialPipes)
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Tutorial_Theme"); 
+            }
+            else
+            {
+                audioManager.StopMusic();
+                audioManager.PlayMusic("Minigame_Theme");                
+            }           
+        }       
+             
     }    
 
     public void BackToOutside()
