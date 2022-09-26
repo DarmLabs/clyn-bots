@@ -10,15 +10,18 @@ public class MG_UI_Manager : MonoBehaviour
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     AudioManager audioManager;
+    private bool PrimeraVuelta = true;
+
     void Start()
     {
+        PrimeraVuelta = true;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();        
         audioManager.StopMusic();
-        audioManager.PlayMusic("Minigame_Theme");
+        audioManager.PlayMusic("Tutorial_Theme");      
     }    
 
     public void BackToOutside()
@@ -26,7 +29,7 @@ public class MG_UI_Manager : MonoBehaviour
         SceneManager.LoadScene("Outside");               
         Grilla.vidas = 20;        
         Generador.contadorBasura = 0;
-        for (int i = 0; i < 26; i++)
+        for (int i = 0; i < 25; i++)
         {
             PipeController.banderaTubo[i]=false; 
         }
@@ -50,6 +53,12 @@ public class MG_UI_Manager : MonoBehaviour
     public void completarTutorialCentral()
     {
         gv.tutorialCentral = true;
+        if(PrimeraVuelta)
+        {        
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Minigame_Theme");
+            PrimeraVuelta = false;
+        }              
         Debug.Log("Completaste el tutorial de central amiguito");
         saveSystem.Save();
     }
@@ -57,6 +66,12 @@ public class MG_UI_Manager : MonoBehaviour
     public void completarTutorialCompostera()
     {
         gv.tutorialCompost = true;
+        if(PrimeraVuelta)
+        {        
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Minigame_Theme");
+            PrimeraVuelta = false;
+        }  
         Debug.Log("Completaste el tutorial de compostera amiguito");
         saveSystem.Save();
     }
@@ -64,6 +79,12 @@ public class MG_UI_Manager : MonoBehaviour
     public void completarTutorialMemoria()
     {
         gv.tutorialMemoria = true;
+        if(PrimeraVuelta)
+        {        
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Minigame_Theme");
+            PrimeraVuelta = false;
+        } 
         Debug.Log("Completaste el tutorial de memoria amiguito");
         saveSystem.Save();
     }
@@ -71,6 +92,12 @@ public class MG_UI_Manager : MonoBehaviour
     public void completarTutorialPipes()
     {
         gv.tutorialPipes = true;
+        if(PrimeraVuelta)
+        {        
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Minigame_Theme");
+            PrimeraVuelta = false;
+        }  
         Debug.Log("Completaste el tutorial de pipes amiguito");
         saveSystem.Save();
     }

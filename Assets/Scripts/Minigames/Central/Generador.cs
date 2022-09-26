@@ -62,6 +62,7 @@ public class Generador : MonoBehaviour
     private Vector3 velocity = Vector3.zero;        
     private GameObject globalaux;
     private GlobalVariables gv; 
+    AudioManager audioManager;
     
     void Start () 
     {       
@@ -75,16 +76,22 @@ public class Generador : MonoBehaviour
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
+
         if (gv.tutorialCentral == true)
         {
             Time.timeScale = 1f;
             tutorialParte1.gameObject.SetActive(false);
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme"); 
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialCentral == false)
         {
             Time.timeScale = 0f;
             tutorialParte1.gameObject.SetActive(true);
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Tutorial_Theme");
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         TachoNoRecSprite = Tachos.transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();

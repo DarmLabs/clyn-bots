@@ -53,6 +53,8 @@ public class CompostController : MonoBehaviour
     private GlobalVariables gv;    
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
+    AudioManager audioManager;
+
 
     //húmedo: -seco +húmedo || temperatura: +humedad -grados 
     //seco: -humedad +seco || temperatura: +humedad -grados
@@ -69,16 +71,21 @@ public class CompostController : MonoBehaviour
         gv = globalaux.GetComponent<GlobalVariables>();        
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         if (gv.tutorialCompost == true)
         {
             Time.timeScale = 1f;
             tutorialParte1.gameObject.SetActive(false);
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme");
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialCompost == false)
         {
             Time.timeScale = 0f;
             tutorialParte1.gameObject.SetActive(true);
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Tutorial_Theme");
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         randomIndex = Random.Range(0,2);                       

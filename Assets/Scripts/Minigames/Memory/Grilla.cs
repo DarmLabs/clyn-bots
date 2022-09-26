@@ -34,6 +34,7 @@ public class Grilla : MonoBehaviour
     private int cantidadRandoms = 10;
     List<int> listaRandoms = new List<int>();
     public int auxiliarGrilla = 0;  
+    AudioManager audioManager;
 
    
 
@@ -81,18 +82,23 @@ public class Grilla : MonoBehaviour
         }  */        
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         Grilla.vidas = 20;    
         
         if (gv.tutorialMemoria == true)
         {
             Time.timeScale = 1f;
             tutorialParte1.gameObject.SetActive(false);
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme"); 
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialMemoria == false)
         {
             Time.timeScale = 0f;
-            tutorialParte1.gameObject.SetActive(true);
+            tutorialParte1.gameObject.SetActive(true);            
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Tutorial_Theme");
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }     
         listaRandoms = new List<int>(new int[cantidadRandoms]); 

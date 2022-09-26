@@ -22,6 +22,7 @@ public class PipeController : MonoBehaviour
     private MainMission MainMission;    
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
+    AudioManager audioManager;
 
     [SerializeField] private GameObject tutorialParte1;
     
@@ -33,16 +34,21 @@ public class PipeController : MonoBehaviour
         MainMission = mainaux.GetComponent<MainMission>();
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         if (gv.tutorialPipes == true)
         {
             Time.timeScale = 1f;
             tutorialParte1.gameObject.SetActive(false);
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme"); 
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialPipes == false)
         {
             Time.timeScale = 0f;
             tutorialParte1.gameObject.SetActive(true);
+            audioManager.StopMusic();
+            audioManager.PlayMusic("Tutorial_Theme");
             Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         contadorCorrectas = 0;
