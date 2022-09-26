@@ -19,6 +19,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool firstTime;
     //Tutoriales:
     public bool tutorialCentral, tutorialMemoria, tutorialCompost, tutorialPipes = false;
+    public bool sonidoOff, musicaOff = false;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -37,6 +38,9 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             tutorialCompost= this.tutorialCompost,
             tutorialMemoria= this.tutorialMemoria,
             tutorialPipes= this.tutorialPipes,
+            //Audio
+            sonidoOff = this.sonidoOff,
+            musicaOff = this.musicaOff,
             //Old 
             recTrash = this.recTrash,
             divisionRec = this.divisionRec,
@@ -77,6 +81,9 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         tutorialCompost=saveData.tutorialCompost;
         tutorialMemoria=saveData.tutorialMemoria;
         tutorialPipes=saveData.tutorialPipes;
+        //Audios
+        sonidoOff = saveData.sonidoOff;
+        musicaOff = saveData.musicaOff;
         //Trash
         noRecTrash = saveData.noRecTrash;
         organicTrash = saveData.organicTrash;
@@ -125,5 +132,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int currentMissionStage;
         public bool firstTime;
         public bool tutorialCentral, tutorialCompost, tutorialMemoria, tutorialPipes;
+        public bool sonidoOff, musicaOff;
     }
 }
