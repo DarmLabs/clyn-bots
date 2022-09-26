@@ -8,7 +8,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     [SerializeField] Canvas canvas;
     [SerializeField] FilterManager filterManager;
     [SerializeField] RefinerPanelUI refinerPanelUI;
-    [SerializeField] GameObject pointerText;
     CanvasGroup canvasGroup;
     RectTransform rectTransform;
     Transform originalParent;
@@ -20,10 +19,10 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         originalParent = transform.parent;
+        movingValue = 10;
     }
     public void OnBeginDrag(PointerEventData data)
     {
-        TakeSelectedValue();
         if (!isLocked)
         {
             switch (gameObject.name)
@@ -44,14 +43,14 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
             if (correspondetValue < movingValue)
             {
                 isLocked = true;
-                refinerPanelUI.Locked();
+                filterManager.ReciveActiveFilter("");
+                filterManager.noSufText.SetActive(true);
+                filterManager.guideText.SetActive(false);
                 return;
             }
             else
             {
                 canvasGroup.blocksRaycasts = false;
-                pointerText.SetActive(true);
-                pointerText.GetComponent<PointerText>().FillText(movingValue.ToString());
             }
         }
     }
@@ -73,7 +72,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
                 gameObject.transform.SetParent(originalParent);
                 rectTransform.anchoredPosition = new Vector2(0, 0);
             }
-            pointerText.SetActive(false);
         }
         else
         {
@@ -85,11 +83,5 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         gameObject.transform.SetParent(originalParent);
         rectTransform.anchoredPosition = new Vector2(0, 0);
         filterManager.ReciveActiveFilter(gameObject.name);
-        pointerText.SetActive(false);
-    }
-    public void TakeSelectedValue()
-    {
-        movingValue = refinerPanelUI.selectorValue;
-        refinerPanelUI.ResetSelectorValue();
     }
 }

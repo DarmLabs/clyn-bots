@@ -8,7 +8,8 @@ public class FilterManager : MonoBehaviour
     FilterComponent[] filterComponents;
     [SerializeField] GameObject[] resources;
     [SerializeField] GameObject numPad;
-    [SerializeField] GameObject guideText;
+    public GameObject guideText, noSufText;
+    [SerializeField] TextMeshProUGUI plasticText, vidrioText, cartonText, metalText;
     public GlobalVariables gv;
     [HideInInspector] public int plasticoValue, vidrioValue, cartonValue, metalValue;
     void Awake()
@@ -16,16 +17,26 @@ public class FilterManager : MonoBehaviour
         refinerPanelUI = GameObject.FindObjectOfType<RefinerPanelUI>();
         filterComponents = GetComponentsInChildren<FilterComponent>();
         gv = GameObject.FindObjectOfType<GlobalVariables>();
+        DisplayFilterQuantity();
+    }
+    public void DisplayFilterQuantity()
+    {
+        plasticText.text = "x" + plasticoValue.ToString();
+        vidrioText.text = "x" + vidrioValue.ToString();
+        cartonText.text = "x" + cartonValue.ToString();
+        metalText.text = "x" + metalValue.ToString();
     }
     public void ReciveActiveFilter(string code)
     {
         if (code != "")
         {
             guideText.SetActive(false);
+            noSufText.SetActive(false);
         }
         else
         {
             guideText.SetActive(true);
+            noSufText.SetActive(false);
         }
         foreach (var button in filterComponents)
         {
@@ -61,6 +72,7 @@ public class FilterManager : MonoBehaviour
         {
             numPad.SetActive(false);
         }
+        DisplayFilterQuantity();
     }
     public void RefreshNumPad(string code)
     {

@@ -12,7 +12,7 @@ public class PointerText : MonoBehaviour
     void Update()
     {
         Vector3 mousePosition = Input.mousePosition;
-        gameObject.transform.position = mousePosition + new Vector3(30, -30);
+        gameObject.transform.position = mousePosition + new Vector3(60, -60);
     }
     public void FillText(string text)
     {
