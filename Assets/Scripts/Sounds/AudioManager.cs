@@ -39,6 +39,13 @@ public class AudioManager : MonoBehaviour
             currentMusic.Play();
         }
     }
+    public void ReplayMusic()
+    {
+        if (currentMusic != null)
+        {
+            currentMusic.Play();
+        }
+    }
 
     public void StopAudio()
     {
