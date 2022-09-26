@@ -9,7 +9,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     //Vidrio, Plástico, Cartón, Metal, Compost
     public int noRecTrash, organicTrash, vidrioTrash, plasticoTrash, cartonTrash, metalTrash;
     public int recTrash, divisionRec;
-    public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal;
+    public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal, divisionCompostables;
     public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
     public bool cardDistribution = false;
     public bool memoriaAccesible = false;
@@ -56,6 +56,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             divisionPlastico = this.divisionPlastico,
             divisionCarton = this.divisionCarton,
             divisionMetal = this.divisionMetal,
+            divisionCompostables = this.divisionCompostables,
             //Refinados
             vidrioRefinado = this.vidrioRefinado,
             plasticoRefinado = this.plasticoRefinado,
@@ -98,6 +99,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         divisionPlastico = saveData.divisionPlastico;
         divisionCarton = saveData.divisionCarton;
         divisionMetal = saveData.divisionMetal;
+        divisionCompostables = saveData.divisionCompostables;
         //Refinados
         vidrioRefinado = saveData.vidrioRefinado;
         plasticoRefinado = saveData.plasticoRefinado;
@@ -114,7 +116,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         //Esto ni me acuerdo para que es pero, asignale las variables como si las estuvieras declarando normalmente, no hay mucha magia 
         public int noRecTrash, organicTrash, vidrioTrash, plasticoTrash, cartonTrash, metalTrash;
         public int recTrash, divisionRec;
-        public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal;
+        public int divisionNoRec, divisionOrganic, divisionVidrio, divisionPlastico, divisionCarton, divisionMetal,divisionCompostables;
         public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
         public bool memoriaAccesible;

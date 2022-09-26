@@ -50,7 +50,7 @@ public class Tachos : MonoBehaviour
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         audioManager = GameObject.FindObjectOfType<AudioManager>(); 
         gv.divisionNoRec = 0;
-        gv.divisionOrganic = 0;
+        gv.divisionCompostables = 0;
         gv.divisionRec = 0;
         errores = 0;  
         
@@ -58,7 +58,7 @@ public class Tachos : MonoBehaviour
 
     void Update()
     {
-        ContadorTotal = gv.divisionRec+gv.divisionNoRec+gv.divisionOrganic+errores;
+        ContadorTotal = gv.divisionRec+gv.divisionNoRec+gv.divisionCompostables+errores;
         if (errores == 6)
         {
             Debug.Log ("Perdiste niño bobo");
@@ -225,10 +225,11 @@ public class Tachos : MonoBehaviour
                     //Debug.Log("Se separó un orgánico");
                     //gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
+                    gv.divisionCompostables+=1;
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
+                    Debug.Log("DIVISION ORGANICOS: "+gv.divisionCompostables);
                     //Generador.bloqueaMovimiento = false; 
-                    residuosOrganicos.text = gv.divisionOrganic.ToString();
+                    residuosOrganicos.text = gv.divisionCompostables.ToString();
                     break;
             } 
              
