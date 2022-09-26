@@ -38,6 +38,7 @@ public class ToggleHelper : MonoBehaviour
         if (!toggle.isOn)
         {
             audioManager.MusicSwitcher(true);
+            audioManager.ReplayMusic();
         }
         else
         {
@@ -48,11 +49,11 @@ public class ToggleHelper : MonoBehaviour
     {
         if (!toggle.isOn)
         {
-            audioManager.MusicSwitcher(true);
+            audioManager.SFXSwitcher(true);
         }
         else
         {
-            audioManager.MusicSwitcher(false);
+            audioManager.SFXSwitcher(false);
         }
     }
     public void ToggleMarcos()
