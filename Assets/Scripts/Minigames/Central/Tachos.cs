@@ -29,7 +29,8 @@ public class Tachos : MonoBehaviour
     public Text erroresText;
 
     [SerializeField] private GameObject PanelVictoria;
-    [SerializeField] private GameObject PanelDerrota;     
+    [SerializeField] private GameObject PanelDerrota;
+    AudioManager audioManager;     
 
     void Start()
     {       
@@ -47,6 +48,7 @@ public class Tachos : MonoBehaviour
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>(); 
         gv.divisionNoRec = 0;
         gv.divisionOrganic = 0;
         gv.divisionRec = 0;
@@ -60,6 +62,7 @@ public class Tachos : MonoBehaviour
         if (errores == 6)
         {
             Debug.Log ("Perdiste niño bobo");
+            audioManager.PlayAudio("Lost");
             //CantidadGrilla = 12;
             PanelDerrota.SetActive(true);
             /*
@@ -72,6 +75,7 @@ public class Tachos : MonoBehaviour
         if (Generador.Terminaste && errores < 7 && ContadorTotal == Generador.contadorBasura)
         {
             Debug.Log ("Ganaste niño inteligente");
+            audioManager.PlayAudio("Win");
             /*auxiliarGrilla = Random.Range(0,7);
             switch (auxiliarGrilla)
             {
@@ -152,6 +156,7 @@ public class Tachos : MonoBehaviour
             {
                 case "Recuperable":
                     gv.divisionRec +=1;
+                    audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
                     residuosRecuperables.text = gv.divisionRec.ToString();
                     switch (other.transform.GetChild(0).gameObject.tag)
@@ -209,7 +214,8 @@ public class Tachos : MonoBehaviour
                     //Destroy(other.gameObject);
                     //Debug.Log("Se separó un no recuperable");
                     //gv.noRecTrash -=1;  
-                    gv.divisionNoRec +=1;  
+                    gv.divisionNoRec +=1; 
+                    audioManager.PlayAudio("Acierto_Sound"); 
                     Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
                     //Generador.bloqueaMovimiento = false; 
                     residuosNoRecuperables.text = gv.divisionNoRec.ToString();
@@ -219,6 +225,7 @@ public class Tachos : MonoBehaviour
                     //Debug.Log("Se separó un orgánico");
                     //gv.organicTrash -=1;
                     gv.divisionOrganic+=1;
+                    audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("DIVISION ORGANICOS: "+gv.divisionOrganic);
                     //Generador.bloqueaMovimiento = false; 
                     residuosOrganicos.text = gv.divisionOrganic.ToString();
@@ -230,6 +237,7 @@ public class Tachos : MonoBehaviour
         else
         {
             errores = errores + 1;
+            audioManager.PlayAudio("Error_Sound");
             erroresText.text = errores.ToString(); 
             Debug.Log("ERROR EN RECOLECCION: "+errores);
             switch (other.gameObject.tag)

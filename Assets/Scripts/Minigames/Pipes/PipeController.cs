@@ -72,6 +72,7 @@ public class PipeController : MonoBehaviour
         if (contadorCorrectas >= 24)
         {
             gano = true;
+            audioManager.PlayAudio("Win");
             gv.pipesActiva = true;
             rend.material.color = colorCorrecto;
             MainMission.lakesCleaned++;

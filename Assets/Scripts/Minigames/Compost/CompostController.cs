@@ -206,6 +206,7 @@ public class CompostController : MonoBehaviour
                 {
                     Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
                     //Compostera.gameObject.SetActive(true);
+                    audioManager.PlayAudio("Win");
                     auxiliarOrganicosDivididos = (Mathf.RoundToInt(gv.divisionOrganic/10));
                     gv.compostRefinado += auxiliarOrganicosDivididos;
                     gv.divisionOrganic = gv.divisionOrganic-(auxiliarOrganicosDivididos*10);
@@ -231,6 +232,7 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
             Compostera.gameObject.SetActive(false);
@@ -246,6 +248,7 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Seco.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
             Compostera.gameObject.SetActive(false);
@@ -261,6 +264,7 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Humedo.x >= EscalaMax)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
             Compostera.gameObject.SetActive(false);
@@ -276,6 +280,7 @@ public class CompostController : MonoBehaviour
         if (escalaProgreso_Humedo.x <= EscalaMin)
         {
             Debug.Log("PERDISTE NIÑITO :(");
+            audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
             Compostera.gameObject.SetActive(false);
@@ -320,6 +325,7 @@ public class CompostController : MonoBehaviour
             humedadCorrecta = true;
             Button_Secar.interactable = false;
             Button_Humedecer.interactable = false;
+            audioManager.PlayAudio("Acierto_Sound");
             Imagen_Secar.color = Button_Secar.colors.disabledColor;
             Imagen_Humedecer.color = Button_Humedecer.colors.disabledColor;
             BarraSeco.color = Color.green;
@@ -336,6 +342,7 @@ public class CompostController : MonoBehaviour
            {
                 BarraTemperatura.color = Color.green;
                 Button_Mezclar.interactable = false;
+                audioManager.PlayAudio("Acierto_Sound");
                 Imagen_Mezclar.color = Button_Mezclar.colors.disabledColor;
                 temperaturaCorrecta = true;
            }                       
@@ -347,6 +354,7 @@ public class CompostController : MonoBehaviour
                 if(!temperaturaCorrecta)
                 {
                     BarraTemperatura.color = Color.yellow;
+                    audioManager.PlayAudio("Error_Sound");
                     temperaturaCorrecta = false;
                 }
                 
@@ -359,6 +367,7 @@ public class CompostController : MonoBehaviour
                 if(!temperaturaCorrecta)
                 {
                     BarraTemperatura.color = Color.yellow;
+                    audioManager.PlayAudio("Error_Sound");
                     temperaturaCorrecta = false;
                 }
            }            
@@ -367,53 +376,63 @@ public class CompostController : MonoBehaviour
         if(escalaProgreso_Seco.x == 0.5f)
         {
             BarraSeco.color = Color.green;
+            audioManager.PlayAudio("Acierto_Sound");
         }
         if(escalaProgreso_Humedo.x == 0.5f)
         {
             BarraHumedo.color = Color.green;
+            audioManager.PlayAudio("Acierto_Sound");
         }
 
         if(escalaProgreso_Seco.x < 0.5f && !humedadCorrecta) 
         {
             BarraSeco.color = Color.yellow;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         }
         if(escalaProgreso_Humedo.x < 0.5f && !humedadCorrecta)
         {
             BarraHumedo.color = Color.yellow;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         }
 
         if(escalaProgreso_Seco.x < 0.3f && !humedadCorrecta)
         {
             BarraSeco.color = Color.red;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         }
         if(escalaProgreso_Humedo.x < 0.3f && !humedadCorrecta)
         {
             BarraHumedo.color = Color.red;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         } 
 
         if(escalaProgreso_Seco.x > 0.5f && !humedadCorrecta)
         {
             BarraSeco.color = Color.yellow;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         }
         if(escalaProgreso_Humedo.x > 0.5f && !humedadCorrecta)
         {
             BarraHumedo.color = Color.yellow;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         }     
 
         if(escalaProgreso_Seco.x > 0.8f && !humedadCorrecta)
         {
             BarraSeco.color = Color.red;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;
         }
         if(escalaProgreso_Humedo.x > 0.8f && !humedadCorrecta)
         {
             BarraHumedo.color = Color.red;
+            audioManager.PlayAudio("Error_Sound");
             humedadCorrecta = false;    
         }
 

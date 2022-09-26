@@ -51,6 +51,7 @@ public class Cards : MonoBehaviour
     public static int compostPartida;
     */
     public static int CantidadPares = 9;
+    AudioManager audioManager;
        
 
     void Start()
@@ -61,6 +62,7 @@ public class Cards : MonoBehaviour
         metalPartida=0;
         compostPartida=0;*/
         Debug.Log("VIDAS INICIALES: "+Grilla.vidas);
+        audioManager = GameObject.FindObjectOfType<AudioManager>(); 
         facedUp=false;
         coroutineAllowed=true;
         locked=false;
@@ -78,6 +80,7 @@ public class Cards : MonoBehaviour
         if (Grilla.vidas <= 0)
         {
             PanelDerrota.SetActive(true);
+            audioManager.PlayAudio("Lost");
             //gv.memoriaAccesible = true; 
             Destroy(this.gameObject);
             //MarcoRefinados.SetActive(false);
@@ -89,6 +92,7 @@ public class Cards : MonoBehaviour
             //if(Grilla.refinadosDestruidos == CantidadPares)
             //{                
                 PanelVictoria.SetActive(true);
+                audioManager.PlayAudio("Win");
                 //gv.memoriaAccesible = true;
                 //MarcoRefinados.SetActive(false);
                 Destroy(this.gameObject); 
@@ -122,6 +126,7 @@ public class Cards : MonoBehaviour
                 colisionAux.enabled = !colisionAux.enabled;                
                 for (float i = 0f; i < 190f; i+=10)
                 {
+                    audioManager.PlayAudio("Voltear_Sound");
                     transform.rotation = Quaternion.Euler(0f,i,0f);
                     yield return new WaitForSeconds(0.04f* Time.deltaTime);
                 }              
@@ -182,6 +187,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false;                   
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 } 
@@ -202,6 +208,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false; 
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
                     
                 }
@@ -222,6 +229,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false; 
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }       
@@ -242,6 +250,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false; 
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }        
@@ -262,7 +271,8 @@ public class Cards : MonoBehaviour
                     StartCoroutine (LateCall(normalComposts.gameObject));
                     MovimientoRefinados.destruyoRefinado = false; 
                 } */
-                Grilla.vidas = Grilla.vidas +2;  
+                Grilla.vidas = Grilla.vidas +2; 
+                audioManager.PlayAudio("Acierto_Sound"); 
                 Debug.Log("Vidas:"+Grilla.vidas/2);            
             }
         }
@@ -292,11 +302,13 @@ public class Cards : MonoBehaviour
     {
         coroutineAllowed =false; 
         colisionAux.enabled = !colisionAux.enabled;
-        Grilla.vidas = Grilla.vidas -1;  
+        Grilla.vidas = Grilla.vidas -1;
+        audioManager.PlayAudio("Error_Sound");  
         Debug.Log("Vidas:"+Grilla.vidas/2);  
         yield return new WaitForSeconds(40f* Time.deltaTime);
         for (float i=190f; i>=0f; i-=10)
         {
+            audioManager.PlayAudio("Voltear_Sound");
             transform.rotation =Quaternion.Euler(0f,i,0f);
             yield return new WaitForSeconds(1f* Time.deltaTime);
             sequence.Clear();            
