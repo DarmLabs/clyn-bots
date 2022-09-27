@@ -48,7 +48,12 @@ public class MG_UI_Manager : MonoBehaviour
         Generador.contadorBasura = 0;
         Grilla.vidas = 20;
         saveSystem.Save();
-    }    
+    } 
+
+    public void InsideNoChange()
+    {
+        SceneManager.LoadScene("Inside");
+    }   
 
     public void completarTutorialCentral()
     {
