@@ -26,14 +26,19 @@ public class Player_UI : MonoBehaviour
         DisplayRefTrash();
         DisplayDivTrash();
     }
-    public void DisplayBagPercentage()
+    public void DisplayBagPercentage(bool fromSceneChange)
     {
         trashText.text = playerInteraction.bagPercentage + " %";
         aspireProgress.value = playerInteraction.bagPercentage;
-        if (playerInteraction.bagPercentage == 100)
+        if (playerInteraction.bagPercentage == 100 && !fromSceneChange)
+        {
+            playerInteraction.audioManager.PlayAudio("Max_Bag");
+            greenButton.SetActive(true);
+            playerInteraction.missionTrack.MaxBagMission();
+        }
+        else if (playerInteraction.bagPercentage == 100)
         {
             greenButton.SetActive(true);
-            playerInteraction.audioManager.PlayAudio("Max_Bag");
             playerInteraction.missionTrack.MaxBagMission();
         }
         else

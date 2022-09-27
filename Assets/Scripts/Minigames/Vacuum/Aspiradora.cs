@@ -90,7 +90,7 @@ public class Aspiradora : MonoBehaviour
                     TrashPosition = 0.5f;
                     VacuumPosition = 0.5f;
                     saveSystem.Save();
-                    general_UI.playerInteraction.BagPercentage();
+                    general_UI.playerInteraction.BagPercentage(false);
                 }
             }
         }

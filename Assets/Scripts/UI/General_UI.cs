@@ -259,7 +259,7 @@ public class General_UI : MonoBehaviour
         if (state)
         {
             MainPanelSwitcher(false);
-            playerInteraction.BagPercentage();
+            playerInteraction.BagPercentage(false);
             playerInteraction.enabled = false;
         }
         else

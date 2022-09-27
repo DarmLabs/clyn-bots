@@ -66,7 +66,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         OnResume();
         Generador.contadorBasura = 0;
-        BagPercentage();
+        BagPercentage(true);
         if (gv.firstTime)
         {
             if (sceneCache.currentScene == "Inside" && mode != LoadSceneMode.Single)
@@ -158,7 +158,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.noRecTrash = aux;
             gv.metalTrash = aux;
             gv.cartonTrash = aux;
-            BagPercentage();
+            BagPercentage(false);
             gv.divisionOrganic += 10;
             gv.divisionMetal += 10;
             gv.divisionPlastico += 10;
@@ -178,7 +178,7 @@ public class PlayerInteraction : MonoBehaviour
             gv.noRecTrash = 0;
             gv.metalTrash = 0;
             gv.cartonTrash = 0;
-            BagPercentage();
+            BagPercentage(false);
         }
         if (Input.GetKey(KeyCode.Mouse0) && itemsInBag < 90 && sceneCache.currentScene == "Outside" && !blockedAspire && targetRecycler == null)
         {
@@ -260,7 +260,7 @@ public class PlayerInteraction : MonoBehaviour
             }
         }
     }
-    public void BagPercentage()
+    public void BagPercentage(bool fromSceneChange)
     {
         itemsInBag = gv.vidrioTrash + gv.cartonTrash + gv.metalTrash + gv.plasticoTrash + gv.organicTrash + gv.noRecTrash;
         bagPercentage = (itemsInBag * 100) / 90;
@@ -268,7 +268,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             bagPercentage = 100;
         }
-        player_UI.DisplayBagPercentage();
+        player_UI.DisplayBagPercentage(fromSceneChange);
     }
     public void ChangeStage()
     {
