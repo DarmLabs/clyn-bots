@@ -12,18 +12,17 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
-        CheckAudio();
     }
     public void GetGV(){
         gv = GameObject.FindObjectOfType<GlobalVariables>();
     }
-    void CheckAudio()
+    public void CheckAudio()
     {
-        if (gv.musicState)
+        if (!gv.musicState)
         {
             MusicSwitcher(false);
         }
-        if (gv.soundState)
+        if (!gv.soundState)
         {
             SFXSwitcher(false);
         }
@@ -41,7 +40,7 @@ public class AudioManager : MonoBehaviour
         if (sfxContainer.activeSelf)
         {
             currentAudio = sfxContainer.transform.Find(name).GetComponent<AudioSource>();
-            if (currentAudio != null)
+            if (sfxContainer.activeSelf)
             {
                 currentAudio.Play();
             }
@@ -50,14 +49,14 @@ public class AudioManager : MonoBehaviour
     public void PlayMusic(string name)
     {
         currentMusic = musicContainer.transform.Find(name).GetComponent<AudioSource>();
-        if (currentMusic != null)
+        if (musicContainer.activeSelf)
         {
             currentMusic.Play();
         }
     }
     public void ReplayMusic()
     {
-        if (currentMusic != null)
+        if (musicContainer.activeSelf)
         {
             currentMusic.Play();
         }
@@ -65,7 +64,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopAudio()
     {
-        if (currentAudio != null)
+        if (sfxContainer.activeSelf)
         {
             currentAudio.Stop();
             currentAudio = null;
@@ -73,7 +72,7 @@ public class AudioManager : MonoBehaviour
     }
     public void StopMusic()
     {
-        if (currentMusic != null)
+        if (musicContainer.activeSelf)
         {
             currentMusic.Stop();
             currentMusic = null;
