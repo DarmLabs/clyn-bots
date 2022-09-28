@@ -18,8 +18,7 @@ public class PipeController : MonoBehaviour
     [SerializeField] private GameObject PanelVictoria;
     private GameObject globalaux;
     private GlobalVariables gv;
-    private GameObject mainaux;
-    private MainMission MainMission;    
+    private MainMission mainMission;    
     private GameObject saveaux;
     private SaveLoadSystem saveSystem;
     AudioManager audioManager;
@@ -30,8 +29,7 @@ public class PipeController : MonoBehaviour
     {
         globalaux = GameObject.Find("GlobalVariables");        
         gv = globalaux.GetComponent<GlobalVariables>();
-        mainaux = GameObject.Find("MainMission");
-        MainMission = mainaux.GetComponent<MainMission>();
+        mainMission = GameObject.FindObjectOfType<MainMission>();
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();        
@@ -75,7 +73,7 @@ public class PipeController : MonoBehaviour
             audioManager.PlayAudio("Win");
             gv.pipesActiva = true;
             rend.material.color = colorCorrecto;
-            MainMission.lakesCleaned++;
+            mainMission.lakesCleaned++;
             PanelVictoria.SetActive(true);
             saveSystem.Save();
             Debug.Log("GANASTE NIÑO BOBO");     

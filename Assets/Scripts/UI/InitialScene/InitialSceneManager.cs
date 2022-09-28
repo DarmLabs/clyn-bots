@@ -11,6 +11,7 @@ public class InitialSceneManager : MonoBehaviour
     [SerializeField] GameObject confirmationBox;
     [SerializeField] GameObject globalVariables;
     [SerializeField] GameObject missionController;
+    [SerializeField] AudioManager audioManager;
     [HideInInspector] public float fadeTime;
     void Update()
     {
@@ -76,6 +77,7 @@ public class InitialSceneManager : MonoBehaviour
     {
         globalVariables.SetActive(true);
         missionController.SetActive(true);
+        audioManager.CheckAudio();
     }
     void SkipLogos()
     {
