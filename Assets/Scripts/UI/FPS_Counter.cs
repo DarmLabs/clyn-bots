@@ -8,6 +8,9 @@ public class FPS_Counter : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this);
+        if(!Debug.isDebugBuild){
+            gameObject.SetActive(false);
+        }
     }
     public TextMeshProUGUI fpsText;
     private float pollingTime = 1f;
