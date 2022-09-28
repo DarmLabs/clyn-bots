@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
-    [SerializeField] private Texture2D cursorNormal;
-    [SerializeField] private Texture2D cursorClic;
-    [SerializeField] private Texture2D cursorSobre;
-    [SerializeField] private Texture2D cursorClicErrado;
+    [SerializeField] public Texture2D cursorNormal;
+    [SerializeField] public Texture2D cursorClic;
+    [SerializeField] public Texture2D cursorSobre;
+    [SerializeField] public Texture2D cursorClicErrado;
 
     // Start is called before the first frame update
     void Start()
