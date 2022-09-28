@@ -27,6 +27,6 @@ public class FilterComponent : MonoBehaviour
     }
     public void AssignQuantity()
     {
-        filterManager.RefreshNumPad(gameObject.name);
+        filterManager.RefreshRefinerInfo(gameObject.name);
     }
 }

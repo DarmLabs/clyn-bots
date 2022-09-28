@@ -7,8 +7,9 @@ public class FilterManager : MonoBehaviour
     RefinerPanelUI refinerPanelUI;
     FilterComponent[] filterComponents;
     [SerializeField] GameObject[] resources;
-    [SerializeField] GameObject numPad;
+    [SerializeField] GameObject textContainer;
     public GameObject guideText, noSufText;
+    [SerializeField] TextMeshProUGUI refinedName, recycleType, quantity, numPadText;
     [SerializeField] TextMeshProUGUI plasticText, vidrioText, cartonText, metalText;
     public GlobalVariables gv;
     [HideInInspector] public int plasticoValue, vidrioValue, cartonValue, metalValue;
@@ -66,34 +67,45 @@ public class FilterManager : MonoBehaviour
         }
         if (code != "")
         {
-            RefreshNumPad(code);
+            RefreshRefinerInfo(code);
         }
         else
         {
-            numPad.SetActive(false);
+            textContainer.SetActive(false);
         }
         DisplayFilterQuantity();
     }
-    public void RefreshNumPad(string code)
+    public void RefreshRefinerInfo(string code)
     {
-        if (!numPad.activeSelf)
+        if (!textContainer.activeSelf)
         {
-            numPad.SetActive(true);
+            textContainer.SetActive(true);
         }
-        TextMeshProUGUI numPadText = numPad.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         switch (code)
         {
             case "Plastico":
-                numPadText.text = plasticoValue.ToString();
+                numPadText.text = "x"+plasticoValue.ToString();
+                refinedName.text = "PLASTICO RECICLADO";
+                recycleType.text = "RECICLAJE DE PLASTICO";
+                quantity.text = (plasticoValue * 10).ToString();
                 break;
             case "Vidrio":
-                numPadText.text = vidrioValue.ToString();
+                numPadText.text = "x"+vidrioValue.ToString();
+                refinedName.text = "VIDRIO RECICLADO";
+                recycleType.text = "RECICLAJE DE VIDRIO";
+                quantity.text = (vidrioValue * 10).ToString();
                 break;
             case "Carton":
-                numPadText.text = cartonValue.ToString();
+                numPadText.text = "x"+cartonValue.ToString();
+                refinedName.text = "CARTÓN RECICLADO";
+                recycleType.text = "RECICLAJE DE CARTÓN";
+                quantity.text = (cartonValue * 10).ToString();
                 break;
             case "Metal":
-                numPadText.text = metalValue.ToString();
+                numPadText.text = "x"+metalValue.ToString();
+                refinedName.text = "METAL RECICLADO";
+                recycleType.text = "RECICLAJE DE METAL";
+                quantity.text = (metalValue * 10).ToString();
                 break;
         }
     }

@@ -14,6 +14,9 @@ public class AudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         CheckAudio();
     }
+    public void GetGV(){
+        gv = GameObject.FindObjectOfType<GlobalVariables>();
+    }
     void CheckAudio()
     {
         if (gv.musicState)

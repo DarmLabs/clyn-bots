@@ -127,7 +127,7 @@ public class RecyclerNPC : MonoBehaviour
                     missionTrack.gv.plasticoRefinado += 2;
                     missionTrack.gv.cartonRefinado += 2;
                 }
-                if (missionTrack.gv.currentMissionStage == 9)
+                if (missionTrack.gv.currentMissionStage == 9 || missionTrack.gv.currentMissionStage == 0)
                 {
                     CinematicCamera();
                     CallDialogue(null);

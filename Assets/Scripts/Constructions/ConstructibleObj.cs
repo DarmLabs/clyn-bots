@@ -99,19 +99,6 @@ public class ConstructibleObj : MonoBehaviour
         target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 10000, target.transform.position.z);
         building.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
-        if (building.name == "Bomba de Agua")
-        {
-            gameObject.tag = "Pipes";
-            GetComponent<SaveTag>().UpdateTag();
-            general_UI.playerInteraction.targetPipes = general_UI.playerInteraction.targetConstruction;
-            general_UI.playerInteraction.targetConstruction = null;
-            general_UI.InteractionCloud(true);
-        }
-        else
-        {
-            gameObject.tag = "Untagged";
-            GetComponent<SaveTag>().UpdateTag();
-        }
         if (recycler != null)
         {
             recycler.gameObject.name += "_Constructed";
@@ -141,5 +128,20 @@ public class ConstructibleObj : MonoBehaviour
                 break;
         }
         cinematicCamera.GetComponent<OffsetCinematicCamera>().SetTarget(target, offset, lookAtOffset);
+    }
+    public void PipesCheck(){
+        if (building.name == "Bomba de Agua")
+        {
+            gameObject.tag = "Pipes";
+            GetComponent<SaveTag>().UpdateTag();
+            general_UI.playerInteraction.targetPipes = general_UI.playerInteraction.targetConstruction;
+            general_UI.playerInteraction.targetConstruction = null;
+            general_UI.InteractionCloud(true);
+        }
+        else
+        {
+            gameObject.tag = "Untagged";
+            GetComponent<SaveTag>().UpdateTag();
+        }
     }
 }

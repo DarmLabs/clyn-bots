@@ -319,6 +319,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             missionTrack.NextStage();
         }
+        targetConstruction.GetComponent<ConstructibleObj>().PipesCheck();
         targetConstruction = null;
     }
     public void PlantSeed()
