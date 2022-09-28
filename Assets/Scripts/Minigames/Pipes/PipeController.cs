@@ -34,7 +34,7 @@ public class PipeController : MonoBehaviour
         MainMission = mainaux.GetComponent<MainMission>();
         saveaux = GameObject.Find ("SaveLoadSystem");
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();        
         if (gv.tutorialPipes == true)
         {
             Time.timeScale = 1f;
@@ -69,7 +69,7 @@ public class PipeController : MonoBehaviour
         Origenes();
         FlechasFeedback();
         //Debug.Log("Update RotatePipe.IndiceFlecha: "+RotatePipe.IndiceFlecha);          
-        if (contadorCorrectas >= 24)
+        if (contadorCorrectas >= 25)
         {
             gano = true;
             audioManager.PlayAudio("Win");
