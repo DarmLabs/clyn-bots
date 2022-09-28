@@ -1,45 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(BoxCollider2D))]
+
 public class Clickeable : MonoBehaviour
 {
     private GameObject cursorAux;
     private CursorManager cursorM;
     private bool banderaSobre = false;
+    private string nombreEscena;
     
     public void Start() 
     {
         banderaSobre = false;
+        Scene scene = SceneManager.GetActiveScene();
+        nombreEscena = scene.name;
         cursorAux = GameObject.Find("CursorManager");
         cursorM = cursorAux.GetComponent<CursorManager>();
     }
 
     public void Update() 
     {
-        if(Input.GetMouseButtonDown(0))
+        if(nombreEscena=="Central")
         {
-            if(banderaSobre)
+            if(Input.GetMouseButtonDown(0))
             {
-                if(!Generador.bloqueaMovimiento)
+                if(banderaSobre)
                 {
-                    Cursor.SetCursor(cursorM.cursorClic,Vector2.zero,CursorMode.ForceSoftware); 
-                }
-                else
+                    if(!Generador.bloqueaMovimiento)
+                    {
+                        Cursor.SetCursor(cursorM.cursorClic,Vector2.zero,CursorMode.ForceSoftware); 
+                    }
+                    else
+                    {
+                        Cursor.SetCursor(cursorM.cursorClicErrado,Vector2.zero,CursorMode.ForceSoftware);
+                    }
+                    
+                }            
+            }
+            if(Input.GetMouseButtonUp(0))
+            {
+                if(banderaSobre)
                 {
-                    Cursor.SetCursor(cursorM.cursorClicErrado,Vector2.zero,CursorMode.ForceSoftware);
-                }
-                
-            }            
+                    Cursor.SetCursor(cursorM.cursorNormal,Vector2.zero,CursorMode.ForceSoftware); 
+                }            
+            }
         }
-        if(Input.GetMouseButtonUp(0))
+        if(nombreEscena=="Memoria")
         {
-            if(banderaSobre)
+            if(Input.GetMouseButtonDown(0))
             {
-                Cursor.SetCursor(cursorM.cursorNormal,Vector2.zero,CursorMode.ForceSoftware); 
-            }            
+                if(banderaSobre)
+                {
+                    
+                        Cursor.SetCursor(cursorM.cursorClic,Vector2.zero,CursorMode.ForceSoftware); 
+                   
+                        //Cursor.SetCursor(cursorM.cursorClicErrado,Vector2.zero,CursorMode.ForceSoftware);
+                    
+                    
+                }            
+            }
+            if(Input.GetMouseButtonUp(0))
+            {
+                if(banderaSobre)
+                {
+                    Cursor.SetCursor(cursorM.cursorNormal,Vector2.zero,CursorMode.ForceSoftware); 
+                }            
+            }
         }
+
+
+        
     }
 
     public void OnMouseEnter()

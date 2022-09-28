@@ -13,69 +13,30 @@ public class Cards : MonoBehaviour
 
     public static Queue<Cards> sequence;
     public static int pairsFound;
-    //public int vidas = 20;
-    /*
-    [SerializeField] private GameObject vidrioRefinadoGO;
-    [SerializeField] private GameObject metalRefinadoGO;
-    [SerializeField] private GameObject cartonRefinadoGO;
-    [SerializeField] private GameObject plasticoRefinadoGO;
-    [SerializeField] private GameObject compostRefinadoGO;
-    [SerializeField] private GameObject ubicacionRefinados; 
-    */
+    
     [SerializeField] private GameObject PanelVictoria;
     [SerializeField] private GameObject PanelDerrota;
     public Text textCantidadVidas;
-    public Text textCantidadPares;
-    //[SerializeField] private GameObject MarcoRefinados;     
+    public Text textCantidadPares;        
     
-    /*private GameObject globalaux;
-    private GlobalVariables gv;
-    private GameObject saveaux;
-    private SaveLoadSystem saveSystem;*/
+   
     private Collider colisionAux;    
-    /*
-    public Text textVidrios;
-    public Text textPlasticos;
-    public Text textCartones;
-    public Text textMetales;
-    public Text textComposts;
-
-    public Image normalVidrios;
-    public Image normalPlasticos;
-    public Image normalCartones;
-    public Image normalMetales;
-    public Image normalComposts; 
-    
-    public static int vidrioPartida;
-    public static int plasticoPartida;
-    public static int cartonPartida;
-    public static int metalPartida;
-    public static int compostPartida;
-    */
+   
     public static int CantidadPares = 9;
     AudioManager audioManager;
        
 
     void Start()
-    {           
-        /*vidrioPartida=0;
-        plasticoPartida=0;
-        cartonPartida=0;
-        metalPartida=0;
-        compostPartida=0;*/
-        Debug.Log("VIDAS INICIALES: "+Grilla.vidas);
+    {        
         textCantidadPares.text = "0";
         textCantidadVidas.text = (Grilla.vidas/2).ToString();
         audioManager = GameObject.FindObjectOfType<AudioManager>(); 
         facedUp=false;
         coroutineAllowed=true;
         locked=false;
+        
         sequence=new Queue<Cards>();
-        pairsFound=0;
-        /*globalaux = GameObject.Find("GlobalVariables");
-        gv = globalaux.GetComponent<GlobalVariables>();
-        saveaux = GameObject.Find ("SaveLoadSystem");
-        saveSystem = saveaux.GetComponent<SaveLoadSystem>(); */       
+        pairsFound=0;               
     }
     
     void Update() 
@@ -84,26 +45,17 @@ public class Cards : MonoBehaviour
         if (Grilla.vidas <= 0)
         {
             PanelDerrota.SetActive(true);
-            audioManager.PlayAudio("Lost");
-            //gv.memoriaAccesible = true; 
+            audioManager.PlayAudio("Lost");            
             Destroy(this.gameObject);
-            //MarcoRefinados.SetActive(false);
             Time.timeScale = 0f;         
         }
         if (pairsFound == CantidadPares)
-        {
-            //terminó el juego
-            //if(Grilla.refinadosDestruidos == CantidadPares)
-            //{                
-                PanelVictoria.SetActive(true);
-                audioManager.PlayAudio("Win");
-                //gv.memoriaAccesible = true;
-                //MarcoRefinados.SetActive(false);
-                Destroy(this.gameObject); 
-                Time.timeScale = 0f;           
-                Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                           
-            //}
-            
+        {        
+            PanelVictoria.SetActive(true);
+            audioManager.PlayAudio("Win");                
+            Destroy(this.gameObject); 
+            Time.timeScale = 0f;           
+            Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                          
         }
     }
 
