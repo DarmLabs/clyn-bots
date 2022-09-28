@@ -67,7 +67,7 @@ public class PipeController : MonoBehaviour
         Origenes();
         FlechasFeedback();
         //Debug.Log("Update RotatePipe.IndiceFlecha: "+RotatePipe.IndiceFlecha);          
-        if (contadorCorrectas >= 25)
+        if (contadorCorrectas >= 24)
         {
             gano = true;
             audioManager.PlayAudio("Win");
