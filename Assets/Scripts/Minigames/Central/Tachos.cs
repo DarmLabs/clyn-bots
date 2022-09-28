@@ -18,6 +18,7 @@ public class Tachos : MonoBehaviour
     public static int errorNoRecuperable = 0;
     public static int errorOrganico = 0;
     public static int errorRecuperable = 0;
+    public static int cantidadAyudas = 3;
     //public int auxiliarGrilla = 0; 
     //public static int CantidadGrilla = 0;
     private int ContadorTotal = 0;
@@ -30,6 +31,8 @@ public class Tachos : MonoBehaviour
 
     [SerializeField] private GameObject PanelVictoria;
     [SerializeField] private GameObject PanelDerrota;
+    [SerializeField] private Button BotonAyudas;
+    public Text CantidadAyudas_Text;
     AudioManager audioManager;     
 
     void Start()
@@ -43,6 +46,7 @@ public class Tachos : MonoBehaviour
         errorNoRecuperable = 0;
         errorOrganico = 0;
         errorRecuperable = 0;
+        cantidadAyudas = 3;
         //CantidadGrilla = 0;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
@@ -59,6 +63,7 @@ public class Tachos : MonoBehaviour
     void Update()
     {
         ContadorTotal = gv.divisionRec+gv.divisionNoRec+gv.divisionCompostables+errores;
+        CantidadAyudas_Text.text = cantidadAyudas.ToString();
         if (errores == 6)
         {
             Debug.Log ("Perdiste niño bobo");
@@ -120,6 +125,10 @@ public class Tachos : MonoBehaviour
             Generador.Terminaste = false;
             gv.memoriaAccesible = true;
             saveSystem.Save();
+        }
+        if(cantidadAyudas<=0)
+        {
+            BotonAyudas.interactable = false;
         }
             
     }

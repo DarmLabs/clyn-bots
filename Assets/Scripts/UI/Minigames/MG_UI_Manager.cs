@@ -126,4 +126,9 @@ public class MG_UI_Manager : MonoBehaviour
         Time.timeScale = 0f;
         Debug.Log("TIEMPO EN   "+Time.timeScale);  
     }
+
+    public void DescuentaAyudas()
+    {
+        Tachos.cantidadAyudas -=1;
+    }
 }

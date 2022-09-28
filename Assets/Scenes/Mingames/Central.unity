@@ -387,6 +387,8 @@ MonoBehaviour:
   erroresText: {fileID: 275241758}
   PanelVictoria: {fileID: 1262758440}
   PanelDerrota: {fileID: 2045437518}
+  BotonAyudas: {fileID: 1802506015}
+  CantidadAyudas_Text: {fileID: 3568881170009635979}
 --- !u!61 &30464256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2721,6 +2723,8 @@ MonoBehaviour:
   erroresText: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  BotonAyudas: {fileID: 0}
+  CantidadAyudas_Text: {fileID: 0}
 --- !u!212 &422768902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5557,6 +5561,8 @@ MonoBehaviour:
   erroresText: {fileID: 275241758}
   PanelVictoria: {fileID: 1262758440}
   PanelDerrota: {fileID: 2045437518}
+  BotonAyudas: {fileID: 1802506015}
+  CantidadAyudas_Text: {fileID: 3568881170009635979}
 --- !u!61 &832783951
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8057,6 +8063,8 @@ MonoBehaviour:
   erroresText: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  BotonAyudas: {fileID: 0}
+  CantidadAyudas_Text: {fileID: 0}
 --- !u!212 &1233203827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10453,6 +10461,8 @@ MonoBehaviour:
   erroresText: {fileID: 0}
   PanelVictoria: {fileID: 0}
   PanelDerrota: {fileID: 0}
+  BotonAyudas: {fileID: 0}
+  CantidadAyudas_Text: {fileID: 0}
 --- !u!212 &1616509180
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11051,6 +11061,8 @@ MonoBehaviour:
   erroresText: {fileID: 275241758}
   PanelVictoria: {fileID: 1262758440}
   PanelDerrota: {fileID: 2045437518}
+  BotonAyudas: {fileID: 1802506015}
+  CantidadAyudas_Text: {fileID: 3568881170009635979}
 --- !u!61 &1663931636
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15007,9 +15019,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 1802506014}
     m_Modifications:
     - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1433317771}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 1433317771}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: DescuentaAyudas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
+      value: MG_UI_Manager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625346176252013598, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2625346176378667408, guid: f230011ba3d097544aeb81d5da72e2fc, type: 3}
       propertyPath: m_Name
       value: PanelAyuda
@@ -15123,6 +15163,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1433317770}
     m_Modifications:
+    - target: {fileID: 3568881169073310528, guid: 09686482cd5e48747aa7c42a50a17ac0, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3568881169258098020, guid: 09686482cd5e48747aa7c42a50a17ac0, type: 3}
       propertyPath: m_Name
       value: BarraVida
@@ -15213,6 +15257,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09686482cd5e48747aa7c42a50a17ac0, type: 3}
+--- !u!114 &3568881170009635979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3568881169073310528, guid: 09686482cd5e48747aa7c42a50a17ac0, type: 3}
+  m_PrefabInstance: {fileID: 3568881170009635978}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3598616891109947322
 PrefabInstance:
   m_ObjectHideFlags: 0

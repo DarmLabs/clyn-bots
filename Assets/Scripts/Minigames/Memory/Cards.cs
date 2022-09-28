@@ -24,6 +24,8 @@ public class Cards : MonoBehaviour
     */
     [SerializeField] private GameObject PanelVictoria;
     [SerializeField] private GameObject PanelDerrota;
+    public Text textCantidadVidas;
+    public Text textCantidadPares;
     //[SerializeField] private GameObject MarcoRefinados;     
     
     /*private GameObject globalaux;
@@ -62,6 +64,8 @@ public class Cards : MonoBehaviour
         metalPartida=0;
         compostPartida=0;*/
         Debug.Log("VIDAS INICIALES: "+Grilla.vidas);
+        textCantidadPares.text = "0";
+        textCantidadVidas.text = (Grilla.vidas/2).ToString();
         audioManager = GameObject.FindObjectOfType<AudioManager>(); 
         facedUp=false;
         coroutineAllowed=true;
@@ -167,7 +171,8 @@ public class Cards : MonoBehaviour
         {
             firstInPair.locked=true;
             secondInPair.locked=true;
-            pairsFound+=1;           
+            pairsFound+=1; 
+            textCantidadPares.text = pairsFound.ToString();          
             if (firstInPair.tag == "Recuperable")
             {
                 if (firstInPairName == "VasoVidrio" || firstInPairName== "BotellaVidrio" || firstInPairName == "FrascoVidrio")
@@ -187,6 +192,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false;                   
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    textCantidadVidas.text = (Grilla.vidas/2).ToString();                    
                     audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
@@ -208,6 +214,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false; 
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    textCantidadVidas.text = (Grilla.vidas/2).ToString();
                     audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
                     
@@ -229,6 +236,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false; 
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    textCantidadVidas.text = (Grilla.vidas/2).ToString();
                     audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
@@ -250,6 +258,7 @@ public class Cards : MonoBehaviour
                         MovimientoRefinados.destruyoRefinado = false; 
                     }*/
                     Grilla.vidas = Grilla.vidas +2;
+                    textCantidadVidas.text = (Grilla.vidas/2).ToString();
                     audioManager.PlayAudio("Acierto_Sound");
                     Debug.Log("Vidas:"+Grilla.vidas/2); 
 
@@ -272,6 +281,7 @@ public class Cards : MonoBehaviour
                     MovimientoRefinados.destruyoRefinado = false; 
                 } */
                 Grilla.vidas = Grilla.vidas +2; 
+                textCantidadVidas.text = (Grilla.vidas/2).ToString();
                 audioManager.PlayAudio("Acierto_Sound"); 
                 Debug.Log("Vidas:"+Grilla.vidas/2);            
             }
@@ -303,6 +313,7 @@ public class Cards : MonoBehaviour
         coroutineAllowed =false; 
         colisionAux.enabled = !colisionAux.enabled;
         Grilla.vidas = Grilla.vidas -1;
+        textCantidadVidas.text = (Grilla.vidas/2).ToString();
         audioManager.PlayAudio("Error_Sound");  
         Debug.Log("Vidas:"+Grilla.vidas/2);  
         yield return new WaitForSeconds(40f* Time.deltaTime);
