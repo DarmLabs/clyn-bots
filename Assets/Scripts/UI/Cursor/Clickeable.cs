@@ -46,32 +46,8 @@ public class Clickeable : MonoBehaviour
                     Cursor.SetCursor(cursorM.cursorNormal,Vector2.zero,CursorMode.ForceSoftware); 
                 }            
             }
-        }
-        if(nombreEscena=="Memoria")
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-                if(banderaSobre)
-                {
-                    
-                        Cursor.SetCursor(cursorM.cursorClic,Vector2.zero,CursorMode.ForceSoftware); 
-                   
-                        //Cursor.SetCursor(cursorM.cursorClicErrado,Vector2.zero,CursorMode.ForceSoftware);
-                    
-                    
-                }            
-            }
-            if(Input.GetMouseButtonUp(0))
-            {
-                if(banderaSobre)
-                {
-                    Cursor.SetCursor(cursorM.cursorNormal,Vector2.zero,CursorMode.ForceSoftware); 
-                }            
-            }
-        }
-
-
-        
+        }    
+ 
     }
 
     public void OnMouseEnter()

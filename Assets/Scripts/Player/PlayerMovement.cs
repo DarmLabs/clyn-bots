@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
+            //Cursor.visible = false;
             if (!wallAhed)
             {
                 Movement();
@@ -44,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            //Cursor.visible = true;
             playerAnim.Moving(false);
         }
     }
