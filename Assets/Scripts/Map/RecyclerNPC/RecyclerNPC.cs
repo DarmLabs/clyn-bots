@@ -37,8 +37,11 @@ public class RecyclerNPC : MonoBehaviour
     MissionTrack missionTrack;
     void Awake()
     {
-        pointA = pointA + transform.parent.position;
-        pointB = pointB + transform.parent.position;
+        if (!lockedIdle)
+        {
+            pointA = pointA + transform.parent.position;
+            pointB = pointB + transform.parent.position;
+        }
         previousRot = transform.eulerAngles;
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
@@ -124,7 +127,7 @@ public class RecyclerNPC : MonoBehaviour
                 if (gameObject.name == "RecyclerIdle_09")
                 {
                     dialogueBox.transform.GetChild(3).gameObject.SetActive(true);
-                    okSection.GetComponent<Button>().onClick.AddListener(delegate {dialogueBox.transform.GetChild(3).gameObject.SetActive(false);});
+                    okSection.GetComponent<Button>().onClick.AddListener(delegate { dialogueBox.transform.GetChild(3).gameObject.SetActive(false); });
                     missionTrack.gv.metalRefinado += 2;
                     missionTrack.gv.plasticoRefinado += 2;
                     missionTrack.gv.cartonRefinado += 2;
