@@ -104,10 +104,10 @@ public class Grilla : MonoBehaviour
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)
         {
-            randomIndex = Random.Range(0,16);           
+            randomIndex = Random.Range(0,17);           
             while (listaRandoms.Contains(randomIndex))
             {
-                randomIndex = Random.Range(0,16);
+                randomIndex = Random.Range(0,17);
             } 
             listaRandoms[i] = randomIndex;                    
         } 
