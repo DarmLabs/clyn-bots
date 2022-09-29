@@ -2170,7 +2170,6 @@ GameObject:
   - component: {fileID: 429033389}
   - component: {fileID: 429033388}
   - component: {fileID: 429033387}
-  - component: {fileID: 429033386}
   - component: {fileID: 429033385}
   m_Layer: 5
   m_Name: Si
@@ -2213,18 +2212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioName: Confirm_Button
---- !u!114 &429033386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429033383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29cbcd11d85212f41be00a057c57c512, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &429033387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4129,7 +4116,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: RetomarTiempo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6105642579939545289, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
+    - {fileID: 4209237140549269514, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
+    - {fileID: 6105642580680064591, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
+    - {fileID: 3598616891219072727, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
+    - {fileID: 3598616892975962794, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
+    - {fileID: 3598616893113361800, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a27277b341bdf614d9759d0e086420fe, type: 3}
 --- !u!114 &612723139 stripped
 MonoBehaviour:
@@ -10656,7 +10649,6 @@ GameObject:
   - component: {fileID: 2046105521}
   - component: {fileID: 2046105520}
   - component: {fileID: 2046105519}
-  - component: {fileID: 2046105518}
   - component: {fileID: 2046105517}
   m_Layer: 5
   m_Name: No
@@ -10699,18 +10691,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioName: Back_Button
---- !u!114 &2046105518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046105515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b66b704bc700c54b9bfde8ff8116e5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2046105519
 MonoBehaviour:
   m_ObjectHideFlags: 0
