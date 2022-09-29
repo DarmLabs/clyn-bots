@@ -23,7 +23,7 @@ public class Generador : MonoBehaviour
     #region Indices de arrays
     //private int indexRecuperables = 0;    
     private int indexNoRecuperables = 4;
-    private int indexOrganicos = 4;
+    private int indexOrganicos = 5;
     private int indexVidrios = 2;
     private int indexPlasticos = 2;
     private int indexCartones = 2;
