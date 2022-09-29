@@ -84,25 +84,25 @@ public class FilterManager : MonoBehaviour
         switch (code)
         {
             case "Plastico":
-                numPadText.text = "x"+plasticoValue.ToString();
-                refinedName.text = "PLASTICO RECICLADO";
-                recycleType.text = "RECICLAJE DE PLASTICO";
+                numPadText.text = "x" + plasticoValue.ToString();
+                refinedName.text = "PLÁSTICO RECICLADO";
+                recycleType.text = "RECICLAJE DE PLÁSTICO";
                 quantity.text = (plasticoValue * 10).ToString();
                 break;
             case "Vidrio":
-                numPadText.text = "x"+vidrioValue.ToString();
+                numPadText.text = "x" + vidrioValue.ToString();
                 refinedName.text = "VIDRIO RECICLADO";
                 recycleType.text = "RECICLAJE DE VIDRIO";
                 quantity.text = (vidrioValue * 10).ToString();
                 break;
             case "Carton":
-                numPadText.text = "x"+cartonValue.ToString();
+                numPadText.text = "x" + cartonValue.ToString();
                 refinedName.text = "CARTÓN RECICLADO";
                 recycleType.text = "RECICLAJE DE CARTÓN";
                 quantity.text = (cartonValue * 10).ToString();
                 break;
             case "Metal":
-                numPadText.text = "x"+metalValue.ToString();
+                numPadText.text = "x" + metalValue.ToString();
                 refinedName.text = "METAL RECICLADO";
                 recycleType.text = "RECICLAJE DE METAL";
                 quantity.text = (metalValue * 10).ToString();
