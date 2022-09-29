@@ -65,8 +65,8 @@ public class MG_UI_Manager : MonoBehaviour
         gv.tutorialCentral = true;
         if(PrimeraVuelta)
         {        
-            audioManager.StopMusic();
-            audioManager.PlayMusic("Minigame_Theme");
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme");
             PrimeraVuelta = false;
         }              
         Debug.Log("Completaste el tutorial de central amiguito");
@@ -78,8 +78,8 @@ public class MG_UI_Manager : MonoBehaviour
         gv.tutorialCompost = true;
         if(PrimeraVuelta)
         {        
-            audioManager.StopMusic();
-            audioManager.PlayMusic("Minigame_Theme");
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme");
             PrimeraVuelta = false;
         }  
         Debug.Log("Completaste el tutorial de compostera amiguito");
@@ -91,8 +91,8 @@ public class MG_UI_Manager : MonoBehaviour
         gv.tutorialMemoria = true;
         if(PrimeraVuelta)
         {        
-            audioManager.StopMusic();
-            audioManager.PlayMusic("Minigame_Theme");
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme");
             PrimeraVuelta = false;
         } 
         Debug.Log("Completaste el tutorial de memoria amiguito");
@@ -104,8 +104,8 @@ public class MG_UI_Manager : MonoBehaviour
         gv.tutorialPipes = true;
         if(PrimeraVuelta)
         {        
-            audioManager.StopMusic();
-            audioManager.PlayMusic("Minigame_Theme");
+            //audioManager.StopMusic();
+            //audioManager.PlayMusic("Minigame_Theme");
             PrimeraVuelta = false;
         }  
         Debug.Log("Completaste el tutorial de pipes amiguito");
