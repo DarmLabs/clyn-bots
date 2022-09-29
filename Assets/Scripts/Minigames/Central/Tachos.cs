@@ -131,7 +131,8 @@ public class Tachos : MonoBehaviour
         {
             BotonAyudas.interactable = false;
             Destroy(flechita);
-        }
+        }        
+        
             
     }
     void  OnMouseDown() 
@@ -250,7 +251,11 @@ public class Tachos : MonoBehaviour
         {
             errores = errores + 1;
             audioManager.PlayAudio("Error_Sound");
-            erroresText.text = errores.ToString(); 
+            erroresText.text = errores.ToString();
+            if(cantidadAyudas>=1)
+            {
+                flechita.SetActive(true);
+            } 
             //Debug.Log("ERROR EN RECOLECCION: "+errores);
             switch (other.gameObject.tag)
             {
