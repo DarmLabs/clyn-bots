@@ -58,7 +58,7 @@ public class Generador : MonoBehaviour
     public static bool Terminaste = false;
     private bool PrimeraVuelta = true;
     #endregion
-    public static bool bloqueaMovimiento = false; 
+    public static bool bloqueaMovimiento = false;    
 
     public static int cantidadReiniciar = 2;  
     [SerializeField] private Button BotonReiniciarNivel;
@@ -118,7 +118,7 @@ public class Generador : MonoBehaviour
     {
         Controls();
         Tiempo += Time.deltaTime;               
-        InstanceIntervalo();  
+        InstanceIntervalo();         
         if (gv.cantidadReiniciar<=0)
         {
             BotonReiniciarNivel.interactable = false;

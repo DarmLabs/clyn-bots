@@ -11,10 +11,13 @@ public class MG_UI_Manager : MonoBehaviour
     private SaveLoadSystem saveSystem;
     AudioManager audioManager;
     private bool PrimeraVuelta = true;
+    private string nombreEscena;
 
     void Start()
     {
         PrimeraVuelta = true;
+        Scene scene = SceneManager.GetActiveScene();
+        nombreEscena = scene.name;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
         saveaux = GameObject.Find("SaveLoadSystem");
@@ -131,11 +134,17 @@ public class MG_UI_Manager : MonoBehaviour
 
     public void DescuentaAyudas()
     {
-        Tachos.cantidadAyudas -=1;
+        if(nombreEscena=="Central")
+        {
+            Tachos.cantidadAyudas -=1;
+        }
     }
     public void DescuentaReiniciar()
     {
-        gv.cantidadReiniciar -=1;
-        saveSystem.Save();
+        if(nombreEscena=="Central")
+        {
+            gv.cantidadReiniciar -=1;
+            saveSystem.Save();
+        }
     }
 }
