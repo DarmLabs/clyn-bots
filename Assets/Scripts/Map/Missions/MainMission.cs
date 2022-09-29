@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-public class MainMission : MonoBehaviour
+public class MainMission : MonoBehaviour, ISaveable
 {
     public int trashRecolected, constructionsFinished, maintainancePlayed, lakesCleaned, cropsGrew;
     public int maxTrash = 500, maxConstructions = 7, maxMaintainance = 5, maxLakes = 2, maxCrops = 2;

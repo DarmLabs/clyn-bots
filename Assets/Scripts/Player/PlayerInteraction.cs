@@ -65,6 +65,7 @@ public class PlayerInteraction : MonoBehaviour
     void IntializeFunctions()
     {
         OnResume();
+        audioManager.CheckAudio();
         Generador.contadorBasura = 0;
         BagPercentage(true);
         if (gv.firstTime)

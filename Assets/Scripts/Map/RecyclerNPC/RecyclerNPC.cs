@@ -123,6 +123,8 @@ public class RecyclerNPC : MonoBehaviour
                 }
                 if (gameObject.name == "RecyclerIdle_09")
                 {
+                    dialogueBox.transform.GetChild(3).gameObject.SetActive(true);
+                    okSection.GetComponent<Button>().onClick.AddListener(delegate {dialogueBox.transform.GetChild(3).gameObject.SetActive(false);});
                     missionTrack.gv.metalRefinado += 2;
                     missionTrack.gv.plasticoRefinado += 2;
                     missionTrack.gv.cartonRefinado += 2;
@@ -145,6 +147,8 @@ public class RecyclerNPC : MonoBehaviour
             if (haveMission)
             {
                 Button yesBtn = missionSection.transform.Find("Yes").GetComponent<Button>();
+                yesBtn.GetComponent<Button>().onClick.RemoveAllListeners();
+                okSection.GetComponent<Button>().onClick.RemoveAllListeners();
                 if (gameObject.name == "RecyclerMainMission")
                 {
                     yesBtn.onClick.AddListener(delegate { general_UI.MainMissionSwitcher(true); });

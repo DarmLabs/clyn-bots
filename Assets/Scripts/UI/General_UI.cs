@@ -16,6 +16,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject mainMissionPanel;
     [SerializeField] GameObject constructionPanel;
     [SerializeField] GameObject orchardPanel;
+    [SerializeField] GameObject orchardSelector;
     [SerializeField] GameObject tutorialPanel;
     [SerializeField] GameObject refinerPanel;
     [SerializeField] GameObject compostPanel;
@@ -163,6 +164,14 @@ public class General_UI : MonoBehaviour
             case 4:
                 orchard.seedType = "Rabanito";
                 break;
+        }
+        if(orchard.currentState == "")
+        {
+            orchardSelector.SetActive(true);
+        }
+        else
+        {
+            orchardSelector.SetActive(false);
         }
         orchardTitle.text = "Plantando " + orchard.seedType;
         RenderConstruction(orchard.seedType, orchardRender);

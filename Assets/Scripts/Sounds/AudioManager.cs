@@ -18,11 +18,11 @@ public class AudioManager : MonoBehaviour
     }
     public void CheckAudio()
     {
-        if (!gv.musicState)
+        if (gv.musicState)
         {
             MusicSwitcher(false);
         }
-        if (!gv.soundState)
+        if (gv.soundState)
         {
             SFXSwitcher(false);
         }
@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
     }
     public void StopMusic()
     {
-        if (musicContainer.activeSelf)
+        if (musicContainer.activeSelf && currentMusic !=null)
         {
             currentMusic.Stop();
             currentMusic = null;
