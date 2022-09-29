@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Generador : MonoBehaviour
 {
@@ -58,6 +59,9 @@ public class Generador : MonoBehaviour
     private bool PrimeraVuelta = true;
     #endregion
     public static bool bloqueaMovimiento = false; 
+
+    public static int cantidadReiniciar = 2;  
+    [SerializeField] private Button BotonReiniciarNivel;
     
     private Vector3 velocity = Vector3.zero;        
     private GameObject globalaux;
@@ -73,6 +77,7 @@ public class Generador : MonoBehaviour
         bloqueaMovimiento = false;
         PrimeraVuelta = true;
         contadorBasura = 0;
+        //cantidadReiniciar = 2;
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
@@ -113,7 +118,11 @@ public class Generador : MonoBehaviour
     {
         Controls();
         Tiempo += Time.deltaTime;               
-        InstanceIntervalo();        
+        InstanceIntervalo();  
+        if (gv.cantidadReiniciar<=0)
+        {
+            BotonReiniciarNivel.interactable = false;
+        }      
     }  
     
   

@@ -21,6 +21,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool tutorialCentral, tutorialMemoria, tutorialCompost, tutorialPipes = false;
     //Audio
     public bool musicState, soundState;
+    //
+    public int cantidadReiniciar = 2;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -32,6 +34,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         {
             //bandera de acceso
             memoriaAccesible = this.memoriaAccesible,
+            //
+            cantidadReiniciar = this.cantidadReiniciar,
             //compostActiva = this.compostActiva,
             pipesActiva = this.pipesActiva,
             //Tutoriales:
@@ -82,6 +86,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         tutorialCompost = saveData.tutorialCompost;
         tutorialMemoria = saveData.tutorialMemoria;
         tutorialPipes = saveData.tutorialPipes;
+        //
+        cantidadReiniciar = saveData.cantidadReiniciar;
         //Trash
         noRecTrash = saveData.noRecTrash;
         organicTrash = saveData.organicTrash;
@@ -128,6 +134,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int vidrioRefinado, plasticoRefinado, cartonRefinado, metalRefinado, compostRefinado;
         public bool cardDistribution;
         public bool memoriaAccesible;
+        //
+        public int cantidadReiniciar;
         // public bool compostActiva;
         public bool pipesActiva;
         public int currentMissionStage;

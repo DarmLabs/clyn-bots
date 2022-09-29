@@ -21,7 +21,8 @@ public class MG_UI_Manager : MonoBehaviour
         saveSystem = saveaux.GetComponent<SaveLoadSystem>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();        
         audioManager.StopMusic();
-        audioManager.PlayMusic("Tutorial_Theme");      
+        audioManager.PlayMusic("Tutorial_Theme");
+        //Generador.cantidadReiniciar =2;      
     }    
 
     public void BackToOutside()
@@ -44,7 +45,8 @@ public class MG_UI_Manager : MonoBehaviour
         SceneManager.LoadScene("Inside");
         gv.recTrash = 0;
         gv.noRecTrash = 0;
-        gv.organicTrash = 0;        
+        gv.organicTrash = 0; 
+        gv.cantidadReiniciar =2;              
         Generador.contadorBasura = 0;
         Grilla.vidas = 20;
         saveSystem.Save();
@@ -130,5 +132,10 @@ public class MG_UI_Manager : MonoBehaviour
     public void DescuentaAyudas()
     {
         Tachos.cantidadAyudas -=1;
+    }
+    public void DescuentaReiniciar()
+    {
+        gv.cantidadReiniciar -=1;
+        saveSystem.Save();
     }
 }
