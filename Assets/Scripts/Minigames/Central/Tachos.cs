@@ -32,6 +32,7 @@ public class Tachos : MonoBehaviour
     [SerializeField] private GameObject PanelVictoria;
     [SerializeField] private GameObject PanelDerrota;
     [SerializeField] private Button BotonAyudas;
+    [SerializeField] private GameObject flechita;
     public Text CantidadAyudas_Text;
     AudioManager audioManager;     
 
@@ -66,7 +67,7 @@ public class Tachos : MonoBehaviour
         CantidadAyudas_Text.text = cantidadAyudas.ToString();
         if (errores == 6)
         {
-            Debug.Log ("Perdiste niño bobo");
+            //Debug.Log ("Perdiste niño bobo");
             audioManager.PlayAudio("Lost");
             //CantidadGrilla = 12;
             PanelDerrota.SetActive(true);
@@ -79,7 +80,7 @@ public class Tachos : MonoBehaviour
         }
         if (Generador.Terminaste && errores < 7 && ContadorTotal == Generador.contadorBasura)
         {
-            Debug.Log ("Ganaste niño inteligente");
+            //Debug.Log ("Ganaste niño inteligente");
             audioManager.PlayAudio("Win");
             /*auxiliarGrilla = Random.Range(0,7);
             switch (auxiliarGrilla)
@@ -129,6 +130,7 @@ public class Tachos : MonoBehaviour
         if(cantidadAyudas<=0)
         {
             BotonAyudas.interactable = false;
+            Destroy(flechita);
         }
             
     }
@@ -166,7 +168,7 @@ public class Tachos : MonoBehaviour
                 case "Recuperable":
                     gv.divisionRec +=1;
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
+                    //Debug.Log("DIVISION RECUPERABLES: "+gv.divisionRec);
                     residuosRecuperables.text = gv.divisionRec.ToString();
                     switch (other.transform.GetChild(0).gameObject.tag)
                     {
@@ -225,7 +227,7 @@ public class Tachos : MonoBehaviour
                     //gv.noRecTrash -=1;  
                     gv.divisionNoRec +=1; 
                     audioManager.PlayAudio("Acierto_Sound"); 
-                    Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
+                    //Debug.Log("DIVISION NO RECUPERABLES: "+gv.divisionNoRec);
                     //Generador.bloqueaMovimiento = false; 
                     residuosNoRecuperables.text = gv.divisionNoRec.ToString();
                     break;
@@ -236,7 +238,7 @@ public class Tachos : MonoBehaviour
                     gv.divisionOrganic+=1;
                     gv.divisionCompostables+=1;
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("DIVISION ORGANICOS: "+gv.divisionCompostables);
+                    //Debug.Log("DIVISION ORGANICOS: "+gv.divisionCompostables);
                     //Generador.bloqueaMovimiento = false; 
                     residuosOrganicos.text = gv.divisionCompostables.ToString();
                     break;
@@ -249,7 +251,7 @@ public class Tachos : MonoBehaviour
             errores = errores + 1;
             audioManager.PlayAudio("Error_Sound");
             erroresText.text = errores.ToString(); 
-            Debug.Log("ERROR EN RECOLECCION: "+errores);
+            //Debug.Log("ERROR EN RECOLECCION: "+errores);
             switch (other.gameObject.tag)
             {
                 case "Recuperable":

@@ -91,7 +91,7 @@ public class Grilla : MonoBehaviour
             tutorialParte1.gameObject.SetActive(false);
             //audioManager.StopMusic();
             //audioManager.PlayMusic("Minigame_Theme"); 
-            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+            //Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialMemoria == false)
         {
@@ -99,7 +99,7 @@ public class Grilla : MonoBehaviour
             tutorialParte1.gameObject.SetActive(true);            
             audioManager.StopMusic();
             audioManager.PlayMusic("Tutorial_Theme");
-            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+            //Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }     
         listaRandoms = new List<int>(new int[cantidadRandoms]); 
         for (int i = 1; i < cantidadRandoms; i++)

@@ -63,6 +63,7 @@ public class Generador : MonoBehaviour
     public static int cantidadReiniciar = 2;  
     [SerializeField] private Button BotonReiniciarNivel;
     
+    
     private Vector3 velocity = Vector3.zero;        
     private GameObject globalaux;
     private GlobalVariables gv; 
@@ -122,7 +123,8 @@ public class Generador : MonoBehaviour
         if (gv.cantidadReiniciar<=0)
         {
             BotonReiniciarNivel.interactable = false;
-        }      
+        } 
+          
     }  
     
   
@@ -172,7 +174,7 @@ public class Generador : MonoBehaviour
             Residuos[t] = Residuos[r];
             Residuos[r] = temporal;            
         }
-        Debug.Log("TOTAL ARRAY"+Residuos.Length); 
+        //Debug.Log("TOTAL ARRAY"+Residuos.Length); 
     }
     void Controls()
     {
@@ -270,7 +272,7 @@ public class Generador : MonoBehaviour
             }
             else
             {
-                Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
+                //Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
                 Terminaste = true;
             }
             

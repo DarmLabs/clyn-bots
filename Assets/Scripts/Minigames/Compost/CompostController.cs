@@ -78,7 +78,7 @@ public class CompostController : MonoBehaviour
             tutorialParte1.gameObject.SetActive(false);
             //audioManager.StopMusic();
             //audioManager.PlayMusic("Minigame_Theme");
-            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+            //Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialCompost == false)
         {
@@ -86,7 +86,7 @@ public class CompostController : MonoBehaviour
             tutorialParte1.gameObject.SetActive(true);
             audioManager.StopMusic();
             audioManager.PlayMusic("Tutorial_Theme");
-            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+            //Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         randomIndex = Random.Range(0,2);                       
         escalaProgreso_Humedo = ProgresoHumedo.localScale;        
@@ -204,7 +204,7 @@ public class CompostController : MonoBehaviour
         {
                 if (!abierto)
                 {
-                    Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
+                    //Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
                     //Compostera.gameObject.SetActive(true);
                     //audioManager.PlayAudio("Win");
                     auxiliarOrganicosDivididos = (Mathf.RoundToInt(gv.divisionOrganic/10));
@@ -231,7 +231,7 @@ public class CompostController : MonoBehaviour
 
         if (escalaProgreso_Seco.x >= EscalaMax)
         {
-            Debug.Log("PERDISTE NIÑITO :(");
+            //Debug.Log("PERDISTE NIÑITO :(");
             //audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
@@ -247,7 +247,7 @@ public class CompostController : MonoBehaviour
         }
         if (escalaProgreso_Seco.x <= EscalaMin)
         {
-            Debug.Log("PERDISTE NIÑITO :(");
+            //Debug.Log("PERDISTE NIÑITO :(");
             //audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
@@ -263,7 +263,7 @@ public class CompostController : MonoBehaviour
         }
         if (escalaProgreso_Humedo.x >= EscalaMax)
         {
-            Debug.Log("PERDISTE NIÑITO :(");
+            //Debug.Log("PERDISTE NIÑITO :(");
             //audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
@@ -279,7 +279,7 @@ public class CompostController : MonoBehaviour
         }
         if (escalaProgreso_Humedo.x <= EscalaMin)
         {
-            Debug.Log("PERDISTE NIÑITO :(");
+           // Debug.Log("PERDISTE NIÑITO :(");
             //audioManager.PlayAudio("Lost");
             gv.divisionOrganic = gv.divisionOrganic-5;
             saveSystem.Save();
@@ -321,7 +321,7 @@ public class CompostController : MonoBehaviour
     {
         if(escalaProgreso_Seco.x == escalaProgreso_Humedo.x)
         {
-            Debug.Log("Se equilibraron");
+            //Debug.Log("Se equilibraron");
             humedadCorrecta = true;
             Button_Secar.interactable = false;
             Button_Humedecer.interactable = false;

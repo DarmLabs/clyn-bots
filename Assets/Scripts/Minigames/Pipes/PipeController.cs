@@ -39,7 +39,7 @@ public class PipeController : MonoBehaviour
             tutorialParte1.gameObject.SetActive(false);
             //audioManager.StopMusic();
             //audioManager.PlayMusic("Minigame_Theme"); 
-            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+            //Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         if (gv.tutorialPipes == false)
         {
@@ -47,7 +47,7 @@ public class PipeController : MonoBehaviour
             tutorialParte1.gameObject.SetActive(true);
             audioManager.StopMusic();
             audioManager.PlayMusic("Tutorial_Theme");
-            Debug.Log("TIEMPO EN   "+Time.timeScale); 
+            //Debug.Log("TIEMPO EN   "+Time.timeScale); 
         }
         contadorCorrectas = 0;
         gano = false;     
@@ -76,7 +76,7 @@ public class PipeController : MonoBehaviour
             mainMission.lakesCleaned++;
             PanelVictoria.SetActive(true);
             saveSystem.Save();
-            Debug.Log("GANASTE NIÑO BOBO");     
+            //Debug.Log("GANASTE NIÑO BOBO");     
         }
         
     }

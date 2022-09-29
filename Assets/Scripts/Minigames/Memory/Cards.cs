@@ -41,7 +41,7 @@ public class Cards : MonoBehaviour
     
     void Update() 
     {
-        Debug.Log("pairsFound"+pairsFound);
+        //Debug.Log("pairsFound"+pairsFound);
         if (Grilla.vidas <= 0)
         {
             PanelDerrota.SetActive(true);
@@ -55,7 +55,7 @@ public class Cards : MonoBehaviour
             audioManager.PlayAudio("Win");                
             Destroy(this.gameObject); 
             Time.timeScale = 0f;           
-            Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                          
+            //Debug.Log("Vidas que le quedaron:"+Grilla.vidas);                          
         }
     }
 
@@ -129,7 +129,7 @@ public class Cards : MonoBehaviour
             {
                 if (firstInPairName == "VasoVidrio" || firstInPairName== "BotellaVidrio" || firstInPairName == "FrascoVidrio")
                 {
-                    Debug.Log("VIDRIO REFINADO");
+                    //Debug.Log("VIDRIO REFINADO");
                     /*vidrioPartida+=10;
                     gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
                     saveSystem.Save();
@@ -146,12 +146,12 @@ public class Cards : MonoBehaviour
                     Grilla.vidas = Grilla.vidas +2;
                     textCantidadVidas.text = (Grilla.vidas/2).ToString();                    
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("Vidas:"+Grilla.vidas/2); 
+                    //Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 } 
                 if (firstInPairName == "BotellaPlastico" || firstInPairName== "BidonPlastico" || firstInPairName == "CubiertosPlastico")
                 {
-                    Debug.Log("PLASTICO REFINADO");
+                    //Debug.Log("PLASTICO REFINADO");
                     /*plasticoPartida+=10;
                     gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
                     saveSystem.Save();
@@ -168,12 +168,12 @@ public class Cards : MonoBehaviour
                     Grilla.vidas = Grilla.vidas +2;
                     textCantidadVidas.text = (Grilla.vidas/2).ToString();
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("Vidas:"+Grilla.vidas/2); 
+                    //Debug.Log("Vidas:"+Grilla.vidas/2); 
                     
                 }
                 if (firstInPairName == "Diario" || firstInPairName== "CajaCarton" || firstInPairName == "CajaHuevos")
                 {
-                    Debug.Log("CARTON REFINADO");
+                    //Debug.Log("CARTON REFINADO");
                     /*cartonPartida+=10;
                     gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
                     saveSystem.Save();
@@ -190,12 +190,12 @@ public class Cards : MonoBehaviour
                     Grilla.vidas = Grilla.vidas +2;
                     textCantidadVidas.text = (Grilla.vidas/2).ToString();
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("Vidas:"+Grilla.vidas/2); 
+                    //Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }       
                 if (firstInPairName == "TapaFrasco" || firstInPairName== "LataAluminio")
                 {
-                    Debug.Log("METAL REFINADO");
+                    //Debug.Log("METAL REFINADO");
                     /*metalPartida+=10;
                     gv.metalRefinado= gv.metalRefinado + (metalPartida);
                     saveSystem.Save();
@@ -212,13 +212,13 @@ public class Cards : MonoBehaviour
                     Grilla.vidas = Grilla.vidas +2;
                     textCantidadVidas.text = (Grilla.vidas/2).ToString();
                     audioManager.PlayAudio("Acierto_Sound");
-                    Debug.Log("Vidas:"+Grilla.vidas/2); 
+                    //Debug.Log("Vidas:"+Grilla.vidas/2); 
 
                 }        
             }            
             if (firstInPair.tag == "Organico")
             {
-                Debug.Log("COMPOST y BIOMASA");
+                //Debug.Log("COMPOST y BIOMASA");
                 /*compostPartida+=10;
                 gv.compostRefinado= gv.compostRefinado + (compostPartida); 
                 saveSystem.Save();
@@ -235,7 +235,7 @@ public class Cards : MonoBehaviour
                 Grilla.vidas = Grilla.vidas +2; 
                 textCantidadVidas.text = (Grilla.vidas/2).ToString();
                 audioManager.PlayAudio("Acierto_Sound"); 
-                Debug.Log("Vidas:"+Grilla.vidas/2);            
+                //Debug.Log("Vidas:"+Grilla.vidas/2);            
             }
         }
         else
@@ -246,7 +246,7 @@ public class Cards : MonoBehaviour
         }
         if (pairsFound == CantidadPares)
         {
-                Debug.Log("GANÓ y se guardaron los refinados");
+                //Debug.Log("GANÓ y se guardaron los refinados");
                 /*gv.vidrioRefinado = gv.vidrioRefinado + (vidrioPartida);
                 gv.plasticoRefinado= gv.plasticoRefinado + (plasticoPartida);
                 gv.cartonRefinado= gv.cartonRefinado + (cartonPartida);
@@ -267,7 +267,7 @@ public class Cards : MonoBehaviour
         Grilla.vidas = Grilla.vidas -1;
         textCantidadVidas.text = (Grilla.vidas/2).ToString();
         audioManager.PlayAudio("Error_Sound");  
-        Debug.Log("Vidas:"+Grilla.vidas/2);  
+        //Debug.Log("Vidas:"+Grilla.vidas/2);  
         yield return new WaitForSeconds(40f* Time.deltaTime);
         for (float i=190f; i>=0f; i-=10)
         {

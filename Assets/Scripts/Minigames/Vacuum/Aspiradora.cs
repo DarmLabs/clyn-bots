@@ -70,7 +70,7 @@ public class Aspiradora : MonoBehaviour
             if (activoJuego)
             {
                 catchProgress += VacuumPower * Time.deltaTime;
-                Debug.Log("PrimeraVez: " + primeraVez);
+                //Debug.Log("PrimeraVez: " + primeraVez);
             }
 
             if (catchProgress >= 2)
@@ -78,7 +78,7 @@ public class Aspiradora : MonoBehaviour
                 general_UI.MinigameAspireSwitcher(false);
                 if (!primeraVez)
                 {
-                    Debug.Log("ASPIRASTE TODOOOO");
+                    //Debug.Log("ASPIRASTE TODOOOO");
                     //Lógica aspiradora normal
                     gv.noRecTrash += 5;
                     gv.recTrash += 5;
@@ -109,7 +109,7 @@ public class Aspiradora : MonoBehaviour
                     TrashPosition = 0.5f;
                     VacuumPosition = 0.5f;
                     saveSystem.Save();
-                    Debug.Log("La aspiradora exploto");
+                    //Debug.Log("La aspiradora exploto");
                 }
             }
 
