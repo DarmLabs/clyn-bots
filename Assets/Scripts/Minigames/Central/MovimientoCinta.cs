@@ -50,10 +50,7 @@ public class MovimientoCinta : MonoBehaviour
         if (other.tag == "Destructor")
         {
             Generador.bloqueaMovimiento = false;
-            //if (other.tag != "Organico" && other.tag != "NoRecuperable" && other.tag != "Recuperable")
-            //{
-                Destroy(this.gameObject);  
-            //}
+            Destroy(this.gameObject);  
                      
         }
         if (other.tag == "PuntoDireccion")

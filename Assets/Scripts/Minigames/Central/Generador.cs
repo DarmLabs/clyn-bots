@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Generador : MonoBehaviour
 {
     #region Arrays en uso
-    //[SerializeField] private GameObject[] Recuperables;
     [SerializeField] private GameObject[] Residuos;
     [SerializeField] private GameObject[] NoRecuperables;
     [SerializeField] private GameObject[] Organicos;
@@ -21,7 +20,6 @@ public class Generador : MonoBehaviour
     #endregion
     [SerializeField] private GameObject tutorialParte1;
     #region Indices de arrays
-    //private int indexRecuperables = 0;    
     private int indexNoRecuperables = 4;
     private int indexOrganicos = 5;
     private int indexVidrios = 2;
@@ -30,7 +28,6 @@ public class Generador : MonoBehaviour
     private int indexMetales = 1;
     #endregion
     #region Contadores
-    //private int cantidadRecuperables = 0;
     private int cantidadResiduos = 0;    
     private int cantidadNoRecuperables = 0;
     private int cantidadOrganicos = 0;
@@ -78,7 +75,6 @@ public class Generador : MonoBehaviour
         bloqueaMovimiento = false;
         PrimeraVuelta = true;
         contadorBasura = 0;
-        //cantidadReiniciar = 2;
         intervalo = 4;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();
@@ -129,19 +125,7 @@ public class Generador : MonoBehaviour
     
   
     void CreateResiduos()
-    {
-        /*for (int i = 0; i < (cantidadRecuperables); i++)
-        {
-            Residuos[i] = Recuperables[Random.Range(0,indexRecuperables+1)];            
-        }
-        for (int i = 0; i < (cantidadNoRecuperables); i++)
-        {
-            Residuos[cantidadRecuperables+i]= NoRecuperables[Random.Range(0,indexNoRecuperables+1)];               
-        }
-        for (int i = 0; i < (cantidadOrganicos); i++)
-        {
-            Residuos[cantidadRecuperables+cantidadNoRecuperables+i] = Organicos[Random.Range(0,indexOrganicos+1)];            
-        }*/
+    {       
         for (int i = 0; i < (cantidadNoRecuperables); i++)
         {
             Residuos[i] = NoRecuperables[Random.Range(0,indexNoRecuperables+1)];            
@@ -174,7 +158,6 @@ public class Generador : MonoBehaviour
             Residuos[t] = Residuos[r];
             Residuos[r] = temporal;            
         }
-        //Debug.Log("TOTAL ARRAY"+Residuos.Length); 
     }
     void Controls()
     {
@@ -192,29 +175,7 @@ public class Generador : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
-        /*
-        if (!bloqueaMovimiento)
-        {
-            if(Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1) )
-            {
-                Tacho1 = true;
-                Tacho2 = false;
-                Tacho3 = false;                                   
-            }
-            if(Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2) )
-            {
-                Tacho1 = false;
-                Tacho2 = true;
-                Tacho3 = false;             
-            }
-            if(Input.GetKeyDown(KeyCode.Keypad3)|| Input.GetKeyDown(KeyCode.Alpha3) )
-            {
-                Tacho1 = false;
-                Tacho2 = false;
-                Tacho3 = true;   
-            }  
-        }  
-        */      
+            
         if (Tacho1)
         {
             Tachos.transform.GetChild(0).gameObject.transform.position = Vector3.Lerp(Tachos.transform.GetChild(0).gameObject.transform.position, PosicionesTachos[0].transform.position, fraction*Time.deltaTime); 
@@ -261,9 +222,8 @@ public class Generador : MonoBehaviour
             contadorBasura += 1;
             PrimeraVuelta = false;
         }
-        if (Mathf.Round(Tiempo) == intervalo) //&& contadorBasura <= cantidadResiduos)
+        if (Mathf.Round(Tiempo) == intervalo)
         {            
-            //Debug.Log("Tiempo es igual a intervalo:"+Tiempo);
             if  (contadorBasura < cantidadResiduos)
             {
                 Instantiate(Residuos[contadorBasura],spawnPoint.position,transform.rotation);
@@ -272,7 +232,6 @@ public class Generador : MonoBehaviour
             }
             else
             {
-                //Debug.Log("contadorBasura: "+contadorBasura+"  cantidadResiduos: "+cantidadResiduos);
                 Terminaste = true;
             }
             

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PingPong : MonoBehaviour
 {
-    //public GameObject flecha;
     public float speed = 2.3f;
     [SerializeField] private Transform posicionFlecha;
     private GameObject globalaux;

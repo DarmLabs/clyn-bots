@@ -300,7 +300,6 @@ public class CompostController : MonoBehaviour
                     Button_Abrir.gameObject.SetActive(false);
                     Button_Cerrar.gameObject.SetActive(false);
                     Button_Reintentar.gameObject.SetActive(false);
-                    //gano = true;
                     Compostera.GetChild(0).gameObject.SetActive(false);
                     Compostera.GetChild(1).gameObject.SetActive(false);
                     Compostera.GetChild(2).gameObject.SetActive(true);
