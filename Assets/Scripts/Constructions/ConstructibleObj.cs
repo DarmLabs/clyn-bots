@@ -15,7 +15,7 @@ public class ConstructibleObj : MonoBehaviour
     public GameObject target;
     public GameObject building;
     bool reqMeet = true;
-    [SerializeField] RecyclerNPC recycler;
+    [SerializeField] ConstructedDetector constructedDetector;
     void Start()
     {
         if (GetComponent<Orchard>() != null)
@@ -99,15 +99,15 @@ public class ConstructibleObj : MonoBehaviour
         target.transform.position = new Vector3(target.transform.position.x, target.transform.position.y - 10000, target.transform.position.z);
         building.GetComponent<SavePosition>().PositionUpdated();
         target.GetComponent<SavePosition>().PositionUpdated();
-        if (recycler != null)
-        {
-            recycler.gameObject.name += "_Constructed";
-        }
         PlayCinematic(building);
         ResourcesSubstraction();
         if (mainMission.constructionsFinished < mainMission.maxConstructions)
         {
             mainMission.constructionsFinished++;
+        }
+        if (constructedDetector != null)
+        {
+            constructedDetector.CheckConstruction();
         }
     }
     public void PlayCinematic(GameObject target)
@@ -129,7 +129,8 @@ public class ConstructibleObj : MonoBehaviour
         }
         cinematicCamera.GetComponent<OffsetCinematicCamera>().SetTarget(target, offset, lookAtOffset);
     }
-    public void PipesCheck(){
+    public void PipesCheck()
+    {
         if (building.name == "Bomba de Agua")
         {
             gameObject.tag = "Pipes";
