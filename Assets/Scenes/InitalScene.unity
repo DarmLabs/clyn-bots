@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731725, g: 0.13414745, b: 0.12107873, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1449,12 +1449,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trashRecolected: 0
   constructionsFinished: 0
-  maintainancePlayed: 0
   lakesCleaned: 0
   cropsGrew: 0
   maxTrash: 500
-  maxConstructions: 8
-  maxMaintainance: 5
+  maxConstructions: 7
   maxLakes: 2
   maxCrops: 2
 --- !u!4 &783827772
@@ -3625,6 +3623,7 @@ MonoBehaviour:
   cardDistribution: 0
   memoriaAccesible: 0
   pipesActiva: 0
+  pipesActivaName: 
   currentMissionStage: 0
   firstTime: 0
   tutorialCentral: 0
