@@ -392,7 +392,10 @@ public class PlayerInteraction : MonoBehaviour
             {
                 speakWithRecycler();
             }
-            general_UI.InteractionCloud(true);
+            if (!targetRecycler.GetComponent<RecyclerNPC>().isSpeaking)
+            {
+                general_UI.InteractionCloud(true);
+            }
         }
         if (targetObject.tag == "MainMenu")
         {
