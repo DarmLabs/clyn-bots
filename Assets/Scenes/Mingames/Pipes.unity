@@ -1263,26 +1263,30 @@ PrefabInstance:
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 210101234}
+      objectReference: {fileID: 318751440}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 318751440}
+      objectReference: {fileID: 210101234}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 210101229}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToOutside
-      objectReference: {fileID: 0}
-    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: CallThisButtonAudio
       objectReference: {fileID: 0}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: BackToOutside
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ButtonHelper, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MG_UI_Manager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4521984152030064414, guid: 452e02c823e6ba74ba4928249c86520d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -8971,7 +8975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 847, y: 449}
+  m_AnchoredPosition: {x: 865, y: 460}
   m_SizeDelta: {x: 82, y: 82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &836240302649510004
