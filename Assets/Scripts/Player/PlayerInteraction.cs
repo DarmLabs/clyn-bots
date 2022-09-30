@@ -121,7 +121,14 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (gv.pipesActiva)
         {
+            targetPipes = GameObject.Find(gv.pipesActivaName);
             targetPipes.GetComponent<PipesMinigame>().Block();
+            gv.pipesActivaName = "";
+            targetPipes = null;
+        }
+        else
+        {
+            gv.pipesActivaName = "";
         }
 
     }
@@ -216,9 +223,10 @@ public class PlayerInteraction : MonoBehaviour
             if (targetPipes != null)
             {
                 targetPipes.GetComponent<PipesMinigame>().ActivatePanel();
+                gv.pipesActivaName = targetPipes.gameObject.name;
+                MovmentState(false);
                 blockedAspire = true;
             }
-
             if (targetConstruction != null && (targetConstruction.tag != "Untagged" && targetConstruction.tag != "Pipes"))
             {
                 general_UI.ConstructionPanelSwitcher(true);

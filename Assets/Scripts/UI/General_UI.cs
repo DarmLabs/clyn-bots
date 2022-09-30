@@ -10,6 +10,7 @@ public class General_UI : MonoBehaviour
     public PlayerInteraction playerInteraction;
     public SaveLoadSystem saveSystem;
     public GameObject mainPanel;
+    [SerializeField] GameObject controlsPanel;
     [SerializeField] GameObject mainMenuPanel;
     [SerializeField] GameObject startPanel;
     [SerializeField] GameObject pipesMinigame;
@@ -62,6 +63,10 @@ public class General_UI : MonoBehaviour
     {
         mainPanel.SetActive(state);
     }
+    public void ControlsPanelSwithcer(bool state)
+    {
+        controlsPanel.SetActive(state);
+    }
     public void MainMenuSwitcher(bool state)
     {
         mainMenuPanel.SetActive(state);
@@ -82,18 +87,16 @@ public class General_UI : MonoBehaviour
     {
         mainMissionTexts[0].text = mainMission.trashRecolected + "/" + mainMission.maxTrash;
         mainMissionTexts[1].text = mainMission.constructionsFinished + "/" + mainMission.maxConstructions;
-        mainMissionTexts[2].text = mainMission.maintainancePlayed + "/" + mainMission.maxMaintainance;
-        mainMissionTexts[3].text = mainMission.lakesCleaned + "/" + mainMission.maxLakes;
-        mainMissionTexts[4].text = mainMission.cropsGrew + "/" + mainMission.maxCrops;
+        mainMissionTexts[2].text = mainMission.lakesCleaned + "/" + mainMission.maxLakes;
+        mainMissionTexts[3].text = mainMission.cropsGrew + "/" + mainMission.maxCrops;
         RefreshProgressBars();
     }
     void RefreshProgressBars()
     {
         mainMissionProgressBars[0].value = Mathf.Round((mainMission.trashRecolected * 100) / mainMission.maxTrash);
         mainMissionProgressBars[1].value = Mathf.Round((mainMission.constructionsFinished * 100) / mainMission.maxConstructions);
-        mainMissionProgressBars[2].value = Mathf.Round((mainMission.maintainancePlayed * 100) / mainMission.maxMaintainance);
-        mainMissionProgressBars[3].value = Mathf.Round((mainMission.lakesCleaned * 100) / mainMission.maxLakes);
-        mainMissionProgressBars[4].value = Mathf.Round((mainMission.cropsGrew * 100) / mainMission.maxCrops);
+        mainMissionProgressBars[2].value = Mathf.Round((mainMission.lakesCleaned * 100) / mainMission.maxLakes);
+        mainMissionProgressBars[3].value = Mathf.Round((mainMission.cropsGrew * 100) / mainMission.maxCrops);
     }
     public void TutorialPanelSwithcer(bool state)
     {
@@ -165,7 +168,7 @@ public class General_UI : MonoBehaviour
                 orchard.seedType = "Rabanito";
                 break;
         }
-        if(orchard.currentState == "")
+        if (orchard.currentState == "")
         {
             orchardSelector.SetActive(true);
         }
@@ -255,6 +258,10 @@ public class General_UI : MonoBehaviour
     public void PipesMinigameSwitcher(bool state)
     {
         pipesMinigame.SetActive(state);
+        if (!state)
+        {
+            playerInteraction.gv.pipesActivaName = "";
+        }
         FreeLookCameraSwitcher(!state);
     }
     public void CompostPanelSwitcher(bool state)

@@ -15,6 +15,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool memoriaAccesible = false;
     //public bool compostActiva = false;
     public bool pipesActiva = false;
+    public string pipesActivaName;
     public int currentMissionStage;
     public bool firstTime;
     //Tutoriales:
@@ -38,6 +39,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             cantidadReiniciar = this.cantidadReiniciar,
             //compostActiva = this.compostActiva,
             pipesActiva = this.pipesActiva,
+            pipesActivaName = this.pipesActivaName,
             //Tutoriales:
             tutorialCentral = this.tutorialCentral,
             tutorialCompost = this.tutorialCompost,
@@ -102,6 +104,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         cardDistribution = saveData.cardDistribution;
         memoriaAccesible = saveData.memoriaAccesible;
         pipesActiva = saveData.pipesActiva;
+        pipesActivaName = saveData.pipesActivaName;
         // compostActiva = saveData.compostActiva;
         //Divisiones
         divisionNoRec = saveData.divisionNoRec;
@@ -138,6 +141,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public int cantidadReiniciar;
         // public bool compostActiva;
         public bool pipesActiva;
+        public string pipesActivaName;
         public int currentMissionStage;
         public bool firstTime;
         public bool tutorialCentral, tutorialCompost, tutorialMemoria, tutorialPipes;

@@ -4,8 +4,8 @@ using UnityEngine;
 using System;
 public class MainMission : MonoBehaviour, ISaveable
 {
-    public int trashRecolected, constructionsFinished, maintainancePlayed, lakesCleaned, cropsGrew;
-    public int maxTrash = 500, maxConstructions = 7, maxMaintainance = 5, maxLakes = 2, maxCrops = 2;
+    public int trashRecolected, constructionsFinished, lakesCleaned, cropsGrew;
+    public int maxTrash = 500, maxConstructions = 7, maxLakes = 2, maxCrops = 2;
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -16,7 +16,6 @@ public class MainMission : MonoBehaviour, ISaveable
         {
             trashRecolected = this.trashRecolected,
             constructionsFinished = this.constructionsFinished,
-            maintainancePlayed = this.maintainancePlayed,
             lakesCleaned = this.lakesCleaned,
             cropsGrew = this.cropsGrew
         };
@@ -26,13 +25,12 @@ public class MainMission : MonoBehaviour, ISaveable
         var saveData = (SaveData)state;
         trashRecolected = saveData.trashRecolected;
         constructionsFinished = saveData.constructionsFinished;
-        maintainancePlayed = saveData.maintainancePlayed;
         lakesCleaned = saveData.lakesCleaned;
         cropsGrew = saveData.cropsGrew;
     }
     [Serializable]
     private struct SaveData
     {
-        public int trashRecolected, constructionsFinished, maintainancePlayed, lakesCleaned, cropsGrew;
+        public int trashRecolected, constructionsFinished, lakesCleaned, cropsGrew;
     }
 }
