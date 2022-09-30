@@ -47,7 +47,8 @@ public class CompostController : MonoBehaviour
     [SerializeField] private Button Button_Mezclar;
     [SerializeField] Image Imagen_Secar;
     [SerializeField] Image Imagen_Humedecer;
-    [SerializeField] Image Imagen_Mezclar;   
+    [SerializeField] Image Imagen_Mezclar; 
+    [SerializeField] private GameObject FlechaUI;  
 
     private GameObject globalaux;
     private GlobalVariables gv;    
@@ -159,6 +160,7 @@ public class CompostController : MonoBehaviour
         Imagen_Mezclar.color = Button_Mezclar.colors.disabledColor;
         Debug.Log("ABIERTO:  "+abierto);
         Victoria();
+        FlechaUI.SetActive(false);
     }
     //húmedo: -seco +húmedo
     //seco: -humedad +seco
@@ -347,6 +349,8 @@ public class CompostController : MonoBehaviour
             if(temperaturaCorrecta)
             {
                 gano = true;
+                FlechaUI.SetActive(true);  
+
             }            
         }
 
