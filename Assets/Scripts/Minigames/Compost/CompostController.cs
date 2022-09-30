@@ -67,6 +67,8 @@ public class CompostController : MonoBehaviour
         abierto = false;
         humedadCorrecta = false;
         temperaturaCorrecta = false;
+        Button_Abrir.interactable = false;
+        Button_Cerrar.interactable = true;
         globalaux = GameObject.Find("GlobalVariables");
         gv = globalaux.GetComponent<GlobalVariables>();        
         saveaux = GameObject.Find ("SaveLoadSystem");
@@ -128,28 +130,35 @@ public class CompostController : MonoBehaviour
         Compostera_Cerrada.gameObject.SetActive(false);
         Button_Abrir.gameObject.SetActive(false);
         Button_Cerrar.gameObject.SetActive(true);
+        Button_Abrir.interactable = false;
+        Button_Cerrar.interactable = true;
         Button_Secar.interactable = true;
         Button_Humedecer.interactable = true;
         Button_Mezclar.interactable = true;
         Imagen_Secar.color = Color.white;
         Imagen_Humedecer.color = Color.white;
         Imagen_Mezclar.color = Color.white;
+        Debug.Log("ABIERTO:  "+abierto);
     }
 
     public void Cerrar()
     {
+        VictoriaDerrota();
         abierto = false;
         Compostera.gameObject.SetActive(false);
         Compostera.GetChild(randomIndex).gameObject.SetActive(false);
         Compostera_Cerrada.gameObject.SetActive(true);
         Button_Abrir.gameObject.SetActive(true);
         Button_Cerrar.gameObject.SetActive(false);
+        Button_Abrir.interactable = true;
+        Button_Cerrar.interactable = false;
         Button_Secar.interactable = false;
         Button_Humedecer.interactable = false;
         Button_Mezclar.interactable = false;
         Imagen_Secar.color = Button_Secar.colors.disabledColor;
         Imagen_Humedecer.color = Button_Humedecer.colors.disabledColor;
         Imagen_Mezclar.color = Button_Mezclar.colors.disabledColor;
+        Debug.Log("ABIERTO:  "+abierto);
     }
     //húmedo: -seco +húmedo
     //seco: -humedad +seco
@@ -202,7 +211,7 @@ public class CompostController : MonoBehaviour
     {
         if (gano) 
         {
-                if (!abierto)
+                if (abierto==false)
                 {
                     //Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
                     //Compostera.gameObject.SetActive(true);
