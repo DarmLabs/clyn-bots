@@ -105,10 +105,6 @@ public class ConstructibleObj : MonoBehaviour
         {
             mainMission.constructionsFinished++;
         }
-        if (constructedDetector != null)
-        {
-            constructedDetector.CheckConstruction();
-        }
     }
     public void PlayCinematic(GameObject target)
     {
@@ -143,6 +139,10 @@ public class ConstructibleObj : MonoBehaviour
         {
             gameObject.tag = "Untagged";
             GetComponent<SaveTag>().UpdateTag();
+        }
+        if (constructedDetector != null)
+        {
+            constructedDetector.CheckConstruction();
         }
     }
 }

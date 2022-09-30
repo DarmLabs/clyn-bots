@@ -5,17 +5,23 @@ using UnityEngine;
 public class ConstructedDetector : MonoBehaviour
 {
     [SerializeField] GameObject[] targetContructions;
+    int currentConstructions;
+    [SerializeField] int maxConstructions;
+    void Start()
+    {
+        CheckConstruction();
+    }
     public void CheckConstruction()
     {
-        bool allConstructed = true;
+        currentConstructions = 0;
         foreach (var item in targetContructions)
         {
-            if (item.tag != "Untagged" || item.tag != "Pipes")
+            if (item.tag == "Untagged")
             {
-                allConstructed = false;
+                currentConstructions += 1;
             }
         }
-        if (allConstructed)
+        if (currentConstructions == maxConstructions)
         {
             gameObject.name = "RecyclerAllConstructed";
         }

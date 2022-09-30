@@ -441,6 +441,10 @@ public class PlayerInteraction : MonoBehaviour
             general_UI.InteractionCloud(false);
         }
     }
+    public void BlockAspire()
+    {
+        blockedAspire = true;
+    }
     public void UnlockAspire()
     {
         StartCoroutine(UnlockAspireCorutine(0.5f));
