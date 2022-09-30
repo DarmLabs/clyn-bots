@@ -350,7 +350,9 @@ public class CompostController : MonoBehaviour
             {
                 gano = true;
                 FlechaUI.SetActive(true);  
-
+                Compostera.GetChild(2).gameObject.SetActive(true);
+                Compostera.GetChild(0).gameObject.SetActive(false);
+                Compostera.GetChild(1).gameObject.SetActive(false);
             }            
         }
 
