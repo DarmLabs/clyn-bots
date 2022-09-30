@@ -106,8 +106,7 @@ public class Generador : MonoBehaviour
         cantidadCartones = 3;
         cantidadMetales = 3;
         cantidadResiduos = cantidadNoRecuperables+cantidadOrganicos+cantidadVidrios+cantidadPlasticos+cantidadCartones+cantidadMetales;              
-        Residuos = new GameObject[cantidadResiduos];
-        Debug.Log("TOTAL ARRAY RESIDUOS START"+cantidadResiduos);   
+        Residuos = new GameObject[cantidadResiduos];       
         CreateResiduos();           
     }
 

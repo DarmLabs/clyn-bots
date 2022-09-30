@@ -94,7 +94,7 @@ public class Tachos : MonoBehaviour
         if(cantidadAyudas<=0)
         {
             BotonAyudas.interactable = false;
-            CantidadAyudas_Text
+            //CantidadAyudas_Text;
             Destroy(flechita);
         }        
         
