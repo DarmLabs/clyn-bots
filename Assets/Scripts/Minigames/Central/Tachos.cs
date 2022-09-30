@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class Tachos : MonoBehaviour
@@ -33,7 +34,7 @@ public class Tachos : MonoBehaviour
     [SerializeField] private GameObject PanelDerrota;
     [SerializeField] private Button BotonAyudas;
     [SerializeField] private GameObject flechita;
-    public Text CantidadAyudas_Text;
+    public TMP_Text CantidadAyudas_Text;
     AudioManager audioManager;     
 
     void Start()
