@@ -117,7 +117,7 @@ public class CompostController : MonoBehaviour
 
     void Update()
     {
-        VictoriaDerrota();
+        Derrota();
         CambiarCompostActiva();
         ActualizarColores();       
     }
@@ -142,9 +142,8 @@ public class CompostController : MonoBehaviour
     }
 
     public void Cerrar()
-    {
-        VictoriaDerrota();
-        abierto = false;
+    {        
+        abierto = false;       
         Compostera.gameObject.SetActive(false);
         Compostera.GetChild(randomIndex).gameObject.SetActive(false);
         Compostera_Cerrada.gameObject.SetActive(true);
@@ -159,6 +158,7 @@ public class CompostController : MonoBehaviour
         Imagen_Humedecer.color = Button_Humedecer.colors.disabledColor;
         Imagen_Mezclar.color = Button_Mezclar.colors.disabledColor;
         Debug.Log("ABIERTO:  "+abierto);
+        Victoria();
     }
     //húmedo: -seco +húmedo
     //seco: -humedad +seco
@@ -207,38 +207,9 @@ public class CompostController : MonoBehaviour
         ProgresoTemperatura.localScale = escalaProgreso_Temperatura;        
     }
 
-    void VictoriaDerrota()
+    void Derrota()
     {
-        if (gano) 
-        {
-                if (abierto==false)
-                {
-                    //Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
-                    //Compostera.gameObject.SetActive(true);
-                    //audioManager.PlayAudio("Win");
-                    auxiliarOrganicosDivididos = (Mathf.RoundToInt(gv.divisionOrganic/10));
-                    gv.compostRefinado += auxiliarOrganicosDivididos;
-                    gv.divisionOrganic = gv.divisionOrganic-(auxiliarOrganicosDivididos*10);
-                    saveSystem.Save();
-                    Compostera.gameObject.SetActive(false);
-                    Compostera_Cerrada.gameObject.SetActive(false);
-                    UI_Desactivar.SetActive(false);
-                    BotonHumedecer.gameObject.SetActive(false);
-                    BotonSecar.gameObject.SetActive(false);
-                    BotonRemover.gameObject.SetActive(false);
-                    PanelVictoria.SetActive(true);
-                    Button_Abrir.gameObject.SetActive(false);
-                    Button_Cerrar.gameObject.SetActive(false);
-                    Button_Reintentar.gameObject.SetActive(false);
-                    //gano = true;
-                    Compostera.GetChild(0).gameObject.SetActive(false);
-                    Compostera.GetChild(1).gameObject.SetActive(false);
-                    Compostera.GetChild(2).gameObject.SetActive(true);
-                }
-                
-        } 
-
-        if (escalaProgreso_Seco.x >= EscalaMax)
+         if (escalaProgreso_Seco.x >= EscalaMax)
         {
             //Debug.Log("PERDISTE NIÑITO :(");
             //audioManager.PlayAudio("Lost");
@@ -301,7 +272,41 @@ public class CompostController : MonoBehaviour
             Button_Abrir.gameObject.SetActive(false);
             Button_Cerrar.gameObject.SetActive(false);
             Button_Reintentar.gameObject.SetActive(false);
-        }       
+        }    
+    }
+
+    void Victoria()
+    {
+        if (gano) 
+        {
+                if (abierto==false)
+                {
+                    //Debug.Log("GANASTE NIÑITO, ERES UN CAMPEÓN");
+                    //Compostera.gameObject.SetActive(true);
+                    //audioManager.PlayAudio("Win");
+                    auxiliarOrganicosDivididos = (Mathf.RoundToInt(gv.divisionOrganic/10));
+                    gv.compostRefinado += auxiliarOrganicosDivididos;
+                    gv.divisionOrganic = gv.divisionOrganic-(auxiliarOrganicosDivididos*10);
+                    saveSystem.Save();
+                    Compostera.gameObject.SetActive(false);
+                    Compostera_Cerrada.gameObject.SetActive(false);
+                    UI_Desactivar.SetActive(false);
+                    BotonHumedecer.gameObject.SetActive(false);
+                    BotonSecar.gameObject.SetActive(false);
+                    BotonRemover.gameObject.SetActive(false);
+                    PanelVictoria.SetActive(true);
+                    Button_Abrir.gameObject.SetActive(false);
+                    Button_Cerrar.gameObject.SetActive(false);
+                    Button_Reintentar.gameObject.SetActive(false);
+                    //gano = true;
+                    Compostera.GetChild(0).gameObject.SetActive(false);
+                    Compostera.GetChild(1).gameObject.SetActive(false);
+                    Compostera.GetChild(2).gameObject.SetActive(true);
+                }
+                
+        } 
+
+          
              
     } 
 
