@@ -67,17 +67,7 @@ public class PipeController : MonoBehaviour
         Origenes();
         FlechasFeedback();
         //Debug.Log("Update RotatePipe.IndiceFlecha: "+RotatePipe.IndiceFlecha);          
-        if (contadorCorrectas >= 24)
-        {
-            gano = true;
-            audioManager.PlayAudio("Win");
-            gv.pipesActiva = true;
-            rend.material.color = colorCorrecto;
-            mainMission.lakesCleaned++;
-            PanelVictoria.SetActive(true);
-            saveSystem.Save();
-            //Debug.Log("GANASTE NIÑO BOBO");     
-        }
+        
         
     }
 
@@ -229,6 +219,18 @@ public class PipeController : MonoBehaviour
         {
             banderaTubo[24]=true;
             //Debug.Log("banderaTubo"+24+": "+banderaTubo[24]); 
+            if (contadorCorrectas >= 24)
+            {
+                gano = true;
+                audioManager.StopMusic();
+                audioManager.PlayAudio("Win");
+                gv.pipesActiva = true;
+                rend.material.color = colorCorrecto;
+                mainMission.lakesCleaned++;
+                PanelVictoria.SetActive(true);
+                saveSystem.Save();
+                //Debug.Log("GANASTE NIÑO BOBO");     
+            }
         }
 
         
