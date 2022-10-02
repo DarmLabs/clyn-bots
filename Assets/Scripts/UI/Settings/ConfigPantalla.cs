@@ -6,20 +6,21 @@ using TMPro;
 
 public class ConfigPantalla : MonoBehaviour
 {
-    //public Toggle toggle;
+    public Toggle toggle;
     public TMP_Dropdown resolucionesDropDown;
+    public double aspectRatio;
     Resolution[] resoluciones;
 
     void Start()
     {
-        /*if (Screen.fullScreen)
+        if (Screen.fullScreen)
         {
             toggle.isOn=true;            
         }
         else
         {
             toggle.isOn=false;
-        }*/
+        }
         DontDestroyOnLoad(gameObject); 
         RevisarResolucion();
 
@@ -39,12 +40,17 @@ public class ConfigPantalla : MonoBehaviour
         int resolucionActual = 0;
         for (int i = 0; i < resoluciones.Length; i++)
         {
-            string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
-            opciones.Add(opcion);
-            if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+            aspectRatio = (double)resoluciones[i].width/(double)resoluciones[i].height;            
+            Debug.Log("aspectRatio:  "+aspectRatio);           
+            if((aspectRatio)>= 1.77f && (aspectRatio)<= 1.8f)
             {
-                resolucionActual=i;
-            }                      
+                string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
+                opciones.Add(opcion);
+                if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+                {
+                    resolucionActual=i;
+                }    
+            }                              
         }
         resolucionesDropDown.AddOptions(opciones);
         resolucionesDropDown.value = resolucionActual;
@@ -57,5 +63,10 @@ public class ConfigPantalla : MonoBehaviour
         Resolution resolucion = resoluciones[indiceResolucion];
         Screen.SetResolution(resolucion.width, resolucion.height,Screen.fullScreen);
         //guardado
+    }
+
+    public void PantallaCompletaON(bool pantallaCompleta)
+    {
+        Screen.fullScreen = pantallaCompleta;
     }
 }
