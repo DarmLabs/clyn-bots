@@ -22,6 +22,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject refinerPanel;
     [SerializeField] GameObject compostPanel;
     [SerializeField] GameObject loadingScreen;
+    [SerializeField] GameObject pauseButton;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
     public TextMeshProUGUI debugText;
     int selection = 1;
@@ -202,6 +203,7 @@ public class General_UI : MonoBehaviour
             reqCompost.text = req[4];
             RenderConstruction(reqSprite, constructonRender);
         }
+        PauseButtonSwitcher(false);
     }
     public void RenderConstruction(string reqSprite, GameObject render)
     {
@@ -289,6 +291,10 @@ public class General_UI : MonoBehaviour
     public void MinimapSwitcher(bool state)
     {
         minimap.SetActive(state);
+    }
+    public void PauseButtonSwitcher(bool state)
+    {
+        pauseButton.SetActive(state);
     }
     public void FullMapSwitcher(bool state)
     {

@@ -131,6 +131,7 @@ public class RecyclerNPC : MonoBehaviour
                     missionTrack.gv.metalRefinado += 2;
                     missionTrack.gv.plasticoRefinado += 2;
                     missionTrack.gv.cartonRefinado += 2;
+                    gameObject.name = "RecyclerIdle_09_01";
                 }
                 if (missionTrack.gv.currentMissionStage == 9 || missionTrack.gv.currentMissionStage == 0)
                 {

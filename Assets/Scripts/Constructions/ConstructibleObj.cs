@@ -72,14 +72,14 @@ public class ConstructibleObj : MonoBehaviour
         }
         if (orchard == null)
         {
-            title = "Construyendo " + building.name;
+            title = building.name;
             general_UI.ConstructionButtonState(reqMeet);
             general_UI.BuildingConstructionMenu(title, req, building.name, false);
         }
         else
         {
             orchard.ButtonsStates(reqMeet);
-            title = "Plantando" + orchard.seedType;
+            title = orchard.seedType;
             general_UI.BuildingConstructionMenu(title, req, orchard.seedType, true);
         }
 

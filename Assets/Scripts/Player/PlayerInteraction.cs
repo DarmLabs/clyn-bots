@@ -240,6 +240,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 targetOrchard.GetComponent<Orchard>().ActivatePanel();
                 targetOrchard.GetComponent<ConstructibleObj>().ShowResources();
+                MovmentState(false);
                 blockedAspire = true;
             }
             else if (targetOrchard != null && targetOrchard.tag == "Untagged")
