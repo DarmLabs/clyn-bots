@@ -6,14 +6,33 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine.SceneManagement;
 public class SaveLoadSystem : MonoBehaviour
 {
-    public string SavePath => $"{Application.persistentDataPath}/save.txt";
+    public int saveSlot;
+    public string SavePath;
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLoadScene;
     }
     void OnLoadScene(Scene scene, LoadSceneMode mode)
     {
+        LoadWithPath();
+    }
+    public void SaveName()
+    {
+        SavePath = $"{Application.persistentDataPath}/slotsNames.txt";
+        Save();
+    }
+    public void LoadNames()
+    {
+        SavePath = $"{Application.persistentDataPath}/slotsNames.txt";
         Load();
+    }
+    public void LoadWithPath()
+    {
+        if (saveSlot != 0)
+        {
+            SavePath = $"{Application.persistentDataPath}/save" + saveSlot + ".txt";
+            Load();
+        }
     }
     void Awake()
     {
@@ -33,7 +52,10 @@ public class SaveLoadSystem : MonoBehaviour
     }
     void OnApplicationQuit()
     {
-        Save();
+        if (SavePath != "" && SavePath != $"{Application.persistentDataPath}/slotsNames.txt")
+        {
+            Save();
+        }
     }
     public void SaveFile(object state)
     {
@@ -47,7 +69,6 @@ public class SaveLoadSystem : MonoBehaviour
     {
         if (!File.Exists(SavePath))
         {
-            Debug.Log("No save file found");
             return new Dictionary<string, object>();
         }
         using (FileStream stream = File.Open(SavePath, FileMode.Open))
@@ -65,6 +86,7 @@ public class SaveLoadSystem : MonoBehaviour
     }
     void LoadState(Dictionary<string, object> state)
     {
+
         foreach (var saveable in FindObjectsOfType<SavableEntity>())
         {
             if (state.TryGetValue(saveable.Id, out object savedState))
@@ -72,5 +94,9 @@ public class SaveLoadSystem : MonoBehaviour
                 saveable.LoadState(savedState);
             }
         }
+    }
+    public void SetSaveSlot(int slotNumber)
+    {
+        saveSlot = slotNumber;
     }
 }

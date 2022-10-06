@@ -24,6 +24,7 @@ public class GlobalVariables : MonoBehaviour, ISaveable
     public bool musicState, soundState;
     //
     public int cantidadReiniciar = 2;
+    public bool isCameraBlocked;
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -76,7 +77,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
             firstTime = this.firstTime,
             //Audio
             musicState = this.musicState,
-            soundState = this.soundState
+            soundState = this.soundState,
+            isCameraBlocked = this.isCameraBlocked
         };
     }
     //LoadState carga los datos desde el guardado y los asigna a los accesibles, segui el formato de las variables ya puestas
@@ -126,6 +128,8 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         //Audio
         musicState = saveData.musicState;
         soundState = saveData.soundState;
+
+        isCameraBlocked = saveData.isCameraBlocked;
     }
     [Serializable]
     private struct SaveData
@@ -146,5 +150,6 @@ public class GlobalVariables : MonoBehaviour, ISaveable
         public bool firstTime;
         public bool tutorialCentral, tutorialCompost, tutorialMemoria, tutorialPipes;
         public bool musicState, soundState;
+        public bool isCameraBlocked;
     }
 }

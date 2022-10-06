@@ -288,7 +288,7 @@ public class PlayerInteraction : MonoBehaviour
         if (takeBools != null)
         {
             takeBools.TakeDestoyed();
-            FileHandler.SaveToJSON<bool>(takeBools.destoyedList, "saveTrash.txt");
+            FileHandler.SaveToJSON<bool>(takeBools.destoyedList, "/saveTrash" + saveSystem.saveSlot + ".txt");
         }
         StartCoroutine(LoadAsyncScene(inDoor));
     }

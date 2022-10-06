@@ -23,6 +23,7 @@ public class General_UI : MonoBehaviour
     [SerializeField] GameObject compostPanel;
     [SerializeField] GameObject loadingScreen;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject pausePanel;
     [SerializeField] TextMeshProUGUI orchardTitle, reqCompostOrchard;
     public TextMeshProUGUI debugText;
     int selection = 1;
@@ -312,7 +313,7 @@ public class General_UI : MonoBehaviour
         if (playerInteraction.takeBools != null)
         {
             playerInteraction.takeBools.TakeDestoyed();
-            FileHandler.SaveToJSON<bool>(playerInteraction.takeBools.destoyedList, "saveTrash.txt");
+            FileHandler.SaveToJSON<bool>(playerInteraction.takeBools.destoyedList, "/saveTrash" + playerInteraction.saveSystem.saveSlot + ".txt");
         }
         StartCoroutine(LoadAsyncScene(scene));
     }

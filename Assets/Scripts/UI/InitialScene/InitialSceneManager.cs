@@ -11,8 +11,13 @@ public class InitialSceneManager : MonoBehaviour
     [SerializeField] GameObject confirmationBox;
     [SerializeField] GameObject globalVariables;
     [SerializeField] GameObject missionController;
+    [SerializeField] SaveLoadSystem saveLoadSystem;
+    [SerializeField] GameObject saveSlots;
+    [SerializeField] GameObject panelField;
     [SerializeField] AudioManager audioManager;
     [HideInInspector] public float fadeTime;
+    [SerializeField] Button confirmButton;
+    [SerializeField] Button cancelButton;
     void Update()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.Mouse0))
@@ -24,20 +29,30 @@ public class InitialSceneManager : MonoBehaviour
     {
         if (nextLogo == null)
         {
-            if (File.Exists(Application.persistentDataPath + "/save.txt"))
-            {
-                loadStartGamePanel.SetActive(true);
-            }
-            else
-            {
-                StartSaveGameObjects();
-                SceneManager.LoadScene("Inside");
-            }
+            saveSlots.SetActive(true);
+            saveLoadSystem.LoadNames();
         }
         else
         {
             nextLogo.SetActive(true);
         }
+    }
+    public void LoadNewContinuePanel(bool state)
+    {
+        saveSlots.SetActive(!state);
+        loadStartGamePanel.SetActive(state);
+    }
+    public void InputPanelField(bool state)
+    {
+        saveSlots.SetActive(!state);
+        panelField.SetActive(state);
+        cancelButton.onClick.RemoveAllListeners();
+        cancelButton.onClick.AddListener(delegate { InputPanelField(false); });
+    }
+    public void StartScene()
+    {
+        StartSaveGameObjects();
+        SceneManager.LoadScene("Inside");
     }
     public void FadeIn(GameObject logo)
     {
@@ -63,13 +78,23 @@ public class InitialSceneManager : MonoBehaviour
     }
     public void NewGame()
     {
-        File.Delete(Application.persistentDataPath + "/save.txt");
-        File.Delete(Application.persistentDataPath + "/saveTrash.txt");
-        StartSaveGameObjects();
-        SceneManager.LoadScene("Inside");
+        confirmationBox.SetActive(false);
+        panelField.SetActive(true);
+        confirmButton.onClick.RemoveAllListeners();
+        cancelButton.onClick.RemoveAllListeners();
+        confirmButton.onClick.AddListener(NewGameInitScene);
+        cancelButton.onClick.AddListener(delegate { panelField.SetActive(false); });
+        cancelButton.onClick.AddListener(delegate { loadStartGamePanel.SetActive(true); });
     }
     public void ContinueGame()
     {
+        StartSaveGameObjects();
+        SceneManager.LoadScene("Inside");
+    }
+    void NewGameInitScene()
+    {
+        File.Delete(Application.persistentDataPath + "/save" + saveLoadSystem.saveSlot + ".txt");
+        File.Delete(Application.persistentDataPath + "/saveTrash" + saveLoadSystem.saveSlot + ".txt");
         StartSaveGameObjects();
         SceneManager.LoadScene("Inside");
     }
@@ -84,15 +109,9 @@ public class InitialSceneManager : MonoBehaviour
         if (logos.activeSelf)
         {
             logos.SetActive(false);
-            if (File.Exists(Application.persistentDataPath + "/save.txt"))
-            {
-                loadStartGamePanel.SetActive(true);
-            }
-            else
-            {
-                StartSaveGameObjects();
-                SceneManager.LoadScene("Inside");
-            }
+            saveSlots.SetActive(true);
+            saveSlots.transform.parent.gameObject.SetActive(true);
+            saveLoadSystem.LoadNames();
         }
     }
 }

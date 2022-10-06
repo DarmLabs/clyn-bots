@@ -6,12 +6,14 @@ using System;
 [Serializable]
 public class TakeBools : MonoBehaviour
 {
+    SaveLoadSystem saveLoadSystem;
     public List<bool> destoyedList = new List<bool>();
     [SerializeField] AspireInteraction[] trashScripts;
     int index = 0;
     void Start()
     {
-        destoyedList = FileHandler.ReadListFromJSON<bool>("saveTrash.txt");
+        saveLoadSystem = GameObject.FindObjectOfType<SaveLoadSystem>();
+        destoyedList = FileHandler.ReadListFromJSON<bool>("/saveTrash" + saveLoadSystem.saveSlot + ".txt");
         if (destoyedList.Count != 0)
         {
             SetDestroyed();
